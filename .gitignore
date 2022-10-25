@@ -1,0 +1,7 @@
+# vim stuff
+*.swp
+*.un~
+*.swo
+
+# git stats
+stats/*

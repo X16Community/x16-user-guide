@@ -1,0 +1,97 @@
+NAME					= x16_manual
+LATEX_COMPILER			= pdflatex
+LATEX_COMPILER_FLAGS	= -halt-on-error -file-line-error -shell-escape
+
+MAIN					= main
+
+TARGETS					= $(MAIN).tex
+
+PDF_ARTIFACTS			= $(MAIN).aux \
+						  $(MAIN).bcf \
+						  $(MAIN).idx \
+						  $(MAIN).lof \
+						  $(MAIN).log \
+						  $(MAIN).lot \
+						  $(MAIN).pdf \
+						  $(MAIN).ptc \
+						  $(MAIN).run.xml \
+						  $(MAIN).toc
+
+INDEX_ARTIFACTS			= $(MAIN).ilg \
+						  $(MAIN).ind
+
+BIBLIOGRAPHY_ARTIFACTS	= $(MAIN).bbl \
+						  $(MAIN).blg
+
+FINAL_ARTIFACTS			= $(NAME).bcf \
+						  $(NAME).idx \
+						  $(NAME).lof \
+						  $(NAME).lot \
+						  $(NAME).ptc \
+						  $(NAME).run.xml \
+						  $(NAME).toc
+
+FINAL_SOURCES			=  $(PDF_ARTIFACTS) $(INDEX_ARTIFACTS) $(BIBLIOGRAPHY_ARTIFACTS)
+
+all: $(NAME).pdf
+
+################################################################################
+# First pass PDF
+################################################################################
+
+$(PDF_ARTIFACTS): $(TARGETS)
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $(TARGETS)
+
+pdf: $(PDF_ARTIFACTS)
+
+################################################################################
+# $(PDF_ARTIFACTS)
+################################################################################
+
+$(INDEX_ARTIFACTS): $(PDF_ARTIFACTS)
+	makeindex $(MAIN).idx -s indexstyle.ist
+
+index: $(INDEX_ARTIFACTS)
+
+################################################################################
+# Bibliography
+################################################################################
+
+$(BIBLIOGRAPHY_ARTIFACTS): $(PDF_ARTIFACTS)
+	biber $(MAIN)
+
+bibliography: $(BIBLIOGRAPHY_ARTIFACTS)
+
+################################################################################
+# Final PDF
+################################################################################
+
+$(NAME).pdf: $(FINAL_SOURCES)
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
+
+################################################################################
+# Clean
+################################################################################
+
+clean: clean_pdf_artifacts clean_index_artifacts clean_bibliography_artifacts clean_final_artifacts
+	rm -f *.pdf *.aux *.log
+
+clean_pdf_artifacts:
+	rm -f $(PDF_ARTIFACTS)
+
+clean_index_artifacts:
+	rm -f $(INDEX_ARTIFACTS)
+
+clean_bibliography_artifacts:
+	rm -f $(BIBLIOGRAPHY_ARTIFACTS)
+
+clean_final_artifacts:
+	rm -f $(FINAL_ARTIFACTS)
+
+################################################################################
+# Run
+################################################################################
+
+run: all
+	zathura $(NAME).pdf
