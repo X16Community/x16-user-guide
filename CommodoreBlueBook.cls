@@ -81,9 +81,9 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
-\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{librebaskerville} % Use the Libre Baskerville font for serif
 
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{newcent} % Use the New Century font for sas serif
 
 \usepackage{microtype} % Improve typography
 
@@ -544,7 +544,7 @@
 
 	\begin{tikzpicture}[remember picture, overlay]
 		\node [inner sep=0pt] at (current page.center) {#1}; % Background image
-		\node [anchor=north, inner sep=1.25cm, text opacity=1, minimum height=0.0\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.north) {#2}; % Top
+		\node [anchor=north, inner sep=1.25cm, text opacity=1, minimum height=0.2\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.north) {#2}; % Top
 		\node [anchor=south, inner sep=1.25cm, text opacity=1, minimum height=0.3\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.south) {#3}; % Bottom
 	\end{tikzpicture}
 	
