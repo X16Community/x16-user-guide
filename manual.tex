@@ -1,12 +1,531 @@
-\documentclass[openright, twoside, 10pt]{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 3.1 (February 18, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@latextemplates.com)
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{geometry}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
-\geometry{%
-  textwidth  = 156mm ,
-  textheight = 234mm ,
-  a4paper            ,
-  includehead        ,
-  hcentering         ,
-  vcentering
+\documentclass[
+	11pt, % Default font size, select one of 10pt, 11pt or 12pt
+	fleqn, % Left align equations
+	letterpaper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{CommodoreBlueBook}
+
+% Book information for PDF metadata, remove/comment this block if not required 
+\hypersetup{
+	pdftitle={Title}, % Title field
+	pdfauthor={Author}, % Author field
+	pdfsubject={Subject}, % Subject field
+	pdfkeywords={Keyword1, Keyword2, ...}, % Keywords
+	pdfcreator={LaTeX}, % Content creator field
 }
+
+\addbibresource{sample.bib} % Bibliography file
+
+\definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for highlighting throughout the book
+
+\chapterimage{orange1.jpg} % Chapter heading image
+\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\titlepage % Output the title page
+	{\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+	{ % Title(s) and author(s)
+		\centering\sffamily % Font styling
+		{\Huge\bfseries Exploring the Physical Manifestation of Humanity's Subconscious Desires\par} % Book title
+		\vspace{16pt} % Vertical whitespace
+		{\LARGE A Practical Guide\par} % Subtitle
+		\vspace{24pt} % Vertical whitespace
+		{\huge\bfseries Goro Akechi\par} % Author name
+	}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+\noindent Copyright \copyright\ 2022 Goro Akechi\\ % Copyright notice
+
+\noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{\href{https://www.latextemplates.com/template/legrand-orange-book}{book-website.com}}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 4.0
+License (the ``License''). You may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+\url{https://creativecommons.org/licenses/by-nc-sa/4.0}. Unless required by
+applicable law or agreed to in writing, software distributed under the License
+is distributed on an \textsc{``as is'' basis, without warranties or conditions
+of any kind}, either express or implied. See the License for the specific
+language governing permissions and limitations under the License.\\ % License
+information, replace this with your own license (if any)
+
+\noindent \textit{First printing, March 2022} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\tableofcontents % Output the table of contents
+
+\listoffigures % Output the list of figures, comment or remove this command if not required
+
+\listoftables % Output the list of tables, comment or remove this command if not required
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One Title}
+
+%----------------------------------------------------------------------------------------
+%	SECTIONING EXAMPLES CHAPTER
+%----------------------------------------------------------------------------------------
+
+\chapterimage{orange2.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+\chapter{Sectioning Examples}\index{Sectioning}
+
+\section{Section Title}\index{Sectioning!Sections}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit\footnote{Footnote example text\ldots Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie.}. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+
+Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+
+\subsection{Subsection Title}\index{Sectioning!Subsections}
+
+Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu. Praesent aliquet nulla ut bibendum lacinia. Donec vel mauris vulputate, commodo ligula ut, egestas orci. Suspendisse commodo odio sed hendrerit lobortis. Donec finibus eros erat, vel ornare enim mattis et. Donec finibus dolor quis dolor tempus consequat. Mauris fringilla dui id libero egestas, ut mattis neque ornare. Ut condimentum urna pharetra ipsum consequat, eu interdum elit cursus. Vivamus scelerisque tortor et nunc ultricies, id tincidunt libero pharetra. Aliquam eu imperdiet leo. Morbi a massa volutpat velit condimentum convallis et facilisis dolor.
+
+In hac habitasse platea dictumst. Curabitur mattis elit sit amet justo luctus vestibulum. In hac habitasse platea dictumst. Pellentesque lobortis justo enim, a condimentum massa tempor eu. Ut quis nulla a quam pretium eleifend nec eu nisl. Nam cursus porttitor eros, sed luctus ligula convallis quis. Nam convallis, ligula in auctor euismod, ligula mauris fringilla tellus, et egestas mauris odio eget diam. Praesent sodales in ipsum eu dictum. Mauris interdum porttitor fringilla. Proin tincidunt sodales leo at ornare. Donec tempus magna non mauris gravida luctus. Cras vitae arcu vitae mauris eleifend scelerisque. Nam sem sapien, vulputate nec felis eu, blandit convallis risus. Pellentesque sollicitudin venenatis tincidunt. In et ipsum libero.
+
+\subsubsection{Subsubsection Title} \index{Sectioning!Subsubsections}
+
+Maecenas consectetur metus at tellus finibus condimentum. Proin arcu lectus, ultrices non tincidunt et, tincidunt ut quam. Integer luctus posuere est, non maximus ante dignissim quis. Nunc a cursus erat. Curabitur suscipit nibh in tincidunt sagittis. Nam malesuada vestibulum quam id gravida. Proin ut dapibus velit. Vestibulum eget quam quis ipsum semper convallis. Duis consectetur nibh ac diam dignissim, id condimentum enim dictum. Nam aliquet ligula eu magna pellentesque, nec sagittis leo lobortis. Aenean tincidunt dignissim egestas. Morbi efficitur risus ante, id tincidunt odio pulvinar vitae.
+
+\paragraph{Paragraph Title}\index{Sectioning!Paragraphs} Nullam mollis tellus lorem, sed congue ipsum euismod a. Donec pulvinar neque sed ligula ornare sodales. Nulla sagittis vel lectus nec laoreet. Nulla volutpat malesuada turpis at ultricies. Ut luctus velit odio, sagittis volutpat erat aliquet vel. Donec ac neque eget neque volutpat mollis. Vestibulum viverra ligula et sapien bibendum, vel vulputate ex euismod. Curabitur nec velit velit. Aliquam vulputate lorem elit, id tempus nisl finibus sit amet. Curabitur ex turpis, consequat at lectus id, imperdiet molestie augue. Curabitur eu eros molestie purus commodo hendrerit. Quisque auctor ipsum nec mauris malesuada, non fringilla nibh viverra. Quisque gravida, metus quis semper pulvinar, dolor nisl suscipit leo, vestibulum volutpat ante justo ultrices diam. Sed id facilisis turpis, et aliquet eros.
+
+In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odio, accumsan ac nisl a, tempor imperdiet eros. Donec porta tortor eu risus consequat, a pharetra tortor tristique. Morbi sit amet laoreet erat. Morbi et luctus diam, quis porta ipsum. Quisque libero dolor, suscipit id facilisis eget, sodales volutpat dolor. Nullam vulputate interdum aliquam. Mauris id convallis erat, ut vehicula neque. Sed auctor nibh et elit fringilla, nec ultricies dui sollicitudin. Vestibulum vestibulum luctus metus venenatis facilisis. Suspendisse iaculis augue at vehicula ornare. Sed vel eros ut velit fermentum porttitor sed sed massa. Fusce venenatis, metus a rutrum sagittis, enim ex maximus velit, id semper nisi velit eu purus.
+
+%------------------------------------------------
+
+\section*{Unnumbered Section}
+
+\subsection*{Unnumbered Subsection}
+
+\subsubsection*{Unnumbered Subsubsection}
+
+%----------------------------------------------------------------------------------------
+%	IN-TEXT ELEMENT EXAMPLES CHAPTER
+%----------------------------------------------------------------------------------------
+
+\chapter{In-text Element Examples}
+
+\section{Referencing Publications}\index{Citation}
+
+This statement requires citation \cite{Smith:2022jd}; this one is more specific \cite[162]{Smith:2021qr}.
+
+%------------------------------------------------
+
+\section{Link Examples}\index{Links}
+
+This is a URL link: \href{https://www.latextemplates.com}{LaTeX Templates}. This is an email link: \href{mailto:example@example.com}{example@example.com}. This is a monospaced URL link: \url{https://www.LaTeXTemplates.com}.
+
+%------------------------------------------------
+
+\section{Lists}\index{Lists}
+
+Lists are useful to present information in a concise and/or ordered way.
+
+\subsection{Numbered List}\index{Lists!Numbered List}
+
+\begin{enumerate}
+	\item First numbered item
+	\begin{enumerate}
+		\item First indented numbered item
+		\item Second indented numbered item
+		\begin{enumerate}
+			\item First second-level indented numbered item
+		\end{enumerate}
+	\end{enumerate}
+	\item Second numbered item
+	\item Third numbered item
+\end{enumerate}
+
+\subsection{Bullet Point List}\index{Lists!Bullet Points}
+
+\begin{itemize}
+	\item First bullet point item
+	\begin{itemize}
+		\item First indented bullet point item
+		\item Second indented bullet point item
+		\begin{itemize}
+			\item First second-level indented bullet point item
+		\end{itemize}
+	\end{itemize}
+	\item Second bullet point item
+	\item Third bullet point item
+\end{itemize}
+
+\subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+
+\begin{description}
+	\item[Name] Description
+	\item[Word] Definition
+	\item[Comment] Elaboration
+\end{description}
+
+%------------------------------------------------
+
+\section{International Support}
+
+àáâäãåèéêëìíîïòóôöõøùúûüÿýñçčšž
+
+\noindent ÀÁÂÄÃÅÈÉÊËÌÍÎÏÒÓÔÖÕØÙÚÛÜŸÝÑ
+
+\noindent ßÇŒÆČŠŽ
+
+%------------------------------------------------
+
+\section{Ligatures}
+
+fi fj fl ffl ffi Ty
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part Two Title}
+
+%----------------------------------------------------------------------------------------
+%	MATHEMATICS EXAMPLES CHAPTER
+%----------------------------------------------------------------------------------------
+
+\chapter{Mathematics}
+
+\section{Theorems}\index{Theorems}
+
+\subsection{Several equations}\index{Theorems!Several Equations}
+
+This is a theorem consisting of several equations.
+
+\begin{theorem}[Name of the theorem] % Specify a name/title in square brackets, or leave them out for no title
+	In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+	\begin{align}
+		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+	\end{align}
+\end{theorem}
+
+\subsection{Single Line}\index{Theorems!Single Line}
+
+This is a theorem consisting of just one line.
+
+\begin{theorem} % Specify a name/title in square brackets, or leave them out for no title
+	A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+\end{theorem}
+
+%------------------------------------------------
+
+\section{Definitions}\index{Definitions}
+
+A definition can be mathematical or it could define a concept.
+
+\begin{definition}[Definition name] % Specify a name/title in square brackets, or leave them out for no title
+	Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+	\begin{align}
+		& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+		& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+		& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+	\end{align}
+\end{definition}
+
+%------------------------------------------------
+
+\section{Notations}\index{Notations}
+
+\begin{notation} % Specify a name/title in square brackets, or leave them out for no title
+	Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+	\begin{enumerate}
+		\item Bounded support $G$;
+		\item Infinitely differentiable;
+	\end{enumerate}
+	a vector space is denoted by $\mathcal{D}(G)$. 
+\end{notation}
+
+%------------------------------------------------
+
+\section{Remarks}\index{Remarks}
+
+This is an example of a remark.
+
+\begin{remark}
+	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{remark}
+
+%------------------------------------------------
+
+\section{Corollaries}\index{Corollaries}
+
+\begin{corollary}[Corollary name] % Specify a name/title in square brackets, or leave them out for no title
+	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{corollary}
+
+%------------------------------------------------
+
+\section{Propositions}\index{Propositions}
+
+\subsection{Several equations}\index{Propositions!Several Equations}
+
+\begin{proposition}[Proposition name] % Specify a name/title in square brackets, or leave them out for no title
+	It has the properties:
+	\begin{align}
+		& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+		&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+	\end{align}
+\end{proposition}
+
+\subsection{Single Line}\index{Propositions!Single Line}
+
+\begin{proposition} % Specify a name/title in square brackets, or leave them out for no title
+	Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+\end{proposition}
+
+%------------------------------------------------
+
+\section{Examples}\index{Examples}
+
+\subsection{Equation Example}\index{Examples!Equation}
+
+\begin{example} % Specify a name/title in square brackets, or leave them out for no title
+	Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+	\begin{equation}
+	f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+	& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+	\end{equation}
+	The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\mathopen{]}0\,;5/2-\sqrt{2}\mathclose{[}$.
+\end{example}
+
+\subsection{Text Example}\index{Examples!Text}
+
+\begin{example}[Example name] % Specify a name/title in square brackets, or leave them out for no title
+	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+\end{example}
+
+%------------------------------------------------
+
+\section{Exercises}\index{Exercises}
+
+\begin{exercise} % Specify a name/title in square brackets, or leave them out for no title
+	This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+\end{exercise}
+
+%------------------------------------------------
+
+\section{Problems}\index{Problems}
+
+\begin{problem} % Specify a name/title in square brackets, or leave them out for no title
+	What is the average airspeed velocity of an unladen swallow?
+\end{problem}
+
+%------------------------------------------------
+
+\section{Vocabulary}\index{Vocabulary}
+
+Define a word to improve a students' vocabulary.
+
+\begin{vocabulary}[Word] % Specify a name/title in square brackets, or leave them out for no title
+	Definition of word.
+\end{vocabulary}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTING INFORMATION/RESULTS EXAMPLES CHAPTER
+%----------------------------------------------------------------------------------------
+
+\chapterimage{orange3.jpg} % Chapter heading image
+\chapterspaceabove{6.25cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.5cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+\chapter{Presenting Information and Results with a Long Chapter Title}
+
+\section{Table}\index{Table}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+
+\begin{table}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+	\centering % Horizontally center the table on the page
+	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
+		\toprule
+		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+		\midrule
+		Treatment 1 & 0.0003262 & 0.562 \\
+		Treatment 2 & 0.0015681 & 0.910 \\
+		Treatment 3 & 0.0009271 & 0.296 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Table caption.}
+	\label{tab:example} % Unique label used for referencing the table in-text
+\end{table}
+
+Referencing \autoref{tab:example} in-text using its label.
+
+\begin{table}[t] % Floating table, [t] tells LaTeX to place it at the top of the next available page
+	\centering % Horizontally center the table on the page
+	\begin{tabular}{L{0.15\textwidth} R{0.15\textwidth} R{0.15\textwidth}} % Specify column alignment with L{width}, C{width} and R{width} for fixed-width columns, or the default latex l, c and r for flexible-width columns
+		\toprule
+		\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+		\midrule
+		Treatment 1 & 0.0003262 & 0.562 \\
+		Treatment 2 & 0.0015681 & 0.910 \\
+		Treatment 3 & 0.0009271 & 0.296 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Floating table.}
+	\label{tab:floating} % Unique label used for referencing the table in-text
+\end{table}
+
+%------------------------------------------------
+
+\section{Figure}\index{Figure}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+
+\begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=0.5\textwidth]{creodocs_logo.pdf} % Include the figure image
+	\caption{Figure caption.}
+	\label{fig:placeholder} % Unique label used for referencing the figure in-text
+\end{figure}
+
+Referencing \autoref{fig:placeholder} in-text using its label.
+
+\begin{figure}[b] % Floating figure, [b] tells LaTeX to place it at the bottom of the next available page
+	\centering % Horizontally center the figure on the page
+	\includegraphics[width=\textwidth]{creodocs_logo.pdf} % Include the figure image
+	\caption{Floating figure.}
+	\label{fig:floating} % Unique label used for referencing the figure in-text
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+
+\stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapterimage{} % Chapter heading image
+\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{2cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+%------------------------------------------------
+
+\chapter*{Bibliography}
+\markboth{\sffamily\normalsize\bfseries Bibliography}{\sffamily\normalsize\bfseries Bibliography} % Set the page headers to display a Bibliography chapter name
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}} % Add a Bibliography heading to the table of contents
+
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles} % Add the Articles subheading to the table of contents
+
+\printbibliography[heading=bibempty, type=article] % Output article bibliography entries
+
+\section*{Books}
+\addcontentsline{toc}{section}{Books} % Add the Books subheading to the table of contents
+
+\printbibliography[heading=bibempty, type=book] % Output book bibliography entries
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage % Make sure the index starts on an odd (right side) page
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}} % Add an Index heading to the table of contents
+\printindex % Output the index
+
+%----------------------------------------------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------------------------------------------
+
+\chapterimage{orange2.jpg} % Chapter heading image
+\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+
+\begin{appendices}
+
+\renewcommand{\chaptername}{Appendix} % Change the chapter name to Appendix, i.e. "Appendix A: Title", instead of "Chapter A: Title" in the headers
+
+%------------------------------------------------
+
+\chapter{Appendix Chapter Title}
+
+\section{Appendix Section Title}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+
+%------------------------------------------------
+
+\chapter{Appendix Chapter Title}
+
+\section{Appendix Section Title}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+
+%------------------------------------------------
+
+\end{appendices}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

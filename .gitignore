@@ -3,5 +3,21 @@
 *.un~
 *.swo
 
+# LaTeX intermediaries
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.pdf
+*.ptc
+*.toc
+*.run.xml
+
 # git stats
 stats/*

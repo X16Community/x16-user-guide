@@ -2,7 +2,7 @@ NAME					= x16_manual
 LATEX_COMPILER			= pdflatex
 LATEX_COMPILER_FLAGS	= -halt-on-error -file-line-error -shell-escape
 
-MAIN					= main
+MAIN					= manual
 
 TARGETS					= $(MAIN).tex
 
