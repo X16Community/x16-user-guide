@@ -6,6 +6,8 @@ MAIN					= manual
 
 TARGETS					= $(MAIN).tex
 
+TEMPLATES				= CommodoreBlueBook.cls
+
 PDF_ARTIFACTS			= $(MAIN).aux \
 						  $(MAIN).bcf \
 						  $(MAIN).idx \
@@ -39,7 +41,7 @@ all: $(NAME).pdf
 # First pass PDF
 ################################################################################
 
-$(PDF_ARTIFACTS): $(TARGETS)
+$(PDF_ARTIFACTS): $(TARGETS) $(TEMPLATES)
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $(TARGETS)
 
 pdf: $(PDF_ARTIFACTS)

@@ -1,14 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The Legrand Orange Book
-% LaTeX Template
-% Version 3.1 (February 18, 2022)
-%
-% This template originates from:
-% https://www.LaTeXTemplates.com
+% The Commander X16 User's Manual
 %
 % Authors:
-% Vel (vel@latextemplates.com)
-% Mathias Legrand (legrand.mathias@gmail.com)
+% Jestin Stoffel (jestin.stoffel@gmail.com)
 %
 % License:
 % CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -51,7 +45,8 @@
 
 \addbibresource{sample.bib} % Bibliography file
 
-\definecolor{ocre}{RGB}{243, 102, 25} % Define the color used for highlighting throughout the book
+\definecolor{blue}{rgb}{0.5,0.5,1}
+\definecolor{gray}{rgb}{0.73, 0.73, 0.73}
 
 \chapterimage{orange1.jpg} % Chapter heading image
 \chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
@@ -66,14 +61,14 @@
 %----------------------------------------------------------------------------------------
 
 \titlepage % Output the title page
-	{\includegraphics[width=\paperwidth]{background.pdf}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+	{\includegraphics[width=\paperwidth]{cover.png}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
 	{ % Title(s) and author(s)
 		\centering\sffamily % Font styling
-		{\Huge\bfseries Exploring the Physical Manifestation of Humanity's Subconscious Desires\par} % Book title
-		\vspace{16pt} % Vertical whitespace
-		{\LARGE A Practical Guide\par} % Subtitle
-		\vspace{24pt} % Vertical whitespace
-		{\huge\bfseries Goro Akechi\par} % Author name
+		{\huge\bfseries Retro Computing on the\par} % Top
+	}
+	{
+		\centering\sffamily % Font styling
+		{\huge\bfseries a friendly computer guide\par} % Bottom
 	}
 
 %----------------------------------------------------------------------------------------
@@ -84,7 +79,7 @@
 
 ~\vfill % Push the text down to the bottom of the page
 
-\noindent Copyright \copyright\ 2022 Goro Akechi\\ % Copyright notice
+\noindent Copyright \copyright\ 2022 Jestin Stoffel\\ % Copyright notice
 
 \noindent \textsc{Published by Publisher}\\ % Publisher
 
@@ -473,7 +468,7 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 
 \chapter*{Bibliography}
 \markboth{\sffamily\normalsize\bfseries Bibliography}{\sffamily\normalsize\bfseries Bibliography} % Set the page headers to display a Bibliography chapter name
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}} % Add a Bibliography heading to the table of contents
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Bibliography}} % Add a Bibliography heading to the table of contents
 
 \section*{Articles}
 \addcontentsline{toc}{section}{Articles} % Add the Articles subheading to the table of contents
@@ -491,7 +486,7 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 
 \cleardoublepage % Make sure the index starts on an odd (right side) page
 \phantomsection
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}} % Add an Index heading to the table of contents
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Index}} % Add an Index heading to the table of contents
 \printindex % Output the index
 
 %----------------------------------------------------------------------------------------

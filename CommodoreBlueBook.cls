@@ -1,4 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Commodore Blue Book
+% LaTeX Class
+% Version 3.1 (February 18, 2022)
+%
+% Authors:
+% Jestin Stoffel (jestin.stoffel@gmail.com)
+%
+% Originally forked from:
+%
 % The Legrand Orange Book
 % LaTeX Class
 % Version 3.1 (February 18, 2022)
@@ -20,7 +29,7 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LegrandOrangeBook}[2022/01/26 The Legrand Orange Book Class v3.0]
+\ProvidesClass{CommodoreBlueBook}[2022/01/26 The Commodore Blue Book Class v1.0]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}} % Pass through any options to the base class
 \ProcessOptions\relax % Process given options
@@ -53,13 +62,14 @@
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 
 \geometry{
-	top=3cm, % Top margin
-	bottom=2.5cm, % Bottom margin
-	inner=3cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
-	outer=3cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
+	papersize={5.5in,8.5in},
+	top=1cm, % Top margin
+	bottom=2.0cm, % Bottom margin
+	inner=1.8cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
+	outer=0.8cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
 	headsep=10pt, % Space from the top margin to the baseline of the header
 	headheight=0.5cm, % Header height
-	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
+	footskip=1.0cm, % Space from the bottom margin to the baseline of the footer
 	columnsep=1cm, % Horizontal space between columns when in two column mode
 	%showframe, % Uncomment to show how the type block is set on the page
 }
@@ -120,8 +130,8 @@
 % Command to create and output the parts pages
 \newcommand{\outputpartpage}[2]{
 	\begin{tikzpicture}[remember picture, overlay]
-		\node[anchor=center, rectangle, fill=ocre!20, inner sep=0pt, minimum height=\paperheight, minimum width=\paperwidth] at (current page.center) {}; % Background color
-		\node[anchor=north west, inner sep=0pt, xshift=\Gm@lmargin, yshift=-\Gm@tmargin] at (current page.north west) {\fontsize{220pt}{220pt}\selectfont\sffamily\bfseries\textcolor{ocre!40}{#1}}; % Part number
+		\node[anchor=center, rectangle, fill=blue!20, inner sep=0pt, minimum height=\paperheight, minimum width=\paperwidth] at (current page.center) {}; % Background color
+		\node[anchor=north west, inner sep=0pt, xshift=\Gm@lmargin, yshift=-\Gm@tmargin] at (current page.north west) {\fontsize{220pt}{220pt}\selectfont\sffamily\bfseries\textcolor{blue!40}{#1}}; % Part number
 		\node[anchor=north east, inner sep=0pt, xshift=-\Gm@rmargin, yshift=-\Gm@tmargin] at (current page.north east) {\fontsize{30pt}{30pt}\selectfont\sffamily\bfseries\textcolor{white}{\strut #2}}; % Part title
 		\node[anchor=south east, inner sep=0pt, xshift=-\Gm@rmargin, yshift=\Gm@bmargin] at (current page.south east) { % Mini table of contents
 			\parbox[t][][t]{8.5cm}{ % Width of box holding the mini ToC
@@ -172,7 +182,7 @@
 			yshift=-\thechapterspaceabove, % Vertical distance from the top of the page
 			line width=2pt, % Border line thickness
 			rounded corners=10pt, % Rounded corners amount
-			draw=ocre, % Border line color
+			draw=blue, % Border line color
 			fill=black!5, % Box background color
 			fill opacity=0.6, % Background transparency
 			text opacity=1, % Text transparency
@@ -213,7 +223,7 @@
 	{\section} % Section type being modified
 	[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
 	{\bfseries\sffamily\Large} % Format of the whole section
-	{\llap{\textcolor{ocre}{\thesection}\hspace{1em}}#1} % Format of the section label
+	{\llap{\textcolor{blue}{\thesection}\hspace{1em}}#1} % Format of the section label
 	{0cm} % Space between the title and label
 	{} % Code before the label
 	[] % Code after the label
@@ -235,7 +245,7 @@
 	{\subsection} % Section type being modified
 	[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
 	{\bfseries\sffamily\large} % Format of the whole section
-	{\llap{\textcolor{ocre}{\thesubsection}\hspace{1em}}#1} % Format of the section label
+	{\llap{\textcolor{blue}{\thesubsection}\hspace{1em}}#1} % Format of the section label
 	{0cm} % Space between the title and label
 	{} % Code before the label
 	[] % Code after the label
@@ -303,14 +313,14 @@
 	\setlength\fboxsep{0pt}% Remove box padding
 	\contentslabel[%
 		% Part number box
-		\colorbox{ocre!20}{% Background color
+		\colorbox{blue!20}{% Background color
 			\strut\parbox[c][.7cm]{1.1cm}{% Box size
-				\color{ocre!70}\Large\sffamily\bfseries\centering\thecontentslabel% Part number
+				\color{blue!70}\Large\sffamily\bfseries\centering\thecontentslabel% Part number
 			}%
 		}%
 		\hspace{4pt}%
 		% Part title box
-		\colorbox{ocre!40}{% Background color
+		\colorbox{blue!40}{% Background color
 			\strut\parbox[c][.7cm]{\linewidth-1.25cm}{% Box size
 				\centering\Large\sffamily #1% Part title
 			}%
@@ -323,7 +333,7 @@
 	\setlength\fboxsep{0pt}% Remove box padding
 	\contentslabel[%
 		% Part title box
-		\colorbox{ocre!40}{% Background color
+		\colorbox{blue!40}{% Background color
 			\strut\parbox[c][.7cm]{\linewidth}{% Box size
 				\centering\Large\sffamily #1% Part title
 			}%
@@ -343,10 +353,10 @@
 
 \titlecontents{chapter} % Section type being modified
 	[1.25cm] % Left indentation
-	{\addvspace{12pt}\large\sffamily\bfseries\hypersetup{linkcolor=ocre}} % Before code
-	{\color{ocre}\contentslabel[\Large\thecontentslabel]{1.25cm}} % Formatting of numbered sections of this type
+	{\addvspace{12pt}\large\sffamily\bfseries\hypersetup{linkcolor=blue}} % Before code
+	{\color{blue}\contentslabel[\Large\thecontentslabel]{1.25cm}} % Formatting of numbered sections of this type
 	{} % Formatting of numberless sections of this type
-	{\color{ocre!60}\normalsize\;\titlerule*[6pt]{.}\;\color{ocre}\thecontentspage} % Formatting of the filler to the right of the heading and the page number
+	{\color{blue!60}\normalsize\;\titlerule*[6pt]{.}\;\color{blue}\thecontentspage} % Formatting of the filler to the right of the heading and the page number
 	[] % After code
 
 %------------------------------------------------
@@ -405,10 +415,10 @@
 
 \titlecontents{lchapter} % Chapter headings on part pages
 	[0cm] % Left indentation
-	{\addvspace{12pt}\large\sffamily\bfseries\hypersetup{linkcolor=ocre}} % Before code
-	{\color{ocre}\contentslabel[\Large\thecontentslabel]{1.25cm}} % Formatting of numbered sections of this type
-	{\color{ocre}} % Formatting of numberless sections of this type
-	{~\color{ocre!60}\normalsize\titlerule*[6pt]{.}~\color{ocre}\thecontentspage} % Formatting of the filler to the right of the heading and the page number
+	{\addvspace{12pt}\large\sffamily\bfseries\hypersetup{linkcolor=blue}} % Before code
+	{\color{blue}\contentslabel[\Large\thecontentslabel]{1.25cm}} % Formatting of numbered sections of this type
+	{\color{blue}} % Formatting of numberless sections of this type
+	{~\color{blue!60}\normalsize\titlerule*[6pt]{.}~\color{blue}\thecontentspage} % Formatting of the filler to the right of the heading and the page number
 
 %------------------------------------------------
 
@@ -499,9 +509,9 @@
 \hypersetup{
 	colorlinks=true, % Whether to color links (a thin box is output around links if this is false)
 	%hidelinks, % Hide the default boxes around links
-	urlcolor=ocre, % Color for \url and \href links
+	urlcolor=blue, % Color for \url and \href links
 	linkcolor=black, % Color for \ref/\nameref links
-	citecolor=ocre, % Color for reference citations like \cite{}
+	citecolor=blue, % Color for reference citations like \cite{}
 	hyperindex=true, % Adds links from the page numbers in the index to the relevant page
 	linktoc=all, % Link from section names and page numbers in the table of contents
 }
@@ -517,7 +527,7 @@
 	numbered, % Add section numbers to bookmarks
 	addtohook={%
 		\ifnum\bookmarkget{level}=-1 % Customize part bookmarks
-			\bookmarksetup{color=ocre, bold}% Bold and colored
+			\bookmarksetup{color=blue, bold}% Bold and colored
 		\fi
 		\ifnum\bookmarkget{level}=0 % Customize chapter bookmarks
 			\bookmarksetup{bold}% Bold
@@ -529,12 +539,13 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\renewcommand{\titlepage}[2]{
+\renewcommand{\titlepage}[3]{
 	\thispagestyle{empty} % Suppress headers and footers on the title page
 
 	\begin{tikzpicture}[remember picture, overlay]
 		\node [inner sep=0pt] at (current page.center) {#1}; % Background image
-		\node [anchor=center, inner sep=1.25cm, rectangle, fill=ocre!30!white, fill opacity=0.6, text opacity=1, minimum height=0.2\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.center) {#2}; % Title highlight box with title(s) and author(s)
+		\node [anchor=north, inner sep=1.25cm, text opacity=1, minimum height=0.0\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.north) {#2}; % Top
+		\node [anchor=south, inner sep=1.25cm, text opacity=1, minimum height=0.3\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.south) {#3}; % Bottom
 	\end{tikzpicture}
 	
 	\newpage
@@ -551,7 +562,7 @@
 %------------------------------------------------
 
 % Orange theorem number and optional black title with padding above and below
-\newtheoremstyle{ocrenum} % Theorem style name
+\newtheoremstyle{bluenum} % Theorem style name
 	{6pt} % Space above
 	{6pt} % Space below
 	{\normalfont} % Body font
@@ -559,13 +570,13 @@
 	{} % Theorem head font
 	{} % Punctuation after theorem head
 	{0.25em} % Space after theorem head
-	{\small\sffamily\bfseries\color{ocre}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}} % Theorem text (e.g. Theorem 2.1)
+	{\small\sffamily\bfseries\color{blue}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}} % Theorem text (e.g. Theorem 2.1)
 	\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}} % Optional theorem note
 
 %------------------------------------------------
 
 % Orange theorem number and optional black title with no padding above and below
-\newtheoremstyle{ocrenumbox} % Theorem style name
+\newtheoremstyle{bluenumbox} % Theorem style name
 	{0pt} % Space above
 	{0pt} % Space below
 	{\normalfont} % Body font
@@ -573,7 +584,7 @@
 	{} % Theorem head font
 	{} % Punctuation after theorem head
 	{0.25em} % Space after theorem head
-	{\small\sffamily\bfseries\color{ocre}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}} % Theorem text (e.g. Theorem 2.1)
+	{\small\sffamily\bfseries\color{blue}\thmname{#1}~\thmnumber{\@ifnotempty{#1}{}\@upn{#2}} % Theorem text (e.g. Theorem 2.1)
 	\thmnote{\the\thm@notefont\sffamily\bfseries\color{black}---~#3.\hspace{0.25em}}} % Optional theorem note
 
 %------------------------------------------------
@@ -609,11 +620,11 @@
 % Set the theorem style for each type of theorem-like environment by placing it under the theorem style you would like to use for it
 
 % Orange theorem number and optional black title with padding above and below
-\theoremstyle{ocrenum}
+\theoremstyle{bluenum}
 \newtheorem{proposition}{Proposition}[chapter] % Propositions, the first argument is the theorem name, the second the theorem title used before the number and the third optional argument is whether to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 
 % Orange theorem number and optional black title with no padding above and below
-\theoremstyle{ocrenumbox}
+\theoremstyle{bluenumbox}
 \newtheorem{theoremeT}{Theorem}[chapter] % Theorems, the first argument is the theorem name, the second the theorem title used before the number and the third optional argument is whether to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 \newtheorem{problem}{Problem}[chapter] % Problems, the first argument is the theorem name, the second the theorem title used before the number and the third optional argument is whether to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
 \newtheorem{exerciseT}{Exercise}[chapter] % Exercises, the first argument is the theorem name, the second the theorem title used before the number and the third optional argument is whether to number under chapters (e.g. 2.1) or sections (e.g. 2.1.1)
@@ -640,7 +651,7 @@
 	skipabove=7pt, % Whitespace above box
 	skipbelow=7pt, % Whitespace below box
 	backgroundcolor=black!5, % Background color
-	linecolor=ocre, % Border color
+	linecolor=blue, % Border color
 	innerleftmargin=5pt, % Inside left margin width
 	innerrightmargin=5pt, % Inside right margin width
 	innertopmargin=5pt, % Inside top margin height
@@ -657,9 +668,9 @@
 	leftline=true, % Left line visible
 	topline=false, % Top line visible
 	bottomline=false, % Bottom line visible
-	linecolor=ocre, % Line color
+	linecolor=blue, % Line color
 	linewidth=4pt, % Line width
-	backgroundcolor=ocre!10, % Background color
+	backgroundcolor=blue!10, % Background color
 	innerleftmargin=5pt, % Inside left margin width
 	innerrightmargin=5pt, % Inside right margin width
 	innertopmargin=5pt, % Inside top margin height
@@ -676,7 +687,7 @@
 	leftline=true, % Left line visible
 	topline=false, % Top line visible
 	bottomline=false, % Bottom line visible
-	linecolor=ocre, % Border color
+	linecolor=blue, % Border color
 	linewidth=4pt, % Border width
 	innerleftmargin=5pt, % Inside left margin width
 	innerrightmargin=5pt, % Inside right margin width
@@ -707,7 +718,7 @@
 
 % Creates an environment for each type of theorem and assigns it a theorem text style from the THEOREM STYLES block above and a colored box from above
 \newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
-\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}
+\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{blue}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}
 \newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}	
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}
@@ -722,7 +733,7 @@
 	\begin{adjustwidth}{35pt}{25pt} % Left and right padding
 		\hspace{-2.5pt}%
 		\begin{tikzpicture}[overlay]
-			\node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}}; % Orange R in a circle
+			\node[draw=blue!60,line width=1pt,circle,fill=blue!25,font=\sffamily\bfseries,inner sep=3pt,outer sep=0pt] at (-15pt,0pt){\textcolor{blue}{R}}; % Orange R in a circle
 		\end{tikzpicture}
 	\advance\baselineskip -1pt% Reduce line spacing
 }{%
