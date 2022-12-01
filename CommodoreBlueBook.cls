@@ -59,6 +59,8 @@
 
 \usepackage{anyfontsize}
 
+\usepackage{contour}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -85,7 +87,7 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
-\usepackage{librebaskerville} % Use the Libre Baskerville font for serif
+\usepackage{newcent} % Use the Libre Baskerville font for serif
 
 \usepackage{helvet} % Use the New Century font for sans serif
 
