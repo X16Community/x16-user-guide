@@ -261,7 +261,7 @@
 	{\section} % Section type being modified
 	[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
 	{\bfseries\sffamily\Large} % Format of the whole section
-	{\llap{\textcolor{blue}{\thesection}\hspace{1em}}#1} % Format of the section label
+	{#1} % Format of the section label
 	{0cm} % Space between the title and label
 	{} % Code before the label
 	[] % Code after the label
@@ -283,7 +283,7 @@
 	{\subsection} % Section type being modified
 	[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
 	{\bfseries\sffamily\large} % Format of the whole section
-	{\llap{\textcolor{blue}{\thesubsection}\hspace{1em}}#1} % Format of the section label
+	{#1} % Format of the section label
 	{0cm} % Space between the title and label
 	{} % Code before the label
 	[] % Code after the label
