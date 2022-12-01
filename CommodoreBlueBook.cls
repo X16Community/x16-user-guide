@@ -61,6 +61,8 @@
 
 \usepackage{contour}
 
+\usepackage{fmtcount}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -367,16 +369,16 @@
 	\setlength\fboxsep{0pt}% Remove box padding
 	\contentslabel[%
 		% Part number box
-		\colorbox{blue!20}{% Background color
+		\colorbox{blue}{% Background color
 			\strut\parbox[c][.7cm]{1.1cm}{% Box size
-				\color{blue!70}\Large\sffamily\bfseries\centering\thecontentslabel% Part number
+				\Large\color{white}\sffamily\bfseries\centering\thecontentslabel% Part number
 			}%
 		}%
 		\hspace{4pt}%
 		% Part title box
-		\colorbox{blue!40}{% Background color
+		\colorbox{blue}{% Background color
 			\strut\parbox[c][.7cm]{\linewidth-1.25cm}{% Box size
-				\centering\Large\sffamily #1% Part title
+				\centering\Large\color{white}\sffamily #1% Part title
 			}%
 		}%
 	]{1.25cm}
@@ -387,17 +389,18 @@
 	\setlength\fboxsep{0pt}% Remove box padding
 	\contentslabel[%
 		% Part title box
-		\colorbox{blue!40}{% Background color
+		\colorbox{blue}{% Background color
 			\strut\parbox[c][.7cm]{\linewidth}{% Box size
-				\centering\Large\sffamily #1% Part title
+				\centering\Large\color{white}\sffamily #1% Part title
 			}%
 		}%
 	]{1.25cm}
 }
 
+
 \titlecontents{part} % Section type being modified
 	[1.25cm] % Left indentation
-	{\addvspace{20pt}\Large\sffamily\bfseries\hypersetup{linkcolor=black}} % Before code
+	{\addvspace{10pt}\Large\sffamily\bfseries\hypersetup{linkcolor=white}} % Before code
 	{\tocentrypartnumbered} % Formatting of numbered sections of this type
 	{\tocentrypartunnumbered} % Formatting of numberless sections of this type
 	{} % Formatting of the filler to the right of the heading and the page number
