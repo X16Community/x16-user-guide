@@ -104,9 +104,8 @@ language governing permissions and limitations under the License.\\ % License in
 %----------------------------------------------------------------------------------------
 \pagecolor{blue}
 
-\thispagestyle{plain} % Suppress headers and footers on this page
-
 \afterpage{
+	\thispagestyle{part} % use part header/footer style
 	\newgeometry{
 		top=1.5in, % Top margin
 		bottom=0.5cm, % Bottom margin
@@ -129,8 +128,6 @@ language governing permissions and limitations under the License.\\ % License in
 	\clearpage
 	\restoregeometry
 }
-
-\pagestyle{fancy} % Enable default headers and footers again
 
 \clearpage
 
@@ -167,7 +164,6 @@ dolores id distinctio enim magni sed omnis.
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
-\pagenumbering{arabic}
 \pagestyle{empty} % Disable headers and footers for the following pages
 
 \setcounter{tocdepth}{1}
@@ -180,6 +176,69 @@ dolores id distinctio enim magni sed omnis.
 \pagestyle{fancy} % Enable default headers and footers again
 
 \cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	SETUP PAGE
+%----------------------------------------------------------------------------------------
+
+\section*{SETUP}
+\addcontentsline{toc}{section}{\protect\numberline{}SETUP}
+
+
+Autem eos placeat est in iure. Qui tempora ut ut qui dolores unde. Nesciunt
+omnis cum iusto laboriosam ut. Amet similique omnis sit maxime laudantium.
+Nobis delectus ut corrupti et excepturi. Aut amet error cumque eaque explicabo
+quo unde. Minus consectetur error atque ut. Alias ut repudiandae eum eum.
+Quaerat rerum facilis suscipit dolores qui consequatur aut perferendis. Et
+alias est autem fugit enim nobis qui illo. Error nesciunt et adipisci ex
+nostrum. Laudantium sit et ut est voluptatum dolor. Ea vitae soluta consectetur
+vel culpa reiciendis. Ad est officiis ut consectetur sint voluptatem aut dolor.
+Tempora consequuntur suscipit asperiores exercitationem. Harum officia nisi
+omnis ut iste rerum. Consequatur tempora maxime ipsa velit sit. Consequatur
+ipsum necessitatibus autem ut saepe eum quod ea. Omnis qui non et minima
+perferendis sunt repudiandae. Voluptas minima earum est libero inventore
+corporis est sint. Occaecati odio distinctio est. Ab quidem asperiores deleniti
+soluta debitis exercitationem veniam. Ut sit quo accusantium velit quam
+voluptatum quia quia. Non sed non consequatur corrupti sed libero. Vitae
+dolores id distinctio enim magni sed omnis.
+
+Voluptates ipsa animi et a iusto. Qui doloribus ducimus voluptas sunt quidem
+similique animi blanditiis. Cupiditate dolorum quia illo. Totam sit consequatur
+quos. Ipsa dolorum dolor dolores ad deserunt eum debitis. Id quae porro
+eligendi tempora magni qui odit. Recusandae et placeat officia blanditiis
+perspiciatis quaerat. At saepe perspiciatis explicabo. Non sit quam
+exercitationem sequi commodi tempore et quasi. Tempora distinctio et voluptatum
+reiciendis qui minus deleniti. Quidem officiis eveniet debitis voluptas sint
+provident numquam architecto. Eligendi quibusdam rerum debitis possimus et
+ratione enim quasi. Placeat minus beatae sed aut est. Itaque quisquam eum
+adipisci enim rerum qui. Dolor at veniam est molestiae. Sed velit sunt est
+consequatur suscipit. Quisquam et ipsum qui est et accusantium porro omnis.
+Asperiores enim eos eos. Unde officiis quo est ex expedita odit. Vel maiores
+animi non dolor molestiae quia rerum aut. Vel tempore non doloremque sint
+nesciunt. Ipsa voluptas qui repellat id earum temporibus ut soluta. Pariatur
+esse beatae autem et consequatur repellendus cum dolores. A aliquam porro
+voluptatem repellat dolorem. Doloribus voluptas aspernatur in veniam est iusto.
+
+Eveniet dolorum maiores vitae. Rerum culpa et consequatur. Cumque tenetur
+dolorem autem voluptatum. Omnis aut nihil odio ipsam et. Fugiat fuga molestias
+earum ut neque odit. Cumque odio sapiente qui aliquid. Veritatis quasi
+voluptates quis illo accusantium. Dolorum vitae sunt et quis eos incidunt vel
+iusto. Aliquam eos eaque aut qui placeat ut modi. Modi ipsa quas dolor qui nam.
+Deserunt magnam officiis sunt harum aspernatur rem voluptas tempore.
+Consequuntur consequatur in vel velit architecto quo cumque. Ea aspernatur
+pariatur velit eveniet quibusdam atque officiis. Quidem tempore quia
+consectetur autem alias necessitatibus rerum. Accusantium similique odio ut
+consectetur qui est. Quia modi laudantium minima et cumque et qui. Doloribus
+magni quia cum totam porro. Voluptas corporis ea blanditiis possimus omnis
+maiores. Quo autem esse eligendi occaecati eos nihil. Quae eius inventore
+recusandae molestiae qui autem veniam. Doloribus quos deleniti consequatur
+saepe saepe rerum maxime aliquam. Ut sed ipsam dolorum maxime laboriosam hic
+quibusdam est. Et consequatur aut provident numquam aut quisquam. Officia nulla
+atque aut illum rerum deserunt dolor maxime. Ea libero est doloremque odio.
+
+\cleardoublepage
+
+\pagenumbering{arabic} % Reset page numbers and use arabic
 
 %----------------------------------------------------------------------------------------
 %	PART
@@ -201,23 +260,82 @@ dolores id distinctio enim magni sed omnis.
 
 \section{Section Title}\index{Sectioning!Sections}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit\footnote{Footnote example text\ldots Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie.}. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit\footnote{Footnote
+example text\ldots Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros.
+Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie.}.
+Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros.
+Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie.
+Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus
+sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in.
+Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla
+mattis nisl eu malesuada suscipit.
 
-Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu
+feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante
+rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis
+lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non
+pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta
+porttitor.
 
 \subsection{Subsection Title}\index{Sectioning!Subsections}
 
-Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu. Praesent aliquet nulla ut bibendum lacinia. Donec vel mauris vulputate, commodo ligula ut, egestas orci. Suspendisse commodo odio sed hendrerit lobortis. Donec finibus eros erat, vel ornare enim mattis et. Donec finibus dolor quis dolor tempus consequat. Mauris fringilla dui id libero egestas, ut mattis neque ornare. Ut condimentum urna pharetra ipsum consequat, eu interdum elit cursus. Vivamus scelerisque tortor et nunc ultricies, id tincidunt libero pharetra. Aliquam eu imperdiet leo. Morbi a massa volutpat velit condimentum convallis et facilisis dolor.
+Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum
+sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu.
+Praesent aliquet nulla ut bibendum lacinia. Donec vel mauris vulputate, commodo
+ligula ut, egestas orci. Suspendisse commodo odio sed hendrerit lobortis. Donec
+finibus eros erat, vel ornare enim mattis et. Donec finibus dolor quis dolor
+tempus consequat. Mauris fringilla dui id libero egestas, ut mattis neque
+ornare. Ut condimentum urna pharetra ipsum consequat, eu interdum elit cursus.
+Vivamus scelerisque tortor et nunc ultricies, id tincidunt libero pharetra.
+Aliquam eu imperdiet leo. Morbi a massa volutpat velit condimentum convallis et
+facilisis dolor.
 
-In hac habitasse platea dictumst. Curabitur mattis elit sit amet justo luctus vestibulum. In hac habitasse platea dictumst. Pellentesque lobortis justo enim, a condimentum massa tempor eu. Ut quis nulla a quam pretium eleifend nec eu nisl. Nam cursus porttitor eros, sed luctus ligula convallis quis. Nam convallis, ligula in auctor euismod, ligula mauris fringilla tellus, et egestas mauris odio eget diam. Praesent sodales in ipsum eu dictum. Mauris interdum porttitor fringilla. Proin tincidunt sodales leo at ornare. Donec tempus magna non mauris gravida luctus. Cras vitae arcu vitae mauris eleifend scelerisque. Nam sem sapien, vulputate nec felis eu, blandit convallis risus. Pellentesque sollicitudin venenatis tincidunt. In et ipsum libero.
+In hac habitasse platea dictumst. Curabitur mattis elit sit amet justo luctus
+vestibulum. In hac habitasse platea dictumst. Pellentesque lobortis justo enim,
+a condimentum massa tempor eu. Ut quis nulla a quam pretium eleifend nec eu
+nisl. Nam cursus porttitor eros, sed luctus ligula convallis quis. Nam
+convallis, ligula in auctor euismod, ligula mauris fringilla tellus, et egestas
+mauris odio eget diam. Praesent sodales in ipsum eu dictum. Mauris interdum
+porttitor fringilla. Proin tincidunt sodales leo at ornare. Donec tempus magna
+non mauris gravida luctus. Cras vitae arcu vitae mauris eleifend scelerisque.
+Nam sem sapien, vulputate nec felis eu, blandit convallis risus. Pellentesque
+sollicitudin venenatis tincidunt. In et ipsum libero.
 
 \subsubsection{Subsubsection Title} \index{Sectioning!Subsubsections}
 
-Maecenas consectetur metus at tellus finibus condimentum. Proin arcu lectus, ultrices non tincidunt et, tincidunt ut quam. Integer luctus posuere est, non maximus ante dignissim quis. Nunc a cursus erat. Curabitur suscipit nibh in tincidunt sagittis. Nam malesuada vestibulum quam id gravida. Proin ut dapibus velit. Vestibulum eget quam quis ipsum semper convallis. Duis consectetur nibh ac diam dignissim, id condimentum enim dictum. Nam aliquet ligula eu magna pellentesque, nec sagittis leo lobortis. Aenean tincidunt dignissim egestas. Morbi efficitur risus ante, id tincidunt odio pulvinar vitae.
+Maecenas consectetur metus at tellus finibus condimentum. Proin arcu lectus,
+ultrices non tincidunt et, tincidunt ut quam. Integer luctus posuere est, non
+maximus ante dignissim quis. Nunc a cursus erat. Curabitur suscipit nibh in
+tincidunt sagittis. Nam malesuada vestibulum quam id gravida. Proin ut dapibus
+velit. Vestibulum eget quam quis ipsum semper convallis. Duis consectetur nibh
+ac diam dignissim, id condimentum enim dictum. Nam aliquet ligula eu magna
+pellentesque, nec sagittis leo lobortis. Aenean tincidunt dignissim egestas.
+Morbi efficitur risus ante, id tincidunt odio pulvinar vitae.
 
-\paragraph{Paragraph Title}\index{Sectioning!Paragraphs} Nullam mollis tellus lorem, sed congue ipsum euismod a. Donec pulvinar neque sed ligula ornare sodales. Nulla sagittis vel lectus nec laoreet. Nulla volutpat malesuada turpis at ultricies. Ut luctus velit odio, sagittis volutpat erat aliquet vel. Donec ac neque eget neque volutpat mollis. Vestibulum viverra ligula et sapien bibendum, vel vulputate ex euismod. Curabitur nec velit velit. Aliquam vulputate lorem elit, id tempus nisl finibus sit amet. Curabitur ex turpis, consequat at lectus id, imperdiet molestie augue. Curabitur eu eros molestie purus commodo hendrerit. Quisque auctor ipsum nec mauris malesuada, non fringilla nibh viverra. Quisque gravida, metus quis semper pulvinar, dolor nisl suscipit leo, vestibulum volutpat ante justo ultrices diam. Sed id facilisis turpis, et aliquet eros.
+\paragraph{Paragraph Title}\index{Sectioning!Paragraphs} Nullam mollis tellus
+lorem, sed congue ipsum euismod a. Donec pulvinar neque sed ligula ornare
+sodales. Nulla sagittis vel lectus nec laoreet. Nulla volutpat malesuada turpis
+at ultricies. Ut luctus velit odio, sagittis volutpat erat aliquet vel. Donec
+ac neque eget neque volutpat mollis. Vestibulum viverra ligula et sapien
+bibendum, vel vulputate ex euismod. Curabitur nec velit velit. Aliquam
+vulputate lorem elit, id tempus nisl finibus sit amet. Curabitur ex turpis,
+consequat at lectus id, imperdiet molestie augue. Curabitur eu eros molestie
+purus commodo hendrerit. Quisque auctor ipsum nec mauris malesuada, non
+fringilla nibh viverra. Quisque gravida, metus quis semper pulvinar, dolor nisl
+suscipit leo, vestibulum volutpat ante justo ultrices diam. Sed id facilisis
+turpis, et aliquet eros.
 
-In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odio, accumsan ac nisl a, tempor imperdiet eros. Donec porta tortor eu risus consequat, a pharetra tortor tristique. Morbi sit amet laoreet erat. Morbi et luctus diam, quis porta ipsum. Quisque libero dolor, suscipit id facilisis eget, sodales volutpat dolor. Nullam vulputate interdum aliquam. Mauris id convallis erat, ut vehicula neque. Sed auctor nibh et elit fringilla, nec ultricies dui sollicitudin. Vestibulum vestibulum luctus metus venenatis facilisis. Suspendisse iaculis augue at vehicula ornare. Sed vel eros ut velit fermentum porttitor sed sed massa. Fusce venenatis, metus a rutrum sagittis, enim ex maximus velit, id semper nisi velit eu purus.
+In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit
+odio, accumsan ac nisl a, tempor imperdiet eros. Donec porta tortor eu risus
+consequat, a pharetra tortor tristique. Morbi sit amet laoreet erat. Morbi et
+luctus diam, quis porta ipsum. Quisque libero dolor, suscipit id facilisis
+eget, sodales volutpat dolor. Nullam vulputate interdum aliquam. Mauris id
+convallis erat, ut vehicula neque. Sed auctor nibh et elit fringilla, nec
+ultricies dui sollicitudin. Vestibulum vestibulum luctus metus venenatis
+facilisis. Suspendisse iaculis augue at vehicula ornare. Sed vel eros ut velit
+fermentum porttitor sed sed massa. Fusce venenatis, metus a rutrum sagittis,
+enim ex maximus velit, id semper nisi velit eu purus.
 
 %------------------------------------------------
 
@@ -235,13 +353,16 @@ In malesuada ullamcorper urna, sed dapibus diam sollicitudin non. Donec elit odi
 
 \section{Referencing Publications}\index{Citation}
 
-This statement requires citation \cite{Smith:2022jd}; this one is more specific \cite[162]{Smith:2021qr}.
+This statement requires citation \cite{Smith:2022jd}; this one is more specific
+\cite[162]{Smith:2021qr}.
 
 %------------------------------------------------
 
 \section{Link Examples}\index{Links}
 
-This is a URL link: \href{https://www.latextemplates.com}{LaTeX Templates}. This is an email link: \href{mailto:example@example.com}{example@example.com}. This is a monospaced URL link: \url{https://www.LaTeXTemplates.com}.
+This is a URL link: \href{https://www.latextemplates.com}{LaTeX Templates}.
+This is an email link: \href{mailto:example@example.com}{example@example.com}.
+This is a monospaced URL link: \url{https://www.LaTeXTemplates.com}.
 
 %------------------------------------------------
 
@@ -372,7 +493,12 @@ A definition can be mathematical or it could define a concept.
 This is an example of a remark.
 
 \begin{remark}
-	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+
+	The concepts presented here are now in conventional employment in
+	mathematics. Vector spaces are taken over the field
+	$\mathbb{K}=\mathbb{R}$, however, established properties are easily
+	extended to $\mathbb{K}=\mathbb{C}$.
+
 \end{remark}
 
 %------------------------------------------------
@@ -380,7 +506,12 @@ This is an example of a remark.
 \section{Corollaries}\index{Corollaries}
 
 \begin{corollary}[Corollary name] % Specify a name/title in square brackets, or leave them out for no title
-	The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+
+	The concepts presented here are now in conventional employment in
+	mathematics. Vector spaces are taken over the field
+	$\mathbb{K}=\mathbb{R}$, however, established properties are easily
+	extended to $\mathbb{K}=\mathbb{C}$.
+
 \end{corollary}
 
 %------------------------------------------------
@@ -421,7 +552,14 @@ This is an example of a remark.
 \subsection{Text Example}\index{Examples!Text}
 
 \begin{example}[Example name] % Specify a name/title in square brackets, or leave them out for no title
-	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+
+	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu
+	feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt,
+	ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante
+	quam quis lectus. Aenean tincidunt sodales massa, et hendrerit tellus
+	mattis ac. Sed non pretium nibh. Donec cursus maximus luctus. Vivamus
+	lobortis eros et massa porta porttitor.
+
 \end{example}
 
 %------------------------------------------------
@@ -429,8 +567,12 @@ This is an example of a remark.
 \section{Exercises}\index{Exercises}
 
 \begin{exercise} % Specify a name/title in square brackets, or leave them out for no title
-	This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+
+	This is a good place to ask a question to test learning progress or further
+	cement ideas into students' minds.
+
 \end{exercise}
+
 
 %------------------------------------------------
 
@@ -464,7 +606,13 @@ Define a word to improve a students' vocabulary.
 
 \section{Table}\index{Table}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor
+arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel
+nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet
+porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean
+luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet
+lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada
+suscipit.
 
 \begin{table}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
 	\centering % Horizontally center the table on the page
@@ -502,7 +650,13 @@ Referencing \autoref{tab:example} in-text using its label.
 
 \section{Figure}\index{Figure}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor
+arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel
+nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet
+porttitor. Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean
+luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet
+lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada
+suscipit.
 
 \begin{figure}[H] % Use [H] to suppress floating and place the figure/table exactly where it is specified in the text
 	\centering % Horizontally center the figure on the page
@@ -575,7 +729,15 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 
 \section{Appendix Section Title}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi
+	risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et
+	semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo
+	elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce
+	quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et
+	urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est.
+	Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices
+	volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est
+	euismod pretium.
 
 %------------------------------------------------
 
@@ -583,7 +745,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus
 
 \section{Appendix Section Title}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi
+	risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et
+	semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo
+	elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce
+	quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et
+	urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est.
+	Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices
+	volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est
+	euismod pretium.
 
 %------------------------------------------------
 

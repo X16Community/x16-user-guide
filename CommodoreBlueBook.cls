@@ -139,7 +139,7 @@
 
 % Command to create and output the parts pages
 \newcommand{\outputpartpage}[2]{
-	\thispagestyle{part} % Suppress headers and footers on this page
+	\thispagestyle{part} % use part header/footer style
 	\begin{tikzpicture}[remember picture, overlay]
 
 		% Background color
