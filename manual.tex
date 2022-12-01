@@ -48,10 +48,6 @@
 \definecolor{blue}{rgb}{0.0,0.0,0.8}
 \definecolor{gray}{rgb}{0.73, 0.73, 0.73}
 
-\chapterimage{orange1.jpg} % Chapter heading image
-\chapterspaceabove{6.5cm} % Default whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
-
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -244,15 +240,14 @@ atque aut illum rerum deserunt dolor maxime. Ea libero est doloremque odio.
 %	PART
 %----------------------------------------------------------------------------------------
 
+\makeatletter\@openrightfalse
 \part{Getting to Know Your Commander X16}
+
+\outputtypin{a test}
 
 %----------------------------------------------------------------------------------------
 %	SECTIONING EXAMPLES CHAPTER
 %----------------------------------------------------------------------------------------
-
-\chapterimage{orange2.jpg} % Chapter heading image
-\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
 %------------------------------------------------
 
@@ -423,6 +418,8 @@ Lists are useful to present information in a concise and/or ordered way.
 \section{Ligatures}
 
 fi fj fl ffl ffi Ty
+
+\@openrighttrue\makeatother
 
 %----------------------------------------------------------------------------------------
 %	PART
@@ -596,10 +593,6 @@ Define a word to improve a students' vocabulary.
 %	PRESENTING INFORMATION/RESULTS EXAMPLES CHAPTER
 %----------------------------------------------------------------------------------------
 
-\chapterimage{orange3.jpg} % Chapter heading image
-\chapterspaceabove{6.25cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{7.5cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
-
 %------------------------------------------------
 
 \chapter{Presenting Information and Results with a Long Chapter Title}
@@ -682,10 +675,6 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
-\chapterimage{} % Chapter heading image
-\chapterspaceabove{2.5cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{2cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
-
 %------------------------------------------------
 
 \chapter*{Bibliography}
@@ -714,10 +703,6 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 %----------------------------------------------------------------------------------------
 %	APPENDICES
 %----------------------------------------------------------------------------------------
-
-\chapterimage{orange2.jpg} % Chapter heading image
-\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
 \begin{appendices}
 

@@ -125,6 +125,15 @@
 \usepackage{emptypage} % This package removes headers and footers on empty pages between chapters
 
 %----------------------------------------------------------------------------------------
+%	TYPE IN COMMAND
+%----------------------------------------------------------------------------------------
+\newcommand{\outputtypin}[1]{
+	{\fontsize{24pt}{24pt}\selectfont\sffamily\bfseries\color{blue}Try typing this program:\\}
+		#1
+		\clearpage
+}
+
+%----------------------------------------------------------------------------------------
 %	SECTION STYLING
 %----------------------------------------------------------------------------------------
 
@@ -208,46 +217,19 @@
 
 %-------------------------------------------
 
-% Command to store the current chapter image to use for all future chapters, can be changed any time in the document and can be empty
-\newcommand{\thechapterimage}{}
-\newcommand{\chapterimage}[1]{\renewcommand{\thechapterimage}{#1}}
-
-% Command to store the current whitespace above the chapter title box for all future chapters, can be changed at any time in the document
-\newcommand{\thechapterspaceabove}{}
-\newcommand{\chapterspaceabove}[1]{\renewcommand{\thechapterspaceabove}{#1}}
-
-% Command to store the current whitespace below the chapter title box for all future chapters, can be changed at any time in the document
-\newcommand{\thechapterspacebelow}{}
-\newcommand{\chapterspacebelow}[1]{\renewcommand{\thechapterspacebelow}{#1}}
-
 % Command to output the chapter title with optional background image
 \newcommand{\outputchaptertitle}[2]{
 	\begin{tikzpicture}[remember picture,overlay]
-		% If a chapter image has been specified
-		\expandafter\ifstrequal\expandafter{\thechapterimage}{}{}{
-			% Output the chapter image
-			\node[
-				anchor=north west, % Anchor point on the image
-				inner sep=0pt, % Inner padding
-			] at (current page.north west) {\includegraphics[width=\paperwidth]{\thechapterimage}};
-		}
 		% Box with the chapter title
 		\draw[anchor=west] (current page.north west) node [
 			anchor=north west, % Anchor point of the chapter box
-			xshift=\Gm@lmargin, % Horizontal distance from the left side of the page
-			yshift=-\thechapterspaceabove, % Vertical distance from the top of the page
-			line width=2pt, % Border line thickness
-			rounded corners=10pt, % Rounded corners amount
-			draw=blue, % Border line color
-			fill=black!5, % Box background color
+			yshift=-0.5in, % Vertical distance from the top of the page
 			fill opacity=1, % Background transparency
 			text opacity=1, % Text transparency
-			inner ysep=12.5pt, % Inner vertical padding
-			inner xsep=20pt, % Inner horizontal padding
-			align=flush left, % Text alignment inside box
+			align=flush center, % Text alignment inside box
 			text width=1.2\linewidth, % Box width (wider than page to go off the right side)
 			font=\huge\sffamily\bfseries, % Font styling for chapter title
-		] {\parbox{0.85\linewidth}{\strut\raggedright\expandafter\ifstrequal\expandafter{#1}{}{}{#1. }#2\vspace{-3pt}}}; % Chapter title in a fixed width box for wrapping
+		] {\parbox{0.85\linewidth}{\strut\raggedright\expandafter\ifstrequal\expandafter{#1}{}{}{}#2\vspace{-3pt}}}; % Chapter title in a fixed width box for wrapping
 	\end{tikzpicture}
 }
 
@@ -271,7 +253,7 @@
 	{} % Code before the label
 	[] % Code after the label
 
-\titlespacing*{\chapter}{0pt}{0pt}{\thechapterspacebelow} % Spacing around section titles, the order is: left, before and after
+\titlespacing*{\chapter}{0pt}{0pt}{0.25in} % Spacing around section titles, the order is: left, before and after
 
 %-------------------------------------------
 
@@ -359,6 +341,8 @@
 \usepackage{titletoc} % Required for manipulating the table of contents
 
 \setcounter{tocdepth}{2} % Display down to subsections in the table of contents
+
+\renewcommand*\contentsname{TABLE OF CONTENTS}
 
 \contentsmargin{0cm} % Removes the default right margin
 
