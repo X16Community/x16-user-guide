@@ -45,7 +45,7 @@
 
 \addbibresource{sample.bib} % Bibliography file
 
-\definecolor{blue}{rgb}{0.5,0.5,1}
+\definecolor{blue}{rgb}{0.0,0.0,0.8}
 \definecolor{gray}{rgb}{0.73, 0.73, 0.73}
 
 \chapterimage{orange1.jpg} % Chapter heading image
@@ -57,14 +57,14 @@
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
+%	COVER PAGE
 %----------------------------------------------------------------------------------------
 
-\titlepage % Output the title page
+\coverpage % Output the title page
 	{\includegraphics[width=\paperwidth]{cover.png}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
 	{ % Title(s) and author(s)
 		\centering\rmfamily % Font styling
-		{\huge\bfseries Retro Computing on the\par} % Top
+		{\Huge\bfseries Retro Computing on the\par} % Top
 	}
 	{
 		\centering\rmfamily % Font styling
@@ -95,6 +95,67 @@ applicable law or agreed to in writing, software distributed under the License
 is distributed on an \textsc{``as is'' basis, without warranties or conditions
 of any kind}, either express or implied. See the License for the specific
 language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+
+\cleardoublepage % Start the following content on a new page
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\pagecolor{blue}
+
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+\afterpage{
+	\newgeometry{
+		top=1.5in, % Top margin
+		bottom=0.5cm, % Bottom margin
+		right=0.75in, % Right margin
+		}
+	\begin{flushright}
+		{
+			\huge\sffamily\bfseries\color{white}
+			RETRO\\ COMPUTING\\ ON THE\\
+			{
+				\fontsize{36pt}{36pt}\selectfont Commander X16\\
+			}
+		}
+		\huge\sffamily\color{white} A friendly computer guide
+	\end{flushright}
+	\clearpage
+	\restoregeometry
+}
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\clearpage
+
+\nopagecolor % Change page color back
+
+%----------------------------------------------------------------------------------------
+%	PREFACE PAGE
+%----------------------------------------------------------------------------------------
+
+\section{PREFACE}
+
+
+Autem eos placeat est in iure. Qui tempora ut ut qui dolores unde. Nesciunt
+omnis cum iusto laboriosam ut. Amet similique omnis sit maxime laudantium.
+Nobis delectus ut corrupti et excepturi. Aut amet error cumque eaque explicabo
+quo unde. Minus consectetur error atque ut. Alias ut repudiandae eum eum.
+Quaerat rerum facilis suscipit dolores qui consequatur aut perferendis. Et
+alias est autem fugit enim nobis qui illo. Error nesciunt et adipisci ex
+nostrum. Laudantium sit et ut est voluptatum dolor. Ea vitae soluta consectetur
+vel culpa reiciendis. Ad est officiis ut consectetur sint voluptatem aut dolor.
+Tempora consequuntur suscipit asperiores exercitationem. Harum officia nisi
+omnis ut iste rerum. Consequatur tempora maxime ipsa velit sit. Consequatur
+ipsum necessitatibus autem ut saepe eum quod ea. Omnis qui non et minima
+perferendis sunt repudiandae. Voluptas minima earum est libero inventore
+corporis est sint. Occaecati odio distinctio est. Ab quidem asperiores deleniti
+soluta debitis exercitationem veniam. Ut sit quo accusantium velit quam
+voluptatum quia quia. Non sed non consequatur corrupti sed libero. Vitae
+dolores id distinctio enim magni sed omnis.
+
+\cleardoublepage % Start the following content on a new page
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS

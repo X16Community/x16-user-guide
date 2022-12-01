@@ -55,6 +55,10 @@
 
 \usepackage{etoolbox} % Required for conditional logic and easily changing commands
 
+\usepackage{afterpage}
+
+\usepackage{anyfontsize}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -83,7 +87,7 @@
 
 \usepackage{librebaskerville} % Use the Libre Baskerville font for serif
 
-\usepackage{newcent} % Use the New Century font for sas serif
+\usepackage{helvet} % Use the New Century font for sans serif
 
 \usepackage{microtype} % Improve typography
 
@@ -184,7 +188,7 @@
 			rounded corners=10pt, % Rounded corners amount
 			draw=blue, % Border line color
 			fill=black!5, % Box background color
-			fill opacity=0.6, % Background transparency
+			fill opacity=1, % Background transparency
 			text opacity=1, % Text transparency
 			inner ysep=12.5pt, % Inner vertical padding
 			inner xsep=20pt, % Inner horizontal padding
@@ -536,10 +540,10 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	TITLE PAGE
+%	COVER PAGE
 %----------------------------------------------------------------------------------------
 
-\renewcommand{\titlepage}[3]{
+\newcommand{\coverpage}[3]{
 	\thispagestyle{empty} % Suppress headers and footers on the title page
 
 	\begin{tikzpicture}[remember picture, overlay]
