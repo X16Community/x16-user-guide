@@ -71,8 +71,8 @@
 	papersize={5.5in,8.5in},
 	top=1cm, % Top margin
 	bottom=2.0cm, % Bottom margin
-	inner=1.8cm, % Inner margin (left on odd pages, right on even or left in oneside mode)
-	outer=0.8cm, % Outer margin (right on odd pages, left on even or right in oneside mode)
+	inner=0.5in, % Inner margin (left on odd pages, right on even or left in oneside mode)
+	outer=0.5in, % Outer margin (right on odd pages, left on even or right in oneside mode)
 	headsep=10pt, % Space from the top margin to the baseline of the header
 	headheight=0.5cm, % Header height
 	footskip=1.0cm, % Space from the bottom margin to the baseline of the footer
@@ -100,18 +100,20 @@
 \usepackage{fancyhdr} % Required for customizing headers and footers
 \pagestyle{fancy} % Enable the custom headers and footers
 
-\renewcommand{\headrulewidth}{0.5pt} % Top horizontal rule thickness
+\renewcommand{\headrulewidth}{0.0pt} % Top horizontal rule thickness
 
 \renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.~#1}{}} % Redefine the styling of the current chapter name in the header
 \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection~#1}{}} % Redefine the styling of the current section name in the header
 
 \fancyhf{} % Clear default headers and footers
 
-\fancyhead[LE, RO]{\sffamily\thepage} % Header for left even pages and right odd pages
+\fancyfoot[C]{\sffamily\thepage}
 
-\fancyhead[LO]{\rightmark} % Header for left odd pages
-
-\fancyhead[RE]{\leftmark} % Header for right even pages
+% change the footer for part pages
+\fancypagestyle{part}{
+	\fancyhead{}
+	\fancyfoot[C]{\color{white}\sffamily\thepage}
+}
 
 \fancypagestyle{plain}{ % Style for when a plain pagestyle is specified
 	\fancyhead{} % Clear headers
@@ -137,6 +139,7 @@
 
 % Command to create and output the parts pages
 \newcommand{\outputpartpage}[2]{
+	\thispagestyle{part} % Suppress headers and footers on this page
 	\begin{tikzpicture}[remember picture, overlay]
 
 		% Background color
@@ -148,9 +151,9 @@
 		minimum width=\paperwidth] at (current page.center) {};
 
 		% Lines
-		\draw[white, thick] (-2,2.0) -- (13,2.0);
-		\draw[white, thick] (-2,2.125) -- (13,2.125);
-		\draw[white, thick] (-2,2.25) -- (13,2.25);
+		\draw[white, thick] (-3,2.0) -- (13,2.0);
+		\draw[white, thick] (-3,2.125) -- (13,2.125);
+		\draw[white, thick] (-3,2.25) -- (13,2.25);
 
 		% Part number
 		\node[

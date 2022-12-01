@@ -97,13 +97,14 @@ of any kind}, either express or implied. See the License for the specific
 language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
 
 \cleardoublepage % Start the following content on a new page
+\pagenumbering{Roman}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 \pagecolor{blue}
 
-\thispagestyle{empty} % Suppress headers and footers on this page
+\thispagestyle{plain} % Suppress headers and footers on this page
 
 \afterpage{
 	\newgeometry{
@@ -139,7 +140,8 @@ language governing permissions and limitations under the License.\\ % License in
 %	PREFACE PAGE
 %----------------------------------------------------------------------------------------
 
-\section{PREFACE}
+\section*{PREFACE}
+\addcontentsline{toc}{section}{\protect\numberline{}PREFACE}
 
 
 Autem eos placeat est in iure. Qui tempora ut ut qui dolores unde. Nesciunt
@@ -165,8 +167,10 @@ dolores id distinctio enim magni sed omnis.
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
+\pagenumbering{arabic}
 \pagestyle{empty} % Disable headers and footers for the following pages
 
+\setcounter{tocdepth}{1}
 \tableofcontents % Output the table of contents
 
 \listoffigures % Output the list of figures, comment or remove this command if not required
