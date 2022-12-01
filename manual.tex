@@ -243,7 +243,7 @@ atque aut illum rerum deserunt dolor maxime. Ea libero est doloremque odio.
 \makeatletter\@openrightfalse
 \part{Getting to Know Your Commander X16}
 
-\outputtypin{a test}
+\outputtypein{a test}
 
 %----------------------------------------------------------------------------------------
 %	SECTIONING EXAMPLES CHAPTER
@@ -425,7 +425,10 @@ fi fj fl ffl ffi Ty
 %	PART
 %----------------------------------------------------------------------------------------
 
+\makeatletter\@openrightfalse
 \part{Part Two Title}
+
+\outputtypein{a test}
 
 %----------------------------------------------------------------------------------------
 %	MATHEMATICS EXAMPLES CHAPTER
@@ -669,6 +672,7 @@ Referencing \autoref{fig:placeholder} in-text using its label.
 
 %----------------------------------------------------------------------------------------
 
+\@openrighttrue\makeatother
 \stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
 
 %----------------------------------------------------------------------------------------

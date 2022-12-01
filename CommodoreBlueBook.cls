@@ -127,7 +127,7 @@
 %----------------------------------------------------------------------------------------
 %	TYPE IN COMMAND
 %----------------------------------------------------------------------------------------
-\newcommand{\outputtypin}[1]{
+\newcommand{\outputtypein}[1]{
 	{\fontsize{24pt}{24pt}\selectfont\sffamily\bfseries\color{blue}Try typing this program:\\}
 		#1
 		\clearpage
