@@ -11,13 +11,15 @@ TEMPLATES				= CommodoreBlueBook.cls
 PDF_ARTIFACTS			= $(MAIN).aux \
 						  $(MAIN).bcf \
 						  $(MAIN).idx \
-						  $(MAIN).lof \
 						  $(MAIN).log \
-						  $(MAIN).lot \
 						  $(MAIN).pdf \
 						  $(MAIN).ptc \
 						  $(MAIN).run.xml \
 						  $(MAIN).toc
+
+						  # list of figures and list of tables not needed for now
+						  # $(MAIN).lof \
+						  # $(MAIN).lot \
 
 INDEX_ARTIFACTS			= $(MAIN).ilg \
 						  $(MAIN).ind
@@ -27,11 +29,13 @@ BIBLIOGRAPHY_ARTIFACTS	= $(MAIN).bbl \
 
 FINAL_ARTIFACTS			= $(NAME).bcf \
 						  $(NAME).idx \
-						  $(NAME).lof \
-						  $(NAME).lot \
 						  $(NAME).ptc \
 						  $(NAME).run.xml \
 						  $(NAME).toc
+
+						  # list of figures and list of tables not needed for now
+						  # $(NAME).lof \
+						  # $(NAME).lot \
 
 FINAL_SOURCES			=  $(PDF_ARTIFACTS) $(INDEX_ARTIFACTS) $(BIBLIOGRAPHY_ARTIFACTS)
 
