@@ -43,6 +43,8 @@
 	pdfcreator={LaTeX}, % Content creator field
 }
 
+\setlength\parindent{0pt}
+
 \addbibresource{sample.bib} % Bibliography file
 
 \definecolor{blue}{rgb}{0.0,0.0,0.8}
@@ -93,6 +95,8 @@ of any kind}, either express or implied. See the License for the specific
 language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
 
 \cleardoublepage % Start the following content on a new page
+
+% start roman page numbering
 \pagenumbering{Roman}
 
 %----------------------------------------------------------------------------------------
@@ -129,9 +133,11 @@ language governing permissions and limitations under the License.\\ % License in
 
 \nopagecolor % Change page color back
 
-\include{preface}
+%----------------------------------------------------------------------------------------
+%	PREFACE
+%----------------------------------------------------------------------------------------
 
-\cleardoublepage % Start the following content on a new page
+\include{preface}
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -150,10 +156,15 @@ language governing permissions and limitations under the License.\\ % License in
 
 \clearpage % Start the following content on a new page
 
+%----------------------------------------------------------------------------------------
+%	SETUP
+%----------------------------------------------------------------------------------------
+
 \include{setup}
 
 \cleardoublepage
 
+% start arabic page numbering
 \pagenumbering{arabic} % Reset page numbers and use arabic
 
 %----------------------------------------------------------------------------------------

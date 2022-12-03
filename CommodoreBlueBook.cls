@@ -76,14 +76,14 @@
 
 \geometry{
 	papersize={5.5in,8.5in},
-	top=1cm, % Top margin
-	bottom=2.0cm, % Bottom margin
+	top=0.5in, % Top margin
+	bottom=0.75in, % Bottom margin
 	inner=0.5in, % Inner margin (left on odd pages, right on even or left in oneside mode)
 	outer=0.5in, % Outer margin (right on odd pages, left on even or right in oneside mode)
 	headsep=10pt, % Space from the top margin to the baseline of the header
-	headheight=0.5cm, % Header height
-	footskip=1.0cm, % Space from the bottom margin to the baseline of the footer
-	columnsep=1cm, % Horizontal space between columns when in two column mode
+	headheight=0.25in, % Header height
+	footskip=0.5in, % Space from the bottom margin to the baseline of the footer
+	columnsep=0.5in, % Horizontal space between columns when in two column mode
 	%showframe, % Uncomment to show how the type block is set on the page
 }
 
@@ -99,6 +99,9 @@
 \usepackage{helvet} % Use the New Century font for sans serif
 
 \usepackage{microtype} % Improve typography
+
+% use sans serif as default
+\renewcommand{\familydefault}{\sfdefault}
 
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
