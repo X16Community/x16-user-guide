@@ -65,6 +65,9 @@
 
 \usepackage{tcolorbox}
 
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -125,6 +128,28 @@
 }
 
 \usepackage{emptypage} % This package removes headers and footers on empty pages between chapters
+%----------------------------------------------------------------------------------------
+%	BUBBLES
+%----------------------------------------------------------------------------------------
+
+\newcommand{\bubble}[5]{
+	\node[
+		anchor=west,
+		xshift=#1,
+		yshift=#2,
+		overlay,
+		relative,
+		rectangle,draw=blue,text=black,fill=white](r) at (0,0) {
+		\parbox{2.0in}{#5}
+		};
+	\draw [
+		overlay,
+		anchor=west,
+		-stealth,
+		line width = 0.03in,
+		black
+		](r.west) -- (#3,#4);
+}
 
 %----------------------------------------------------------------------------------------
 %	KEYS
@@ -225,8 +250,7 @@
 	{
 		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
 	To stop the program, press the \doublekey{RUN\\STOP} key.
-	}\\
-		\clearpage
+	}
 }
 
 %----------------------------------------------------------------------------------------
