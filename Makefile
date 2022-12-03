@@ -6,6 +6,11 @@ MAIN					= manual
 
 TARGETS					= $(MAIN).tex
 
+PARTS					= getting_to_know_commanderx16.tex \
+						  preface.tex \
+						  setup.tex \
+						  user_screen_and_keyboard.tex
+
 TEMPLATES				= CommodoreBlueBook.cls
 
 PDF_ARTIFACTS			= $(MAIN).aux \
@@ -45,7 +50,7 @@ all: $(NAME).pdf
 # First pass PDF
 ################################################################################
 
-$(PDF_ARTIFACTS): $(TARGETS) $(TEMPLATES)
+$(PDF_ARTIFACTS): $(TARGETS) $(TEMPLATES) $(PARTS)
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $(TARGETS)
 
 pdf: $(PDF_ARTIFACTS)

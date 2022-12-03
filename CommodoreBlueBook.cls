@@ -63,6 +63,8 @@
 
 \usepackage{fmtcount}
 
+\usepackage{tcolorbox}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -125,11 +127,105 @@
 \usepackage{emptypage} % This package removes headers and footers on empty pages between chapters
 
 %----------------------------------------------------------------------------------------
+%	KEYS
+%----------------------------------------------------------------------------------------
+
+% Command to store the current key background color to use for all future keys,
+% can be changed any time in the document and can be empty
+\newcommand{\thekeybackgroundcolor}{black}
+\newcommand{\keybackgroundcolor}[1]{\renewcommand{\thekeybackgroundcolor}{#1}}
+
+% Command to store the current key text color to use for all future keys,
+% can be changed any time in the document and can be empty
+\newcommand{\thekeytextcolor}{white}
+\newcommand{\keytextcolor}[1]{\renewcommand{\thekeytextcolor}{#1}}
+
+\newtcbox{\outputkey}[3][small]{
+	size=#1,
+	colback=#2,
+	coltext=#3,
+	fontupper=\bfseries,
+	nobeforeafter,
+	box align=bottom,
+	baseline=3pt,
+	text height=7pt}
+
+\newcommand{\key}[2][small]{\outputkey[#1]{\thekeybackgroundcolor}{\thekeytextcolor}{\uppercase{#2}}}
+
+\newtcolorbox{outputdoublekey}[2]
+{
+	colback=#1,
+	coltext=#2,
+	size=small,
+	fontupper=\tiny\bfseries,
+	width=0.45in,
+	height=0.4in,
+	box align=base,
+	nobeforeafter,
+	halign=center,
+	left=0mm,
+	top=0.04in,
+	bottom=0in,
+	right=0in,
+	baseline=4pt
+}
+\newcommand{\doublekey}[1]{
+	\begin{outputdoublekey}{\thekeybackgroundcolor}{\thekeytextcolor}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{#1}
+	\end{outputdoublekey}
+}
+
+\newtcolorbox{outputwidekey}[2]
+{
+	colback=#1,
+	coltext=#2,
+	size=small,
+	fontupper=\tiny\bfseries,
+	width=0.7in,
+	height=0.35in,
+	box align=base,
+	nobeforeafter,
+	valign=center,
+	halign=center,
+	boxsep=0.0in,
+	baseline=4pt
+}
+\newcommand{\widekey}[1]{
+	\begin{outputwidekey}{\thekeybackgroundcolor}{\thekeytextcolor}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{#1}
+	\end{outputwidekey}
+}
+
+%----------------------------------------------------------------------------------------
 %	TYPE IN COMMAND
 %----------------------------------------------------------------------------------------
 \newcommand{\outputtypein}[1]{
-	{\fontsize{24pt}{24pt}\selectfont\sffamily\bfseries\color{blue}Try typing this program:\\}
-		#1
+	{
+		\noindent\Huge\sffamily\bfseries\color{blue}
+		Try typing this program:
+	}\\\\
+	{
+		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
+	Type this program exactly as shown and see what happens!
+	}\\
+
+	\begin{tcolorbox}[
+			colback=blue,
+			colframe=blue,
+			coltext=white,
+			width=2.375in,
+			height=1.75in
+			]
+			\sffamily\bfseries
+	#1
+	\end{tcolorbox}
+
+	\vspace{16pt}
+
+	{
+		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
+	To stop the program, press the \doublekey{RUN\\STOP} key.
+	}\\
 		\clearpage
 }
 
