@@ -132,24 +132,41 @@
 %	BUBBLES
 %----------------------------------------------------------------------------------------
 
-\newcommand{\bubble}[5]{
+\newcommand{\sizedbubble}[6]{
+	% draw a phantom box first, so we have the position
 	\node[
 		anchor=west,
-		xshift=#1,
-		yshift=#2,
+		xshift=#2,
+		yshift=#3,
 		overlay,
 		relative,
 		rectangle,draw=blue,text=black,fill=white](r) at (0,0) {
-		\parbox{2.0in}{#5}
+		\phantom{\parbox{#1}{#6}}
 		};
+	
+	% draw the line from the center of the phantom
 	\draw [
 		overlay,
 		anchor=west,
 		-stealth,
 		line width = 0.03in,
 		black
-		](r.west) -- (#3,#4);
+		](r.center) -- (#4,#5);
+
+	% actually draw the bubble box
+	\node[
+		anchor=west,
+		xshift=#2,
+		yshift=#3,
+		overlay,
+		relative,
+		rectangle,draw=blue,text=black,fill=white](b) at (0,0) {
+		\parbox{#1}{#6}
+		};
 }
+
+\newcommand{\bubble}[5]{\sizedbubble{2in}{#1}{#2}{#3}{#4}{#5}}
+\newcommand{\smallbubble}[5]{\sizedbubble{1.5in}{#1}{#2}{#3}{#4}{#5}}
 
 %----------------------------------------------------------------------------------------
 %	KEYS
@@ -236,16 +253,14 @@
 %	SCREEN BOX
 %----------------------------------------------------------------------------------------
 
+% a cursor to be used with screen boxes
 \newcommand{\cursor}{
-	\begin{tcolorbox}[
-			sharp corners,
-			colback=white,
-			colframe=white,
-			width=0.2in,
-			height=0.2in,
-			]
-			\sffamily\bfseries
-	\end{tcolorbox}
+	\begin{tikzpicture}
+		\node[
+			rectangle,
+			fill = white,
+			draw] (r) at (0,0) {};
+	\end{tikzpicture}
 }
 
 \newcommand{\screenbox}[3]{

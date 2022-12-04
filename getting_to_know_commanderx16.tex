@@ -51,12 +51,6 @@ signals that it is waiting for you.
 	\cursor
 }
 
-\begin{tikzpicture}
-	\hyphenpenalty=10000
-	\bubble{2.5in}{1.0in}{1.1}{2.5}{
-		This is the X16 saying it's ready.}
-\end{tikzpicture}
-
 
 \begin{tcolorbox}[
 		colback=white,
@@ -94,7 +88,43 @@ As you press each key, the cursor moves to the right.  The cursor will always
 show you where the next character will be typed.  Next, locate one of the
 \keybackgroundcolor{gray}\widekey{shift} keys on the keyboard.  There will be
 one on the right and one on the left, but they both do the same thing: modify another
-key when pressed at the same time as \widekey{shift}.
+key when pressed at the same time as \widekey{shift}.\\
+
+Hold down the \widekey{shift} key and press the \keybackgroundcolor{white}\doublekey{"\\'} key.  The
+screen should now look like this:\\
+
+\screenbox{2.75in}{2in}{
+	**** X16 BASIC ****\\
+	512k HIGH RAM\\
+	38655 BASIC BYTES FREE\\\\
+	READY.\\
+	PRINT"\cursor
+}
+
+Pressing the \doublekey{"\\'} key while holding down \keybackgroundcolor{gray}\widekey{shift} caused the
+{\ttfamily "} character to by typed instead of the {\ttfamily '} character.\\
+
+Now let't type a word.  Without holding down any other keys, press these keys:\\
+
+\keybackgroundcolor{white}
+\key{b} \key{u} \key{t} \key{t} \key{e} \key{r} \key {f} \key{l} \key{y}\\
+
+Finally, hold down the \keybackgroundcolor{gray}\widekey{shift} key, and press the \keybackgroundcolor{white}\doublekey{"\\'} key one more time.  The screen should now show:\\
+
+\screenbox{2.75in}{2in}{
+	**** X16 BASIC ****\\
+	512k HIGH RAM\\
+	38655 BASIC BYTES FREE\\\\
+	READY.\\
+	PRINT"BUTTERFLY"\cursor
+}
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\smallbubble{3in}{1.1in}{4.8}{2.8}{
+		Everything you typed is on this line.}
+\end{tikzpicture}
+
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER - Your First Computer Program
