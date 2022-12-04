@@ -35,7 +35,7 @@
 \chapter{Getting Started}\index{Sectioning}
 
 
-Congratulations!  Your Command X16 is up and running and ready to accept your
+Congratulations!  Your Commander X16 is up and running and ready to accept your
 first commands.  When it starts, it should display a message at the top letting
 you know that it is running BASIC and how much memory is available.  There will
 also be a white blinking rectangle called a \emph{cursor}.  This is how the X16
@@ -72,7 +72,7 @@ signals that it is waiting for you.
 
 \end{tcolorbox}
 
-\section{Experiment a little}
+\section{A Quick Experiement}
 
 \keybackgroundcolor{white}
 \keytextcolor{black}
@@ -90,8 +90,9 @@ show you where the next character will be typed.  Next, locate one of the
 one on the right and one on the left, but they both do the same thing: modify another
 key when pressed at the same time as \widekey{shift}.\\
 
-Hold down the \widekey{shift} key and press the \keybackgroundcolor{white}\doublekey{"\\'} key.  The
-screen should now look like this:\\
+Hold down the \widekey{shift} key and press the
+\keybackgroundcolor{white}\doublekey{"\\'} key.  The screen should now look
+like this:\\
 
 \screenbox{2.75in}{2in}{
 	**** X16 BASIC ****\\
@@ -101,30 +102,129 @@ screen should now look like this:\\
 	PRINT"\cursor
 }
 
-Pressing the \doublekey{"\\'} key while holding down \keybackgroundcolor{gray}\widekey{shift} caused the
-{\ttfamily "} character to by typed instead of the {\ttfamily '} character.\\
+Pressing the \doublekey{"\\'} key while holding down
+\keybackgroundcolor{gray}\widekey{shift} caused the {\ttfamily "} character to
+by typed instead of the {\ttfamily '} character.\\
 
 Now let't type a word.  Without holding down any other keys, press these keys:\\
 
 \keybackgroundcolor{white}
 \key{b} \key{u} \key{t} \key{t} \key{e} \key{r} \key {f} \key{l} \key{y}\\
 
-Finally, hold down the \keybackgroundcolor{gray}\widekey{shift} key, and press the \keybackgroundcolor{white}\doublekey{"\\'} key one more time.  The screen should now show:\\
+Finally, hold down the \keybackgroundcolor{gray}\widekey{shift} key, and press
+the \keybackgroundcolor{white}\doublekey{"\\'} key one more time.  The screen
+should now show:\\
 
-\screenbox{2.75in}{2in}{
-	**** X16 BASIC ****\\
-	512k HIGH RAM\\
-	38655 BASIC BYTES FREE\\\\
-	READY.\\
-	PRINT"BUTTERFLY"\cursor
+{
+	\raggedleft
+	\screenbox{2.75in}{2in}{
+		**** X16 BASIC ****\\
+		512k HIGH RAM\\
+		38655 BASIC BYTES FREE\\\\
+		READY.\\
+		PRINT"BUTTERFLY"\cursor
+	}
 }
 
 \begin{tikzpicture}
 	\hyphenpenalty=10000
-	\smallbubble{3in}{1.1in}{4.8}{2.8}{
+	\smallbubble{0in}{1.1in}{4.8}{2.8}{
 		Everything you typed is on this line.}
 \end{tikzpicture}
 
+If something doesn't look correct, it the
+\keybackgroundcolor{gray}\widekey{backspace} key to delete characters and then
+you can re-type them.\\
+
+Once everything looks correct, find the \widekey{return} key on the keyboard
+and press it once.  Now look at your screen.
+
+\screenbox{3.5in}{2.625in}{
+	**** X16 BASIC ****\\
+	512k HIGH RAM\\
+	38655 BASIC BYTES FREE\\\\
+	READY.\\
+	PRINT"BUTTERFLY"\\
+	BUTTERFLY\\\\
+	READY.\\
+	\cursor
+}
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\smallbubble{2.5in}{2.3in}{4.0}{4.8}{You typed this.}
+	\bubble{2.5in}{1.8in}{4.5}{4.4}{
+		The cursor was here when you pressed the \widekey{retrun} key.}
+	% because I need 3 arrows, I just print this 3 times with different
+	% settings.  The final bubble will be drawn over the others.
+	\bubble{2.5in}{1.2in}{2.9}{3.9}{
+		The Commander X16 printed these.}
+	\bubble{2.5in}{1.2in}{2.0}{3.0}{
+		The Commander X16 printed these.}
+	\bubble{2.5in}{1.2in}{1.0}{2.5}{
+		The Commander X16 printed these.}
+\end{tikzpicture}
+
+Pressing the \widekey{return} key told the X16 that you were finished typing
+your command.  Then the X16 looked at the command you typed, saw that it was
+something it knows how to do, and then did it.  In this case, your command told
+the X16 to {\ttfamily PRINT} a message to the screen,  The X16 knew \emph{what}
+to print because you told it that as well by placing your message between the
+quotation marks.\\
+
+When the X16 finished {\ttfamily PRINT}ing the word {\ttfamily BUTTERFLY}, it
+let you know by displaying the {\ttfamily READY} message and blinking the
+cursor.\\
+
+\section{Your Own Experiments}
+
+Now that you've {\ttfamily PRINT}ed something to the screen, try {\ttfamily
+PRINT}ing other things.  Can you make the Commander X16 say {\ttfamily HELLO}?
+Can you make it say your name?\\
+
+Here are some things to keep in mind:
+
+\begin{itemize}
+	\item Make sure you spell the word {\ttfamily PRINT} correctly
+	\item Put your message between quotation marks ({\ttfamily "}).  Make sure
+		you have one quotation mark at the beginning and one at the end
+	\item Run your command by pressing \widekey{return}
+	\item If something isn't working as you expect, continuing reading to learn about errors
+\end{itemize}
+
+\section{Making A Mistake On Purpose}
+
+What happens if you type something wrong?  Anyone who spends any amount of time
+using a computer is going to mistype a command.  Let's find out what happens by
+making a mistake \emph{on purpose}.  That way, we understand what is happening
+when we make a mistake \emph{by accident}.  Let's make a mistake!\\
+
+Try typing our first command, but this time misspell {\ttfamily PRINT} by
+forgetting the {\ttfamily I} and typing {\ttfamily PRNT} instead:
+
+\screenbox{2.75in}{2in}{
+	READY.\\
+	PRNT"BUTTERFLY"\cursor
+}
+
+This is a very easy mistake to make, and at a glace you won't even notice that
+the command is wrong.  Now press \widekey{return} to run this command.  You
+should see an error message:
+
+\screenbox{2.75in}{2in}{
+	READY.\\
+	PRNT"BUTTERFLY"\\\\
+	?SYNTAX ERROR\\
+	READY.\\
+	\cursor
+}
+
+Printing {\ttfamily ?SYNTAX ERROR} to the screen is how the X16 tells you that
+you typed something that it does not understand.  In this case, you typed
+{\ttfamily PRNT} instead of {\ttfamily PRINT}.\\
+
+For now, don't worry about these errors.  Just make sure that you type your
+commands correctly before you press \widekey{return}.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER - Your First Computer Program
