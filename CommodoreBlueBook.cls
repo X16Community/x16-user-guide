@@ -65,9 +65,6 @@
 
 \usepackage{tcolorbox}
 
-\usepackage{tikz}
-\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
-
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
@@ -168,30 +165,40 @@
 \newcommand{\thekeytextcolor}{white}
 \newcommand{\keytextcolor}[1]{\renewcommand{\thekeytextcolor}{#1}}
 
-\newtcbox{\outputkey}[3][small]{
-	size=#1,
-	colback=#2,
-	coltext=#3,
+\newtcolorbox{outputkey}[2]{
+	size=small,
+	colback=#1,
+	coltext=#2,
+	width=0.22in,
 	fontupper=\bfseries,
 	nobeforeafter,
+	halign=center,
 	box align=bottom,
 	baseline=3pt,
-	text height=7pt}
+	left=0in,
+	top=0in,
+	bottom=0in,
+	right=0in,
+	text height=7pt
+}
 
-\newcommand{\key}[2][small]{\outputkey[#1]{\thekeybackgroundcolor}{\thekeytextcolor}{\uppercase{#2}}}
+\newcommand{\key}[1]{
+	\begin{outputkey}{\thekeybackgroundcolor}{\thekeytextcolor}
+		\uppercase{#1}
+	\end{outputkey}
+}
 
-\newtcolorbox{outputdoublekey}[2]
-{
+\newtcolorbox{outputdoublekey}[2]{
 	colback=#1,
 	coltext=#2,
 	size=small,
-	fontupper=\tiny\bfseries,
+	fontupper=\fontsize{10pt}{10pt}\selectfont\bfseries,
 	width=0.45in,
 	height=0.4in,
 	box align=base,
 	nobeforeafter,
 	halign=center,
-	left=0mm,
+	left=0in,
 	top=0.04in,
 	bottom=0in,
 	right=0in,
@@ -199,7 +206,7 @@
 }
 \newcommand{\doublekey}[1]{
 	\begin{outputdoublekey}{\thekeybackgroundcolor}{\thekeytextcolor}
-		\fontsize{10pt}{10pt}\selectfont\uppercase{#1}
+		\uppercase{#1}
 	\end{outputdoublekey}
 }
 
@@ -209,6 +216,7 @@
 	coltext=#2,
 	size=small,
 	fontupper=\tiny\bfseries,
+	hbox,
 	width=0.7in,
 	height=0.35in,
 	box align=base,
@@ -222,6 +230,35 @@
 	\begin{outputwidekey}{\thekeybackgroundcolor}{\thekeytextcolor}
 		\fontsize{10pt}{10pt}\selectfont\uppercase{#1}
 	\end{outputwidekey}
+}
+
+%----------------------------------------------------------------------------------------
+%	SCREEN BOX
+%----------------------------------------------------------------------------------------
+
+\newcommand{\cursor}{
+	\begin{tcolorbox}[
+			sharp corners,
+			colback=white,
+			colframe=white,
+			width=0.2in,
+			height=0.2in,
+			]
+			\sffamily\bfseries
+	\end{tcolorbox}
+}
+
+\newcommand{\screenbox}[3]{
+	\begin{tcolorbox}[
+			colback=blue,
+			colframe=blue,
+			coltext=white,
+			width=#1,
+			height=#2
+			]
+			\sffamily\bfseries
+	#3
+	\end{tcolorbox}
 }
 
 %----------------------------------------------------------------------------------------
@@ -251,6 +288,8 @@
 	\vspace{16pt}
 
 	{
+		\keybackgroundcolor{gray}
+		\keytextcolor{black}
 		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
 	To stop the program, press the \doublekey{RUN\\STOP} key.
 	}
@@ -909,3 +948,4 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{tikz} % Required for drawing custom shapes and positioning elements absolutely on the page
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows}
