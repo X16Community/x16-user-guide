@@ -211,13 +211,21 @@ This is a very easy mistake to make, and at a glace you won't even notice that
 the command is wrong.  Now press \widekey{return} to run this command.  You
 should see an error message:
 
-\screenbox{2.75in}{2in}{
-	READY.\\
-	PRNT"BUTTERFLY"\\\\
-	?SYNTAX ERROR\\
-	READY.\\
-	\cursor
+{
+	\raggedleft
+	\screenbox{2.75in}{2in}{
+		READY.\\
+		PRNT"BUTTERFLY"\\\\
+		?SYNTAX ERROR\\
+		READY.\\
+		\cursor
+	}
 }
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\smallbubble{0in}{1.5in}{4.9}{3.7}{The X16 lets you know that something is wrong.}
+\end{tikzpicture}
 
 Printing {\ttfamily ?SYNTAX ERROR} to the screen is how the X16 tells you that
 you typed something that it does not understand.  In this case, you typed
