@@ -51,26 +51,18 @@ signals that it is waiting for you.
 	\cursor
 }
 
+\vspace{16pt}
 
-\begin{tcolorbox}[
-		colback=white,
-		colframe=blue,
-		width=4.25in,
-		height=2.1in,
-		]
+\tip{
+	\keybackgroundcolor{gray}
+	\keytextcolor{black}
 
-		\keybackgroundcolor{gray}
-		\keytextcolor{black}
+	If you type a character on the screen that you don't want, press the
+	\widekey{backspace} key.  This key will erase the character immediately
+	to the left of the cursor.\\
 
-		{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont X16 TIP:\\}
-
-		If you type a character on the screen that you don't want, press the
-		\widekey{backspace} key.  This key will erase the character immediately
-		to the left of the cursor.\\
-
-		Use this key as often as you like to delete unwanted characters.
-
-\end{tcolorbox}
+	Use this key as often as you like to delete unwanted characters.
+}
 
 \section{A Quick Experiement}
 
@@ -132,7 +124,7 @@ should now show:\\
 		Everything you typed is on this line.}
 \end{tikzpicture}
 
-If something doesn't look correct, it the
+If something doesn't look correct, use the
 \keybackgroundcolor{gray}\widekey{backspace} key to delete characters and then
 you can re-type them.\\
 
@@ -231,8 +223,38 @@ Printing {\ttfamily ?SYNTAX ERROR} to the screen is how the X16 tells you that
 you typed something that it does not understand.  In this case, you typed
 {\ttfamily PRNT} instead of {\ttfamily PRINT}.\\
 
-For now, don't worry about these errors.  Just make sure that you type your
+For now, don't worry about these errors.  Just do you best to you type your
 commands correctly before you press \widekey{return}.
+
+As you experiment with typing commands, the screen will scroll down to give you
+more room to type and more room for the Commander X16 to print the results of
+your commands.  You may want to clear the screen and bring the cursor back to
+the top.  The Commander X16 has a built-in way to do this without even typing a
+command:\\
+
+Hold down the \widekey{shift} key and press the \doublekey{CLR\\HOME} key.\\
+
+This clears the screen immediately and places the cursor at the top of the
+screen.\\
+
+\tip{
+	Clearing the screen will be one of the most frequent things you do
+	while working on your Commander X16.  It is worth memorizing the
+	\widekey{shift} \doublekey{CLR\\HOME} key combination so that you don't
+	have to reference this manual every time you want to start with a fresh
+	screen.\\
+
+	You can also clear the screen by typing the {\ttfamily CLS} command and
+	pressing \widekey{return}, but most people prefer to use \widekey{shirt}
+	\doublekey{CLR\\HOME}.
+
+}
+
+\vspace{16pt}
+
+Now that you are comfortable typing commands, it's time to write a
+\emph{series} of commands to be executed at once.  This is what is called a
+\emph{computer program}.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER - Your First Computer Program

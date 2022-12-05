@@ -128,6 +128,24 @@
 }
 
 \usepackage{emptypage} % This package removes headers and footers on empty pages between chapters
+
+%----------------------------------------------------------------------------------------
+%	TIPS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\tip}[1]{
+	\begin{tcolorbox}[
+			colback=white,
+			colframe=blue,
+			width=4.25in,
+			]
+			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont X16 TIP:\\}
+
+			#1
+
+	\end{tcolorbox}
+}
+
 %----------------------------------------------------------------------------------------
 %	BUBBLES
 %----------------------------------------------------------------------------------------
