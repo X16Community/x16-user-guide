@@ -133,15 +133,21 @@
 %	TIPS
 %----------------------------------------------------------------------------------------
 
-\newcommand{\tip}[1]{
+\newcommand{\tip}[2]{
 	\begin{tcolorbox}[
 			colback=white,
 			colframe=blue,
 			width=4.25in,
 			]
-			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont X16 TIP:\\}
 
-			#1
+			{
+
+				\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont X16 TIP:
+				\uppercase{#1}\\
+
+			}
+
+			#2
 
 	\end{tcolorbox}
 }

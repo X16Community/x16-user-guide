@@ -53,7 +53,7 @@ signals that it is waiting for you.
 
 \vspace{16pt}
 
-\tip{
+\tip{deleting characters}{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
 
@@ -237,7 +237,7 @@ Hold down the \widekey{shift} key and press the \doublekey{CLR\\HOME} key.\\
 This clears the screen immediately and places the cursor at the top of the
 screen.\\
 
-\tip{
+\tip{Clearing The Screen}{
 	Clearing the screen will be one of the most frequent things you do
 	while working on your Commander X16.  It is worth memorizing the
 	\widekey{shift} \doublekey{CLR\\HOME} key combination so that you don't
@@ -337,5 +337,51 @@ When you are finished, the screen will look like this:
 	\tinybubble{3.5in}{1.75in}{5.0}{3.6}{
 		You typed this and then pressed \widekey{return}.}
 \end{tikzpicture}
+
+\tip{editing mistakes}{
+
+	You can \emph{retype a line} anytime and the Commander X16 will replace the
+	old line with the new one.  For example, if you mistyped the command
+	{\ttfamily PRINT} on line 10:\\
+
+	{\ttfamily
+	10 PRNNT " X16";\\
+	20 GOTO 10
+	}
+
+	You can skip down by hitting \keybackgroundcolor{gray}\widekey{return} a
+	few times and type:\\
+
+	{\ttfamily
+	10 PRINT " X16";\\
+	}
+
+	Now the new line has replaced the old line in your program!  If you want to
+	make sure, type \keybackgroundcolor{white}\key{l}\key{i}\key{s}\key{t} to
+	tell the X16 print out your entire program to the screen.  Replacing lines
+	is also a quick way for you to experiment while writing programs.\\
+
+	Typing the line number and immediately hitting
+	\keybackgroundcolor{gray}\widekey{return} will delete the entire line from
+	your program.
+
+}
+
+If your program looks correct, it's time to tell the X16 to \emph{run} your
+program.  To do this, type \keybackgroundcolor{white}\key{r}\key{u}\key{n}
+\keybackgroundcolor{gray}\widekey{return}.\\
+
+The screen should be filled with {\ttfamily X16}:\\
+
+\begin{center}
+	\screenbox{2.75in}{2in}{
+
+		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
+		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
+		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
+		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
+
+	}
+\end{center}
 
 \@openrighttrue\makeatother
