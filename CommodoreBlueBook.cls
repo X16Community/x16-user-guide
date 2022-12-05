@@ -147,6 +147,23 @@
 }
 
 %----------------------------------------------------------------------------------------
+%	NOTES
+%----------------------------------------------------------------------------------------
+
+\newcommand{\note}[1]{
+	\begin{tcolorbox}[
+			colback=white,
+			colframe=blue,
+			width=4.25in,
+			]
+			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont NOTES:\\}
+
+			#1
+
+	\end{tcolorbox}
+}
+
+%----------------------------------------------------------------------------------------
 %	BUBBLES
 %----------------------------------------------------------------------------------------
 
@@ -228,12 +245,13 @@
 	colback=#1,
 	coltext=#2,
 	size=small,
-	fontupper=\fontsize{10pt}{10pt}\selectfont\bfseries,
-	width=0.50in,
-	height=0.4in,
+	fontupper=\fontsize{7pt}{7pt}\selectfont\bfseries,
+	width=0.40in,
+	height=0.30in,
 	box align=base,
 	nobeforeafter,
 	halign=center,
+	valign=center,
 	left=0in,
 	top=0.04in,
 	bottom=0in,
