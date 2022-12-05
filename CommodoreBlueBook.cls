@@ -369,7 +369,7 @@
 			yshift=-0.5in] at (current page.north east){
 			\contourlength{2pt}
 			\contournumber{20}
-			\fontsize{120pt}{120pt}\selectfont\contour{white}{\textcolor{blue} {#1}}
+			\rmfamily\fontsize{120pt}{120pt}\selectfont\contour{white}{\textcolor{blue} {#1}}
 			};
 
 		% Part title
