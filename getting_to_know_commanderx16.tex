@@ -252,14 +252,68 @@ screen.\\
 
 \vspace{16pt}
 
-Now that you are comfortable typing commands, it's time to write a
-\emph{series} of commands to be executed at once.  This is what is called a
-\emph{computer program}.
-
 %----------------------------------------------------------------------------------------
 %	CHAPTER - Your First Computer Program
 %----------------------------------------------------------------------------------------
 
 \chapter{Your First Computer Program}\index{Sectioning}
+
+Now that you are comfortable typing commands, it's time to write a
+\emph{series} of commands to be executed at once.  This is what is called a
+\emph{computer program}.  Let's begin.\\
+
+\keybackgroundcolor{gray}
+\keytextcolor{black}
+
+\begin{tabular}{l p{0.8\linewidth}}
+	\bfseries STEP 1:&
+
+	Clear the screen by holding down the \widekey{shift} key and then pressing
+	the \doublekey{CLR\\HOME} key at the same time.\\
+
+	\bfseries STEP 2:&
+
+	Type \keybackgroundcolor{white}\key{n} \key{e} \key{w} and press the
+	\keybackgroundcolor{gray}\widekey{return} key.\\
+
+	\bfseries STEP 3:&
+
+	Type \keybackgroundcolor{white}\key{1} \key{0} \widekey{space} \key{p}
+	\key{r} \key{i} \key{n} \key{t} \key{"} \widekey{space} \key{x} \key{1}
+	\key{6} \key{"} \key{;} and press
+	\keybackgroundcolor{gray}\widekey{return}.\\
+
+	\bfseries STEP 4:&
+
+	Type \keybackgroundcolor{white}\key{2} \key{0} \widekey{space} \key{g}
+	\key{o} \key{t} \key{o} \widekey{space} \key{1} \key{0} and press
+	\keybackgroundcolor{gray}\widekey{return}.
+
+\end{tabular}
+
+When you are finished, the screen will look like this:
+\begin{center}
+	\screenbox{2.75in}{2in}{
+		NEW\\\\
+		READY.\\
+		10 PRINT" X16";\\
+		20 GOTO 10\\
+		\cursor
+	}
+\end{center}
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\tinybubble{0in}{1.75in}{2.7}{4.5}{
+		The X16 typed this.}
+	\tinybubble{0in}{0.75in}{2.7}{3.1}{
+		The cursor shows that the X16 is waiting.}
+	\tinybubble{3.5in}{1.75in}{3.8}{5.5}{
+		You typed this and then pressed \widekey{return}.}
+	\tinybubble{3.5in}{1.75in}{5.8}{4.1}{
+		You typed this and then pressed \widekey{return}.}
+	\tinybubble{3.5in}{1.75in}{5.0}{3.6}{
+		You typed this and then pressed \widekey{return}.}
+\end{tikzpicture}
 
 \@openrighttrue\makeatother

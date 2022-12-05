@@ -185,6 +185,7 @@
 
 \newcommand{\bubble}[5]{\sizedbubble{2in}{#1}{#2}{#3}{#4}{#5}}
 \newcommand{\smallbubble}[5]{\sizedbubble{1.5in}{#1}{#2}{#3}{#4}{#5}}
+\newcommand{\tinybubble}[5]{\sizedbubble{0.80in}{#1}{#2}{#3}{#4}{#5}}
 
 %----------------------------------------------------------------------------------------
 %	KEYS
@@ -228,7 +229,7 @@
 	coltext=#2,
 	size=small,
 	fontupper=\fontsize{10pt}{10pt}\selectfont\bfseries,
-	width=0.45in,
+	width=0.50in,
 	height=0.4in,
 	box align=base,
 	nobeforeafter,
