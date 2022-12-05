@@ -306,6 +306,13 @@
 	\end{tikzpicture}
 }
 
+% useful for wrapping screens
+\def\enablehyph#1{\enablehyphA #1\end}
+\def\enablehyphA#1{\ifx\end#1\unskip\unpenalty
+\else#1\penalty0\hskip0pt plus1pt\relax
+\expandafter\enablehyphA\fi}
+
+
 \newcommand{\screenbox}[3]{
 	\begin{tcolorbox}[
 			colback=blue,

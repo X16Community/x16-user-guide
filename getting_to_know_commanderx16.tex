@@ -279,7 +279,7 @@ Now that you are comfortable typing commands, it's time to write a
 	\bfseries STEP 3:&
 
 	Type \keybackgroundcolor{white}\key{1}\key{0} \widekey{space}
-	\key{p}\key{r}\key{i}\key{n}\key{t}\key{"} \widekey{space}
+	\key{p}\key{r}\key{i}\key{n}\key{t} \widekey{space} \key{"}
 	\key{x}\key{1}\key{6}\key{"}\key{;} and press
 	\keybackgroundcolor{gray}\widekey{return}.\\
 
@@ -376,12 +376,103 @@ The screen should be filled with {\ttfamily X16}:\\
 \begin{center}
 	\screenbox{2.75in}{2in}{
 
-		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
-		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
-		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
-		X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16 X16
+		\enablehyph{X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X}
 
 	}
 \end{center}
+
+This text is scrolling up the screen because the program is continuing to add
+new text at the bottom.  The X16 allows you to slow this down by pressing the
+\widekey{ctrl} key.  Just like the \widekey{shift} key, there are two of
+\widekey{ctrl} keys on your keyboard; one on each side.  Holding \widekey{ctrl}
+tells the X16 to reduce how fast it prints to the screen.  This is useful when
+debugging programs that move too fast for your eyes to see clearly.\\
+
+With your program running, you no longer have a cursor that is waiting for you
+to type.  To stop your program and bring back the cursor, press the
+\doublekey{RUN\\STOP} key.  This should stop the program, and display a
+message, and then print the {\ttfamily READY} prompt followed by the cursor:
+
+\begin{center}
+	\screenbox{2.75in}{2in}{
+
+		\enablehyph{X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16X16}\\\\
+		BREAK IN 10\\
+		READY.\\
+		\cursor
+
+	}
+\end{center}
+
+The word {\ttfamily BREAK} is how the X16 tells you that the program has
+stopped, and it also tells you which line it stopped at.  In this case, the
+program \emph{broke} at line 10.  This does not mean anything is broken.  It's
+just the word that the computer uses to let you know that it has stopped in the
+middle of a program.\\
+
+Now that the program has stopped running, the cursor reappears to let you know
+that the X16 is waiting for you to tell it what to do.  This allows you to
+change your program in some way before you run it again.  It would be nice to
+be able to see your program printed to the screen so that you know what to
+change.  To do this, use the {\ttfamily LIST} command by typing
+\keybackgroundcolor{white}\key{l}\key{i}\key{s}\key{t}\keybackgroundcolor{gray}
+\widekey{return}.  You should now see your program on the screen so that you
+can make edits.  When you want to run it again, simply move the cursor to a
+blank line and use the {\ttfamily RUN} command again.  Don't forget to type
+\widekey{return} after you type the command!
+
+By repeating this process of writing, running, stopping, and editing your
+program, you can take your time to make your program run the way you want it to
+run.  You don't have to get everything correct right away.  Even the best
+computer programmers rarely get their programs to run correctly the first time
+it runs.\\
+
+\tip{editing your program}{
+
+	When your program is {\ttfamily LIST}ed out to the screen, you can edit it
+	in place by moving the cursor to the lines you want to edit.  The cursor
+	can be moved by using the arrow keys on the keyboard.  Once you are on the
+	line you wish to edit, you can type over top of the characters that are
+	already there or use the \widekey{backspace} key to delete them and retype
+	the line.  On each line you change, make sure to press the \widekey{return}
+	key while on the line.  Otherwise, the Commander X16 will not replace the
+	old line with the new one.
+
+}
+
+\vspace{16pt}
+
+You have just been introduce to several aspects of the Commander X16 that you
+will use in many of the later chapters.  You have:
+
+\begin{itemize}
+
+	\item {\ttfamily PRINT}ed messages to the screen.
+
+	\item Cleared the screen with the \widekey{shift} and \doublekey{CLR\\HOME}
+		keys.
+	
+	\item Written your first program and created a scrolling display.
+	
+	\item Slowed down the program with the \widekey{ctrl} key.
+
+	\item Stopped the program with the \doublekey{RUN\\STOP} key.
+
+	\item {\ttfamily LIST}ed the program.
+
+	\item Learned ways to edit your program.
+
+\end{itemize}
+
+\vspace{16pt}
+
+As you explore this guide, you will find yourself using these lessons often.
+Don't worry if there are things you don't understand.  Future chapters will go
+into more details about what you have learned here.  It's also important to
+know that the best way to learn is by experimenting for you yourself.\\
+
+This guide is designed so that you can go directly to \emph{any chapter} that
+looks interesting to you.
+
 
 \@openrighttrue\makeatother
