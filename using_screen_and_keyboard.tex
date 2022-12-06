@@ -5,7 +5,15 @@
 \makeatletter\@openrightfalse
 \part{Using the Screen and Keyboard}
 
-\outputtypein{a test}
+\outputtypein{
+	\keybackgroundcolor{gray}
+	\keytextcolor{black}
+	10 PRINT "\widekey{shift}\doublekey{CLR\\HOME}"\\
+	20 FOR T = 1 TO 900: NEXT\\
+	30 PRINT "your name"\\
+	40 FOR T = 1 TO 900: NEXT\\
+	50 GOTO 10
+}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER - More Stuff

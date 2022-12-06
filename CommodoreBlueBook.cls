@@ -353,6 +353,12 @@
 	\vspace{16pt}
 
 	{
+		\keybackgroundcolor{white}
+		\keytextcolor{black}
+		Type \key{r}\key{u}\key{n} and hit \keybackgroundcolor{gray}\widekey{return}
+	}
+
+	{
 		\keybackgroundcolor{gray}
 		\keytextcolor{black}
 		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
