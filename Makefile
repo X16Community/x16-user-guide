@@ -9,7 +9,9 @@ TARGETS					= $(MAIN).tex
 PARTS					= getting_to_know_commanderx16.tex \
 						  preface.tex \
 						  setup.tex \
-						  using_screen_and_keyboard.tex
+						  using_screen_and_keyboard.tex \
+						  graphics.tex \
+						  sound.tex \
 
 TEMPLATES				= CommodoreBlueBook.cls
 
