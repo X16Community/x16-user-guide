@@ -87,8 +87,11 @@ $(NAME).pdf: $(FINAL_SOURCES)
 # Clean
 ################################################################################
 
-clean: clean_pdf_artifacts clean_index_artifacts clean_bibliography_artifacts clean_final_artifacts
+clean: clean_pdf_artifacts clean_index_artifacts clean_bibliography_artifacts clean_final_artifacts clean_appendix
 	rm -f *.pdf *.aux *.log
+
+clean_appendix:
+	rm -f appendix/*.aux
 
 clean_pdf_artifacts:
 	rm -f $(PDF_ARTIFACTS)
