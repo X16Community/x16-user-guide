@@ -52,12 +52,19 @@ BASIC to make the programmer's job easier.  Second, variables have a
 three types of variables are: \emph{normal numeric}, \emph{integer numeric},
 and \emph{string (alphanumeric)} variables.\\
 
+\subsection{Normal Numeric Variables}
+
 \emph{Normal numeric variables} are also called \emph{floating point}
 variables.  They can have any value from $-10^{38}$ to $10^{38}$, with up to
 nine digits of accuracy.  Normal numeric values can hold partial values, such
 as $3.4$, $42.7$, or $0.000025$.  This makes them useful for a variety of
 mathematical uses.  Normal numeric variables can be named with any single
-letter, any letter followed by a number, or with two letters.  For example,
+letter, any letter followed by a number, or with two letters\footnote{
+	There are three variable names that are \emph{reserved} by the Commander
+	X16 for its own use, and cannot be used for variable names in your
+	programs.  These names are {\ttfamily ST}, {\ttfamily TI}, and {\ttfamily
+	TI\$}
+}.  For example,
 {\ttfamily A}, {\ttfamily A5}, or {\ttfamily AB}.\\
 
 To assign a normal numeric variable, simple type your chosen name for the
@@ -84,6 +91,8 @@ Not only can you assign normal numeric variables using scientific notation, but
 the Commander X16 will also display values in scientific notation if they
 require more than nine digits.\\
 
+\subsection{Integer Variables}
+
 \emph{Integer numeric variables} should be used whenever the number will always
 be a whole number, and always be between $-32768$ and $32767$.  These are
 numbers like $1$, $5$, or $-127$.  Integer variables take up less space in the
@@ -109,6 +118,8 @@ the end.  For example:\\
 
 }
 
+\subsection{String Variables}
+
 \emph{String variables} are used to store characters, such as words, sentances,
 or any other symbol that you can type.  A single string variable can store
 either a single character, many characteers in a row, or even no characters at
@@ -122,6 +133,37 @@ string variable must be enclosed in quotation marks.  For example:\\
 	DC\$ = "THE NEXT STING HAS NO CHARACTERS IN IT"\\
 	EC\$ = ""\\
 }
+
+\subsection{Arrays}
+
+\emph{Arrays} are lists of variables that all share the same name.  You can
+specify which item, or \emph{element}, in the list you are using by using a
+number.  For example, if you have an array of normal numeric values in a
+variable named {\ttfamily AB} you can use the second value in the array by
+typing {\ttfamily AB(2)} where you would normally type a variable name or a
+value.  You can create an array that holds any of the above types of variables,
+but a single a array can only hold one type of varaible.  So an array that was
+created to hold seven strings can \emph{only} hold string variables, and will
+cause an error if you try to assign an integer to one of the elements.\\
+
+Unlike other variables, array variables usually\footnote{see the documentation
+of the {\ttfamily DIM} statement for exceptions} need to be \emph{declared}
+before using them.  To do so, use the {\ttfamily DIM} statement like so:\\
+
+\codeblock{
+	DIM A(25)\\
+}
+
+This will tell the Commander X16 to reserve enough memory for twenty five
+normal numeric varaibles.  You can access these variables by \emph{indexing}
+the array variable {\ttfamily A} when using it, like so:\\
+
+\codeblock{
+	PRINT A(14)\\
+}
+
+The above example prints the value of the fourteenth \emph{element} of
+{\ttfamily A} to the screen.
 
 \section{Operators}
 
