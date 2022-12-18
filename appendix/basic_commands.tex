@@ -1,15 +1,134 @@
 \chapter{Commander X16 BASIC}
 
-Consectetur iste incidunt facilis qui dolore aliquid. Nihil corporis autem cum.
-Sed omnis sit voluptas beatae adipisci hic. Dolorem optio blanditiis non.
-Maiores illum odit provident corrupti voluptatum. Quia nihil aspernatur dolore.
-Eligendi et consequatur numquam distinctio autem nulla voluptas voluptatem. Sit
-sunt et impedit sit qui et quia et. Voluptatem repellat qui quo fuga. Labore
-dolor impedit enim qui. Et tempore itaque aliquid. Ut est ut est minus et culpa
-corrupti similique. Eos voluptas est quod excepturi nobis. Aut quibusdam et
-quas. Laborum et eaque quia. Est vero veritatis enim totam tempora dolores.
-Adipisci alias quas eos est et. Et consectetur quibusdam ullam sunt molestiae.
-Placeat corporis modi qui et. Porro et cum quas. Reiciendis temporibus autem
-quod nihil repudiandae quia vel laboriosam. Reiciendis aut sint omnis esse. Est
-totam eligendi ratione et nemo qui consequuntur. Voluptas dolorum aliquid nemo
-et quis sit nemo.  Nostrum aliquid et alias est corporis placeat.
+This manual has introduced you to the BASIC language and many of the commands,
+operators, and conventions.  However, that is not enough in order to truly
+understand how to use BASIC.  This appendix is a reference that aims to provide
+a complete documentation for Commander X16 BASIC.  It will provide the rules
+(known as \emph{syntax}) of the BASIC language, and concise descriptions of
+each BASIC command.\\
+
+To make this information easier to read, it is broken up into the following
+sections:\\
+
+\begin{enumerate}
+
+	\item {\bfseries Variables}: describes what variables are, the different
+		types of variables, and the allowed variable names.
+
+	\item {\bfseries Operators}: describes arithmetic and logical operators.
+
+	\item {\bfseries Commands}: describes the interactive commands that are
+		used to work with programs. 
+
+	\item {\bfseries Statements}: describes the statements that can be used in
+		BASIC programs.
+
+	\item {\bfseries Functions}: describes the BASIC functions that return
+		values, such as calculations and string operations.
+
+\end{enumerate}
+
+\section{Variables}
+
+Variables are values that have been given names.  Programs use variables for
+many purposes, and they are an important part of BASIC programming.
+Programmers can \emph{assign} a value to a variable, and then use that value
+later in their program by refering to the variable.  For example:\\
+
+\codeblock{
+	10 T\$ = "X16"\\
+	20 PRINT T\$\\
+}
+
+The above BASIC program stores the value {\ttfamily "X16"} in a variable named
+{\ttfamily T\$}, and then {\ttfamily PRINT}s the value of {\ttfamily T\$} to
+the screen.\\
+
+Variables are similar to memory addresses except for a couple of key
+differences.  First, the programmer doesn't have to keep track of where a
+variable is stored in the Commander X16's memory.  This job is performed by
+BASIC to make the programmer's job easier.  Second, variables have a
+\emph{type}.  There are three types of variables in Commander X16 BASIC.  The
+three types of variables are: \emph{normal numeric}, \emph{integer numeric},
+and \emph{string (alphanumeric)} variables.\\
+
+\emph{Normal numeric variables} are also called \emph{floating point}
+variables.  They can have any value from $-10^{38}$ to $10^{38}$, with up to
+nine digits of accuracy.  Normal numeric values can hold partial values, such
+as $3.4$, $42.7$, or $0.000025$.  This makes them useful for a variety of
+mathematical uses.  Normal numeric variables can be named with any single
+letter, any letter followed by a number, or with two letters.  For example,
+{\ttfamily A}, {\ttfamily A5}, or {\ttfamily AB}.\\
+
+To assign a normal numeric variable, simple type your chosen name for the
+variable followed by an {ttfamily =} and then the value you wish to assign it:\\
+
+\codeblock{
+	A = 3.4\\
+	A5 = 42.7\\
+	AB = 0.000025\\
+}
+
+For numbers that are very large or very small, you may wish to use scientic
+notation to assign your variables.  The Commander X16 understands scientific
+notation by using the letter {\ttfamily E} to separate the coefficient from the
+exponant (the base is always assumed to be $10$).  So to assign the value $3.7
+\times 10^{-14}$ to a floating point variable named {\ttfamily B2}, you would
+type:\\
+
+\codeblock{
+	B2 = 3.7E-14\\
+}
+
+Not only can you assign normal numeric variables using scientific notation, but
+the Commander X16 will also display values in scientific notation if they
+require more than nine digits.\\
+
+\emph{Integer numeric variables} should be used whenever the number will always
+be a whole number, and always be between $-32768$ and $32767$.  These are
+numbers like $1$, $5$, or $-127$.  Integer variables take up less space in the
+Commander X16's memory, and doing math with integers is faster than with
+floating point numbers.  Integer numeric variables follow the same rules as
+normal numeric variables, except they must have a {\ttfamily \%} character at
+the end.  For example:\\
+
+\codeblock{
+	B\% = 5\\
+	C5\% = -11\\
+	BC\% = 1261\\
+}
+
+\note{
+
+	Sometimes when writing numbers we place a {\ttfamily ,} to separate groups
+	of three digits, such as $1,000$ or $8,006,029,545$.  While this makes
+	numbers easier for humans to read, it is not something that Commander X16
+	understands.  When typing numbers into your programs, you should never use
+	a {\ttfamily ,} but instead type the numbers without it.  So the previous
+	numbers would be typed as $1000$ and $8006029545$.\\
+
+}
+
+\vspace{16pt}
+
+\emph{String variables} are used to store characters, such as words, sentances,
+or any other symbol that you can type.  A single string variable can store
+either a single character, many characteers in a row, or even no characters at
+all!String variable names follow the same rules as normal numeric variables,
+except they must have a {\ttfamily \$} character at the end.  The value of a
+string variable must be enclosed in quotation marks.  For example:\\
+
+\codeblock{
+	N\$ = "COMMANDER X16"\\
+	B8\$ = "SEVEN"\\
+	DC\$ = "THE NEXT STING HAS NO CHARACTERS IN IT"\\
+	EC\$ = ""\\
+}
+
+\section{Operators}
+
+\section{Commands}
+
+\section{Statements}
+
+\section{Functions}

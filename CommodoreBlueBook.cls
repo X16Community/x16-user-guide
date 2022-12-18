@@ -130,6 +130,20 @@
 \usepackage{emptypage} % This package removes headers and footers on empty pages between chapters
 
 %----------------------------------------------------------------------------------------
+%	CODE BLOCKS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\codeblock}[1]{
+	\begin{ttfamily}
+	\begin{bfseries}
+
+		#1
+	
+	\end{bfseries}
+	\end{ttfamily}
+}
+
+%----------------------------------------------------------------------------------------
 %	TIPS
 %----------------------------------------------------------------------------------------
 
@@ -162,7 +176,7 @@
 			colframe=blue,
 			width=4.25in,
 			]
-			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont NOTES:\\}
+			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont NOTE:\\}
 
 			#1
 
