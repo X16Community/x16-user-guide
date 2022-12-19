@@ -148,13 +148,14 @@ cause an error if you try to assign an integer to one of the elements.\\
 
 Unlike other variables, array variables usually\footnote{see the documentation
 of the {\ttfamily DIM} statement for exceptions} need to be \emph{declared}
-before using them.  To do so, use the {\ttfamily DIM} statement like so:\\
+before using them.  You can declare your array variable with the {\ttfamily
+DIM} statement like so:\\
 
 \codeblock{
 	DIM A(25)\\
 }
 
-This will tell the Commander X16 to reserve enough memory for twenty five
+This will tell the Commander X16 to reserve enough memory for twenty-five
 normal numeric varaibles.  You can access these variables by \emph{indexing}
 the array variable {\ttfamily A} when using it, like so:\\
 
@@ -163,7 +164,21 @@ the array variable {\ttfamily A} when using it, like so:\\
 }
 
 The above example prints the value of the fourteenth \emph{element} of
-{\ttfamily A} to the screen.
+{\ttfamily A} to the screen.\\
+
+Arrays can have more than one \emph{dimension} by declaring them with more than
+one index.  For example a two-dimensional array can be useful for storing data
+arranged as rows and columns.  Here is how you would declare an array with 24
+rows of 32 columns:\\
+
+\codeblock{
+	DIM S\%(32,24)\\
+}
+
+The above array can store $32 \times 24$ integer values.  You could even
+declare arrays with even higher dimensions if you have a need for it.  Be
+warned, however, as higher dimensional arrays take up exponentially more memory
+so you will quickly run out.\\
 
 \section{Operators}
 
