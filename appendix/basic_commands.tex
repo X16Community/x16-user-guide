@@ -33,7 +33,7 @@ sections:\\
 Variables are values that have been given names.  Programs use variables for
 many purposes, and they are an important part of BASIC programming.
 Programmers can \emph{assign} a value to a variable, and then use that value
-later in their program by refering to the variable.  For example:\\
+later in their program by referring to the variable.  For example:\\
 
 \codeblock{
 	10 T\$ = "X16"\\
@@ -76,10 +76,10 @@ variable followed by an {ttfamily =} and then the value you wish to assign it:\\
 	AB = 0.000025\\
 }
 
-For numbers that are very large or very small, you may wish to use scientic
+For numbers that are very large or very small, you may wish to use scientific
 notation to assign your variables.  The Commander X16 understands scientific
 notation by using the letter {\ttfamily E} to separate the coefficient from the
-exponant (the base is always assumed to be $10$).  So to assign the value $3.7
+exponent (the base is always assumed to be $10$).  So to assign the value $3.7
 \times 10^{-14}$ to a floating point variable named {\ttfamily B2}, you would
 type:\\
 
@@ -120,9 +120,9 @@ the end.  For example:\\
 
 \subsection{String Variables}
 
-\emph{String variables} are used to store characters, such as words, sentances,
+\emph{String variables} are used to store characters, such as words, sentences,
 or any other symbol that you can type.  A single string variable can store
-either a single character, many characteers in a row, or even no characters at
+either a single character, many characters in a row, or even no characters at
 all!String variable names follow the same rules as normal numeric variables,
 except they must have a {\ttfamily \$} character at the end.  The value of a
 string variable must be enclosed in quotation marks.  For example:\\
@@ -142,7 +142,7 @@ number.  For example, if you have an array of normal numeric values in a
 variable named {\ttfamily AB} you can use the second value in the array by
 typing {\ttfamily AB(2)} where you would normally type a variable name or a
 value.  You can create an array that holds any of the above types of variables,
-but a single a array can only hold one type of varaible.  So an array that was
+but a single a array can only hold one type of variable.  So an array that was
 created to hold seven strings can \emph{only} hold string variables, and will
 cause an error if you try to assign an integer to one of the elements.\\
 
@@ -156,7 +156,7 @@ DIM} statement like so:\\
 }
 
 This will tell the Commander X16 to reserve enough memory for twenty-five
-normal numeric varaibles.  You can access these variables by \emph{indexing}
+normal numeric variables.  You can access these variables by \emph{indexing}
 the array variable {\ttfamily A} when using it, like so:\\
 
 \codeblock{
@@ -181,6 +181,69 @@ warned, however, as higher dimensional arrays take up exponentially more memory
 so you will quickly run out.\\
 
 \section{Operators}
+
+Commander X16 BASIC uses three different types of \emph{operators}:
+\emph{arithmetic} operators, \emph{comparison} operators, and \emph{logical}
+operators.
+
+\subsection{Arithmetic Operators}
+
+\emph{Arithmetic operators} are used for mathematical calculations.  Here are
+the available arithmetic operators:\\
+
+\begin{tabular}{l p{0.8\linewidth}}
++&addition\\
+-&subtraction\\
+*&multiplication\\
+/&division\\
+↑&raising to a power (exponentiation)\\
+\end{tabular}
+
+\vspace{16pt}
+
+When several operators are used in the same arithmetic expression, there is an
+\emph{order} in which the operations execute.  First, any exponentiation
+operations execute.  Next, any multiplication or division operations execute.
+Finally, any addition or subtraction operations execute.  When there are two or
+more operations that execute at the same time, such as a multiplication
+followed by a division, the operations execute from left to right.  Consider
+the following:\\
+
+\codeblock{
+	PRINT 2/4/2\\
+}
+
+The above code will execute and print {\ttfamily .25} to the screen instead of
+printing {\ttfamily 1}.  This is because {\ttfamily 2/4} executes first to
+produce {\ttfamily .5}, and then {\ttfamily .5/2} executes to produce a final
+value of {\ttfamily .25}.  If desired, you can force the order of operations by
+enclosing calculations inside parentheses.  For example, we could reverse the
+order of the operations above by typing:\\
+
+\codeblock{
+	PRINT 2/(4/2)\\
+}
+
+Now the result is {\ttfamily 1} because {\ttfamily 4/2} is executed first to
+produce {\ttfamily 2}, and then {\ttfamily 2/2} executes to produce {\ttfamily
+1}.
+
+Using parentheses is a good practice even when not necessary, because it makes
+the intention of the calculation obvious when reading the code.  Had we used
+them in the original example, it would have made the execution obvious at first
+glance:\\
+
+\codeblock{
+	PRINT (2/4)/2\\
+}
+
+The above code is identical to {\ttfamily 2/4/2}, but is easier to read.
+
+\subsection{Comparison Operators}
+
+\emph{Comparison operators} are useful for
+
+\subsection{Logical Operators}
 
 \section{Commands}
 
