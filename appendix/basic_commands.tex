@@ -59,10 +59,10 @@ $10^{38}$, with up to nine digits of accuracy.  Floating point values can hold
 partial values, such as $3.4$, $42.7$, or $0.000025$.  This makes them useful
 for a variety of mathematical uses.  Floating point variables can be named with
 any single letter, any letter followed by a number, or with two
-letters\footnote{ There are three variable names that are \emph{reserved} by
+letters\footnote{There are three variable names that are \emph{reserved} by
 the Commander X16 for its own use, and cannot be used for variable names in
 your programs.  These names are {\ttfamily ST}, {\ttfamily TI}, and {\ttfamily
-TI\$} }.  For example, {\ttfamily A}, {\ttfamily A5}, or {\ttfamily AB}.\\
+TI\$}}.  For example, {\ttfamily A}, {\ttfamily A5}, or {\ttfamily AB}.\\
 
 To assign a floating point variable, simple type your chosen name for the
 variable followed by an {ttfamily =} and then the value you wish to assign it:\\
@@ -288,9 +288,74 @@ programs.  Here's some examples:\\
 
 Notice how parentheses can be used to explicitly force the order in which
 logical conditions are evaluated, just like how they force the order in which
-arithmetic is evaluated.
+arithmetic is evaluated.\\
 
 \section{Commands}
+
+\emph{Commands} are statements in BASIC that have a use other than being part
+of a BASIC program.  Commands are what you type in order to tell the Commander
+X16 to do things, such as {\ttfamily LIST} the contents of the SD card,
+{\ttfamily LOAD} a program from the SD card, or {\ttfamily RUN} the currently
+loaded program.  Unlike other BASIC statements, commands can be used
+interactively to form a sort of conversation between you and your Commander
+X16.  This section contains a description of each command in alhabetical
+order.\\
+
+\subsection{CONT (continue)}
+
+When a program has been stopped by either using the
+\keybackgroundcolor{gray}\doublekey{RUN\\STOP} key, a {\ttfamily STOP}
+statement, or an {\ttfamily END} statement within the program, it can be
+restarted by using the {\ttfamily CONT} command.  The {\ttfamily CONT} command
+will continue executing the loaded program at the exact place from which it
+left off.\\
+
+The {\ttfamily CONT} command will not always work, however.  If you make any
+modifications to your program while it is stopped, the {\ttfamily CONT} command
+will fail and display a {\ttfamily CAN'T CONTINUE ERROR}.  This is true even if
+you {\ttfamily LIST} the program and hit \widekey{RETURN} while the cursor is
+on a line of the program...even if you didn't make any modifications.  To the
+X16, this is still considered a change to the program, so the only way to run
+it again is to start at the beginning of the program by using the {\ttfamily
+RUN} command.\\
+
+\subsection{LIST}
+
+The {\ttfamily LIST} command will print the currently loaded BASIC program to
+the screen, either in its entirety or only the parts specified by the user.
+When {\ttfamily LIST} is used without any numbers typed after it (known as
+\emph{arguments}), you will see a complete listing of the program on your
+screen.  If the program scrolls off the screen, and you are unable to see the
+part that you want, you have a couple of options.  First, you can use the
+\widekey{CTRL} key to slow down how fast lines are printed to the screen.  The
+part you wish to see will still scroll off eventually, but you will be given a
+much longer time to look at it.  Second, you can use the {\ttfamily LIST}
+command with arguments that will limit the listing to only the line or lines
+that you wish to see.  When you follow the {\ttfamily LIST} command with a
+single number, the X16 will list only that line number (if it exists).  If you
+follow {\ttfamily LIST} with two line numbers separated by a dash, the X16 will
+list all the lines from the first number to the second (including both line
+numbers).  If you follow {\ttfamily LIST} with a dash followed by a single
+number, it lists from the beginning of the program up to and including the line
+number.  Finally, if you follow {\ttfamily LIST} with a number followed by a
+dash, it lists from the line number until the end of the program.\\
+
+\begin{tabular}{l p{0.8\linewidth}}
+	\ttfamily\bfseries{LIST}&Shows entire program.\\
+	\ttfamily\bfseries{LIST 10-}&Shows only from line 10 through the end.\\
+	\ttfamily\bfseries{LIST 10}&Shows only line 10.\\
+	\ttfamily\bfseries{LIST -10}&Shows from the beginning through line 10.\\
+	\ttfamily\bfseries{LIST 10-20}&Shows lines from 10 through 20.\\
+\end{tabular}
+
+\vspace{16pt}
+
+\subsection{LOAD}
+
+The {\ttfamily LOAD} command is used when you want to use a program that is
+stored on the Commander X16's SD card\footnote{the {\ttfamily LOAD} command can
+also be used with other devices, but only the SD card reader ships with the
+Commander X16}.
 
 \section{Statements}
 
