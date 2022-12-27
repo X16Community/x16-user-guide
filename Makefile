@@ -1,5 +1,5 @@
 NAME					= x16_manual
-LATEX_COMPILER			= pdflatex
+LATEX_COMPILER			= xelatex
 LATEX_COMPILER_FLAGS	= -halt-on-error -file-line-error -shell-escape
 
 MAIN					= manual

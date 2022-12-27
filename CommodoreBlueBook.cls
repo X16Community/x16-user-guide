@@ -93,14 +93,54 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
-\usepackage{newcent} % Use the Libre Baskerville font for serif
+\usepackage{fontspec} % Use custom fonts
 
-\usepackage{helvet} % Use the New Century font for sans serif
+\setmainfont{LibreBaskerville}[
+	Path=fonts/,
+	Extension=.ttf,
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic,
+	BoldFont=*-Bold
+] % Use the Libre Baskerville font for serif
+
+\setsansfont{Cabin}[
+	Path=fonts/,
+	Extension=.otf,
+	UprightFont=*-Medium,
+	ItalicFont=*-MediumItalic,
+	BoldFont=*-Bold,
+	BoldItalicFont=*-BoldItalic
+] % Use the New Century font for sans serif
+
+\setsansfont{Cabin}[
+	Path=fonts/,
+	Extension=.otf,
+	UprightFont=*-Medium,
+	ItalicFont=*-MediumItalic,
+	BoldFont=*-Bold,
+	BoldItalicFont=*-BoldItalic
+] % Use the New Century font for sans serif
+
+\setmonofont{FreeMono}[
+	Path=fonts/,
+	Extension=.otf,
+	UprightFont=*,
+	ItalicFont=*Oblique,
+	BoldFont=*Bold,
+	BoldItalicFont=*BoldOblique
+] % Use the New Century font for sans serif
 
 \usepackage{microtype} % Improve typography
 
+
 % use sans serif as default
 \renewcommand{\familydefault}{\sfdefault}
+
+% load PETSCII fonts
+\newfontface\petsciifont{C64_Pro-STYLE}[
+	Path=fonts/,
+	Extension=.otf
+]
 
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
