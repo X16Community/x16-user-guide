@@ -278,7 +278,17 @@ statements into a single statement.  There are three logical operators:\\
 
 \vspace{16pt}
 
-By using these logical operators, you can write complex conditions for your programs:\\
+By using these logical operators, you can write complex conditions for your
+programs.  Here's some examples:\\
+
+\codeblock{
+	IF A = B AND C = D THEN 100\\
+	IF A = B OR NOT (C = D) THEN 100\\
+}
+
+Notice how parentheses can be used to explicitly force the order in which
+logical conditions are evaluated, just like how they force the order in which
+arithmetic is evaluated.
 
 \section{Commands}
 
