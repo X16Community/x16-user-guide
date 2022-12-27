@@ -241,9 +241,47 @@ The above code is identical to {\ttfamily 2/4/2}, but is easier to read.
 
 \subsection{Comparison Operators}
 
-\emph{Comparison operators} are useful for
+\emph{Comparison operators} are useful for determining equalities and
+inequalities.  These are used comparing values against each other to determine
+if they are the same, not the same, or which is larger.  The comparison
+operators are:\\
+
+\begin{tabular}{l p{0.8\linewidth}}
+	\ttfamily\bfseries{=}&is equal to\\
+	\ttfamily\bfseries{<}&is less than\\
+	\ttfamily\bfseries{>}&is greater than\\
+	\ttfamily\bfseries{<= or =<}&is less than or equal to\\
+	\ttfamily\bfseries{>= or =>}&is greater than or equal to\\
+	\ttfamily\bfseries{<> or ><}&is not equal to\\
+\end{tabular}
+
+\vspace{16pt}
+
+Comparison operators are most often used with {\ttfamily IF...THEN} statements.
+For example:\\
+
+\codeblock{
+	A = 12\\
+	IF A > 10 PRINT "LARGER THAN 10"\\
+}
+
+As you can see from the code above, both variables and literal values can be
+used with comparison operators.\\
 
 \subsection{Logical Operators}
+
+\emph{Logical operators} are used to join together multiple comparison
+statements into a single statement.  There are three logical operators:\\
+
+\begin{tabular}{l p{0.8\linewidth}}
+	\ttfamily\bfseries{AND}&is true if both the left side and the right side are true\\
+	\ttfamily\bfseries{OR}&is true if either the left side or the right side are true\\
+	\ttfamily\bfseries{NOT}&is true if the right side is false\\
+\end{tabular}
+
+\vspace{16pt}
+
+By using these logical operators, you can write complex conditions for your programs:\\
 
 \section{Commands}
 
