@@ -177,11 +177,9 @@
 
 \newcommand{\codeblock}[1]{
 	\begin{ttfamily}
-	\begin{bfseries}
 
 		#1
 	
-	\end{bfseries}
 	\end{ttfamily}
 }
 
