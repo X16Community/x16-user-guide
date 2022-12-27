@@ -14,9 +14,9 @@
 
 \begin{tikzpicture}
 	\hyphenpenalty=10000
-	\bubble{2.5in}{2.5in}{5.2}{6.2}{
+	\bubble{2.5in}{2.5in}{4.8}{6.3}{
 		This line tells the X16 to print what's between the quotation marks.}
-	\bubble{2.5in}{1.75in}{4.3}{5.3}{
+	\bubble{2.5in}{1.75in}{4.0}{5.2}{
 		This line tells the X16 to go back to Line 1 and print it again.}
 	\bubble{2.5in}{1.1in}{6.0}{2.0}{
 		Typing the word RUN makes the program run.}
@@ -44,6 +44,13 @@ signals that it is waiting for you.
 	READY.\\
 	\cursor
 }
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\tinybubble{3.0in}{1.2in}{1.0}{3.05}{
+		The X16 is saying it's ready.
+		}
+\end{tikzpicture}
 
 \vspace{16pt}
 
@@ -87,6 +94,13 @@ like this:\\
 	READY.\\
 	PRINT"\cursor
 }
+
+\begin{tikzpicture}
+	\hyphenpenalty=10000
+	\smallbubble{3.0in}{1.0in}{2.2}{2.8}{
+		You typed this.
+		}
+\end{tikzpicture}
 
 Pressing the \doublekey{"\\'} key while holding down
 \keybackgroundcolor{gray}\widekey{shift} caused the {\ttfamily "} character to
@@ -138,8 +152,8 @@ and press it once.  Now look at your screen.
 
 \begin{tikzpicture}
 	\hyphenpenalty=10000
-	\smallbubble{2.5in}{2.3in}{4.0}{4.8}{You typed this.}
-	\bubble{2.5in}{1.8in}{4.5}{4.4}{
+	\smallbubble{2.5in}{2.3in}{3.8}{4.8}{You typed this.}
+	\bubble{2.5in}{1.8in}{4.2}{4.4}{
 		The cursor was here when you pressed the \widekey{return} key.}
 	% because I need 3 arrows, I just print this 3 times with different
 	% settings.  The final bubble will be drawn over the others.
@@ -325,15 +339,15 @@ When you are finished, the screen will look like this:
 
 \begin{tikzpicture}
 	\hyphenpenalty=10000
-	\tinybubble{0in}{2.05in}{2.7}{5.2}{
+	\tinybubble{0in}{1.85in}{2.7}{4.7}{
 		The X16 typed this.}
-	\tinybubble{0in}{1.25in}{2.7}{3.7}{
+	\tinybubble{0in}{1.05in}{2.7}{3.2}{
 		The cursor shows that the X16 is waiting.}
-	\tinybubble{3.5in}{1.75in}{3.8}{6.1}{
+	\tinybubble{3.5in}{1.5in}{3.8}{5.6}{
 		You typed this and then pressed \widekey{return}.}
-	\tinybubble{3.5in}{1.75in}{5.8}{4.7}{
+	\tinybubble{3.5in}{1.5in}{5.8}{4.2}{
 		You typed this and then pressed \widekey{return}.}
-	\tinybubble{3.5in}{1.75in}{5.0}{4.2}{
+	\tinybubble{3.5in}{1.5in}{5.0}{3.7}{
 		You typed this and then pressed \widekey{return}.}
 \end{tikzpicture}
 
