@@ -319,7 +319,33 @@ RUN} command.\\
 
 \subsection{DOS}
 
-<TODO>
+This command works with the command/status channel or the directory of a
+Commodore DOS device and has different functionality depending on the type of
+argument.\\
+
+\begin{itemize}
+
+	\item Without an argument, DOS prints the status string of the current device.
+
+	\item With a string argument of {\ttfamily "8"} or {\ttfamily "9"}, it
+		switches the current device to the given number.
+
+	\item With an argument starting with {\ttfamily "\$"}, it shows the
+		directory of the device.
+
+	\item Any other argument will be sent as a DOS command.
+
+\end{itemize}
+
+\vspace{16pt}
+
+Examples:\\
+
+\codeblock{
+	DOS"\$"          : REM SHOWS DIRECTORY\\
+	DOS"S:BAD\_FILE" : REM DELETES "BAD\_FILE"\\
+	DOS             : REM PRINTS DOS STATUS\\
+}
 
 \subsection{KEYMAP}
 
@@ -403,7 +429,9 @@ programs.  They are used to define what it is that your program does.
 
 \subsection{BOOT}
 
-<TODO>
+The {\ttfamily BOOT} Command loads and runs a PRG file named {\ttfamily
+AUTOBOOT.X16} from device 8. If the file is not found, nothing is done and no
+error is printed.\\
 
 \subsection{BVERIFY}
 
@@ -413,10 +441,24 @@ programs.  They are used to define what it is that your program does.
 
 <TODO>
 
+\subsection{CHAR}
+
+This command draws a text string on the graphics screen in a given color.  The
+string can contain printable ASCII characters ({\ttfamily CHR\$(\$20)} to
+{\ttfamily CHR\$(\$7E)}), as well most PETSCII control codes.\\
+
 \subsection{CLS}
 
-<TODO>
+Clears the screen. Same effect as {\ttfamily ?CHR\$(147);}.
 
+\subsection{COLOR}
+
+This command works sets the text mode foreground color, and optionally the
+background color.\\
+
+\subsection{FRAME}
+
+This command draws a rectangle frame on the graphics screen in a given color.\\
 
 \subsection{VLOAD}
 
