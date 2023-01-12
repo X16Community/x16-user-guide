@@ -349,7 +349,17 @@ Examples:\\
 
 \subsection{KEYMAP}
 
-<TODO>
+The {\ttfamily KEYMAP} command sets the current keyboard layout. It can be put
+into an {\ttfamily AUTOBOOT.X16} file to always set the keyboard layout on
+boot.\\
+
+Example:\\
+
+\codeblock{
+	10 REM PROGRAM TO SET LAYOUT TO SWEDISH/SWEDEN\\
+	20 KEYMAP "SV-SE"\\
+	SAVE"AUTOBOOT.X16"  :REM SAVE AS AUTOBOOT FILE\\
+}
 
 \subsection{LIST}
 
@@ -372,12 +382,14 @@ number, it lists from the beginning of the program up to and including the line
 number.  Finally, if you follow {\ttfamily LIST} with a number followed by a
 dash, it lists from the line number until the end of the program.\\
 
+Expamples:\\
+
 \begin{tabular}{l p{0.8\linewidth}}
-	\ttfamily\bfseries{LIST}&Shows entire program.\\
-	\ttfamily\bfseries{LIST 10-}&Shows only from line 10 through the end.\\
-	\ttfamily\bfseries{LIST 10}&Shows only line 10.\\
-	\ttfamily\bfseries{LIST -10}&Shows from the beginning through line 10.\\
-	\ttfamily\bfseries{LIST 10-20}&Shows lines from 10 through 20.\\
+	{\ttfamily\bfseries LIST}&Shows entire program.\\\\
+	{\ttfamily\bfseries LIST 10-}&Shows only from line 10 through the end.\\\\
+	{\ttfamily\bfseries LIST 10}&Shows only line 10.\\\\
+	{\ttfamily\bfseries LIST -10}&Shows from the beginning through line 10.\\\\
+	{\ttfamily\bfseries LIST 10-20}&Shows lines from 10 through 20.\\\\
 \end{tabular}
 
 \vspace{16pt}
@@ -387,9 +399,53 @@ dash, it lists from the line number until the end of the program.\\
 The {\ttfamily LOAD} command is used when you want to use a program that is
 stored on the Commander X16's SD card\footnote{the {\ttfamily LOAD} command can
 also be used with other devices, but only the SD card reader ships with the
-Commander X16}.
+Commander X16}.  Typing {\ttfamily LOAD} and hitting \widekey{Return} will find
+the first program on the SD card\footnote{The SD card uses the FAT32 disk
+format, so it's a little complicated what makes a file considered the "first"}
+and bring it into memory to be {\ttfamily RUN}, {\ttfamily LIST}ed, or edited.
+You can also type {\ttfamily LOAD} followed by a name of a file in
+quotes({\ttfamily ""}) to specify which file to load into memory.  The file
+name argument may be followed by a comma and a numeric value which specifies a
+device number.  If no number is given, the X16 uses device \#8, which is the SD
+card reader.\\
 
-<TODO>
+Expamples:\\
+
+\begin{tabular}{l p{0.5\linewidth}}
+
+	{\ttfamily\bfseries LOAD}&Loads the first program on the SD card into
+	memory.\\\\
+
+	{\ttfamily\bfseries LOAD "HELLO.PRG"}&Loads a program named {\ttfamily
+	HELLO.PRG} from the SD card into memory.\\\\
+
+	{\ttfamily\bfseries LOAD A\$}&Loads a program whose name is stored in the
+	string variable {\ttfamily A\$} from the SD card into memory.\\\\
+
+	{\ttfamily\bfseries LOAD "HELLO.PRG",1}&Loads a program named {\ttfamily
+	HELLO.PRG} from the drive configured as device \#1.\\\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+There are also special file names that can be loaded that perform specific
+tasks when used with {\ttfamily LOAD}:\\
+
+\begin{tabular}{l p{0.75\linewidth}}
+
+	{\ttfamily\bfseries LOAD "*",1}&Loads the first program on device \#1 into
+	memory.\\\\
+
+	{\ttfamily\bfseries LOAD "\$"}&Loads a directory listing of the SD card
+	into memory which can be displayed with {\ttfamily LIST}.\\\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+The {\ttfamily LOAD} command can be used with a BASIC program to load and
+{\ttfamily RUN} another program.
 
 \subsection{MON}
 
