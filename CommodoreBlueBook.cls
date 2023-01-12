@@ -65,6 +65,8 @@
 
 \usepackage{tcolorbox}
 
+\usepackage{longtable}
+
 \usepackage[hang,flushmargin]{footmisc}
 
 %----------------------------------------------------------------------------------------

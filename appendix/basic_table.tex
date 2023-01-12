@@ -1,0 +1,124 @@
+\chapter{Table of BASIC commands}
+
+\begin{longtable}{|c|c|m{4cm}|c|}
+	\hline
+	Keyword & Type & Summary & Origin \\ \hline
+	{\bfseries ABS} & function & Returns absolute value of a number & C64 \\ \hline
+	{\bfseries AND} & operator & Returns boolean "AND" or bitwise intersection & C64 \\ \hline
+	{\bfseries ASC} & function & Returns numeric PETSCII value from string & C64 \\ \hline
+	{\bfseries ATN} & function & Returns arctangent of a number & C64 \\ \hline
+	{\bfseries BIN}\$ & function & Converts numeric to a binary string & X16 \\ \hline
+	{\bfseries BLOAD} & command & Loads a headerless binary file from disk to a memory address & X16 \\ \hline
+	{\bfseries BOOT} & command & Loads and runs {\ttfamily AUTOBOOT.X16} & X16 \\ \hline
+	{\bfseries BVERIFY} & command & Verifies that a file on disk matches RAM contents & X16 \\ \hline
+	{\bfseries BVLOAD} & command & Loads a headerless binary file from disk to VRAM & X16 \\ \hline
+	{\bfseries CHAR} & command & Draws a text string in graphics mode & X16 \\ \hline
+	{\bfseries CHR}\$ & function & Returns PETSCII character from numeric value & X16 \\ \hline
+	{\bfseries CLOSE} & command & Closes a logical file number & C64 \\ \hline
+	{\bfseries CLR} & command & Clears BASIC variable state & C64 \\ \hline
+	{\bfseries CLS} & command & Clears the screen & X16 \\ \hline
+	{\bfseries CMD} & command & Redirects output to non-screen device & C64 \\ \hline
+	{\bfseries CONT} & command & Resumes execution of a BASIC program & C64 \\ \hline
+	{\bfseries COLOR} & command & Sets text fg and bg color & X16 \\ \hline
+	{\bfseries COS} & function & Returns cosine of an angle in radians & C64 \\ \hline
+	{\bfseries DA}\$ & variable & Returns the date in YYYYMMDD format from the system clock & X16 \\ \hline
+	{\bfseries DATA} & command & Declares one or more constants & C64 \\ \hline
+	{\bfseries DEF} & command & Defines a function for use later in BASIC & C64 \\ \hline
+	{\bfseries DIM} & command & Allocates storage for an array & C64 \\ \hline
+	{\bfseries DOS} & command & Disk and SD card directory operations & X16 \\ \hline
+	{\bfseries END} & command & Terminate program execution and return to {\ttfamily READY.} & C64 \\ \hline
+	{\bfseries EXP} & function & Returns the inverse natural log of a number & C64 \\ \hline
+	{\bfseries FMCHORD} & command & Start or stop simultaneous notes on YM2151 & X16 \\ \hline
+	{\bfseries FMDRUM} & command & Plays a drum sound on YM2151 & X16 \\ \hline
+	{\bfseries FMFREQ} & command & Plays a frequency in Hz on YM2151 & X16 \\ \hline
+	{\bfseries FMINIT} & command & Stops sound and reinitializes YM2151 & X16 \\ \hline
+	{\bfseries FMNOTE} & command & Plays a musical note on YM2151 & X16 \\ \hline
+	{\bfseries FMPAN} & command & Sets stereo panning on YM2151 & X16 \\ \hline
+	{\bfseries FMPLAY} & command & Plays a series of notes on YM2151 & X16 \\ \hline
+	{\bfseries FMPOKE} & command & Writes a value into a YM2151 register & X16 \\ \hline
+	{\bfseries FMVIB} & command & Controls vibrato and tremolo on YM2151 & X16 \\ \hline
+	{\bfseries FMVOL} & command & Sets channel volume on YM2151 & X16 \\ \hline
+	{\bfseries FN} & function & Calls a previously defined function & C64 \\ \hline
+	{\bfseries FOR} & command & Declares the start of a loop construct & C64 \\ \hline
+	{\bfseries FRAME} & command & Draws an unfilled rectangle in graphics mode & X16 \\ \hline
+	{\bfseries FRE} & function & Returns the number of unused BASIC bytes free & C64 \\ \hline
+	{\bfseries GEOS} & command & Enter the GEOS GUI & X16 \\ \hline
+	{\bfseries GET} & command & Polls the keyboard cache for a single keystroke & C64 \\ \hline
+	{\bfseries GET\#} & command & Polls an open logical file for a single character & C64 \\ \hline
+	{\bfseries GOSUB} & command & Jumps to a BASIC subroutine & C64 \\ \hline
+	{\bfseries GOTO} & command & Branches immediately to a line number & C64 \\ \hline
+	{\bfseries HEX\$} & function & Converts numeric to a hexadecimal string & X16 \\ \hline
+	{\bfseries IF} & command & Tests a boolean condition and branches on result & C64 \\ \hline
+	{\bfseries INPUT} & command & Reads a line or values from the keyboard & C64 \\ \hline
+	{\bfseries INPUT\#} & command & Reads lines or values from a logical file & C64 \\ \hline
+	{\bfseries INT} & function & Discards the fractional part of a number & C64 \\ \hline
+	{\bfseries JOY} & function & Reads gamepad button state & X16 \\ \hline
+	{\bfseries KEYMAP} & command & Changes the keyboard layout & X16 \\ \hline
+	{\bfseries LEFT\$} & function & Returns a substring starting from the beginning of a string & C64 \\ \hline
+	{\bfseries LEN} & function & Returns the length of a string & C64 \\ \hline
+	{\bfseries LET} & command & Explicitly declares a variable & C64 \\ \hline
+	{\bfseries LINE} & command & Draws a line in graphics mode & X16 \\ \hline
+	{\bfseries LIST} & command & Outputs the program listing to the screen & C64 \\ \hline
+	{\bfseries LOAD} & command & Loads a program from disk into memory & C64 \\ \hline
+	{\bfseries LOCATE} & command & Moves the text cursor to new location & X16 \\ \hline
+	{\bfseries LOG} & function & Returns the natural logarithm of a number & C64 \\ \hline
+	{\bfseries MID\$} & function & Returns a substring from the middle of a string & C64 \\ \hline
+	{\bfseries MON} & command & Enters the machine language monitor & X16 \\ \hline
+	{\bfseries MOUSE} & command & Hides or shows mouse pointer & X16 \\ \hline
+	{\bfseries MX/MY/MB} & variable & Reads the mouse position and button state & X16 \\ \hline
+	{\bfseries NEW} & command & Resets the state of BASIC and clears program memory & C64 \\ \hline
+	{\bfseries NEXT} & command & Declares the end of a loop construct & C64 \\ \hline
+	{\bfseries NOT} & operator & Bitwise or boolean inverse & C64 \\ \hline
+	{\bfseries OLD} & command & Undoes a NEW command or warm reset & X16 \\ \hline
+	{\bfseries ON} & command & A GOTO/GOSUB table based on a variable value & C64 \\ \hline
+	{\bfseries OPEN} & command & Opens a logical file to disk or other device & C64 \\ \hline
+	{\bfseries OR} & operator & Bitwise or boolean "OR" & C64 \\ \hline
+	{\bfseries PEEK} & function & Returns a value from a memory address & C64 \\ \hline
+	{\bfseries π} & function & Returns the constant for the value of pi & C64 \\ \hline
+	{\bfseries POKE} & command & Assigns a value to a memory address & C64 \\ \hline
+	{\bfseries POS} & function & Returns the column position of the text cursor & C64 \\ \hline
+	{\bfseries PRINT} & command & Prints data to the screen or other output & C64 \\ \hline
+	{\bfseries PRINT\#} & command & Prints data to an open logical file & C64 \\ \hline
+	{\bfseries PSET} & command & Changes a pixel's color in graphics mode & X16 \\ \hline
+	{\bfseries PSGCHORD} & command & Starts or stops simultaneous notes on VERA PSG & X16 \\ \hline
+	{\bfseries PSGFREQ} & command & Plays a frequency in Hz on VERA PSG & X16 \\ \hline
+	{\bfseries PSGINIT} & command & Stops sound and reinitializes VERA PSG & X16 \\ \hline
+	{\bfseries PSGNOTE} & command & Plays a musical note on VERA PSG & X16 \\ \hline
+	{\bfseries PSGPAN} & command & Sets stereo panning on VERA PSG & X16 \\ \hline
+	{\bfseries PSGPLAY} & command & Plays a series of notes on VERA PSG & X16 \\ \hline
+	{\bfseries PSGVOL} & command & Sets voice volume on VERA PSG & X16 \\ \hline
+	{\bfseries PSGWAV} & command & Sets waveform on VERA PSG & X16 \\ \hline
+	{\bfseries READ} & command & Assigns the next {\ttfamily DATA} constant to one or more variables & C64 \\ \hline
+	{\bfseries RECT} & command & Draws a filled rectangle in graphics mode & X16 \\ \hline
+	{\bfseries REM} & command & Declares a comment & C64 \\ \hline
+	{\bfseries RESET} & command & Performs a warm reset on the system & X16 \\ \hline
+	{\bfseries RESTORE} & command & Resets the {\ttfamily READ} pointer to the first {\ttfamily DATA} constant & C64 \\ \hline
+	{\bfseries RETURN} & command & Returns from a subroutine to the statement following a GOSUB & C64 \\ \hline
+	{\bfseries RIGHT\$} & function & Returns a substring from the end of a string & C64 \\ \hline
+	{\bfseries RND} & function & Returns a floating point number 0 <= n < 1 & C64 \\ \hline
+	{\bfseries RUN} & command & Clears the variable state and starts a BASIC program & C64 \\ \hline
+	{\bfseries SAVE} & command & Saves a BASIC program from memory to disk & C64 \\ \hline
+	{\bfseries SCREEN} & command & Selects a text or graphics mode & X16 \\ \hline
+	{\bfseries SGN} & function & Returns the sign of a numeric value & C64 \\ \hline
+	{\bfseries SIN} & function & Returns the sine of an angle in radians & C64 \\ \hline
+	{\bfseries SPC} & function & Returns a string with a set number of spaces & C64 \\ \hline
+	{\bfseries SQR} & function & Returns the square root of a numeric value & C64 \\ \hline
+	{\bfseries ST} & variable & Returns the status of certain DOS/peripheral operations & C64 \\ \hline
+	{\bfseries STEP} & keyword & Used in a {\ttfamily FOR} declaration to declare the iterator step & C64 \\ \hline
+	{\bfseries STOP} & command & Breaks out of a BASIC program & C64 \\ \hline
+	{\bfseries STR\$} & function & Converts a numeric value to a string & C64 \\ \hline
+	{\bfseries SYS} & command & Transfers control to machine language at a memory address & C64 \\ \hline
+	{\bfseries TAB} & function & Returns a string with spaces used for column alignment & C64 \\ \hline
+	{\bfseries TAN} & function & Return the tangent for an angle in radians & C64 \\ \hline
+	{\bfseries THEN} & keyword & Control structure as part of an {\ttfamily IF} statement & C64 \\ \hline
+	{\bfseries TI} & variable & Returns the jiffy timer value & C64 \\ \hline
+	{\bfseries TI\$} & variable & Returns the time HHMMSS from the system clock & C64 \\ \hline
+	{\bfseries TO} & keyword & Part of the {\ttfamily FOR} loop declaration syntax & C64 \\ \hline
+	{\bfseries USR} & function & Call a user-defined function in machine language & C64 \\ \hline
+	{\bfseries VAL} & function & Parse a string to return a numeric value & C64 \\ \hline
+	{\bfseries VERIFY} & command & Verify that a BASIC program was written to disk correctly & C64 \\ \hline
+	{\bfseries VPEEK} & function & Returns a value from VERA's VRAM & X16 \\ \hline
+	{\bfseries VPOKE} & command & Sets a value in VERA's VRAM & X16 \\ \hline
+	{\bfseries VLOAD} & command & Loads a file to VERA's VRAM & X16 \\ \hline
+	{\bfseries WAIT} & command & Waits for a memory location to match a condition & C64 \\ \hline
+\end{longtable}

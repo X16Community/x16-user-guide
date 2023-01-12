@@ -13,7 +13,7 @@ PARTS					= getting_to_know_commanderx16.tex \
 						  graphics.tex \
 						  sound.tex \
 						  appendix/basic_commands.tex \
-						  appendix/basic_abbreviations.tex \
+						  appendix/basic_table.tex \
 						  appendix/65c02_op_codes.tex \
 
 TEMPLATES				= CommodoreBlueBook.cls
