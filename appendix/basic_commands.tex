@@ -18,15 +18,31 @@ sections:\\
 	\item {\bfseries Operators}: describes arithmetic and logical operators.
 
 	\item {\bfseries Commands}: describes the interactive commands that are
-		used to work with programs. 
+		used to work with programs or perform other tasks that users typically
+		type directly into the {\ttfamily READY} prompt.
 
-	\item {\bfseries Statements}: describes the statements that can be used in
-		BASIC programs.
+	\item {\bfseries Statements}: describes the statements that are typically
+		used in BASIC programs, but aren't often called directly by users from
+		the {\ttfamily READY} prompt.
 
 	\item {\bfseries Functions}: describes the BASIC functions that return
 		values, such as calculations and string operations.
 
 \end{enumerate}
+
+\vspace{16pt}
+
+\note{
+
+	Commands and statements are not technically different, and often these
+	terms are used interchangeably.  Commands can be used from within BASIC
+	programs and statements can be run directly from the {\ttfamily READY}
+	prompt.  The reason for different labels is because many commands make
+	little sense when used from within BASIC programs.  For example, using the
+	{\ttfamily NEW} command inside a BASIC program will cause the program to
+	halt execution and be removed from memory!
+
+}
 
 \section{Variables}
 
@@ -294,10 +310,11 @@ arithmetic is evaluated.\\
 \section{Commands}
 
 \emph{Commands} are instructions that you type in order to work with programs
-on the Commander X16.  Commands tell the Commander X16 to do things, such as
-{\ttfamily LIST} the contents of the SD card, {\ttfamily LOAD} a program from
-the SD card, or {\ttfamily RUN} the currently loaded program.  This section
-contains a description of each command in alhabetical order.\\
+on the Commander X16 or perform other user tasks.  Commands tell the Commander
+X16 to do things, such as {\ttfamily LIST} the contents of the SD card,
+{\ttfamily LOAD} a program from the SD card, or {\ttfamily RUN} the currently
+loaded program.  This section contains a description of each command in
+alhabetical order.\\
 
 \subsection{CONT (continue)}
 
@@ -445,18 +462,20 @@ tasks when used with {\ttfamily LOAD}:\\
 \vspace{16pt}
 
 The {\ttfamily LOAD} command can be used with a BASIC program to load and
-{\ttfamily RUN} another program.
+{\ttfamily RUN} another program.\\
 
 \subsection{MON}
 
-<TODO>
+The {\ttfamily MON} command causes the Commander X16 to enter the machine
+language monitor.\\
 
 \subsection{NEW} 
 <TODO>
 
 \subsection{OLD}
 
-<TODO>
+ The {\ttfamily OLD} command recovers the BASIC program in RAM that has been
+ previously deleted using the {\ttfamily NEW} command or through a RESET.\\
 
 \subsection{RESET}
 
@@ -478,6 +497,10 @@ The {\ttfamily LOAD} command can be used with a BASIC program to load and
 
 \emph{Statements} are the instructions used in BASIC on numbered lines of
 programs.  They are used to define what it is that your program does.
+
+\subsection{BANK}
+
+<TODO>
 
 \subsection{BLOAD}
 
@@ -503,21 +526,390 @@ This command draws a text string on the graphics screen in a given color.  The
 string can contain printable ASCII characters ({\ttfamily CHR\$(\$20)} to
 {\ttfamily CHR\$(\$7E)}), as well most PETSCII control codes.\\
 
+\subsection{CLOSE}
+
+<TODO>
+
+\subsection{CLR}
+
+<TODO>
+
+\subsection{CMD}
+
+<TODO>
+
 \subsection{CLS}
 
-Clears the screen. Same effect as {\ttfamily ?CHR\$(147);}.
+Clears the screen. Same effect as {\ttfamily ?CHR\$(147);}.\\
 
 \subsection{COLOR}
 
 This command works sets the text mode foreground color, and optionally the
 background color.\\
 
+\subsection{DATA}
+
+<TODO>
+
+\subsection{DEF}
+
+<TODO>
+
+\subsection{DIM}
+
+<TODO>
+
+\subsection{END}
+
+<TODO>
+
+\subsection{FMCHORD}
+
+<TODO>
+
+\subsection{FMDRUM}
+
+<TODO>
+
+\subsection{FMFREQ}
+
+<TODO>
+
+\subsection{FMINIT}
+
+<TODO>
+
+\subsection{FMINST}
+
+<TODO>
+
+\subsection{FMNOTE}
+
+<TODO>
+
+\subsection{FMPAN}
+
+<TODO>
+
+\subsection{FMPLAY}
+
+<TODO>
+
+\subsection{FMPOKE}
+
+<TODO>
+
+\subsection{FMVIB}
+
+<TODO>
+
+\subsection{FMVOL}
+
+<TODO>
+
+\subsection{FOR}
+
+<TODO>
+
 \subsection{FRAME}
 
 This command draws a rectangle frame on the graphics screen in a given color.\\
+
+\subsection{GEOS}
+
+<TODO>
+
+\subsection{GET}
+
+<TODO>
+
+\subsection{GET\#}
+
+<TODO>
+
+\subsection{GOSUB}
+
+<TODO>
+
+\subsection{GOTO}
+
+<TODO>
+
+\subsection{IF}
+
+<TODO>
+
+\subsection{INPUT}
+
+<TODO>
+
+\subsection{INPUT\#}
+
+<TODO>
+
+\subsection{LET}
+
+<TODO>
+
+\subsection{LINE}
+
+<TODO>
+
+\subsection{LOCATE}
+
+<TODO>
+
+\subsection{MOUSE}
+
+<TODO>
+
+\subsection{NEXT}
+
+<TODO>
+
+\subsection{ON}
+
+<TODO>
+
+\subsection{OPEN}
+
+<TODO>
+
+\subsection{POKE}
+
+<TODO>
+
+\subsection{PRINT}
+
+<TODO>
+
+\subsection{PRINT\#}
+
+<TODO>
+
+\subsection{PSET}
+
+<TODO>
+
+\subsection{PSET}
+
+<TODO>
+
+\subsection{PSGCHORD}
+
+<TODO>
+
+\subsection{PSGFREQ}
+
+<TODO>
+
+\subsection{PSGINIT}
+
+<TODO>
+
+\subsection{PSGNOTE}
+
+<TODO>
+
+\subsection{PSGPAN}
+
+<TODO>
+
+\subsection{PSGPLAY}
+
+<TODO>
+
+\subsection{PSGVOL}
+
+<TODO>
+
+\subsection{PSGWAV}
+
+<TODO>
+
+\subsection{READ}
+
+<TODO>
+
+\subsection{RECT}
+
+<TODO>
+
+\subsection{REM}
+
+<TODO>
+
+\subsection{REM}
+
+<TODO>
+
+\subsection{RESTORE}
+
+<TODO>
+
+\subsection{RETURN}
+
+<TODO>
+
+\subsection{SCREEN}
+
+<TODO>
+
+\subsection{STEP}
+
+<TODO>
+
+\subsection{STOP}
+
+<TODO>
+
+\subsection{SYS}
+
+<TODO>
+
+\subsection{THEN}
+
+<TODO>
+
+\subsection{TO}
+
+<TODO>
+
+\subsection{VPOKE}
+
+<TODO>
 
 \subsection{VLOAD}
 
 <TODO>
 
+\subsection{WAIT}
+
+<TODO>
+
 \section{Functions}
+
+\subsection{ABS}
+
+<TODO>
+
+\subsection{ASC}
+
+<TODO>
+
+\subsection{ATN}
+
+<TODO>
+
+\subsection{BIN\$}
+
+<TODO>
+
+\subsection{CHR\$}
+
+<TODO>
+
+\subsection{COS}
+
+<TODO>
+
+\subsection{EXP}
+
+<TODO>
+
+\subsection{FN}
+
+<TODO>
+
+\subsection{FRE}
+
+<TODO>
+
+\subsection{HEX\$}
+
+<TODO>
+
+\subsection{INT}
+
+<TODO>
+
+\subsection{LEFT\$}
+
+<TODO>
+
+\subsection{LEN}
+
+<TODO>
+
+\subsection{LOG}
+
+<TODO>
+
+\subsection{MID\$}
+
+<TODO>
+
+\subsection{PEEK}
+
+<TODO>
+
+\subsection{\ttfamily π}
+
+<TODO>
+
+\subsection{POS}
+
+<TODO>
+
+\subsection{RIGHT\$}
+
+<TODO>
+
+\subsection{RND}
+
+<TODO>
+
+\subsection{RND}
+
+<TODO>
+
+\subsection{SGN}
+
+<TODO>
+
+\subsection{SIN}
+
+<TODO>
+
+\subsection{SPC}
+
+<TODO>
+
+\subsection{SQR}
+
+<TODO>
+
+\subsection{STR\$}
+
+<TODO>
+
+\subsection{TAB}
+
+<TODO>
+
+\subsection{TAN}
+
+<TODO>
+
+\subsection{USR}
+
+<TODO>
+
+\subsection{VAL}
+
+<TODO>
+
+\subsection{VPEEK}
+
+<TODO>
+
