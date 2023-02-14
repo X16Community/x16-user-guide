@@ -42,6 +42,24 @@ type-in BASIC program that gives the user a preview of what they are going to
 learn, and then the rest of the chapter explains what they did in detail.  This
 pattern should be followed all througout the book.
 
+## Dependencies
+
+This project uses `texlive`, and specifically the `xelatex` program for
+compiling into a PDF.  On Debian/Ubuntu systems all dependencies can be installed with:
+
+```
+sudo apt-get install -y texlive-xetex texlive-bibtex-extra biber
+```
+
+## Building
+
+A custom Makefile exists in the root directory, and it does not require any
+build system like autotools or CMake.  Simply type:
+
+```
+make
+```
+
 ## Contributing
 
 The Commander X16 User's Guide is written in LaTeX, a document typesetting
