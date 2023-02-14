@@ -316,6 +316,29 @@ X16 to do things, such as {\ttfamily LIST} the contents of the SD card,
 loaded program.  This section contains a description of each command in
 alhabetical order.\\
 
+\subsection{CLR}
+
+The {\ttfamily CLR} command clears the BASIC variables from memory.  This
+includes variables that were assigned values while running BASIC programs as
+well as any BASIC assignments that were called from the {\ttfamily READY}
+prompt directly.  Variables cleared with {\ttfamily CLR} cannot be restored
+with the {\ttfamily OLD} command.
+
+The {\ttfamily CLR} command runs automatically whenever the {\ttfamily RUN}
+command is called, so that each run of a program starts with a cleared
+variables state.  {\ttfamily CLR} is \emph{not} called when the {\ttfamily
+CONT} command is run, so that a prgram can continue where it left off with the
+variable state in tact.\\
+
+\subsection{CLS}
+
+The {\ttfamily CLS} command clears the screen. This has the same effect as
+typing {\ttfamily PRINT CHR\$(147);} or typing
+\keybackgroundcolor{gray}\keytextcolor{black}\widekey{shift}+\doublekey{clr\\home}.
+This command is useful when programs and commands have cluttered up the screen,
+and is also useful in BASIC programs to {\ttfamily PRINT}ing to an empty
+screen.\\
+
 \subsection{CONT (continue)}
 
 When a program has been stopped by either using the
@@ -323,7 +346,7 @@ When a program has been stopped by either using the
 statement, or an {\ttfamily END} statement within the program, it can be
 restarted by using the {\ttfamily CONT} command.  The {\ttfamily CONT} command
 will continue executing the loaded program at the exact place from which it
-left off.\\
+left off, with all the variables intact.\\
 
 The {\ttfamily CONT} command will not always work, however.  If you make any
 modifications to your program while it is stopped, the {\ttfamily CONT} command
@@ -399,7 +422,7 @@ number, it lists from the beginning of the program up to and including the line
 number.  Finally, if you follow {\ttfamily LIST} with a number followed by a
 dash, it lists from the line number until the end of the program.\\
 
-Expamples:\\
+Examples:\\
 
 \begin{tabular}{l p{0.8\linewidth}}
 	{\ttfamily\bfseries LIST}&Shows entire program.\\\\
@@ -426,7 +449,7 @@ name argument may be followed by a comma and a numeric value which specifies a
 device number.  If no number is given, the X16 uses device \#8, which is the SD
 card reader.\\
 
-Expamples:\\
+Examples:\\
 
 \begin{tabular}{l p{0.5\linewidth}}
 
@@ -512,7 +535,27 @@ after a {\ttfamily RESET} by using the {\ttfamily OLD} command.\\
 
 \subsection{RUN}
 
-<TODO> % Make sure to mention how it calls `CLR`
+The {\ttfamily RUN} command executes the program currently loaded into memory.
+This program could have been typed in, or it could have been loaded from the SD
+card with the {\ttfamily LOAD} command.  When called, the {\ttfamily RUN}
+command will clear the BASIC variables (just like calling the {\ttfamily CLR}
+command) and begin running the program.  When no number follows the {\ttfamily
+RUN} command, the program will start executing from the lowest line number in
+the program.  Otherwise, {\ttfamily RUN} will start executing at the given line
+number, or the next lowest line number in the program.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.75\linewidth}}
+
+	{\ttfamily\bfseries RUN}&Starts program from lowest line number.\\\\
+
+	{\ttfamily\bfseries RUN 50}&Starts program at line 50.\\\\
+
+	{\ttfamily\bfseries RUN A}&UNDEFINED ERROR ({\ttfamily RUN} cannot be used
+	with a variable to specify a line number).\\\\
+
+\end{tabular}
 
 \subsection{SAVE}
 
@@ -559,17 +602,9 @@ string can contain printable ASCII characters ({\ttfamily CHR\$(\$20)} to
 
 <TODO>
 
-\subsection{CLR}
-
-<TODO>
-
 \subsection{CMD}
 
 <TODO>
-
-\subsection{CLS}
-
-Clears the screen. Same effect as {\ttfamily ?CHR\$(147);}.\\
 
 \subsection{COLOR}
 
