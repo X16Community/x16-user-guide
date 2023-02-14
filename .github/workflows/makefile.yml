@@ -1,0 +1,25 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install LaTeX
+      run: sudo apt-get install -y texlive-xetex texlive-bibtex-extra biber
+
+    - name: Compile PDF
+      run: make
+    - uses: actions/upload-artifact@v3
+      with:
+        name: X16UsersGuide.pdf
+        path: x16_manual.pdf
