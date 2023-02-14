@@ -113,11 +113,11 @@ between the top and bottom:
 
 The type in example at the beginning of each chapter is such a common feature
 that the entire page can be produced using a predefined LaTeX command called
-`\outputtypein`.  Here is an example of how this is used in the introductory
+`\chaptertypein`.  Here is an example of how this is used in the introductory
 chapter:
 
 ```
-\outputtypein{
+\chaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
 	1 PRINT "X16" \widekey{return}\\\\
@@ -132,6 +132,8 @@ This produces an entire chapter type-in page as shown here:
 Often you will want to annotate these examples with helper bubbles.  For
 details see the the section on Bubbles below.
 
+There is also a `\largechaptertypein` command for larger screens that can
+display longer type-in programs.
 
 #### Screen Boxes
 
@@ -161,7 +163,7 @@ anywhere on the page.  These bubbles are intended to be used inside of a
 above:
 
 ```
-\outputtypein{
+\chaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
 	1 PRINT "X16" \widekey{return}\\\\

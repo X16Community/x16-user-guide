@@ -389,7 +389,7 @@
 %----------------------------------------------------------------------------------------
 %	TYPE IN COMMAND
 %----------------------------------------------------------------------------------------
-\newcommand{\outputtypein}[1]{
+\newcommand{\sizedchaptertypein}[3]{
 	{
 		\noindent\Huge\sffamily\bfseries\color{blue}
 		Try typing this program:
@@ -403,11 +403,11 @@
 			colback=blue,
 			colframe=blue,
 			coltext=white,
-			width=2.375in,
-			height=1.75in
+			width=#1,
+			height=#2
 			]
 			\sffamily\bfseries
-	#1
+	#3
 	\end{tcolorbox}
 
 	\vspace{16pt}
@@ -425,6 +425,9 @@
 	To stop the program, press the \doublekey{RUN\\STOP} key.
 	}
 }
+
+\newcommand{\chaptertypein}[1]{\sizedchaptertypein{2.333in}{1.75in}{#1}}
+\newcommand{\largechaptertypein}[1]{\sizedchaptertypein{3.5in}{2.625in}{#1}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION STYLING

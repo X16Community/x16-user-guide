@@ -5,14 +5,22 @@
 \makeatletter\@openrightfalse
 \part{Sound}
 
-\outputtypein{
+\largechaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
-	10 PRINT "\widekey{shift}\doublekey{CLR\\HOME}"\\
-	20 FOR T = 1 TO 900: NEXT\\
-	30 PRINT "your name"\\
-	40 FOR T = 1 TO 900: NEXT\\
-	50 GOTO 10
+	10 FMINST 0,18:FMINST 1,18\\
+	20 FMINST 2,18:FMINST 3,29\\
+	30 FMVIB 210,10\\
+	40 FMPLAY 3,"R160"\\
+	50 FMCHORD 0,"O3G>CE"\\
+	60 FMPLAY 3,"L4O5CL8CCDER4"\\
+	70 FMCHORD 0,"O3A>CE"\\
+	80 FMPLAY 3,"L4O4AL8AAB>CR4"\\
+	90 FMCHORD 0,"O3FA>C"\\
+	100 FMPLAY 3,"L4O4FL8FFGAR4"\\
+	110 FMCHORD 0,"O3GB>D"\\
+	120 FMPLAY 3,"L4O4GL8GGABR4"\\
+	130 FMINIT\\
 }
 
 %----------------------------------------------------------------------------------------
