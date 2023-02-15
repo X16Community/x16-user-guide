@@ -474,7 +474,7 @@ tasks when used with {\ttfamily LOAD}:\\
 
 \begin{tabular}{l p{0.75\linewidth}}
 
-	{\ttfamily\bfseries LOAD "*",1}&Loads the first program on device \#1 into
+	{\ttfamily\bfseries LOAD "*",8}&Loads the first program on device \#8 into
 	memory.\\\\
 
 	{\ttfamily\bfseries LOAD "\$"}&Loads a directory listing of the SD card
@@ -559,7 +559,46 @@ Examples:\\
 
 \subsection{SAVE}
 
-<TODO>
+The {\ttfamily SAVE} command will store the the current program in memory to
+the SD card or another storage device.  The {\ttfamily SAVE} command should be
+followed either by a file name in quotation marks, or a string variable that
+contains the desired file name\footnote{calling the {\ttfamily SAVE} command
+without any arguments is technically allowed, but doesn't do anything.  On the
+Commodore VIC-20 and Commodore 64 this was useful for saving the current
+program to the current position of a tape drive with no name, but the Commander
+X16's default device is an SD card reader where this concept makes no sense.
+For historical reasons, the Commander X16 won't display an error if you run
+{\ttfamily SAVE} with no arguments, but it also won't do anything}.  The file
+name argument can be followed by a comma and a number or numeric variable.
+This number tells the Commander X16 which device to store the file on.  Device
+number 8 is the SD card drive and is used if no number is given.\\
+
+If a tape dirve is used with the Commander X16, then a second numeric argument
+of either {\ttfamily 0} or {\ttfamily 1} can be specified after the device
+number.  If this second is a {\ttfamily 1}, an {\ttfamily END-OF-TAPE} marker
+will be written after the program.  If you are attempting to {\ttfamily LOAD} a
+program off the tape drive and this marker is read before finding the desired
+file, a {\ttfamily FILE NOT FOUND ERROR} will be displayed.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.5\linewidth}}
+
+	{\ttfamily\bfseries SAVE "HELLO.PRG"}&Saves the program in memory to a file
+	on the SD card with the name {\ttfamily HELLO.PRG}.\\\\
+
+	{\ttfamily\bfseries SAVE A\$}&Saves the program in memory to a file on the
+	SD card the name contained in the variable{\ttfamily A\$}.\\\\
+
+	{\ttfamily\bfseries SAVE "HELLO.PRG",1}&Saves the program in memory to a
+	file on the drive configured as device \#1 with the name {\ttfamily
+	HELLO.PRG}.\\\\
+
+	{\ttfamily\bfseries SAVE "HELLO.PRG",1,1}&Saves the program in memory to a
+	file on the drive configured as device \#1 with the name {\ttfamily
+	HELLO.PRG} and writes an {\ttfamily END-OF-TAPE} marker after it.\\\\
+
+\end{tabular}
 
 \subsection{VERIFY}
 
