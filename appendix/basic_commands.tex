@@ -577,7 +577,7 @@ If a tape dirve is used with the Commander X16, then a second numeric argument
 of either {\ttfamily 0} or {\ttfamily 1} can be specified after the device
 number.  If this second is a {\ttfamily 1}, an {\ttfamily END-OF-TAPE} marker
 will be written after the program.  If you are attempting to {\ttfamily LOAD} a
-program off the tape drive and this marker is read before finding the desired
+program off a tape drive and this marker is read before finding the desired
 file, a {\ttfamily FILE NOT FOUND ERROR} will be displayed.\\
 
 Examples:\\
@@ -602,7 +602,43 @@ Examples:\\
 
 \subsection{VERIFY}
 
-<TODO>
+The {\ttfamily VERIFY} command will compare the program in memory to a program
+on the SD card or other storage device.  If the programs are the same, the
+{\ttfamily VERIFY} command will display an {\ttfamily OK} message, and if they
+differ it will display a {\ttfamily VERIFY ERROR} message.  This command helps
+to ensure that a program is safely stored to the SD card or other storage
+device before the user erases it from memory\footnote{this was far more useful
+in the era or tape drives and floppy disks than it is on the Commander X16}.
+When {\ttfamily VERIFY} is called without any arguments, it checks the program
+in memory against the first file on the SD card\footnote{this is not
+particularly useful, but is included behavior for historical reasons}.  When
+called followed by a file name in quotation marks or a string variable
+containing a file name, it compares the program in memory against the given
+file.  Just like the {\ttfamily LOAD} and {\ttfamily SAVE} commands, the
+{\ttfamily VERIFY} command can take a numeric second argument as a device
+number.\\
+
+% easter egg hidden here as a tribute to a VIC-20 User's Guide printing error
+% https://cdn.discordapp.com/attachments/629903630916648962/1075543304680263710/20230215_162450.jpg
+The {\ttfamily VERIFY} command can also be used if a tape drive is connected to
+the Commander X16 as a storage device.  By {\ttfamily VERIFY}ing the last
+program on the taþe, the position of the tape can be advanced to a safe section
+to write over.  When {\ttfamily VERIFY} is complete, whether verification
+succeeds or fails, the tape will be positioned at the next available space.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.5\linewidth}}
+
+	{\ttfamily\bfseries VERIFY}&Checks the first program on the SD card.\\\\
+
+	{\ttfamily\bfseries VERIFY A\$}&Checks the program with name in variable
+	{\ttfamily A\$}.\\\\
+
+	{\ttfamily\bfseries VERIFY "HELLO.PRG",1}&Checks the program on the drive
+	configured as device \#1 with the name {\ttfamily HELLO.PRG}.\\\\
+
+\end{tabular}
 
 \section{Statements}
 
