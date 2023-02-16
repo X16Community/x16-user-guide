@@ -316,6 +316,13 @@ X16 to do things, such as {\ttfamily LIST} the contents of the SD card,
 loaded program.  This section contains a description of each command in
 alhabetical order.\\
 
+\subsection{BOOT}
+
+The {\ttfamily BOOT} command loads and runs a PRG file named {\ttfamily
+AUTOBOOT.X16} from device \#8 (the SD card reader). If the file is not found,
+nothing is done and no error is printed.\\
+
+
 \subsection{CLR}
 
 The {\ttfamily CLR} command clears the BASIC variables from memory.  This
@@ -643,21 +650,52 @@ Examples:\\
 \section{Statements}
 
 \emph{Statements} are the instructions used in BASIC on numbered lines of
-programs.  They are used to define what it is that your program does.
+programs.  They are used to define what it is that your program does.\\
 
 \subsection{BANK}
 
-<TODO>
+The {\ttfamily BANK} statement sets which bank will be used when other commands
+and statements interpret addresses in the \$A000 - \$FFFF range.  Because all
+addresses from \$A000 and above are either banked "high" RAM or banked ROM,
+certain commands need to know \emph{which} bank is being referred to.
+Specifically, {\ttfamily SYS}, {\ttfamily POKE}, and {\ttfamily PEEK} all need
+to know which bank to use when an address in the banked range is referred to.
+The {\ttfamily BANK} statement sets the bank for both banked
+RAM\footnote{RAM in bank 0 is reserved for use by the KERNAL, so it is
+unwise to write values into there} and banked ROM.  To set a bank, call the
+{\ttfamily BANK} statement followed by a numeric value from 0 through 255.\\
+
+For example, to write some data into "high" RAM in bank 1:
+
+\codeblock{
+	10 BANK 1\\
+	20 POKE \$A000,42
+}
+
+Then the bank can be switched, and the same address can be used to store more
+data, without overwriting the data in bank 1:
+
+\codeblock{
+	30 BANK 2\\
+	40 POKE \$A000,23\\
+	50 BANK 1				REM SWITCH BACK TO BANK 1\\
+	60 PRINT PEEK(\$A000)	REM PRINTS 42, NOT 23\\
+}
+
+The {\ttfamily BANK} statement also has some use as a command run from the
+{\ttfamily READY} prompt.  It can be used to run programs that are shipped with
+the Commander X16 in banked ROM.  For example, the CodeX16 Interactive Assembly
+Environment in ROM bank 7 can by run by typing the following at the {\ttfamily
+READY} prompt:\\
+
+\codeblock{
+	BANK 7\\
+	SYS \$C000\\
+}
 
 \subsection{BLOAD}
 
 <TODO>
-
-\subsection{BOOT}
-
-The {\ttfamily BOOT} Command loads and runs a PRG file named {\ttfamily
-AUTOBOOT.X16} from device \#8 (the SD card reader). If the file is not found,
-nothing is done and no error is printed.\\
 
 \subsection{BVERIFY}
 
