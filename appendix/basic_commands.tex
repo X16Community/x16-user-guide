@@ -695,7 +695,26 @@ READY} prompt:\\
 
 \subsection{BLOAD}
 
-<TODO>
+The {\ttfamily BLOAD} statement loads a headerless\footnote{typically on
+Commodore computers as well as the X16, files are expected to contain a
+two-byte header that indicates an address where they are to be loaded into
+memory.  A "headerless" file will not have those two bytes} file from a device
+into banked RAM.  If the file is too large to fit within a bank, the {\ttfamily
+BLOAD} statement will automatically continue writing the file to the next bank.
+This allows file resources larger than 8 kilobytes to be used without the need
+to break them up into smaller files.  This is useful for loading resources for
+games and applications into "high" RAM that programs can then access during
+execution.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.4\linewidth}}
+
+	{\ttfamily\bfseries BLOAD "MYFILE.BIN",8,1,\$A000}&Loads a file named "MYFILE.BIN from device 8 starting in bank 1 at \$A000".\\\\
+
+	{\ttfamily\bfseries BLOAD "WHO.PCX",8,10,\$B000}&Loads a file named "WHO.PCX from device 8 starting in bank 10 at \$B000".\\\\
+
+\end{tabular}
 
 \subsection{BVERIFY}
 
