@@ -710,15 +710,38 @@ Examples:\\
 
 \begin{tabular}{l p{0.4\linewidth}}
 
-	{\ttfamily\bfseries BLOAD "MYFILE.BIN",8,1,\$A000}&Loads a file named "MYFILE.BIN from device 8 starting in bank 1 at \$A000".\\\\
+	{\ttfamily\bfseries BLOAD "MYFILE.BIN",8,1,\$A000}&Loads a file named
+	"MYFILE.BIN" from device 8 starting in bank 1 at \$A000.\\\\
 
-	{\ttfamily\bfseries BLOAD "WHO.PCX",8,10,\$B000}&Loads a file named "WHO.PCX from device 8 starting in bank 10 at \$B000".\\\\
+	{\ttfamily\bfseries BLOAD "WHO.PCX",8,10,\$B000}&Loads a file named
+	"WHO.PCX" from device 8 starting in bank 10 at \$B000.\\\\
 
 \end{tabular}
 
 \subsection{BVERIFY}
 
-<TODO>
+The {\ttfamily BVERIFY} statement compares a headerless file on the SD card or
+other storage device to the contents of banked RAM.  As arguments, the
+{\ttfamily BVERIFY} statement takes the name of the file, the device number,
+the bank number, and the starting address within the bank.  If the file in
+question extends past the end of the bank, the {\ttfamily BVERIFY} statement
+will automatically continue checking on the file on the next bank, resetting
+the address to {\ttfamily \$A000} as it changes the bank.  This allows it to be
+used to verify files that are too large to fit inside a single bank of "high"
+RAM.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.35\linewidth}}
+
+	{\ttfamily\bfseries BVERIFY "MYFILE.BIN",8,1,\$A000}&Compares a file named
+	"MYFILE.BIN" from device 8 against the RAM in bank 1 starting at
+	\$A000.\\\\
+
+	{\ttfamily\bfseries BVERIFY "WHO.PCX",8,10,\$B000}&Compares a file named
+	"WHO.PCX" from device 8 against the RAM in bank 10 starting at \$B000.\\\\
+
+\end{tabular}
 
 \subsection{BVLOAD}
 
