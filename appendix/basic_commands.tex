@@ -765,9 +765,18 @@ Examples:\\
 
 \subsection{CHAR}
 
-This statement draws a text string on the graphics screen in a given color.
-The string can contain printable ASCII characters ({\ttfamily CHR\$(\$20)} to
-{\ttfamily CHR\$(\$7E)}), as well most PETSCII control codes.\\
+The {\ttfamily CHAR} statement draws text to the screen at a given X,Y
+coordinate and a given color.  The {\ttfamily CHAR} statement is only available
+in graphics mode, and draws the text to the bitmap graphics layer instead of
+the text layer.  Like other graphics mode statements, the {\ttfamily CHAR}
+statement can draw in all 256 available colors.\\
+
+\codeblock{
+
+	10 SCREEN \$80\\
+	20 CHAR 120,100,14,"COMMANDER"\\
+	30 CHAR 180,100,2,"X16"\\
+}
 
 \subsection{CLOSE}
 
