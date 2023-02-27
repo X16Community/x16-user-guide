@@ -815,7 +815,39 @@ charater.\\
 
 \subsection{DATA}
 
-<TODO>
+The {\ttfamily DATA} statement creates a data section of a BASIC program from
+which the {\ttfamily READ} statement will read from.  The {\ttfamily DATA}
+statement is followed by a comma-separated list of values.  These values can be
+integers, floating point numbers, or strings\footnote{String values can be
+specified with or without quotation marks, unless they contain a space, comma,
+or colon.  Despite this flexibility, it is best practice to always use
+quotation marks for string data}.  It is important to use the correct variable
+type when {\ttfamily READ}ing these values, otherwise a {\ttfamily TYPE
+MISMATCH} error can occur.  If two commas have nothing between them, the value
+will be interpretted as a {\ttfamily 0} for a number or an empty string.\\
+
+Multiple {\ttfamily DATA} statements can be used in a program, and when one has
+been completely read by enough {\ttfamily READ} statements, the next {\ttfamily
+READ} statement will read from the next {\ttfamily DATA} statement.  All
+{\ttfamily READ} statements in a program can be thought of as a single
+contiguous block of data, even if the statements are not grouped together in
+the program.\\
+
+Example:\\
+
+\codeblock{
+
+	10 READ A\\
+	20 READ B\%\\
+	30 READ C\$\\
+	40 PRINT A, B\%,C\$\\
+	50 DATA 34.2,42\\
+	60 DATA "COMMANDER X16"\\
+}
+
+{\ttfamily DATA} statements do not need to be executed, so they can slow down a
+program if placed before code does need to execute.  Because of this, it is
+best to place all {\ttfamily DATA} statements at the end of program.\\
 
 \subsection{DEF}
 
