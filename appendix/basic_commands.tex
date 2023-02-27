@@ -788,8 +788,30 @@ statement can draw in all 256 available colors.\\
 
 \subsection{COLOR}
 
-This command works sets the text mode foreground color, and optionally the
-background color.\\
+The {\ttfamily COLOR} statement sets the text mode foreground color, and
+optionally the background color.  It takes either one or two arguments, both
+are integers from 0 through 15.  The first argument sets the color of the text,
+and the optional second argument sets the background color.  The numbers given
+correspond to the first 16 colors of the VERA's palette\footnote{If the VERA's
+palette has been modified, then the modified colors are used.  The {\ttfamily
+COLOR} statement will not restore the default VERA palette}.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.75\linewidth}}
+
+	{\ttfamily\bfseries COLOR 2}&Set the text color to red.\\\\
+
+	{\ttfamily\bfseries COLOR 5,0}&Set the text color to green and the
+	background color to black.\\\\
+
+\end{tabular}
+
+The {\ttfamily COLOR} statement only effects areas of the screen where new text
+is placed, and will not change existing characters.  This makes it convenient
+to use in programs for drawing diagrams and images with PETSCII characters,
+since you can change both forground and background colors for each individual
+charater.\\
 
 \subsection{DATA}
 
