@@ -810,7 +810,7 @@ Examples:\\
 The {\ttfamily COLOR} statement only effects areas of the screen where new text
 is placed, and will not change existing characters.  This makes it convenient
 to use in programs for drawing diagrams and images with PETSCII characters,
-since you can change both forground and background colors for each individual
+since you can change both foreground and background colors for each individual
 charater.\\
 
 \subsection{DATA}
@@ -824,7 +824,7 @@ or colon.  Despite this flexibility, it is best practice to always use
 quotation marks for string data}.  It is important to use the correct variable
 type when {\ttfamily READ}ing these values, otherwise a {\ttfamily TYPE
 MISMATCH} error can occur.  If two commas have nothing between them, the value
-will be interpretted as a {\ttfamily 0} for a number or an empty string.\\
+will be interpreted as a {\ttfamily 0} for a number or an empty string.\\
 
 Multiple {\ttfamily DATA} statements can be used in a program, and when one has
 been completely read by enough {\ttfamily READ} statements, the next {\ttfamily
@@ -833,7 +833,7 @@ READ} statement will read from the next {\ttfamily DATA} statement.  All
 contiguous block of data, even if the statements are not grouped together in
 the program.\\
 
-Example:\\
+Examples:\\
 
 \codeblock{
 
@@ -851,7 +851,28 @@ best to place all {\ttfamily DATA} statements at the end of program.\\
 
 \subsection{DEF}
 
-<TODO>
+The {\ttfamily DEF} statement defines a calculation as a named function that
+can be called by BASIC later.  This is useful for complex calculations that a
+program does multiple times.  The {\ttfamily DEF} statement is followed by the
+function name, which must be {\ttfamily FN} followed by one or two other
+characters that make up a legal variable name.  This name is followed by a set
+of parentheses enclosing a legal numeric variable name.  This is followed by an
+equals sign and the formula you want to define, using the variable in the
+parentheses like any other variable would be used.\\
+
+Examples:\\
+
+\codeblock{
+
+	10 DEF FNC(R)=2*R*π REM CIRCUMFERENCE OF  A CIRCLE\\
+	20 DEF FNA(R)=π*(R↑2) REM AREA OF  A CIRCLE\\
+	30 PRINT "CIRCUMFERENCE:", FNC(10)\\
+	40 PRINT "AREA:", FNA(10)\\
+
+}
+
+Only a single variable can be defined as an argument to a function.  The
+defined function can be used anywhere a BASIC function can normally be used.\\
 
 \subsection{DIM}
 
