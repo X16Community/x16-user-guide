@@ -836,7 +836,6 @@ the program.\\
 Examples:\\
 
 \codeblock{
-
 	10 READ A\\
 	20 READ B\%\\
 	30 READ C\$\\
@@ -863,12 +862,10 @@ parentheses like any other variable would be used.\\
 Examples:\\
 
 \codeblock{
-
 	10 DEF FNC(R)=2*R*π REM CIRCUMFERENCE OF  A CIRCLE\\
 	20 DEF FNA(R)=π*(R↑2) REM AREA OF  A CIRCLE\\
 	30 PRINT "CIRCUMFERENCE:", FNC(10)\\
 	40 PRINT "AREA:", FNA(10)\\
-
 }
 
 Only a single variable can be defined as an argument to a function.  The
@@ -876,7 +873,50 @@ defined function can be used anywhere a BASIC function can normally be used.\\
 
 \subsection{DIM}
 
-<TODO>
+The {\ttfamily DIM} statement is used to \emph{dimension} an array, which means
+to allocate enough space for the data the array will hold.  An array variable
+needs to be {\ttfamily DIM}'d before using it unless it will only hold eleven
+or fewer elements.  In all other cases, the {\ttfamily DIM} statement must be
+used.\\
+
+To dimension an array variable, use {\ttfamily DIM} followed by the variable
+name.  Then, the size of each dimension of the array should be given, separated
+by commas and surrounded by parentheses.  An array can have one or more
+dimensions, and each dimension can be as large as needed\footnote{as long as
+all the elements fit into memory}.  The total number of elements in an array
+can be calculated by multiplying the size of each of the array's dimensions.
+The {\ttfamily DIM} statement can dimension multiple arrays at once by
+separating each array with a comma.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries DIM A(16)}&An array of 16 numbers.\\\\
+
+	{\ttfamily\bfseries DIM B\$(26),C\%(13)}&An array of 26 strings and an
+	array of 13 integers.\\\\
+
+	{\ttfamily\bfseries DIM D(32,4,4)}&A 3-dimensional array of numbers where
+	the dimensions are 32, 4, and 4.\\\\
+
+\end{tabular}
+
+Once dimensioned, arrays can be used be used just like other variables, except
+that the index into each dimension must be specified:\\
+
+\codeblock{
+	10 DIM A\$(3,12)\\
+	20 A\$(1,1) = "ONE"\\
+	30 A\$(2,6) = "TWO"\\
+	40 PRINT A\$(1,1) REM PRINTS "ONE"\\
+	50 PRINT A\$(2,6) REM PRINTS "TWO"\\
+	60 PRINT A\$(1,6) REM PRINTS NOTHING\\
+}
+
+Executing a {\ttfamily DIM} statement on an array more than once will cause an
+error.  It is a best practice to keep all the {\ttfamily DIM} statements
+towards the beginning of a program.\\
 
 \subsection{END}
 
