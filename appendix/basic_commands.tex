@@ -931,7 +931,28 @@ command.\\
 
 \subsection{FMCHORD}
 
-<TODO>
+The {\ttfamily FMCHORD} statement instructs the FM synthesis chip to begin
+playing multiple notes at the same time.  For arguments, the {\ttfamily
+FMCHORD} statement accepts a channel and a string.  Because a chord plays
+multiple notes at the same time, the channel argument specifies the
+\emph{first} channel to use for the chord, but other channels will be used for
+subsequent notes.  For example, if you specify a channel argument of {\ttfamily
+3} for a chord which plays 4 notes, the {\ttfamily FMCHORD} statement will play
+the notes on channels 3, 4, 5, and 6.  It is important to set each of the
+channels to use the desired instruments with the {\ttfamily FMINST} statement.
+The string argument is used to specify which notes the {\ttfamily FMCHORD}
+statement will play.  For more information on specifying notes, see the chapter
+on Sound.\\
+
+Example:\\
+
+\codeblock{
+
+	REM PLAY A C MAJOR CHORD ON A PIANO\\
+	10 FMINST 0,0:FMINST 1,0:FMINST 2,0\\
+	20 FMCHORD 0,"CGE"\\
+
+}
 
 \subsection{FMDRUM}
 
