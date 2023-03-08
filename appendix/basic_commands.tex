@@ -956,7 +956,26 @@ Example:\\
 
 \subsection{FMDRUM}
 
-<TODO>
+The {\ttfamily FMDRUM} statement plays a single percussion sound from a set of
+percussion instruments.  This set comes from the General MIDI standard
+Percussion set, which uses numbers from 25 through 87.  The {\ttfamily FMDRUM}
+statement takes two arguments.  The first is a channel, and the second is a
+drum number from the set.  When this statement executes, it sets the channel to
+the selected drum number and plays it.  The channel will retain the drum number
+set until it is set again with either {\ttfamily FMINST} or another call to
+{\ttfamily FMDRUM}.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries FMDRUM 0,38}&Play an acoustic snare on channel 0.\\\\
+
+	{\ttfamily\bfseries FMDRUM 2,50}&Play a high tom on channel 2.\\\\
+
+	{\ttfamily\bfseries FMDRUM 1,55}&Play a splash cymbal on channel 1.\\\\
+
+\end{tabular}
 
 \subsection{FMFREQ}
 
