@@ -428,6 +428,7 @@
 
 \newcommand{\chaptertypein}[1]{\sizedchaptertypein{2.333in}{1.75in}{#1}}
 \newcommand{\largechaptertypein}[1]{\sizedchaptertypein{3.5in}{2.625in}{#1}}
+\newcommand{\xlargechaptertypein}[1]{\sizedchaptertypein{4.5in}{3.375in}{#1}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION STYLING

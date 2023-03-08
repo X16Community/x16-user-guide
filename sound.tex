@@ -5,22 +5,25 @@
 \makeatletter\@openrightfalse
 \part{Sound}
 
-\largechaptertypein{
+\xlargechaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
-	10 FMINST 0,18:FMINST 1,18\\
-	20 FMINST 2,18:FMINST 3,29\\
-	30 FMVIB 210,10\\
-	40 FMPLAY 3,"R160"\\
-	50 FMCHORD 0,"O3G>CE"\\
-	60 FMPLAY 3,"L4O5CL8CCDER4"\\
-	70 FMCHORD 0,"O3A>CE"\\
-	80 FMPLAY 3,"L4O4AL8AAB>CR4"\\
-	90 FMCHORD 0,"O3FA>C"\\
-	100 FMPLAY 3,"L4O4FL8FFGAR4"\\
-	110 FMCHORD 0,"O3GB>D"\\
-	120 FMPLAY 3,"L4O4GL8GGABR4"\\
-	130 FMINIT\\
+	100 PSGINIT\\
+	110 PSGVOL 0,0 : PSGVOL 1,0 PSGVOL 2,0\\
+	120 PSGCHORD 0,"CFG"\\
+	130 FOR I=0 TO 63 STEP 0.1\\
+	140 PSGVOL 0,I : PSGVOL 1,I : PSGVOL 2,I\\
+	150 NEXT\\
+	160 FOR I=350 TO 294 STEP -1\\
+	170 PSGFREQ 1,I : NEXT\\
+	180 SLEEP 60\\
+	190 FOR I=294 TO 330 STEP 0.3\\
+	200 PSGFREQ 1,I : NEXT\\
+	210 SLEEP 30\\
+	220 FOR I=63 TO 0 STEP -0.6\\
+	230 PSGVOL 0,I : PSGVOL 1,I : PSGVOL 2,I\\
+	240 NEXT\\
+	250 PSGINIT\\
 }
 
 %----------------------------------------------------------------------------------------
