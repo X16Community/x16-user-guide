@@ -979,7 +979,25 @@ Examples:\\
 
 \subsection{FMFREQ}
 
-<TODO>
+The {\ttfamily FMFREQ} statement plays a note on the FM synthesis chip at a
+given frequency.  This is an alternative to playing a note with {\ttfamily
+FMNOTE}, where instead of specifying a musical note, a frequency in Hertz is
+specified.  Like {\ttfamily FMNOTE} and {\ttfamily FMDRUM}, {\ttfamily FMFREQ}
+returns immediately and does not wait for a note to finish playing.  If a Hertz
+value of {\ttfamily 0} is specified, the channel is immediately silenced.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries FMFREQ 3,2600}&Plays the instrument on channel 3 at 2,600hz.\\\\
+
+	{\ttfamily\bfseries FMFREQ 0,440}&Equivalent to {\ttfamily FMNOTE 0,\$4A}
+	which plays A above middle C on channel 0.\\\\
+
+	{\ttfamily\bfseries FMFREQ 2,0}&Silences channel 2.\\\\
+
+\end{tabular}
 
 \subsection{FMINIT}
 
