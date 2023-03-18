@@ -1001,7 +1001,18 @@ Examples:\\
 
 \subsection{FMINIT}
 
-<TODO>
+The {\ttfamily FMINIT} statement is used to set the FM synthesis chip to a
+known state, and takes no arugments.  It performs initializations on the YM2151
+sound chip, as well as loading default patches into all 8 channels.  In
+addition, it immediately silences the channels.  This last function can be
+useful for silencing multiple FM channels at once, without having to call
+{\ttfamily FMNOTE} or {\ttfamily FMFREQ} on each one.  The initializations that
+the {\ttfamily FMINIT} statement performs are called automatically when the
+Commander X16 boots up, so it is not necessary to call {\ttfamily FMINIT}
+directly before using other FM statements.  However, it is still a good idea to
+call {\ttfamily FMINIT} before using FM statements in a program, especially if
+the program relies on the default patches.  There's no guarantee that another
+program hasn't modified the state of the FM chip since boot.\\
 
 \subsection{FMINST}
 
