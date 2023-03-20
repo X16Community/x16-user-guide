@@ -251,7 +251,7 @@
 		anchor=west,
 		-stealth,
 		line width = 0.03in,
-		gray
+		color={rgb:black,5;white,8}
 		](r.center) -- (#4,#5);
 
 	% actually draw the bubble box
