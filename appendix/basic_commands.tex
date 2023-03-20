@@ -958,12 +958,13 @@ Example:\\
 
 The {\ttfamily FMDRUM} statement plays a single percussion sound from a set of
 percussion instruments.  This set comes from the General MIDI standard
-Percussion set, which uses numbers from 25 through 87.  The {\ttfamily FMDRUM}
-statement takes two arguments.  The first is a channel, and the second is a
-drum number from the set.  When this statement executes, it sets the channel to
-the selected drum number and plays it.  The channel will retain the drum number
-set until it is set again with either {\ttfamily FMINST} or another call to
-{\ttfamily FMDRUM}.\\
+Percussion set\footnote{see the Drum Patch Presets table in the appendix},
+which uses numbers from 25 through 87.  The {\ttfamily FMDRUM} statement takes
+two arguments.  The first is a channel, and the second is a drum number from
+the set.  When this statement executes, it sets the channel to the selected
+drum number and plays it.  The channel will retain the drum number set until it
+is set again with either {\ttfamily FMINST} or another call to {\ttfamily
+FMDRUM}.\\
 
 Examples:\\
 
@@ -1016,7 +1017,22 @@ program hasn't modified the state of the FM chip since boot.\\
 
 \subsection{FMINST}
 
-<TODO>
+The {\ttfamily FMINST} statement assigns an instrument to a channel.  The first
+argument is the channel, and the second argument is a number indicating an
+instrument.  The Commander X16's ROM chip comes pre-loaded with 146 FM
+instrument patches from the General MIDI Instrument Set.  These instruments and
+their numbers can be found in FM Instrument Patch Presets table and the
+Extended FM Instrument Patch Presets table in the appendix.\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries FMINST 0,0}&Set channel 0 to Acoustic Grand Piano.\\\\
+
+	{\ttfamily\bfseries FMINST 3,11}&Set channel 3 to Vibraphone.\\\\
+
+	{\ttfamily\bfseries FMINST 7,127}&Set channel 7 to Gunshot.\\\\
+
+\end{tabular}
 
 \subsection{FMNOTE}
 
