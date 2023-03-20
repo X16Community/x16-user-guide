@@ -1036,7 +1036,55 @@ Extended FM Instrument Patch Presets table in the appendix.\\
 
 \subsection{FMNOTE}
 
-<TODO>
+The {\ttfamily FMNOTE} statement plays a single note on the FM synthesis chip.
+The first argument is the channel, and the second argument specifies which
+note.  The note argument can be any number, but is intended to be specified
+with hexadecimal notation.  This is so that the most significant 4 bits (often
+called the "high nybble") represent the octave while the least significant 4
+bits (the "low nybble") represent the musical note.  The lowest note of any
+octave is C, which is represented with a {\ttfamily 1}, and the highest note of
+any octave is B, which is represented with a {\ttfamily C}.  A note of
+{\ttfamily 0} on any octave will release the note playing on that channel, and
+the note values {\ttfamily D}, {\ttfamily E}, and {\ttfamily F} have no
+effect.\\
+
+Although this may seem confusing, it is actually convenient for most uses.
+For example to play a "middle C" the note value {\ttfamily \$41} would be used.
+The {\ttfamily \$} tells BASIC that the value is hexadecimal, the {\ttfamily 4}
+indicates the note is in the 4th octave, and {\ttfamily 1} specifies the note
+"C".  Here's a table of which nybble produces which note:\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline
+	Nybble & \$x0 & \$x1 & \$x2 & \$x3 & \$x4 & \$x5 & \$x6 \\ \hline
+	Note & Release & C & C\#/Db & D & D\#/Eb & E & F \\ \hline
+
+	Nybble & \$x7 & \$x8 & \$x9 & \$xA & \$xB & \$xC & \$xD-\$xF \\ \hline
+	Note & F\#/Gb & G & G\#/Ab & A & A\#/Bb & B & no-op \\ \hline
+
+\end{tabular}\\
+
+Negative numbers can also be used to specify notes.  These will be treated as
+the same note, except it will merely change an already-playing note rather than
+re-triggering it.  This is obviously more useful with some instruments than
+with others, but can also be used as a clever way to create sound effects.\\
+
+Examples:\\
+
+\codeblock{
+
+	0 FMINST 1,64 : REM LOAD SOPRANO SAX \\
+	10 FMNOTE 1,\$4A : REM PLAYS CONCERT A \\
+	20 FOR X=1 TO 5000 : NEXT X : REM DELAYS FOR A BIT \\
+	30 FMNOTE 1,0 : REM RELEASES THE NOTE \\
+	40 FOR X=1 TO 1000 : NEXT X : REM DELAYS FOR A BIT \\
+	50 FMNOTE 1,\$3A : REM PLAYS A IN THE 3RD OCTAVE \\
+	60 FOR X=1 TO 2500 : NEXT X : REM SHORT DELAY \\
+	70 FMNOTE 1,-\$3B : REM A\# WITHOUT RETRIGGERING \\
+	80 FOR X=1 TO 2500 : NEXT X : REM SHORT DELAY \\
+	90 FMNOTE 1,0 : REM RELEASES THE NOTE \\
+
+}
 
 \subsection{FMPAN}
 
