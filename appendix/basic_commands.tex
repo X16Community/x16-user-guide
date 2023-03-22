@@ -1088,7 +1088,29 @@ Examples:\\
 
 \subsection{FMPAN}
 
-<TODO>
+The {\ttfamily FMPAN} statement is used to control the stereo output of an FM
+channel.  It takes an argument for the channel, and an argument for which
+speaker the channel should play from.  The second argument values are as
+follows:\\ 
+
+\begin{tabular}{|c|c|}
+	\hline
+	Left & 1 \\ \hline
+	Right & 2 \\ \hline
+	Both & 3 \\ \hline
+\end{tabular}\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries FMPAN 0,3}&Set channel 0 to play from both speakers.\\\\
+
+	{\ttfamily\bfseries FMPAN 3,1}&Set channel 3 to play from only the left speaker.\\\\
+
+	{\ttfamily\bfseries FMPAN 7,2}&Set channel 7 to play from only the right speaker.\\\\
+
+\end{tabular}
 
 \subsection{FMPLAY}
 
