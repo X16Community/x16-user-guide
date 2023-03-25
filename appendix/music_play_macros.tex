@@ -1,0 +1,403 @@
+\chapter{Macro Language for Music}
+
+\section{Overview}
+
+The play commands use a string of tokens to define sequences of notes to be
+played on a single voice of the corresponding sound chip. Tokens cause various
+effects to happen, such as triggering notes, changing the playback speed, etc.
+In order to minimize the amount of text required to specify a sequence of
+sound, the player maintains an internal state for most note parameters.
+
+\subsection{Stateful Player Behavior}
+
+Playback parameters such as tempo, octave, volume, note duration, etc do not
+need to be specified for each note. These states are global between all voices
+of both the FM and PSG sound chips. The player maintains parameter state during
+and after playback. For instance, setting the octave to 5 in an {\ttfamily
+FMPLAY} command will result in subsequent {\ttfamily FMPLAY} and {\ttfamily
+PSGPLAY} statements beginning with the octave set to 5.\\
+
+The player state is reset to default values whenever {\ttfamily FMINIT} or
+{\ttfamily PSGINIT} are used.\\
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	Parameter & Default & Equivalent Token \\ \hline
+	Tempo & 120 & T120 \\ \hline
+	Octave & 4 & O4 \\ \hline
+	Length & 4 & L4 \\ \hline
+	Note Spacing & 1 & S4 \\ \hline
+\end{tabular}\\
+
+\subsection{Using Tokens}
+
+The valid tokens are: {\ttfamily\bfseries A-G,I,K,L,O,P,R,S,T,V,<,>}.\\
+
+Each token may be followed by optional modifiers such as numbers or symbols.
+Options to a token must be given in the order they are expected, and must have
+no spacing between them. Tokens may have spaces between them as desired. Any
+unknown characters are ignored.\\
+
+Example:\\
+
+\codeblock{
+	FMPLAY 0,"L4"      : REM DEFAULT LENGTH = QUARTER NOTE\\
+	FMPLAY 0,"A2. C+." : REM VALID\\
+	FMPLAY 0,"A.2 C.+" : REM INVALID\\
+}
+
+The valid command plays {\ttfamily\bfseries A} as a dotted half, followed by
+{\ttfamily\bfseries C♭} as a dotted quarter.\\
+
+The invalid example would play {\ttfamily\bfseries A} as a dotted quarter (not
+half) because length must come before dots. Next, it would ignore the 2 as
+garbage. Then it would play natural C (not sharp) as a dotted quarter. Finally,
+it would ignore the + as garbage, because sharp/flat must precede length and
+dot.\\
+
+\section{Token definitions}
+
+\subsection{Musical notes}
+
+\begin{itemize}
+
+	\item \bfseries{Synopsis}: Play a musical note, optionally setting the length.
+
+	\item \bfseries{Syntax}: {\ttfamily <A-G>[<+/->][<length>][.]}
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	FMPLAY 0,"A+2A4C.G-8."\\
+}
+
+On the YM2151 using channel 0, plays in the current octave an
+{\ttfamily\bfseries A♯} half note followed by an {\ttfamily\bfseries A} quarter
+note, followed by {\ttfamily\bfseries C} dotted quarter note, followed by
+{\ttfamily\bfseries G♭} dotted eighth note.\\
+
+Lengths and dots after the note name or rest set the length just for the
+current note or rest.  To set the default length for subsequent notes and
+rests, use the `L` macro.\\
+
+\subsection{Rests}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Wait for a period of silence equal to the
+		length of a note, optionally setting the length.
+
+	\item {\bfseries Syntax}: `R[<length>][.]`
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	PSGPLAY 0,"CR2DRE"\\
+}
+
+On the VERA PSG using voice 0, plays in the current octave a
+{\ttfamily\bfseries C} quarter note, followed by a half rest (silence),
+followed by a quarter {\ttfamily\bfseries D}, followed by a quarter rest
+(silence), and finally a quarter {\ttfamily\bfseries E}.
+
+The numeral {\ttfamily 2} in {\ttfamily R2} sets the length for the {\ttfamily
+R} itself but does not alter the default note length (assumed as 4 - quarter
+notes in this example).
+
+\subsection{Note Length}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Set the default length for notes and rests that
+		follow
+
+	\item {\bfseries Syntax}: {\ttfamily L[<length>][.]}
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example values:\\
+
+\begin{tabular}{l p{0.8\linewidth}}
+
+	{\ttfamily\bfseries L4} & quarter note (crotchet)\\\\
+
+	{\ttfamily\bfseries L16} & sixteenth note (semiquaver)\\\\
+
+	{\ttfamily\bfseries L12} & 8th note triplets (quaver triplet)\\\\
+
+	{\ttfamily\bfseries L4.} & dotted quarter note (1.5x the length)\\\\
+
+	{\ttfamily\bfseries L4..} & double-dotted quarter note (1.75x the length)\\\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+Example program:\\
+
+\codeblock{
+	10 FMPLAY 0,"L4"\\
+	20 FOR I=1 TO 2\\
+	30 FMPLAY 0,"CDECL8"\\
+	40 NEXT\\
+}
+
+On the YM2151 using channel 0, this program, when RUN, plays in the current
+octave the sequence {\ttfamily\bfseries C} {\ttfamily\bfseries D}
+{\ttfamily\bfseries E} {\ttfamily\bfseries C} first as quarter notes, then as
+eighth notes the second time around.\\
+
+\subsection{Articulation}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Set the spacing between notes, from legato to extreme staccato
+
+	\item {\bfseries Syntax}: {\ttfamily S<0-7>}
+
+\end{itemize}
+
+\vspace{16pt}
+
+{\ttfamily S0} indicates legato. For FMPLAY, this also means that notes after
+the first in a phrase don't implicitly retrigger.\\
+
+{\ttfamily S1} is the default value, which plays a note for 7/8 of the duration
+of the note, and releases the note for the remaining 1/8 of the note's
+duration.\\
+
+You can think of {\ttfamily S} is, out of 8, how much space is put between the
+notes.\\
+
+Example:\\
+
+\codeblock{
+	FMPLAY 0,"L4S1CDES0CDES4CDE"\\
+}
+
+On the YM2151 using channel 0, plays in the current octave the sequence
+{\ttfamily\bfseries C} {\ttfamily\bfseries D} {\ttfamily\bfseries E} three
+times, first with normal articulation, next with legato (notes all run together
+and without retriggering), and finally with a moderate staccato.\\
+
+\subsection{Explicit retrigger}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: on the YM2151, when using `S0` legato, retrigger on the next note.
+
+	\item {\bfseries Syntax}: {\ttfamily K}
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	FMPLAY 0,"S0CDEKFGA"\\
+}
+
+On the YM2151 using channel 0, plays in the current octave the sequence
+{\ttfamily\bfseries C} {\ttfamily\bfseries D} {\ttfamily\bfseries E} using
+legato, only triggering on the first note, then the sequence
+{\ttfamily\bfseries F} {\ttfamily\bfseries G} {\ttfamily\bfseries A} the same
+way. The note {\ttfamily\bfseries F} is triggered without needing to release
+the previous note early.\\
+
+\subsection{Octave}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Explictly set the octave number for notes that follow
+
+	\item {\bfseries Syntax}: {\ttfamily O<0-7>}
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	PSGPLAY 0,"O4AO2AO6CDE"\\
+}
+
+On the VERA PSG using voice 0, changes to octave 4 and plays
+{\ttfamily\bfseries A} (440Hz), then switches to octave 2, and plays
+{\ttfamily\bfseries A} (110Hz), then switches to octave 6 and plays the
+sequence {\ttfamily\bfseries C} {\ttfamily\bfseries D} {\ttfamily\bfseries
+E}.\\
+
+\subsection{Octave Up}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Increases the octave by 1
+
+	\item {\bfseries Syntax}: {\ttfamily >}
+
+\end{itemize}
+
+\vspace{16pt}
+
+If the octave would go above 7, this macro has no effect.\\
+
+Example:\\
+
+\codeblock{
+	PSGPLAY 0,"O4AB>C+DE"\\
+}
+
+On the VERA PSG using voice 0, changes to octave 4 and plays the first five
+notes of the {\ttfamily\bfseries A major} scale by switching to octave 5
+starting at the {\ttfamily\bfseries C♯}.\\
+
+\subsection{Octave Down}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Decreases the octave by 1
+
+	\item {\bfseries Syntax}: {\ttfamily <}
+
+\end{itemize}
+
+\vspace{16pt}
+
+If the octave would go below 0, this macro has no effect.\\
+
+Example:\\
+
+\codeblock{
+	PSGPLAY 0,"O5GF+EDC<BAG"\\
+}
+
+On the VERA PSG using voice 0, changes to octave 5 and plays the
+{\ttfamily\bfseries G major} scale from the top down by switching to octave 4
+starting at the {\ttfamily\bfseries B}.\\
+
+\subsection{Tempo}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Sets the BPM, the number of quarter notes per minute
+
+	\item {\bfseries Syntax}: {\ttfamily T<1-255>}
+
+\end{itemize}
+
+\vspace{16pt}
+
+High tempo values and short notes tend to have inaccurate lengths due to
+quantization error. Delays within a string do keep track of fractional frames
+so the overall playback length should be relatively consistent.\\
+
+Low tempo values that cause delays (lengths) to exceed 255 frames will also end
+up being inaccurate. For very long notes, it may be better to use legato to
+string several together.\\
+
+Example:\\
+
+\codeblock{
+	10 FMPLAY 0,"T120C4CGGAAGR"\\
+	20 FMPLAY 0,"T180C4CGGAAGR"\\
+}
+
+On the YM2151 using channel 0, plays in the current octave the first 7 notes of
+{\em Twinkle Twinkle Little Star}, first at 120 beats per minute, then again
+1.5 times as fast at 180 beats per minute.\\
+
+i\subsection{Volume}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Set the channel or voice volume
+
+	\item {\bfseries Syntax}: {\ttfamily V<0-63>}
+
+\end{itemize}
+
+\vspace{16pt}
+
+This macro mirrors the {\ttfamily PSGVOL} and {\ttfamily FMVOL} BASIC commands
+for setting a channel or voice's volume. 0 is silent, 63 is maximum volume.\\
+
+Example:\\
+
+\codeblock{
+	FMPLAY 0,"V40ECV45ECV50ECV55ECV60ECV63EC"\\
+}
+
+On the YM2151 using channel 0, starting at a moderate volume, plays the
+sequence {\ttfamily\bfseries E} {\ttfamily\bfseries C}, repeatedly, increasing
+the volume steadily each time.\\
+
+
+\subsection{Panning}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Sets the stereo output of a channel or voice to left, right, or both.
+
+	\item {\bfseries Syntax}: {\ttfamily P<1-3>}
+
+\end{itemize}
+
+\vspace{16pt}
+
+\begin{tabular}{l p{0.8\linewidth}}
+	1 & Left\\
+	2 & Right\\
+	3 & Both\\
+\end{tabular}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	10 FOR I=1 TO 4\\
+	20 PSGPLAY 0,"P1CP2B+"\\
+	30 NEXT I\\
+	40 PSGPLAY 0,"P3C"\\
+}
+
+On the VERA PSG using voice 0, in the current octave, repeatedly plays a
+{\ttfamily\bfseries C} out of the left speaker, then a {\ttfamily\bfseries B♯}
+(effectively a {\ttfamily\bfseries C} one octave higher) out of the right
+speaker.  After 4 such loops, it plays a {\ttfamily\bfseries C} out of both
+speakers.\\
+
+\subsection{Instrument change}
+
+\begin{itemize}
+
+	\item {\bfseries Synopsis}: Sets the FM instrument (like FMINST) or PSG waveform (like PSGWAV)
+
+	\item {\bfseries Syntax}: {\ttfamily I<0-255>} (0-162 for FM)
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	10 FMINIT\\
+	20 FMVIB 200,15\\
+	30 FMCHORD 0,"I11CI11EI11G"\\
+}
+
+This program sets up appropriate vibrato/tremolo and plays a C major chord with
+the vibraphone patch across FM channels 0, 1, and 2.
