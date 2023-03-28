@@ -1114,7 +1114,65 @@ Examples:\\
 
 \subsection{FMPLAY}
 
-<TODO>
+The {\ttfamily FMPLAY} statement plays a musical melody on a single channel.
+{\ttfamily FMPLAY} takes two arguments; a channel and a string of characters
+that tells the FM chip what to play.  This second argument is specified in a
+custom macro language\footnote{for a complete guide, see the Macro Language for
+Music appendix}, and includes notes, releases, tempos, octaves, rests, and
+other musical elements.  For example, the following statement will play a major
+scale in the key of {\ttfamily\bfseries C}:\\
+
+\codeblock{
+	FMPLAY 0,"CDEFGAB>C"\\
+}
+
+Each letter indicates which note to play.  Before playing the final
+{\ttfamily\bfseries C} note, the {\ttfamily >} character is used to tell the
+channel to move up one octave.  If this character wasn't included, the final
+{\ttfamily\bfseries C} would play at the same octave as the first
+{\ttfamily\bfseries C}.\\
+
+The characters {\ttfamily +} and {\\ttfamily -} can be placed after a note's
+letter to indicate sharps and flats, respectively.  For example, the following
+will play a major scale in the key of {\ttfamily\bfseries A}:\\
+
+\codeblock{
+	FMPLAY 0,"AB>D-DEF+A-A"\\
+}
+
+Because a new octave starts on each {\ttfamily\bfseries C} note, this scale
+requires the {\ttfamily >} character to be placed between the
+{\ttfamily\bfseries B} and {\ttfamily\bfseries D♭} notes.\\
+
+\tip{Restoring Octaves}{
+
+	You may have noticed that running these {\ttfamily FMPLAY} statements
+	multiple times results in them playing in different octaves.  This is
+	because the Commander X16 remembers which octave each channel was left in.
+	So when using {\ttfamily >} to increase the octave on one {\ttfamily
+	FMPLAY} statement, the channel stays in that octave during the next
+	{\ttfamily FMPLAY} statement.  This can be solved in a number of ways:\\
+
+	\begin{itemize}
+
+		\item An initial octave can be specified at the beginning of the string
+			with the {\ttfamily O} macro
+
+		\item A {\ttfamily <} character can be placed at the end of the string
+			to indicate that the channel should move down one octave
+
+		\item The octave can be reset with the {\ttfamily FMINIT} statement.
+			Just keep in mind that this resets the octaves of \emph{all}
+			channels, as well as silencing them and restoring them to their
+			default instruments
+
+			
+
+	\end{itemize}
+
+
+
+}
 
 \subsection{FMPOKE}
 
