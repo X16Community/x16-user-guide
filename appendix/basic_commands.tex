@@ -1042,11 +1042,12 @@ note.  The note argument can be any number, but is intended to be specified
 with hexadecimal notation.  This is so that the most significant 4 bits (often
 called the "high nybble") represent the octave while the least significant 4
 bits (the "low nybble") represent the musical note.  The lowest note of any
-octave is C, which is represented with a {\ttfamily 1}, and the highest note of
-any octave is B, which is represented with a {\ttfamily C}.  A note of
-{\ttfamily 0} on any octave will release the note playing on that channel, and
-the note values {\ttfamily D}, {\ttfamily E}, and {\ttfamily F} have no
-effect.\\
+octave is {\ttfamily\bfseries C}, which is represented with a {\ttfamily 1},
+and the highest note of any octave is {\ttfamily\bfseries B}, which is
+represented with a {\ttfamily\bfseries C}.  A note of {\ttfamily 0} on any
+octave will release the note playing on that channel, and the note values
+{\ttfamily\bfseries D}, {\ttfamily\bfseries E}, and {\ttfamily\bfseries F} have
+no effect.\\
 
 Although this may seem confusing, it is actually convenient for most uses.
 For example to play a "middle C" the note value {\ttfamily \$41} would be used.
@@ -1056,11 +1057,16 @@ indicates the note is in the 4th octave, and {\ttfamily 1} specifies the note
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 	\hline
-	Nybble & \$x0 & \$x1 & \$x2 & \$x3 & \$x4 & \$x5 & \$x6 \\ \hline
-	Note & Release & C & C\#/Db & D & D\#/Eb & E & F \\ \hline
 
-	Nybble & \$x7 & \$x8 & \$x9 & \$xA & \$xB & \$xC & \$xD-\$xF \\ \hline
-	Note & F\#/Gb & G & G\#/Ab & A & A\#/Bb & B & no-op \\ \hline
+	Nybble & \$x0 & \$x1 & \$x2 & \$x3 & \$x4 & \$x5 & \$x6 \\ \hline Note &
+	Release & {\ttfamily\bfseries C} & {\ttfamily\bfseries C♯/D♭} &
+	{\ttfamily\bfseries D} & {\ttfamily\bfseries D♯/Eb} & {\ttfamily\bfseries
+	E} & {\ttfamily\bfseries F} \\ \hline
+
+	Nybble & \$x7 & \$x8 & \$x9 & \$xA & \$xB & \$xC & \$xD-\$xF \\ \hline Note
+	& {\ttfamily\bfseries F♯/G♭} & {\ttfamily\bfseries G} & {\ttfamily\bfseries
+	G♯/A♭} & {\ttfamily\bfseries A} & {\ttfamily\bfseries A♯/B♭} &
+	{\ttfamily\bfseries B} & no-op \\ \hline
 
 \end{tabular}\\
 
