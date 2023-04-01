@@ -67,6 +67,8 @@
 
 \usepackage{longtable}
 
+\usepackage{multirow}
+
 \usepackage[hang,flushmargin]{footmisc}
 
 %----------------------------------------------------------------------------------------

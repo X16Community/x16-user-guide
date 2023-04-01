@@ -17,6 +17,7 @@ PARTS					= getting_to_know_commanderx16.tex \
 						  appendix/65c02_op_codes.tex \
 						  appendix/patch_table.tex \
 						  appendix/music_play_macros.tex \
+						  appendix/ym2151.tex \
 
 TEMPLATES				= CommodoreBlueBook.cls
 

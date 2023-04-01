@@ -1,0 +1,575 @@
+\chapter{YM2151 Registers}
+
+The YM register address space can be thought of as being divided into 3 ranges:\\
+
+\begin{tabular}{|c|c|p{0.5\linewidth}|}
+	\hline
+	Range & Type & Description \\ \hline
+	\$00 .. \$1F & Global Values & Affect individual global parameters such as LFO frequency, noise enable, etc. \\ \hline
+	\$20 .. \$3F & Channel CFG & Parameters in groups of 8, one per channel. These affect the whole channel. \\ \hline
+	\$40 .. \$FF & Operator CFG & Parameters in groups of 32 - these map to individual operators of each voice. \\ \hline
+\end{tabular}\\
+
+\subsection{Global Registers}
+
+\begin{longtable}{|m{0.10\linewidth}|m{0.2\linewidth}|c|c|c|c|c|c|c|c|c|}
+	\hline
+
+	\multirow{2}{*}{Addr}&\multirow{2}{*}{Register}&\multicolumn{8}{c|}{Bits}\\\cline{3-10}
+	& & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+
+	\multirow{2}{*}{\$01} & \multirow{2}{*}{Test} & ! & ! & ! & ! & ! & ! & LR & ! \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Bit 1 is the LFO reset bit.
+	Setting it disables the LFO and holds the oscillator at 0. Clearing it
+	enables the LFO.  All other bits control various test functions and should
+	not be written into.}\\ \hline
+
+	\multirow{2}{*}{\$08} & \multirow{2}{*}{Key Control} & . & C2 & M2 & C1 & M1 & \multicolumn{3}{c|}{CHA} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Starts and Releases notes on the 8
+	channels.  Setting/Clearing bits for M1,C1,M2,C2 controls the key state for
+	those operators on channel CHA.  NOTE: The operator order is different than
+	the order they appear in the Operator configuration registers!}\\ \hline
+
+	\multirow{2}{*}{\$0F} & \multirow{2}{*}{Noise Control} & NE & . & . &  \multicolumn{5}{c|}{NFRQ} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {NE = Noise Enable; NFRQ = Noise
+	Frequency;  When eabled, C2 of channel 7 will use a noise waveform instead
+	of a sine waveform.  }\\ \hline
+
+	\multirow{2}{*}{\$10} & \multirow{2}{*}{Timer A High} & \multicolumn{8}{c|}{CLKA1} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Top 8 bits of Timer A period setting}\\ \hline
+
+	\multirow{2}{*}{\$11} & \multirow{2}{*}{Timer A Low} & . & . & . & . & . & . & \multicolumn{2}{c|}{CLKA2} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Bottom 2 bits of Timer A period setting}\\ \hline
+
+	\multirow{2}{*}{\$12} & \multirow{2}{*}{Timer B} & \multicolumn{8}{c|}{CLKB} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Timer B period setting}\\ \hline
+
+	\multirow{2}{*}{\$14} & \multirow{2}{*}{IRQ Control} & CSM & . &
+	\multicolumn{2}{c|}{ CLK ACK} &
+	\multicolumn{2}{c|}{IRQ EN} &
+	\multicolumn{2}{c|}{CLK ST} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {CSM: When a timer expires, trigger
+	note key-on for all channels.  For the other 3 fields, lower bit = Timer A,
+	upper bit = Timer B.  CLK ACK: clears the timer's bit in the YM\_status
+	byte and acknowledges the IRQ.}\\ \hline
+
+	\multirow{2}{*}{\$18} & \multirow{2}{*}{LFO Freq} & \multicolumn{8}{c|}{LFRQ} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {Sets LFO frequency.  \$00 =
+	~0.008Hz \$FF = ~32.6Hz}\\ \hline
+
+	\multirow{3}{*}{\$19} & \multirow{3}{*}{LFO Amplitude} & 0 & \multicolumn{7}{c|}{AMD} \\ \cline{3-10}
+
+	& & 1 & \multicolumn{7}{c|}{PMD} \\ \cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {AMD = Amplitude Modulation Depth;
+	PMD = Phase Modulation (vibrato) Depth;  Bit 7 determines which parameter
+	is being set when writing into this register.}\\ \hline
+
+	\multirow{2}{*}{\$1B} & \multirow{2}{*}{LFO Waveform} &
+	\multicolumn{2}{c|}{CT} & . & . & . & . &
+	\multicolumn{2}{c|}{W} \\\cline{3-10}
+
+	& & \multicolumn{8}{p{0.55\linewidth}|} {CT: sets output pins CT1 and CT1
+	high or low. (not connected to anything in X16); W: LFO Waveform: 0-4 =
+	Saw, Square, Triange, Noise; For sawtooth: PM->////
+	AM->\textbackslash\textbackslash\textbackslash\textbackslash}\\ \hline
+
+\end{longtable}
+
+% 
+% 
+% #### Channel CFG Registers:
+% <table>
+%   <tr>
+%     <th rowspan="2">Register Range</th>
+%     <th colspan="8">Register bits</th>
+%     <th rowspan="2">Description
+%   </tr>
+%   <tr>
+%     <th>7</th>
+%     <th>6</th>
+%     <th>5</th>
+%     <th>4</th>
+%     <th>3</th>
+%     <th>2</th>
+%     <th>1</th>
+%     <th>0</th>
+%   </tr>
+%   <tr>
+%     <td>$20 + channel</td>
+%     <td colspan="2">RL</td>
+%     <td colspan="3">FB</td>
+%     <td colspan="3">CON</td>
+%     <td rowspan="4">
+%       <dl>
+%         <dt>RL</dt><dd>Right/Left Output Enable</dd>
+%         <dt>FB</dt><dd>M1 Feedback Level</dd>
+%         <dt>CON</dt><dd>Operator connection algorithm</dd>
+%         <dt>KC</dt><dd>Key Code</dd>
+%         <dt>KF</dt><dd>Key Fraction</dd>
+%         <dt>PMS</dt><dd>Phase Modulation Sensitivity</dd>
+%         <dt>AMS</dt><dd>Amplitude Modulation Sensitivity</dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>$28 + channel</td>
+%     <td>.</td>
+%     <td colspan="7">KC</td>
+%   </tr>
+%   <tr>
+%     <td>$30 + channel</td>
+%     <td colspan="6">KF</td>
+%     <td>.</td>
+%     <td>.</td>
+%   </tr>
+%   <tr>
+%     <td>$38 + channel</td>
+%     <td>.</td>
+%     <td colspan="3">PMS</td>
+%     <td>.</td>
+%     <td>.</td>
+%     <td colspan="2">AMS</td>
+%   </tr>
+% </table>
+% 
+% #### Operator CFG Registers:
+% <table>
+%   <tr>
+%     <th rowspan="2">Register<br />Range</th>
+%     <th rowspan="2">Operator</th>
+%     <th colspan="8">Register Bits</th>
+%     <th rowspan="2">Description</th>
+%   </tr>
+%   <tr>
+%     <th>7</th>
+%     <th>6</th>
+%     <th>5</th>
+%     <th>4</th>
+%     <th>3</th>
+%     <th>2</th>
+%     <th>1</th>
+%     <th>0</th>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$40</td>
+%     <td>M1: $40+channel</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" colspan="3">DT1</td>
+%     <td rowspan="4" colspan="4">MUL</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>DT1</dt><dd>Detune Amount (fine)</dd>
+%         <dt>MUL</dt><dd>Frequency Multiplier</dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $48+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $50+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $58+channel</td>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$60</td>
+%     <td>M1: $60+channel</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" colspan="7">TL</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>TL</dt><dd>Total Level (volume attenuation)<br/>
+%                        (0=max, $7F=min)
+%         </dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $68+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $70+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $78+channel</td>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$80</td>
+%     <td>M1: $80+channel</td>
+%     <td rowspan="4" colspan="2">KS</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" colspan="5">AR</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>KS</dt><dd>Key Scaling (ADSR rate scaling)</dd>
+%         <dt>AR</dt><dd>Attack Rate</dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $88+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $90+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $98+channel</td>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$A0</td>
+%     <td>M1: $A0+channel</td>
+%     <td rowspan="4">A<br />M<br /><br />E<br />n<br />a</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" colspan="5">D1R</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>AM-Ena</dt><dd>Amplitude Modulation Enable</dd>
+%         <dt>D1R</dt><dd>Decay Rate 1<br />
+%                         (From peak down to sustain level)
+%         </dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $A8+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $B0+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $B8+channel</td>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$C0</td>
+%     <td>M1: $C0+channel</td>
+%     <td rowspan="4" colspan="2">DT2</td>
+%     <td rowspan="4" >.</td>
+%     <td rowspan="4" colspan="5">D2R</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>DT2</dt><dd>Detune Amount (coarse)</dd>
+%         <dt>D2R</dt><dd>Decay Rate 2<br />
+%                         (During sustain phase)
+%         </dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $C8+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $D0+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $D8+channel</td>
+%   </tr>
+%   <tr>
+%     <td rowspan="4" valign="top">$E0</td>
+%     <td>M1: $E0+channel</td>
+%     <td rowspan="4" colspan="4">D1L</td>
+%     <td rowspan="4" colspan="4">RR</td>
+%     <td rowspan="4" valign="top">
+%       <dl>
+%         <dt>D1L</dt><dd>Decay 1 Level (Sustain level)<br />
+%                         Level at which decay switches from D1R to D2R
+%         </dd>
+%         <dt>RR</dt><dd>Release Rate</dd>
+%       </dl>
+%     </td>
+%   </tr>
+%   <tr>
+%     <td>M2: $E8+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C1: $F0+channel</td>
+%   </tr>
+%   <tr>
+%     <td>C2: $F8+channel</td>
+%   </tr>
+% </table>
+% 
+% # YM2151 Register Details
+% 
+% ## Global Parameters:
+% 
+% **LR** (LFO Reset)
+% 
+% Register $01, bit 1
+% 
+% Setting this bit will disable the LFO and hold it at level 0. Clearing this bit
+% allows the LFO to operate as normal. (See LFRQ for further info)
+% 
+% **KON** (KeyON)
+% 
+% Register $08
+% 
+% * Bits 0-2: Channel_Number
+% 
+% * Bits 3-6: Operator M1, C1, M2, C2 control bits:
+%   * 0: Releases note on operator
+%   * 0->1: Triggers note attack on operator
+%   * 1->1: No effect
+% 
+% Use this register to start/stop notes. Typically, all 4 operators are triggered/released
+% together at once. Writing a value of $78+channel_number will start a note on all 4 OPs,
+% and writing a value of $00+channel_number will stop a note on all 4 OPs.
+% 
+% **NE** (Noise Enable)
+% 
+% Register $0F, Bit 7
+% 
+% When set, the C2 operator of channel 7 will use a noise waveform instead of a sine.
+% 
+% **NFRQ** (Noise Frequency)
+% 
+% Register $0F, Bits 0-4
+% 
+% Sets the noise frequency, $00 is the lowest and $1F is the highest. NE bit must be
+% set in order for this to have any effect. Only affects operator C2 on channel 7.
+% 
+% **CLKA1** (Clock A, high order bits)
+% 
+% Register $10, Bits 0-7
+% 
+% This is the high-order value for Clock A (a 10-bit value).
+% 
+% **CLKA2** (Clock A, low order bits)
+% 
+% Register $11, Bits 0-1
+% 
+% Sets the 2 low-order bits for Clock A (a 10-bit value).
+% 
+% Timer A's period is
+% Computed as (64*(1024-ClkA)) / PhiM ms.  (PhiM = 3579.545Khz)
+% 
+% **CLKB** (Clock B)
+% 
+% Register $12, Bits 0-7
+% 
+% Sets the Clock B period. The period for Timer B is computed as (1024*(256-CLKB)) / PhiM ms. (PhiM = 3579.545Khz)
+% 
+% **CSM**
+% 
+% Register $14, Bit 7
+% 
+% When set, the YM2151 will generate a KeyON attack on all 8 channels whenever TimerA overflows.
+% 
+% **Clock ACK**
+% 
+% Register $14, Bits 4-5
+% 
+% Clear (acknowledge) IRQ status generated by TimerA and TimerB (respectively).
+% 
+% **IRQ EN**
+% 
+% Register $14, Bits 2-3
+% 
+% When set, enables IRQ generation when TimerA or TimerB (respectively) overflow.
+% The IRQ status of the two timers is checked by reading from the YM2151_STATUS byte.
+% Bit 0 = Timer A IRQ status, and Bit 1 = Timer B IRQ status. Note that these status
+% bits are only active if the timer has overflowed AND has its IRQ_EN bit set.
+% 
+% **Clock Start**
+% 
+% Register $14, Bits 0-1
+% 
+% When set, these bits clear the TimerA and TimerB (respectively) counters and starts
+% it running.
+% 
+% **LFRQ** (LFO Frequency)
+% 
+% Register $18, Bits 0-7
+% 
+% Sets the LFO frequency.
+% * $00 = ~0.008Hz
+% * $FF = ~32.6Hz
+% 
+% Note that even setting the value zero here results in a positive LFO frequency. Any channels sensitive to the LFO will still be affected by the LFO unless the `LR` bit is set in register $01 to completely disable it.
+% 
+% **AMD** (Amplitude Modulation Depth)
+% 
+% Register $19 Bits 0-6, Bit 7 clear
+% 
+% Sets the peak strength of the LFO's Amplitude Modulation effect. Note that bit 7 of the value written into $19 must be clear in order to set the AMD. If bit 7 is set, the write will be interpreted as PMD.
+% 
+% **PMD** (Phase Modulation Depth)
+% 
+% Register $19 Bits 0-6, Bit 7 set
+% 
+% Sets the peak strength of the LFO's Phase Modulation effect. Note that bit 7 of the value written into $19 must be set in order to set the PMD. If bit 7 is clear, the value is interpreted as AMD.
+% 
+% **CT** (Control pins)
+% 
+% Register $1B, Bits 6-7
+% 
+% These bits set the electrical state of the two CT pins to on/off. These pins are not connected to anything in the X16 and have no effect.
+% 
+% **W** (LFO Waveform)
+% 
+% Register $1B, Bits 0-1
+% 
+% Sets the LFO waveform:
+% 0: Sawtooth, 1: Square (50% duty cycle), 2: Triangle, 3: Noise
+% 
+% ## Channel Control Parameters:
+% 
+% **RL** (Right/Left output enable)
+% 
+% Register $20 (+ channel), Bits 6-7
+% 
+% Setting/Clearing these bits enables/disables audio output for the selected channel. (bit6=left, bit7=right)
+% 
+% **FB** (M1 Self-Feedback)
+% 
+% Register $20 (+ channel), bits 3-5
+% 
+% Sets the amount of self feedback on operator M1 for the selected channel. 0=none, 7=max
+% 
+% **CON** (Connection Algorithm)
+% 
+% Register $20 (+ channel), bits 0-2
+% 
+% Sets the selected channel to connect the 4 operators in one of 8 arrangements.
+% 
+%   [insert picture here]
+% 
+% **KC** (Key Code - Note selection)
+% 
+% Register $28 + channel, bits 0-6
+% 
+% Sets the octave and semitone for the selected channel.
+% Bits 4-6 specify the octave (0-7) and bits 0-3 specify the semitone:
+% 
+% 0|1|2|4|5|6|8|9|A|C|D|E
+% -|-|-|-|-|-|-|-|-|-|-|-
+% c#|d|d#|e|f|f#|g|g#|a|a#|b|c
+% 
+% Note that natural C is at the TOP of the selected octave, and that
+% each 4th value is skipped. Thus if concert A (A-4, 440hz) is KC=$4A, then middle C is KC=$3E
+% 
+% **KF** (Key Fraction)
+% 
+% Register $30 + channel, Bits 2-7
+% 
+% Raises the pitch by 1/64th of a semitone * the KF value.
+% 
+% **PMS** (Phase Modulation Sensitivity)
+% 
+% Register $38 + channel, Bits 4-6
+% 
+% Sets the Phase Modulation (vibrato) sensitivity of the selected channel. The resulting vibrato depth is determined by the combination of the global PMD setting (see above) modified by each channel's PMS.
+% 
+% Sensitivity values: (+/- cents)
+% 
+% 0|1|2|3|4|5|6|7
+% -|-|-|-|-|-|-|-
+% 0|5|10|20|50|100|400|700
+% 
+% **AMS** (Amplitude Modulation Sensitivity)
+% 
+% Register $38 + channel, Bits 0-1
+% 
+% Sets the Amplitude Modulation sensitivity of the selected channel. Note that each operator may individually enable or disable this effect on its output by setting/clearing the AMS-Ena bit (see below). Operators acting as outputs will exhibit a tremolo effect (varying volume) and operators acting as modulators will vary their effectiveness on the timbre when enabled for amplitude modulation.
+% 
+% Sensitivity values: (dB)
+% 
+% 0|1|2|3
+% -|-|-|-
+% 0|23.90625|47.8125|95.625
+% 
+% ## Operator Control Parameters:
+% 
+% Operators are arranged as follows:
+% 
+% name|M1|M2|C1|C2
+% -|-|-|-|-
+% index|0|1|2|3
+% 
+% These are the names used throughout this document for consistency, but they may function as either modulators or carriers, depending on which `CON` ALG is used.
+% 
+% The Operator Control parameters are mapped to channels/operators as follows: Register + 8\*op + channel. You may also choose to think of these register addresses as using bits 0-2 = channel, bits 3-4 = operator, and bits 5-7 = parameter. This reference will refer to them using the address range, e.g. $60-$7F = TL. To set TL for channel 2, operator 1, the register address would be $6A ($60 + 1\*8 + 2).
+% 
+% 
+% **DT1** (Detune 1 - fine detune)
+% 
+% Registers $40-$5F, Bits 4-6
+% 
+% Detunes the operator from the channel's main pitch. Values 0 and 4=no detuning.
+% Values 1-3=detune up, 5-7 = detune down.<br/>
+% The amount of detuning varies with pitch. It decreases as the channel's pitch increases.
+% 
+% **MUL** (Frequency Multiplier)
+% 
+% Registers $40-$5F, Bits 0-3
+% 
+% If MUL=0, it multiplies the operator's frequency by 0.5<br/>
+% Otherwise, the frequency is multiplied by the value in MUL (1,2,3...etc)
+% 
+% **TL** (Total Level - attenuation)
+% 
+% Registers $60-$7F, Bits 0-6
+% 
+% This is essentially "volume control" - It is an attenuation value, so $00 = maximum level and $7F is minimum level. On output operators, this is the volume output by that operator. On modulating operators, this affects the amount of modulation done to other operators.
+% 
+% **KS** (Key Scaling)
+% 
+% Registers $80-$9F, Bits 6-7
+% 
+% Controls the speed of the ADSR progression. The KS value sets four different levels of scaling. Key scaling increases along with the pitch set in KC. 0=min, 3=max
+% 
+% **AR** (Attack Rate)
+% 
+% Registerss $80-$9F, Bits 0-4
+% 
+% Sets the attack rate of the ADSR envelope. 0=slowest, $1F=fastest
+% 
+% **AMS-Enable** (Amplitude Modulation Sensitivity Enable)
+% 
+% Registers $A0-$BF, Bit 7
+% 
+% If set, the operator's output level will be affected by the LFO according to the channel's AMS setting. If clear, the operator will not be affected.
+% 
+% **D1R** (Decay Rate 1)
+% 
+% Registers $A0-$BF, Bits 0-4
+% 
+% Controls the rate at which the level falls from peak down to the sustain level (D1L). 0=none, $1F=fastest.
+% 
+% **DT2** (Detune 2 - coarse)
+% 
+% Registers $C0-$DF, Bits 6-7
+% 
+% Sets a strong detune amount to the operator's frequency. Yamaha suggests that this is most useful for sound effects. 0=off,
+% 
+% **D2R** (Decay Rate 2)
+% 
+% Registers $C0-$DF, Bits 0-4
+% 
+% Sets the Decay2 rate, which takes effect once the level has fallen from peak down to the sustain level (D1L). This rate continues
+% until the level reaches zero or until the note is released.
+% 
+% 0=none, $1F=fastest
+% 
+% **D1L**
+% 
+% Registers $E0-$FF, Bits 4-7
+% 
+% Sets the level at which the ADSR envelope changes decay rates from D1R to D2R. 0=minimum (no D2R), $0F=maximum (immediately at peak, which effectively disables D1R)
+% 
+% 
+% **RR**
+% 
+% Registers $E0-$FF, Bitst 0-3
+% 
+% Sets the rate at which the level drops to zero when a note is released. 0=none, $0F=fastest
