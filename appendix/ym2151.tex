@@ -51,7 +51,7 @@ The YM register address space can be thought of as being divided into 3 ranges:\
 	& & \multicolumn{8}{p{0.55\linewidth}|} {Timer B period setting}\\ \hline
 
 	\multirow{2}{*}{\$14} & \multirow{2}{*}{IRQ Control} & CSM & . &
-	\multicolumn{2}{c|}{ CLK ACK} &
+	\multicolumn{2}{c|}{CLK ACK} &
 	\multicolumn{2}{c|}{IRQ EN} &
 	\multicolumn{2}{c|}{CLK ST} \\\cline{3-10}
 
@@ -84,62 +84,39 @@ The YM register address space can be thought of as being divided into 3 ranges:\
 
 \end{longtable}
 
-% 
-% 
-% #### Channel CFG Registers:
-% <table>
-%   <tr>
-%     <th rowspan="2">Register Range</th>
-%     <th colspan="8">Register bits</th>
-%     <th rowspan="2">Description
-%   </tr>
-%   <tr>
-%     <th>7</th>
-%     <th>6</th>
-%     <th>5</th>
-%     <th>4</th>
-%     <th>3</th>
-%     <th>2</th>
-%     <th>1</th>
-%     <th>0</th>
-%   </tr>
-%   <tr>
-%     <td>$20 + channel</td>
-%     <td colspan="2">RL</td>
-%     <td colspan="3">FB</td>
-%     <td colspan="3">CON</td>
-%     <td rowspan="4">
-%       <dl>
-%         <dt>RL</dt><dd>Right/Left Output Enable</dd>
-%         <dt>FB</dt><dd>M1 Feedback Level</dd>
-%         <dt>CON</dt><dd>Operator connection algorithm</dd>
-%         <dt>KC</dt><dd>Key Code</dd>
-%         <dt>KF</dt><dd>Key Fraction</dd>
-%         <dt>PMS</dt><dd>Phase Modulation Sensitivity</dd>
-%         <dt>AMS</dt><dd>Amplitude Modulation Sensitivity</dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>$28 + channel</td>
-%     <td>.</td>
-%     <td colspan="7">KC</td>
-%   </tr>
-%   <tr>
-%     <td>$30 + channel</td>
-%     <td colspan="6">KF</td>
-%     <td>.</td>
-%     <td>.</td>
-%   </tr>
-%   <tr>
-%     <td>$38 + channel</td>
-%     <td>.</td>
-%     <td colspan="3">PMS</td>
-%     <td>.</td>
-%     <td>.</td>
-%     <td colspan="2">AMS</td>
-%   </tr>
-% </table>
+\clearpage
+
+\subsection{Channel CFG Registers}
+
+\begin{longtable}{|m{0.15\linewidth}|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+
+	\multirowcell{2}{Register\\Range}&\multicolumn{8}{c|}{Register Bits} & \multirow{2}{*}{Description}\\\cline{2-9}
+	& 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+
+	\$20 + channel & \multicolumn{2}{c|}{RL} & \multicolumn{3}{c|}{FB} & \multicolumn{3}{c|}{CON} &
+	\multirowcell{4}{ 
+		{\bfseries RL}\\
+		Right/Left Output\\Enable\\
+		{\bfseries FB}\\
+		M1 Feedback Level\\
+		{\bfseries CON}\\
+		Operator Connection\\Algorithm\\
+		{\bfseries KC}\\
+		Key Code\\
+		{\bfseries KF}\\
+		Key Fraction\\
+		{\bfseries PMS}\\
+		Phase Modulation\\Sensitivity\\
+		{\bfseries AMS}\\
+		Amplitude Modulation\\Sensitivity\\\hline
+		} \\\cline{1-9}
+
+	\$28 + channel & . & \multicolumn{7}{c|}{KC} \\\cline{1-9}
+	\$30 + channel & \multicolumn{6}{c|}{KF} & . & . \\\cline{1-9}
+	\$38 + channel & . & \multicolumn{3}{c|}{PMS} & . & . & \multicolumn{2}{c|}{AMS} \\\cline{1-9}
+
+\end{longtable}
 % 
 % #### Operator CFG Registers:
 % <table>
