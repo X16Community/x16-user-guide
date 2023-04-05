@@ -88,35 +88,29 @@ The YM register address space can be thought of as being divided into 3 ranges:\
 
 \subsection{Channel CFG Registers}
 
-\begin{longtable}{|m{0.15\linewidth}|c|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|m{0.45\linewidth}|c|c|c|c|c|c|c|c|c|}
 	\hline
 
-	\multirowcell{2}{Register\\Range}&\multicolumn{8}{c|}{Register Bits} & \multirow{2}{*}{Description}\\\cline{2-9}
+	\multirowcell{2}{Register\\Range}&\multicolumn{8}{c|}{Register Bits} \\\cline{2-9}
 	& 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
 
-	\$20 + channel & \multicolumn{2}{c|}{RL} & \multicolumn{3}{c|}{FB} & \multicolumn{3}{c|}{CON} &
-	\multirowcell{4}{ 
-		{\bfseries RL}\\
-		Right/Left Output\\Enable\\
-		{\bfseries FB}\\
-		M1 Feedback Level\\
-		{\bfseries CON}\\
-		Operator Connection\\Algorithm\\
-		{\bfseries KC}\\
-		Key Code\\
-		{\bfseries KF}\\
-		Key Fraction\\
-		{\bfseries PMS}\\
-		Phase Modulation\\Sensitivity\\
-		{\bfseries AMS}\\
-		Amplitude Modulation\\Sensitivity\\\hline
-		} \\\cline{1-9}
+	\$20 + channel & \multicolumn{2}{c|}{RL} & \multicolumn{3}{c|}{FB} & \multicolumn{3}{c|}{CON} \\\cline{1-9}
 
 	\$28 + channel & . & \multicolumn{7}{c|}{KC} \\\cline{1-9}
 	\$30 + channel & \multicolumn{6}{c|}{KF} & . & . \\\cline{1-9}
 	\$38 + channel & . & \multicolumn{3}{c|}{PMS} & . & . & \multicolumn{2}{c|}{AMS} \\\cline{1-9}
 
-\end{longtable}
+	\multicolumn{9}{|c|}{Key} \\ \hline
+	
+	{\bfseries RL} & \multicolumn{8}{c|}{Right/Left Output Enable}\\\hline
+	{\bfseries FB} &  \multicolumn{8}{c|}{M1 Feedback Level}\\\hline
+	{\bfseries CON} &  \multicolumn{8}{c|}{Operator Connection Algorithm}\\\hline
+	{\bfseries KC} & \multicolumn{8}{c|}{Key Code}\\\hline
+	{\bfseries KF} & \multicolumn{8}{c|}{Key Fraction}\\\hline
+	{\bfseries PMS} & \multicolumn{8}{c|}{Phase Modulation Sensitivity}\\\hline
+	{\bfseries AMS} & \multicolumn{8}{c|}{Amplitude Modulation Sensitivity}\\\hline
+
+\end{tabular}
 % 
 % #### Operator CFG Registers:
 % <table>
