@@ -88,7 +88,7 @@ The YM register address space can be thought of as being divided into 3 ranges:\
 
 \subsection{Channel CFG Registers}
 
-\begin{tabular}{|m{0.45\linewidth}|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|m{0.25\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|p{0.05\linewidth}|}
 	\hline
 
 	\multirowcell{2}{Register\\Range}&\multicolumn{8}{c|}{Register Bits} \\\cline{2-9}
@@ -100,176 +100,91 @@ The YM register address space can be thought of as being divided into 3 ranges:\
 	\$30 + channel & \multicolumn{6}{c|}{KF} & . & . \\\cline{1-9}
 	\$38 + channel & . & \multicolumn{3}{c|}{PMS} & . & . & \multicolumn{2}{c|}{AMS} \\\cline{1-9}
 
-	\multicolumn{9}{|c|}{Key} \\ \hline
+	\multicolumn{9}{|c|}{Description} \\ \hline
 	
-	{\bfseries RL} & \multicolumn{8}{c|}{Right/Left Output Enable}\\\hline
-	{\bfseries FB} &  \multicolumn{8}{c|}{M1 Feedback Level}\\\hline
-	{\bfseries CON} &  \multicolumn{8}{c|}{Operator Connection Algorithm}\\\hline
-	{\bfseries KC} & \multicolumn{8}{c|}{Key Code}\\\hline
-	{\bfseries KF} & \multicolumn{8}{c|}{Key Fraction}\\\hline
-	{\bfseries PMS} & \multicolumn{8}{c|}{Phase Modulation Sensitivity}\\\hline
-	{\bfseries AMS} & \multicolumn{8}{c|}{Amplitude Modulation Sensitivity}\\\hline
+	RL & \multicolumn{8}{c|}{Right/Left Output Enable}\\\hline
+	FB &  \multicolumn{8}{c|}{M1 Feedback Level}\\\hline
+	CON &  \multicolumn{8}{c|}{Operator Connection Algorithm}\\\hline
+	KC & \multicolumn{8}{c|}{Key Code}\\\hline
+	KF & \multicolumn{8}{c|}{Key Fraction}\\\hline
+	PMS & \multicolumn{8}{c|}{Phase Modulation Sensitivity}\\\hline
+	AMS & \multicolumn{8}{c|}{Amplitude Modulation Sensitivity}\\\hline
 
 \end{tabular}
-% 
-% #### Operator CFG Registers:
-% <table>
-%   <tr>
-%     <th rowspan="2">Register<br />Range</th>
-%     <th rowspan="2">Operator</th>
-%     <th colspan="8">Register Bits</th>
-%     <th rowspan="2">Description</th>
-%   </tr>
-%   <tr>
-%     <th>7</th>
-%     <th>6</th>
-%     <th>5</th>
-%     <th>4</th>
-%     <th>3</th>
-%     <th>2</th>
-%     <th>1</th>
-%     <th>0</th>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$40</td>
-%     <td>M1: $40+channel</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" colspan="3">DT1</td>
-%     <td rowspan="4" colspan="4">MUL</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>DT1</dt><dd>Detune Amount (fine)</dd>
-%         <dt>MUL</dt><dd>Frequency Multiplier</dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $48+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $50+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $58+channel</td>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$60</td>
-%     <td>M1: $60+channel</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" colspan="7">TL</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>TL</dt><dd>Total Level (volume attenuation)<br/>
-%                        (0=max, $7F=min)
-%         </dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $68+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $70+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $78+channel</td>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$80</td>
-%     <td>M1: $80+channel</td>
-%     <td rowspan="4" colspan="2">KS</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" colspan="5">AR</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>KS</dt><dd>Key Scaling (ADSR rate scaling)</dd>
-%         <dt>AR</dt><dd>Attack Rate</dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $88+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $90+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $98+channel</td>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$A0</td>
-%     <td>M1: $A0+channel</td>
-%     <td rowspan="4">A<br />M<br /><br />E<br />n<br />a</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" colspan="5">D1R</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>AM-Ena</dt><dd>Amplitude Modulation Enable</dd>
-%         <dt>D1R</dt><dd>Decay Rate 1<br />
-%                         (From peak down to sustain level)
-%         </dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $A8+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $B0+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $B8+channel</td>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$C0</td>
-%     <td>M1: $C0+channel</td>
-%     <td rowspan="4" colspan="2">DT2</td>
-%     <td rowspan="4" >.</td>
-%     <td rowspan="4" colspan="5">D2R</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>DT2</dt><dd>Detune Amount (coarse)</dd>
-%         <dt>D2R</dt><dd>Decay Rate 2<br />
-%                         (During sustain phase)
-%         </dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $C8+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $D0+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $D8+channel</td>
-%   </tr>
-%   <tr>
-%     <td rowspan="4" valign="top">$E0</td>
-%     <td>M1: $E0+channel</td>
-%     <td rowspan="4" colspan="4">D1L</td>
-%     <td rowspan="4" colspan="4">RR</td>
-%     <td rowspan="4" valign="top">
-%       <dl>
-%         <dt>D1L</dt><dd>Decay 1 Level (Sustain level)<br />
-%                         Level at which decay switches from D1R to D2R
-%         </dd>
-%         <dt>RR</dt><dd>Release Rate</dd>
-%       </dl>
-%     </td>
-%   </tr>
-%   <tr>
-%     <td>M2: $E8+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C1: $F0+channel</td>
-%   </tr>
-%   <tr>
-%     <td>C2: $F8+channel</td>
-%   </tr>
-% </table>
-% 
+
+\clearpage
+
+\subsection{Operator CFG Registers}
+
+\begin{longtable}{|m{0.10\linewidth}|m{0.25\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|p{0.033\linewidth}|}
+	\hline
+
+	\multirowcell{2}{Register\\Range} & \multirow{2}{*}{Operator} & \multicolumn{8}{c|}{Register Bits} \\\cline{3-10}
+	& & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ \hline
+
+	\multirow{4}{*}{\$40} & M1: \$40+channel &
+	\multirow{4}{*}{.} &
+	\multicolumn{3}{c|}{\multirow{4}{*}{DT1}} &
+	\multicolumn{4}{c|}{\multirow{4}{*}{MUL}} \\
+	& M2: \$48+channel & & \multicolumn{3}{c|}{} & \multicolumn{4}{c|}{} \\
+	& C1: \$50+channel & & \multicolumn{3}{c|}{} & \multicolumn{4}{c|}{} \\
+	& C2: \$58+channel & & \multicolumn{3}{c|}{} & \multicolumn{4}{c|}{} \\\hline
+
+	\multirow{4}{*}{\$60} & M1: \$60+channel &
+	\multirow{4}{*}{.} &
+	\multicolumn{7}{c|}{\multirow{4}{*}{TL}} \\
+	& M2: \$68+channel & & \multicolumn{7}{c|}{} \\
+	& C1: \$70+channel & & \multicolumn{7}{c|}{} \\
+	& C2: \$78+channel & & \multicolumn{7}{c|}{} \\\hline
+
+	\multirow{4}{*}{\$80} & M1: \$80+channel &
+	\multicolumn{2}{c|}{\multirow{4}{*}{KS}} &
+	\multirow{4}{*}{.} &
+	\multicolumn{5}{c|}{\multirow{4}{*}{AR}} \\
+	& M2: \$88+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\
+	& C1: \$90+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\
+	& C2: \$98+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\\hline
+
+	\multirow{4}{*}{\$A0} & M1: \$A0+channel &
+	\multirow{4}{*}{AM} &
+	\multirow{4}{*}{.} &
+	\multirow{4}{*}{.} &
+	\multicolumn{5}{c|}{\multirow{4}{*}{D1R}} \\
+	& M2: \$A8+channel & & & & \multicolumn{5}{c|}{}\\
+	& C1: \$B0+channel & & & & \multicolumn{5}{c|}{}\\
+	& C2: \$B8+channel & & & & \multicolumn{5}{c|}{}\\\hline
+
+	\multirow{4}{*}{\$C0} & M1: \$C0+channel &
+	\multicolumn{2}{c|}{\multirow{4}{*}{DT2}} &
+	\multirow{4}{*}{.} &
+	\multicolumn{5}{c|}{\multirow{4}{*}{D2R}} \\
+	& M2: \$C8+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\
+	& C1: \$D0+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\
+	& C2: \$D8+channel & \multicolumn{2}{c|}{} & & \multicolumn{5}{c|}{}\\\hline
+
+	\multirow{4}{*}{\$E0} & M1: \$E0+channel &
+	\multicolumn{4}{c|}{\multirow{4}{*}{D1L}} &
+	\multicolumn{4}{c|}{\multirow{4}{*}{RR}} \\
+	& M2: \$E8+channel & \multicolumn{4}{c|}{} & \multicolumn{4}{c|}{} \\
+	& C1: \$F0+channel & \multicolumn{4}{c|}{} & \multicolumn{4}{c|}{} \\
+	& C2: \$F8+channel & \multicolumn{4}{c|}{} & \multicolumn{4}{c|}{} \\\hline
+
+	\multicolumn{10}{|c|}{Description} \\ \hline
+	
+	DT1 & \multicolumn{9}{c|}{Detune Amount (fine)}\\\hline
+	MUL & \multicolumn{9}{c|}{Frequency Multiplier}\\\hline
+	TL & \multicolumn{9}{c|}{Total Level (volume attenuation) (0=max, \$7F=min)}\\\hline
+	KS & \multicolumn{9}{c|}{Key Scaling (ADSR rate scaling)}\\\hline
+	AR & \multicolumn{9}{c|}{Attack Rate}\\\hline
+	AM & \multicolumn{9}{c|}{Amplitude Modulation Enable}\\\hline
+	D1R & \multicolumn{9}{c|}{Decay Rate 1 (From peak down to sustain level)}\\\hline
+	DT2 & \multicolumn{9}{c|}{Detune Amount (coarse)}\\\hline
+	DR2 & \multicolumn{9}{c|}{Decay Rate 2 (During sustain phase)}\\\hline
+	D1L & \multicolumn{9}{c|}{Decay Level 1 (Sustain level)}\\\hline
+	RR & \multicolumn{9}{c|}{Release Rate}\\\hline
+
+\end{longtable}
+
 % # YM2151 Register Details
 % 
 % ## Global Parameters:
