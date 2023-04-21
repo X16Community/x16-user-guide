@@ -1182,7 +1182,26 @@ requires the {\ttfamily >} character to be placed between the
 
 \subsection{FMPOKE}
 
-<TODO>
+The {\ttfamily FMPOKE} statement can be used to write values directly to the
+registers of the FM sound chip.  To understand what values to write to which
+registers, see the appendix on YM2551 Registers.\\
+
+Using {\ttfamily FMPOKE}, it is possible to directly interface with the FM chip
+and make it do things that are not possible by using the other FM BASIC
+statements.  For example, {\ttfamily FMPOKE} can be used to define a new
+instrument patch instead of using one of the predefined patches.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries FMPOKE \$28,\$4A}&Set {\ttfamily KC} to {\ttfamily A4} on channel 0.\\\\
+
+	{\ttfamily\bfseries FMPOKE \$08,\$00}&Release channel 0.\\\\
+
+	{\ttfamily\bfseries FMPOKE \$08,\$78}&Start note playback on channel 0 with all operators.\\\\
+
+\end{tabular}
 
 \subsection{FMVIB}
 
@@ -1199,10 +1218,6 @@ requires the {\ttfamily >} character to be placed between the
 \subsection{FRAME}
 
 This command draws a rectangle frame on the graphics screen in a given color.\\
-
-\subsection{GEOS}
-
-<TODO>
 
 \subsection{GET}
 
