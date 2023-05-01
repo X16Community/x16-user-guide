@@ -514,6 +514,50 @@ is that the Commander X16 is ready for a new program.\\
  \keybackgroundcolor{gray}\keytextcolor{black}\widekey{ctrl}+\widekey{alt}+\widekey{del}
  key combination on the keyboard.\\
 
+\subsection{REN}
+
+The {\ttfamily REN} command renumbers a BASIC program while updating the line
+number arguments of {\ttfamily GOSUB}, {\ttfamily GOTO}, {\ttfamily RESTORE},
+{\ttfamily RUN}, and {\ttfamily THEN}.  The {\ttfamily REN} command takes three
+optional arguments:\\
+
+\begin{itemize}
+
+	\item The line number of the first line after renumbering, default: {\ttfamily 10}
+
+	\item The value of the increment of subsequent lines, default: {\ttfamily 10}
+
+	\item The ealiest old line to start renumbering, default: {\ttfamily 0}
+
+\end{itemize}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock{
+	10 PRINT "HELLO"\\
+	20 DATA 1,2,3\\
+	30 DATA 4,5,6\\
+	40 READ X\\
+	50 PRINT X\\
+	60 RESTORE 30\\
+	70 READ X\\
+	80 PRINT X\\
+	90 GOTO 10\\\\
+	REN 100,5\\\\
+	LIST\\
+	100 PRINT "HELLO"\\
+	105 DATA 1,2,3\\
+	110 DATA 4,5,6\\
+	115 READ X\\
+	120 PRINT X\\
+	125 RESTORE 110\\
+	130 READ X\\
+	135 PRINT X\\
+	140 GOTO 100\\
+}
+
 \subsection{RESET}
 
 The {\ttfamily RESET} command performs a full system reset, but does not clear
