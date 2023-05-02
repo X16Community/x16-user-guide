@@ -1249,11 +1249,39 @@ Examples:\\
 
 \subsection{FMVIB}
 
-<TODO>
+The {\ttfamily FMVIB} statement sets the speed of the FM chip's LFO, as well as
+the depth of the amplitude modulation or phase modulation.  The first argument
+sets the speed from 0-255, and the second argument sets the depth from 0-127.
+The {\ttfamily FMVIB} statement applies to all channels, and only to instrument
+patches that use either amplitude or phase modulation.\\
+
+Example:\\
+
+\codeblock{
+	10 FMINST 0,11 : REM SET CHANNEL 0 TO VIBRAPHONE\\
+	20 FMVIB 200,60 : REM SET VIBRATO\\
+	30 FMNOTE 0,\$4A : REM PLAY CONCERT A\\
+}
 
 \subsection{FMVOL}
 
-<TODO>
+The {\ttfamily FMVOL} statement sets a channel's volume.  The first argument is
+the channel, and the second argument is a value from 0 through 63.  The volume
+is maintained for the channel, even if the instrument patch is switched.  Only
+another {\ttfamily FMVOL} statement or an {\ttfamily FMINIT} statement will
+cause the volume of a channel to change.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries FMVOL 0,63}&Set channel 0 to full volume.\\\\
+
+	{\ttfamily\bfseries FMVOL 1,31}&Set channel 1 to half volume.\\\\
+
+	{\ttfamily\bfseries FMVOL 2,0}&Set channel 1 to no volume, silencing it.\\\\
+
+\end{tabular}
 
 \subsection{FOR}
 
