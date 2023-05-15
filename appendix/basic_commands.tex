@@ -754,9 +754,9 @@ READY} prompt:\\
  \codeblock{
 
 	 10 OPEN 8,8,8,"FILE.BIN,S,R"\\
-	 20 BINPUT\# 8,A\$,10\\
-	 30 PRINT "I GOT";LEN(A\$);"BYTES"\\
-	 40 IF ST AND 64 THEN 60\\
+	 20 BINPUT\# 8,A\$,5\\
+	 30 PRINT "I GOT";LEN(A\$);"BYTES: ";A\$\\
+	 40 IF ST AND 64 THEN 60 REM END OF FILE\\
 	 50 GOTO 20\\
 	 60 CLOSE 8\\
 	 70 PRINT "FINISHED READING"\\
