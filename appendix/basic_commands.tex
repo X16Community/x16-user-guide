@@ -737,6 +737,32 @@ READY} prompt:\\
 	SYS \$C000\\
 }
 
+\subsection{BINPUT\#}
+
+ The {\ttfamily BINPUT\#} statement reads a block of data from an open file and
+ stores the data into a string variable.  The {\ttfamily BINPUT\#} statement
+ takes 3 arguments; the device number, the string variable to store the data
+ into, and the number of bytes to read from the file.  If there are fewer bytes
+ to be read than the specified number of bytes has been read, only the bytes
+ available will be stored in the string variable.  If the end of the file is
+ reached, the special variable {\ttfamily ST} will have its bit 6 set to
+ {\ttfamily 1}.  This means {\ttfamily ST AND 64} will equal {\ttfamily TRUE}
+ when {\ttfamily BINPUT\#} reads all the way to or past the end of the file.\\
+
+ Example:\\
+
+ \codeblock{
+
+	 10 OPEN 8,8,8,"FILE.BIN,S,R"\\
+	 20 BINPUT\# 8,A\$,10\\
+	 30 PRINT "I GOT";LEN(A\$);"BYTES"\\
+	 40 IF ST AND 64 THEN 60\\
+	 50 GOTO 20\\
+	 60 CLOSE 8\\
+	 70 PRINT "FINISHED READING"\\
+
+ }
+
 \subsection{BLOAD}
 
 The {\ttfamily BLOAD} statement loads a headerless\footnote{typically on
@@ -1286,7 +1312,31 @@ Examples:\\
 
 \subsection{FOR}
 
-<TODO>
+The {\ttfamily FOR} statement is used with the {\ttfamily TO} statement, the
+{\ttfamily NEXT} statement, and sometimes the {\ttfamily STEP} statement to
+create a section of a program that executes a specific number of times.  This
+repeating section of a program is commonly called a "for-loop".\\
+
+The format of a for-loop is as follows:\\
+
+\codeblock{
+	FOR <loop variable> = <start> TO <end>\\
+	<code to execute multiple times ...>\\
+	NEXT <loop variable>\\
+}
+
+In the above example, {\ttfamily <loop variable>} can be any legal name for a
+floating point variable.  Both {\ttfamily <start>} and {\ttfamily <end>} are
+floating point values, and both variables and constants are allowed.\\
+
+For example, here is a for-loop that prints the numbers {\ttfamily 1} through
+{\ttfamily 10} to the screen:\\
+
+\codeblock{
+	FOR X = 1 TO 10\\
+	PRINT X\\
+	NEXT X\\
+}
 
 \subsection{FRAME}
 
