@@ -874,7 +874,34 @@ Examples:\\
 
 \subsection{CMD}
 
-<TODO>
+The {\ttfamily CMD} statement is used to send output that would normally go to
+the screen to some other device instead.  The other device could be a file on
+the SD card, a file on a disk or tape drive, a printer, a modem, or any other
+device supported by the Commander X16.  The device must first be opened with
+the {\ttfamily OPEN} statement followed by a numerical value that will be used
+to reference the file or device.\\
+
+Example:\\
+
+\begin{tabular}{l p{0.45\linewidth}}
+
+	{\ttfamily\bfseries OPEN 1,8,8,"NEWFILE,S,W"}&OPEN a file named {\ttfamily NEWFIL} on the SD card\\\\
+
+	{\ttfamily\bfseries CMD 1}& All normal output now goes to a file named {\ttfamily NEWFILE}\\\\
+
+	{\ttfamily\bfseries LIST}&The {\ttfamily LIST}ing goes to the file, not the screen -- even the word {\ttfamily LIST}\\\\
+
+	{\ttfamily\bfseries PRINT\# 1}&Direct the output back to the screen before closing the device\\\\
+
+	{\ttfamily\bfseries CLOSE 1}&Close file 1\\\\
+	
+
+\end{tabular}
+
+If a BASIC error occurs the data ouput is switched back to the screen, with the
+side effect that space characters will be send to the logical file of the
+selected device.  This is why the {\ttfamily PRINT\#} statement should be used
+prior to closing the device.\\
 
 \subsection{COLOR}
 
