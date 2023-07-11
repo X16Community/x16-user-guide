@@ -1400,6 +1400,9 @@ Example:\\
 	20 FRAME 10,10,310,230,2\\
 }
 
+The {\ttfamily FRAME} statement is similar to the {\ttfamily RECT} statment,
+except that {\ttfamily FRAME} does not fill in the rectangle.
+
 \subsection{GET}
 
 The {\ttfamily GET} statement gets data from the keyboard one character at a
@@ -1527,13 +1530,27 @@ time.
 
 \subsection{RECT}
 
-<TODO>
+The {\ttfamily RECT} statement draws a filled rectangle in graphics mode in a
+given color.  The first two arguments are the x and y coordinates for the upper
+left corner of the rectangle.  The third and fourth arguments are the x and y
+coordinates for the lower right corder of the rectangle.  The fifth argument is
+a number from 0-255 that specifies the color from the current palette.\\
+
+Example:\\
+
+\codeblock{
+	10 SCREEN \$80\\
+	20 RECT 10,10,310,230,2\\
+}
+
+The {\ttfamily RECT} statement is similar to the {\ttfamily FRAME} statment,
+except that {\ttfamily RECT} fills the rectangle with the specified color.
 
 \subsection{REM}
 
 <TODO>
 
-\subsection{REM}
+\subsection{REN}
 
 <TODO>
 
