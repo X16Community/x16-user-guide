@@ -1406,7 +1406,46 @@ except that {\ttfamily FRAME} does not fill in the rectangle.
 \subsection{GET}
 
 The {\ttfamily GET} statement gets data from the keyboard one character at a
-time.
+time.  The {\ttfamily GET} statement will read a single character from the
+keyboard cache and place it into a variable provided as an argument.  Any
+character can be placed into a string variable, but only numeric characters can
+be placed into integer or floating point variables.  When the keyboard cache is
+empty (no keys are currently pressed), a default value is placed into the
+specified variable.  For string variables the default value will be the empty
+string ({\ttfamily ""}), but for floating point and integer variables the
+default value will be {\ttfamily 0.0} and {\ttfamily 0}, respectively.\\
+
+If there are more than one characters currently in the keyboard cache,
+then a single call to {\ttfamily GET} can retrieve them all by specifying
+multiple variables as arguments.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.85\linewidth}}
+
+	{\ttfamily\bfseries GET A\$} & Read a single character from the keyboard into {\ttfamily A\$}\\\\
+
+	{\ttfamily\bfseries GET I\$} & Read a single character from the keyboard
+	into {\ttfamily I\%}, and cause an error if that character is not
+	numeric\\\\
+
+	{\ttfamily\bfseries GET F} & Read a single character from the keyboard into
+	{\ttfamily F}, and cause an error if that character is not numeric\\\\
+
+	{\ttfamily\bfseries GET A\$,B\$} & Read two characters from the keyboard
+	cache into {\ttfamily A\$} and {\ttfamily B\$}\\\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+A common use for the {\ttfamily GET} statement is to pause a program in a loop until the user presses a key:\\
+
+\codeblock{
+	10 PRINT "PRESS ANY KEY TO CONTINUE"\\
+	20 GET A\$:IF A\$="" GOTO 20\\
+	30 PRINT "THANK YOU FOR PRESSING A KEY!"\\
+}
 
 \subsection{GET\#}
 
