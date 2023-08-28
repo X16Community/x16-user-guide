@@ -522,6 +522,33 @@ is that the Commander X16 is ready for a new program.\\
  \keybackgroundcolor{gray}\keytextcolor{black}\widekey{ctrl}+\widekey{alt}+\widekey{del}
  key combination on the keyboard.\\
 
+\subsection{REBOOT}
+
+The {\ttfamily REBOOT} command Performs a software reset of the system by
+calling the ROM reset vector.  This performs all the boot routines in the
+system ROM, but does not force the hardware to reset.  The {\ttfamily REBOOT}
+command {\em does not} clear memory, but {\em does} clear any BASIC program
+that is loaded.  Because it is still in memory, however, a previously loaded
+BASIC program can be re-loaded by using the {\ttfamily OLD} command after a
+reboot:\\
+
+\screenbox{2.75in}{2in}{
+	NEW\\
+	10 PRINT "EXISTING PROGRAM"\\
+	REBOOT\\
+}
+\screenbox{2.75in}{2in}{
+	**** X16 BASIC ****\\
+	512k HIGH RAM\\
+	38655 BASIC BYTES FREE\\
+	READY.\\
+	OLD\\
+	LIST\\
+	10 PRINT "EXISTING PROGRAM"\\
+	READY.\\
+	\cursor
+}
+
 \subsection{REN}
 
 The {\ttfamily REN} command renumbers a BASIC program while updating the line
@@ -545,36 +572,24 @@ Example:\\
 
 \codeblock{
 	10 PRINT "HELLO"\\
-	20 DATA 1,2,3\\
-	30 DATA 4,5,6\\
-	40 READ X\\
-	50 PRINT X\\
-	60 RESTORE 30\\
-	70 READ X\\
-	80 PRINT X\\
-	90 GOTO 10\\\\
+	15 PRINT "CLEAN"\\
+	20 PRINT "THIS"\\
+	40 PRINT "UP"\\
 	REN 100,5\\\\
 	LIST\\
 	100 PRINT "HELLO"\\
-	105 DATA 1,2,3\\
-	110 DATA 4,5,6\\
-	115 READ X\\
-	120 PRINT X\\
-	125 RESTORE 110\\
-	130 READ X\\
-	135 PRINT X\\
-	140 GOTO 100\\
+	105 PRINT "CLEAN"\\
+	110 PRINT "THIS"\\
+	115 PRINT "UP"\\
 }
-
-\subsection{REBOOT}
-
-<TODO>
 
 \subsection{RESET}
 
 The {\ttfamily RESET} command performs a full system reset, but does not clear
 memory.  This means that a BASIC program and its variables can be restored
-after a {\ttfamily RESET} by using the {\ttfamily OLD} command.\\
+after a {\ttfamily RESET} by using the {\ttfamily OLD} command.  Unlike the
+{\ttfamily REBOOT} command, this triggers the Commander X16's hardware reset
+line, which may be used by expansion ports to reset custom hardware.\\
 
 \note{
 
@@ -586,12 +601,18 @@ after a {\ttfamily RESET} by using the {\ttfamily OLD} command.\\
 	key combination.  This halts the execution of any program, clears the
 	screen, and returns the user to the {\ttfamily READY} prompt.  It does not
 	mark a program or its variables as erased, and so a program can be
-	{\ttfamily RUN} again or {\ttfamily CONT}inued if desired.\\
+	{\ttfamily RUN} again or {\ttfamily CONT}inued if desired.  This is
+	equivalent to pressing the NMI button on the motherboard.\\
 
-	The second is by pressing the physical reset button on the case.  This has
+	The second is by using the {\ttfamily REBOOT} command.  This calls the
+	initial boot up routines, clears any BASIC program, but does not clear the
+	memory.  A previously loaded BASIC program can be restored with the
+	{\ttfamily OLD} command.\\
+
+	The third is by pressing the physical reset button on the case.  This has
 	the same result as the {\ttfamily RESET} command.\\
 
-	The third is a cold reboot, where the power to the Commander X16 is lost
+	The fourth is a cold reboot, where the power to the Commander X16 is lost
 	and then restored.  This causes the current program and its variables are
 	completely lost and cannot be restored with the {\ttfamily OLD} command.
 }
