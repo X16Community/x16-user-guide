@@ -1663,7 +1663,17 @@ except that {\ttfamily RECT} fills the rectangle with the specified color.
 
 \subsection{SYS}
 
-<TODO>
+The {\ttfamily SYS} statement transfers control of the X16 to a machine
+language program in memory.\\
+
+Example:\\
+
+\codeblock{
+	SYS 8192\\
+}
+
+In the above example, the X16 will execute a machine language program
+stored at address 8192 in decimal (\$2000 in hexadecimal).
 
 \subsection{THEN}
 
