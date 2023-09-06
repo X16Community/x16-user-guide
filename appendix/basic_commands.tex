@@ -1501,11 +1501,57 @@ Example:\\
 
 \subsection{GOSUB}
 
-<TODO>
+The {\ttfamily GOSUB} statement transfers program execution to a specified line
+and remembers which line which called {\ttfamily GOSUB}.  This is different
+than the {\ttfamily GOTO} statement which transfers program execution, but does
+not have a way to return control to the line which called {\ttfamily GOTO}.
+The {\ttfamily GOSUB} statement allows for the creation of {\em subroutines}
+(often called {\em functions}, {\em procedures}, or {\em methods} in other
+programming languages).  After {\ttfamily GOSUB} is called and program
+execution has been transfered to a new line, the next time a {\ttfamily RETURN}
+statement is executed it will transfer program execution back to the line
+directly {\em after} the {\ttfamily GOSUB} statement.\\
+
+Example:\\
+
+\codeblock{
+	10 PRINT "FIRST"\\
+	20 GOSUB 50\\
+	30 PRINT "THIRD"\\
+	40 END\\
+	50 PRINT "SECOND"\\
+	60 RETURN\\
+}
+
+The above program will print {\ttfamily FIRST}, {\ttfamily SECOND}, and
+{\ttfamily THRID} in order.  This is because the {\ttfamily GOSUB} statement on
+line 20 transfers execution to line 50, and then the {\ttfamily RETURN}
+statement on line 60 then transfers execution back to line 30, which is the
+line {\em after} the {\ttfamily GOSUB} statement was called.\\
+
+\tip{Nesting Subroutines}{
+
+	It is possible to "nest" subroutines created by {\ttfamily GOSUB} such that
+	a subroutine calls a subroutine which calls a subroutine...and so on!  This
+	can be useful for creating BASIC programs with complex logic.\\
+
+}
 
 \subsection{GOTO}
 
-<TODO>
+The {\ttfamily GOTO} statement transfers program execution to the line
+specified.  Unlike the {\ttfamily GOSUB} statement, the {\ttfamily GOTO}
+statement does {\em not} remember where it was called from, and therefore the
+{\ttfamily RETURN} statement will {\em not} return program execution.\\
+
+Example:\\
+
+\codeblock{
+	10 PRINT "THIS WILL PRINT"\\
+	20 GOTO 40\\
+	30 PRINT "THIS WILL NOT PRINT"\\
+	40 PRINT "THIS WILL ALSO PRINT"\\
+}
 
 \subsection{IF}
 
