@@ -738,21 +738,23 @@ and statements interpret addresses in the \$A000 - \$FFFF range.  Because all
 addresses from \$A000 and above are either banked "high" RAM or banked ROM,
 certain commands need to know \emph{which} bank is being referred to.
 Specifically, {\ttfamily SYS}, {\ttfamily POKE}, and {\ttfamily PEEK} all need
-to know which bank to use when an address in the banked range is referred to.
-The {\ttfamily BANK} statement sets the bank for both banked
-RAM\footnote{RAM in bank 0 is reserved for use by the KERNAL, so it is
-unwise to write values into there} and banked ROM.  To set a bank, call the
-{\ttfamily BANK} statement followed by a numeric value from 0 through 255.\\
+to know which bank to use when an address is given in the banked range.  The
+{\ttfamily BANK} statement sets the bank for both banked RAM\footnote{RAM in
+bank 0 is reserved for use by the KERNAL, so it is unwise to write values into
+there} and banked ROM, although setting the banked ROM is optional.  The first
+argument is used to set the RAM bank, and the optional second argument sets the
+ROM bank.  To set a bank, call the {\ttfamily BANK} statement followed by a
+numeric value from 0 through 255.\\
 
-For example, to write some data into "high" RAM in bank 1:
+For example, to write some data into "high" RAM in bank 1:\\
 
 \codeblock{
 	10 BANK 1\\
-	20 POKE \$A000,42
+	20 POKE \$A000,42\\
 }
 
 Then the bank can be switched, and the same address can be used to store more
-data, without overwriting the data in bank 1:
+data, without overwriting the data in bank 1:\\
 
 \codeblock{
 	30 BANK 2\\
@@ -768,7 +770,7 @@ Environment in ROM bank 7 can by run by typing the following at the {\ttfamily
 READY} prompt:\\
 
 \codeblock{
-	BANK 7\\
+	BANK 1,7\\
 	SYS \$C000\\
 }
 
