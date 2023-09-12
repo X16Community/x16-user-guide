@@ -354,6 +354,18 @@
 	\end{outputwidekey}
 }
 
+\newcommand{\smallkey}[1]{
+	\begin{tikzpicture}
+		\node[
+			thin,
+			rectangle,
+			fill = \thekeybackgroundcolor,
+			text = \thekeytextcolor,
+			inner sep=3pt,
+			draw = white ] (r) at (0,0) {#1};
+	\end{tikzpicture}
+}
+
 %----------------------------------------------------------------------------------------
 %	SCREEN BOX
 %----------------------------------------------------------------------------------------
