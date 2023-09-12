@@ -508,7 +508,7 @@
 			anchor=south east,
 			inner sep=0pt,
 			xshift=-0.5in,
-			yshift=3.0in] at (current page.south east) { % Mini table of contents
+			yshift=2.5in] at (current page.south east) { % Mini table of contents
 			\parbox[t][][t]{2.0in}{ % Width of box holding the mini ToC
 				\printcontents[part]{l}{0}{\setcounter{tocdepth}{0}}
 			}
