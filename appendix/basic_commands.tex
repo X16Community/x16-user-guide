@@ -1557,7 +1557,37 @@ Example:\\
 
 \subsection{IF}
 
-<TODO>
+The {\ttfamily IF} statement is how decisions are made in BASIC.  The
+{\ttfamily IF} statement is followed by an expression that either evaluates to
+{\ttfamily TRUE} or {\ttfamily FALSE}, and the next statement executed is
+dependent on the outcome.  The expression is followed by either a {\ttfamily
+THEN} statement or a {\ttfamily GOTO} statement.  A {\ttfamily THEN} statement
+is followed by another statement or a line number, and a {\ttfamily GOTO
+statement} is followed by a line number.  If the expression evaluates to
+{\ttfamily TRUE}, then the statement following the {\ttfamily THEN} statement
+is executed.  If a line number is used, either with a {\ttfamily THEN} or
+{\ttfamily GOTO} statement, then the program will jump to that line number.
+When the expression evaluates to {\ttfamily FALSE}, then the line after the
+{\ttfamily IF} statement is executed.\\
+
+Expressions can be either a variable or a formula.  In both cases a zero is
+considered {\ttfamily FALSE}, and any non-zero value is considered {\ttfamily
+TRUE}.  In most cases, the statement will be constructed from variables,
+comparison operators, and logical operators.  See the section on operators for
+more details.\\
+
+Example:\\
+
+\codeblock{
+
+	10 A=10\\
+	20 IF A=9 THEN 40\\
+	30 IF A=10 THEN 60\\
+	40 PRINT "THIS SHOULD NOT PRINT"\\
+	50 END\\
+	60 PRINT "THIS SHOULD PRINT"\\
+
+}
 
 \subsection{INPUT}
 
