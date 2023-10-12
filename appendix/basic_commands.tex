@@ -1591,11 +1591,37 @@ Example:\\
 
 \subsection{INPUT}
 
-<TODO>
+The {\ttfamily INPUT} statement asks the user of a BASIC program for data to
+store in a variable.  The program will print an optional prompt (much like the
+{\ttfamily PRINT} statement), print a question mark (?), and then wait for the
+user to type something and press
+\keybackgroundcolor{gray}\keytextcolor{black}\widekey{RETURN}.\\
+
+The optional prompt must be followed by a semicolon (;) and a variable or
+comma-separated list of variables.  When there are multiple variables, the
+{\ttfamily INPUT} statement will stop and wait for the user to type something
+and hit \widekey{RETURN} for each one of the variables listed.  If no prompt is
+given, then the semicolon (;) should not be used.\\
+
+Example:\\
+
+\codeblock{
+
+	10 INPUT "PLEASE TYPE A NUMBER";A\\
+	20 INPUT "AND YOUR NAME";A\$\\
+	30 INPUT B\$\\
+	40 PRINT "BET YOU DIDN'T KNOW WHAT I WANTED!"\\
+	50 INPUT "TYPE 2 NUMBERS AND A STRING";A,B,C\$\\
+	60 PRINT A,B,C\$\\
+
+}
+
 
 \subsection{INPUT\#}
 
-<TODO>
+The {\ttfamily INPUT\#} statement works just like the {\ttfamily INPUT}
+statement, but takes the data from a previously opened file or device.  The
+device number must be specified before the optional prompt or the variables.\\
 
 \subsection{LET}
 
