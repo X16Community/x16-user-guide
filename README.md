@@ -245,7 +245,7 @@ need be:
 	screen.\\
 
 	You can also clear the screen by typing the {\ttfamily CLS} command and
-	pressing \widekey{return}, but most people prefer to use \widekey{shirt}
+	pressing \widekey{return}, but most people prefer to use \widekey{shift}
 	\doublekey{CLR\\HOME}.
 
 }
