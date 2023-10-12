@@ -1,8 +1,12 @@
-NAME					= x16_manual
 LATEX_COMPILER			= xelatex
 LATEX_COMPILER_FLAGS	= -halt-on-error -file-line-error -shell-escape
 
-MAIN					= manual
+# The name of the final PDF
+NAME					= x16_user_guide
+GETTING_STARTED_NAME	= x16_getting_started
+
+# The name of the main file
+MAIN					= user_guide
 
 TARGETS					= $(MAIN).tex
 
@@ -55,6 +59,11 @@ FINAL_SOURCES			=  $(PDF_ARTIFACTS) $(INDEX_ARTIFACTS) $(BIBLIOGRAPHY_ARTIFACTS)
 
 all: $(NAME).pdf
 
+getting_started: NAME = $(GETTING_STARTED_NAME)
+getting_started: MAIN = getting_started
+getting_started: $(GETTING_STARTED_NAME).pdf
+
+
 ################################################################################
 # First pass PDF
 ################################################################################
@@ -90,6 +99,10 @@ $(NAME).pdf: $(FINAL_SOURCES)
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
 
+$(GETTING_STARTED_NAME).pdf: $(FINAL_SOURCES)
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) -jobname=$(NAME) $(TARGETS)
+
 ################################################################################
 # Clean
 ################################################################################
@@ -111,6 +124,11 @@ clean_bibliography_artifacts:
 
 clean_final_artifacts:
 	rm -f $(FINAL_ARTIFACTS)
+
+clean_getting_started: NAME = $(GETTING_STARTED_NAME)
+clean_getting_started: MAIN = getting_started
+clean_getting_started: clean
+
 
 ################################################################################
 # Run

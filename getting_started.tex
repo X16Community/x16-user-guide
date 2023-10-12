@@ -1,0 +1,633 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Commander X16 User's Manual
+%
+% Authors:
+% Jestin Stoffel (jestin.stoffel@gmail.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s indexstyle.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	11pt, % Default font size, select one of 10pt, 11pt or 12pt
+	fleqn, % Left align equations
+	letterpaper, % Paper size, use either 'a4paper' for A4 size or 'letterpaper' for US letter size
+	%oneside, % Uncomment for oneside mode, this doesn't start new chapters and parts on odd pages (adding an empty page if required), this mode is more suitable if the book is to be read on a screen instead of printed
+]{CommodoreBlueBook}
+
+% Book information for PDF metadata, remove/comment this block if not required 
+\hypersetup{
+	pdftitle={Title}, % Title field
+	pdfauthor={Author}, % Author field
+	pdfsubject={Subject}, % Subject field
+	pdfkeywords={Keyword1, Keyword2, ...}, % Keywords
+	pdfcreator={LaTeX}, % Content creator field
+}
+
+\setlength\parindent{0pt}
+
+\addbibresource{sample.bib} % Bibliography file
+
+\definecolor{blue}{rgb}{0.0,0.0,0.8}
+\definecolor{gray}{rgb}{0.73, 0.73, 0.73}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	COVER PAGE
+%----------------------------------------------------------------------------------------
+
+\coverpage % Output the title page
+	{\includegraphics[width=\paperwidth]{gs_cover.png}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Suppress headers and footers on this page
+
+~\vfill % Push the text down to the bottom of the page
+
+% \noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{\href{https://www.commanderx16.com}{commanderx16.com}}\\ % URL
+
+\noindent \textit{1st Edition}\\ % Printing/edition date
+
+\noindent Copyright \copyright\ 2023 Jestin Stoffel\\ % Copyright notice
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 4.0
+License (the ``License''). You may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+\url{https://creativecommons.org/licenses/by-nc-sa/4.0}. Unless required by
+applicable law or agreed to in writing, software distributed under the License
+is distributed on an \textsc{``as is'' basis, without warranties or conditions
+of any kind}, either express or implied. See the License for the specific
+language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+
+\cleardoublepage % Start the following content on a new page
+
+% start roman page numbering
+\pagenumbering{Roman}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\pagecolor{blue}
+
+\afterpage{
+	\newgeometry{
+		top=1.5in, % Top margin
+		bottom=-0.25in, % Bottom margin
+		right=0.75in, % Right margin
+		}
+	\begin{flushright}
+		{
+			\huge\sffamily\bfseries\color{white}
+			RETRO\\ COMPUTING\\ ON THE\\
+			\vspace{8pt}
+			{
+				\contourlength{2pt}
+				\contournumber{20}
+				\fontsize{36pt}{36pt}\selectfont Commander
+				\contour{white}{\textcolor{blue} {X16}}
+			}
+		}
+		\huge\sffamily\color{white} A friendly computer guide
+	\end{flushright}
+	\restoregeometry
+	\clearpage
+}
+
+\clearpage
+
+% \nopagecolor % Change page color back
+\pagecolor{white}
+
+%----------------------------------------------------------------------------------------
+%	PREFACE
+%----------------------------------------------------------------------------------------
+
+\include{preface}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+\setcounter{tocdepth}{2}
+\tableofcontents % Output the table of contents
+
+% \listoffigures % Output the list of figures, comment or remove this command if not required
+% 
+% \listoftables % Output the list of tables, comment or remove this command if not required
+
+\pagestyle{fancy} % Enable default headers and footers again
+
+\clearpage % Start the following content on a new page
+
+% start arabic page numbering
+\pagenumbering{arabic} % Reset page numbers and use arabic
+
+%----------------------------------------------------------------------------------------
+%	SETUP PAGE
+%----------------------------------------------------------------------------------------
+
+\makeatletter\@openrightfalse
+\part{SETUP}
+
+Sunt qui earum nemo explicabo et. Optio consequatur numquam eos. Voluptas esse
+laudantium animi aliquid. Consectetur doloribus ea quasi consequatur enim
+aperiam voluptatem. Commodi dolore magni eos velit fugiat sit. Et iure ea
+voluptas vero consequatur dolore. Asperiores doloremque eum amet magnam tenetur
+est aut. Ut quia ducimus consequatur voluptas et. Odio est at et. Est et autem
+modi dolorum qui id ut. Qui autem tenetur hic repellendus. Doloremque sed
+dolorem adipisci qui. Odio possimus cumque optio corporis a aliquid. Debitis
+molestiae et aut voluptatum aut in. Omnis facere laboriosam est repellat culpa.
+Consequatur sunt ut inventore velit non qui. Numquam expedita consequatur
+laudantium repellat. Autem porro quia illum nulla blanditiis incidunt adipisci.
+Natus sit vel suscipit. Eaque qui quisquam possimus asperiores aut occaecati.
+Sint nemo ut dolorem. Incidunt perspiciatis consequatur laboriosam. Omnis non
+debitis doloribus. Reprehenderit repellat quisquam temporibus rerum. Quia
+ducimus aut deserunt.
+
+\chapter*{Initial Setup}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Initial Setup}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Monitor Setup}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Monitor Setup}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\makeatletter\@openrightfalse
+\part{USING THE COMMANDER X16}
+
+\chapter*{Using the Screen Editor}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using the Screen Editor}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Using DOS}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using DOS}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Using the Text Editor}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using the Text Editor}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Using the Hex Editor}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using the Hex Editor}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Using the Sprite Editor}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using the Sprite Editor}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\makeatletter\@openrightfalse
+\part{PROGRAMMING THE COMMANDER X16}
+
+\chapter*{Using BASIC}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Using BASIC}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Creating Graphics}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Creating Graphics}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Creating Sound}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Creating Sound}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{The VERA and VRAM}
+\addcontentsline{toc}{chapter}{\protect\numberline{}The VERA and VRAM}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	PARTS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	PART - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+
+\makeatletter\@openrightfalse
+\part{APPENDIX}
+
+\chapter*{BASIC Abbreviations}
+\addcontentsline{toc}{chapter}{\protect\numberline{}The VERA and VRAM}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{List of BASIC Commands/Functions}
+\addcontentsline{toc}{chapter}{\protect\numberline{}List of BASIC Commands/Functions}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{List of Error Messages}
+\addcontentsline{toc}{chapter}{\protect\numberline{}List of Error Messages}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{List of PETSCII and Screen Codes}
+\addcontentsline{toc}{chapter}{\protect\numberline{}List of PETSCII and Screen Codes}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Ports and Pinouts}
+\addcontentsline{toc}{chapter}{\protect\numberline{}List of PETSCII and Screen Codes}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Memory Map}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Memory Map}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{VRAM Map}
+\addcontentsline{toc}{chapter}{\protect\numberline{}VRAM Map}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+\chapter*{Deriving Mathematical Functions}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Deriving Mathematical Functions}
+
+Voluptas nesciunt vero omnis ex reiciendis ducimus soluta rerum. Quia totam et
+omnis rerum mollitia aut. Ex odit voluptates deleniti aut exercitationem
+reprehenderit. Reiciendis non soluta et cupiditate perspiciatis magnam. Iste
+itaque enim nobis repellat. Perspiciatis necessitatibus magni accusantium
+consequatur dolore. Aut soluta mollitia facilis perferendis amet id
+reprehenderit. Mollitia doloremque sunt qui dicta libero voluptatem. Dolore
+illum aspernatur placeat. Odio doloribus aut qui architecto sit earum molestiae
+qui. Autem deserunt aut accusantium ut sapiente dolorem ut explicabo. Sint nisi
+dolorem ab. Sed odio accusamus qui. Vero id nesciunt voluptate dolorum ipsa.
+Soluta sunt eveniet vel ratione sint. Deserunt libero sunt rerum dolor
+explicabo corporis. Reiciendis modi rerum veniam. Voluptatem illo distinctio
+aut voluptatem ea cum perspiciatis alias. Nulla hic possimus eum eveniet.
+Perferendis sit voluptatem autem sint maiores corporis at. Iure ut et
+repellendus optio aut cum. Vero nemo modi autem et vel. Quae quidem fugit neque
+iure earum sunt. Nisi non ea sit et officia. Beatae iste rem rerum sunt
+pariatur reiciendis.
+
+
+%------------------------------------------------
+
+\@openrighttrue\makeatother
+
+%----------------------------------------------------------------------------------------
+\stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage % Make sure the index starts on an odd (right side) page
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Index}} % Add an Index heading to the table of contents
+\printindex % Output the index
+
+\end{document}
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	PARTS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	APPENDICES
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	PART - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+
+\makeatletter\@openrightfalse
+\part{APPENDIX}
+
+
+%------------------------------------------------
+
+\@openrighttrue\makeatother
+
+%----------------------------------------------------------------------------------------
+\stopcontents[part] % Manually stop the 'part' table of contents here so the previous Part page table of contents doesn't list the following chapters
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage % Make sure the index starts on an odd (right side) page
+\phantomsection
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Index}} % Add an Index heading to the table of contents
+\printindex % Output the index
+
+\end{document}
