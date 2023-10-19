@@ -1644,7 +1644,31 @@ that using {\ttfamily LET} on variable assignments is optional.
 
 \subsection{LINE}
 
-<TODO>
+The {\ttfamily LINE} statement is used to draw a line in graphics mode.  The
+{\ttfamily LINE} statement is passed the X and Y coordinates of the first
+point, followed by the X and Y coordinates of the second point, followed by the
+color of the line.  The {\ttfamily LINE} statement can only be used in graphics
+mode, which must be set by calling the {\ttfamily SCREEN} statement with
+{\ttfamily \$80}.\\
+
+Examples:\\
+
+Draw a red X across the screen.\\
+
+\codeblock{
+	10 SCREEN \$80\\
+	20 LINE 0,0,319,239,2\\
+	30 LINE 0,239,319,0,2\\
+}
+
+Draw a rainbow.\\
+
+\codeblock{
+	10 SCREEN \$80\\
+	20 FOR I=0 TO 255\\
+	30 LINE 0,0,I,239\\
+	40 NEXT I\\
+}
 
 \subsection{LINPUT}
 
