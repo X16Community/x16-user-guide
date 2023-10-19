@@ -1625,7 +1625,22 @@ device number must be specified before the optional prompt or the variables.\\
 
 \subsection{LET}
 
-<TODO>
+The {\ttfamily LET} statement is an optional statement used for assigning
+variables in a BASIC program.  It is not necessary, but still exists as part of
+the BASIC language for compatibility purposes.\\
+
+Example:\\
+
+\codeblock{
+	10 LET A=5\\
+	20 B=6\\
+	30 PRINT A+B\\
+	40 LET B=7\\
+	50 PRINT A+B\\
+}
+
+The above code prints {\ttfamily 11} and {\ttfamily 12}, respectively, showing
+that using {\ttfamily LET} on variable assignments is optional.
 
 \subsection{LINE}
 
