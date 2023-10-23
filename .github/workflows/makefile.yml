@@ -14,6 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Update Dependencies
+      run: sudo apt-get update
+
     - name: Install LaTeX
       run: sudo apt-get install -y texlive-xetex texlive-bibtex-extra biber
 
