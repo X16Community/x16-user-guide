@@ -1781,11 +1781,11 @@ Examples:\\
 
 The {\ttfamily PSGINIT} statement initializes the VERA's programmable sound
 generator (PSG).  When the {\ttfamily PSGINIT} statement is run, it initializes
-the PSG, and does the following on all 16 voices:\\
+the PSG, and does the following on all 16 channels:\\
 
 \begin{itemize}
 
-	\item silences the voice
+	\item silences the channel
 
 	\item sets the volume to 63 (the maximum)
 
@@ -1851,7 +1851,29 @@ Example:\\
 
 \subsection{PSGPAN}
 
-<TODO>
+The {\ttfamily PSGPAN} statement is used to control the stereo output of a PSG
+channel.  It takes an argument for the channel, and an argument for which
+speaker the channel should play from.  The second argument values are as
+follows:\\ 
+
+\begin{tabular}{|c|c|}
+	\hline
+	Left & 1 \\ \hline
+	Right & 2 \\ \hline
+	Both & 3 \\ \hline
+\end{tabular}\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries PSGPAN 0,3}&Set channel 0 to play from both speakers.\\\\
+
+	{\ttfamily\bfseries PSGPAN 3,1}&Set channel 3 to play from only the left speaker.\\\\
+
+	{\ttfamily\bfseries PSGPAN 7,2}&Set channel 7 to play from only the right speaker.\\\\
+
+\end{tabular}
 
 \subsection{PSGPLAY}
 
