@@ -1229,16 +1229,16 @@ Examples:\\
 
 \codeblock{
 
-	0 FMINST 1,64 : REM LOAD SOPRANO SAX \\
-	10 FMNOTE 1,\$4A : REM PLAYS CONCERT A \\
-	20 FOR X=1 TO 5000 : NEXT X : REM DELAYS FOR A BIT \\
-	30 FMNOTE 1,0 : REM RELEASES THE NOTE \\
-	40 FOR X=1 TO 1000 : NEXT X : REM DELAYS FOR A BIT \\
-	50 FMNOTE 1,\$3A : REM PLAYS A IN THE 3RD OCTAVE \\
-	60 FOR X=1 TO 2500 : NEXT X : REM SHORT DELAY \\
-	70 FMNOTE 1,-\$3B : REM A\# WITHOUT RETRIGGERING \\
-	80 FOR X=1 TO 2500 : NEXT X : REM SHORT DELAY \\
-	90 FMNOTE 1,0 : REM RELEASES THE NOTE \\
+	10 FMINST 1,64 : REM LOAD SOPRANO SAX \\
+	20 FMNOTE 1,\$4A : REM PLAYS CONCERT A \\
+	30 SLEEP 50 : NEXT X : REM DELAYS FOR A BIT \\
+	40 FMNOTE 1,0 : REM RELEASES THE NOTE \\
+	50 SLEEP 10 : NEXT X : REM DELAYS FOR A BIT \\
+	60 FMNOTE 1,\$3A : REM PLAYS A IN THE 3RD OCTAVE \\
+	70 SLEEP 25 : NEXT X : REM SHORT DELAY \\
+	80 FMNOTE 1,-\$3B : REM A\# WITHOUT RETRIGGERING \\
+	90 SLEEP 25 : NEXT X : REM SHORT DELAY \\
+	100 FMNOTE 1,0 : REM RELEASES THE NOTE \\
 
 }
 
@@ -1795,7 +1795,59 @@ the PSG, and does the following on all 16 voices:\\
 
 \subsection{PSGNOTE}
 
-<TODO>
+The {\ttfamily PSGNOTE} statement plays a single note on the programmable sound
+generator.  The first argument is the channel, and the second argument
+specifies which note.  The note argument can be any number, but is intended to
+be specified with hexadecimal notation.  This is so that the most significant 4
+bits (often called the "high nybble") represent the octave while the least
+significant 4 bits (the "low nybble") represent the musical note.  The lowest
+note of any octave is {\ttfamily\bfseries C}, which is represented with a
+{\ttfamily 1}, and the highest note of any octave is {\ttfamily\bfseries B},
+which is represented with a {\ttfamily\bfseries C}.  A note of {\ttfamily 0} on
+any octave will release the note playing on that channel, and the note values
+{\ttfamily\bfseries D}, {\ttfamily\bfseries E}, and {\ttfamily\bfseries F} have
+no effect.\\
+
+Although this may seem confusing, it is actually convenient for most uses.
+For example to play a "middle C" the note value {\ttfamily \$41} would be used.
+The {\ttfamily \$} tells BASIC that the value is hexadecimal, the {\ttfamily 4}
+indicates the note is in the 4th octave, and {\ttfamily 1} specifies the note
+"C".  Here's a table of which nybble produces which note:\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline
+
+	Nybble & \$x0 & \$x1 & \$x2 & \$x3 & \$x4 & \$x5 & \$x6 \\ \hline Note &
+	Release & {\ttfamily\bfseries C} & {\ttfamily\bfseries C♯/D♭} &
+	{\ttfamily\bfseries D} & {\ttfamily\bfseries D♯/Eb} & {\ttfamily\bfseries
+	E} & {\ttfamily\bfseries F} \\ \hline
+
+	Nybble & \$x7 & \$x8 & \$x9 & \$xA & \$xB & \$xC & \$xD-\$xF \\ \hline Note
+	& {\ttfamily\bfseries F♯/G♭} & {\ttfamily\bfseries G} & {\ttfamily\bfseries
+	G♯/A♭} & {\ttfamily\bfseries A} & {\ttfamily\bfseries A♯/B♭} &
+	{\ttfamily\bfseries B} & no-op \\ \hline
+
+\end{tabular}\\
+
+Negative numbers can also be used to specify notes.  These will be treated as
+the same note as the positive value.\\
+
+Example:\\
+
+\codeblock{
+
+	10 PSGWAV 1,63 : REM PULSE WITH 50\% DUTY CYCLE\\
+	20 PSGNOTE 1,\$4A : REM PLAYS CONCERT A \\
+	30 SLEEP 50 : NEXT X : REM DELAYS FOR A BIT \\
+	40 PSGNOTE 1,0 : REM RELEASES THE NOTE \\
+	50 SLEEP 10 : NEXT X : REM DELAYS FOR A BIT \\
+	60 PSGNOTE 1,\$3A : REM PLAYS A IN THE 3RD OCTAVE \\
+	70 SLEEP 25 : NEXT X : REM SHORT DELAY \\
+	80 PSGNOTE 1,-\$3B : REM A\# WITHOUT RETRIGGERING \\
+	90 SLEEP 25 : NEXT X : REM SHORT DELAY \\
+	100 PSGNOTE 1,0 : REM RELEASES THE NOTE \\
+
+}
 
 \subsection{PSGPAN}
 
