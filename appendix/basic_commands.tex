@@ -1757,11 +1757,41 @@ Example:\\
 
 \subsection{PSGFREQ}
 
-<TODO>
+The {\ttfamily PSGFREQ} statement plays a note on the programmable sound
+generator at a given frequency.  This is an alternative to playing a note with
+{\ttfamily PSGNOTE}, where instead of specifying a musical note, a frequency in
+Hertz is specified.  Like {\ttfamily PSGNOTE}, {\ttfamily PSGFREQ} returns
+immediately and does not wait for a note to finish playing.  If a Hertz value
+of {\ttfamily 0} is specified, the channel is immediately silenced.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries PSGFREQ 3,2600}&Plays the waveform on channel 3 at 2,600hz.\\\\
+
+	{\ttfamily\bfseries PSGFREQ 0,440}&Equivalent to {\ttfamily PSGNOTE 0,\$4A}
+	which plays A above middle C on channel 0.\\\\
+
+	{\ttfamily\bfseries PSGFREQ 2,0}&Silences channel 2.\\\\
+
+\end{tabular}
 
 \subsection{PSGINIT}
 
-<TODO>
+The {\ttfamily PSGINIT} statement initializes the VERA's programmable sound
+generator (PSG).  When the {\ttfamily PSGINIT} statement is run, it initializes
+the PSG, and does the following on all 16 voices:\\
+
+\begin{itemize}
+
+	\item silences the voice
+
+	\item sets the volume to 63 (the maximum)
+
+	\item sets the waveform to pulse with a duty cycle of 50\%
+
+\end{itemize}
 
 \subsection{PSGNOTE}
 
