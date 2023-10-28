@@ -1877,11 +1877,41 @@ Examples:\\
 
 \subsection{PSGPLAY}
 
-<TODO>
+The {\ttfamily PSGPLAY} statement plays a musical melody on a single channel.
+{\ttfamily PSGPLAY} takes two arguments; a channel and a string of characters
+that tells the programmable sound generator what to play.  This second argument
+is specified in a custom macro language\footnote{for a complete guide, see the
+Macro Language for Music appendix}, and includes notes, releases, tempos,
+octaves, rests, and other musical elements.  For example, the following
+statement will play a major scale in the key of {\ttfamily\bfseries C}:\\
+
+\codeblock{
+	PSGPLAY 0,"CDEFGAB>C"\\
+}
+
+The {\ttfamily PSGPLAY} statement uses the exact same macro language as the
+{\ttfamily FMPLAY} statement, so see the section on {\ttfamily FMPLAY} for more
+information.
 
 \subsection{PSGVOL}
 
-<TODO>
+The {\ttfamily PSGVOL} statement sets a channel's volume.  The first argument
+is the channel, and the second argument is a value from 0 through 63.  The
+volume is maintained for the channel, even if the waveform is switched.  Only
+another {\ttfamily PSGVOL} statement or an {\ttfamily PSGINIT} statement will
+cause the volume of a channel to change.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries PSGVOL 0,63}&Set channel 0 to full volume.\\\\
+
+	{\ttfamily\bfseries PSGVOL 1,31}&Set channel 1 to half volume.\\\\
+
+	{\ttfamily\bfseries PSGVOL 2,0}&Set channel 2 to no volume, silencing it.\\\\
+
+\end{tabular}
 
 \subsection{PSGWAV}
 
