@@ -491,10 +491,10 @@
 		% Part title
 		\node[
 			anchor=north east, 
-			xshift=-0.75in,
+			xshift=-0.25in,
 			yshift=-2.5in,
 			inner sep=0pt] at (current page.north east) {
-			\parbox[t][][t]{2.0in}{
+			\parbox[t][][t]{2.5in}{
 				\begin{flushleft}
 					\fontsize{24pt}{24pt}\selectfont\sffamily\bfseries\textcolor{white}{\strut #2}
 				\end{flushleft}
@@ -505,11 +505,11 @@
 		% change tocdepth to 2 to also show subsections or 0 to only show
 		% chapters
 		\node[
-			anchor=south east,
+			anchor=north east,
 			inner sep=0pt,
-			xshift=-0.5in,
-			yshift=2.5in] at (current page.south east) { % Mini table of contents
-			\parbox[t][][t]{2.0in}{ % Width of box holding the mini ToC
+			xshift=-0.25in,
+			yshift=-4.0in] at (current page.north east) { % Mini table of contents
+			\parbox[t][][t]{2.5in}{ % Width of box holding the mini ToC
 				\printcontents[part]{l}{0}{\setcounter{tocdepth}{0}}
 			}
 		};
