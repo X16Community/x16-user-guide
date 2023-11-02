@@ -1916,7 +1916,44 @@ Examples:\\
 
 \subsection{PSGWAV}
 
-<TODO>
+The {\ttfamily PSGWAV} statement sets the waveform of a channel on the
+programmable sound generator (PSG), which results in a different timbre.  The
+first argument is the channel, and the second argument indicates which wavform
+to use.  There are four wavforms to choose from: pulse (square wave), sawtooth,
+triangle, and noise.  If using the pulse waveform, the duty cycle\footnote{The
+"duty cycle" of a square wave is the percentage of the time that the wave is
+"high" compared to the total period of the wave} of the wavform can also be
+specified.  Here are the values to use with the second argument for each
+waveform:\\
+
+\begin{tabular}{|c|c|c|}
+	\hline
+
+	0-63 & Pulse &Duty cycle = {\ttfamily (VAL+1)/128}\\ \hline
+
+	64-127 & Sawtooth & All values have identical effect\\ \hline
+
+	128-191 & Triangle & All values have identical effect\\ \hline
+
+	192-255 & Noise & All values have identical effect\\ \hline
+
+\end{tabular}\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries PSGWAV 0,63}&Set channel 0 to Pulse with a 50\% duty cycle.\\\\
+
+	{\ttfamily\bfseries PSGWAV 0,31}&Set channel 0 to Pulse with a 25\% duty cycle.\\\\
+
+	{\ttfamily\bfseries PSGWAV 1,64}&Set channel 1 to Sawtooth.\\\\
+
+	{\ttfamily\bfseries PSGWAV 2,128}&Set channel 2 to Triangle.\\\\
+
+	{\ttfamily\bfseries PSGWAV 3,192}&Set channel 3 to Noise.\\\\
+
+\end{tabular}
 
 \subsection{READ}
 
