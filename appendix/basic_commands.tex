@@ -1677,7 +1677,42 @@ Draw a rainbow.\\
 
 \subsection{LINPUT}
 
-<TODO>
+The {\ttfamily LINPUT} statement reads input directly from the keyboard, but
+always stores the data as a string varible.  Unlike the the {\ttfamily INPUT}
+statement, which attempts to parse the value entered into whichever variable
+type was supplied by the programmer, the {\ttfamily LINPUT} stores the data as
+a string just as the user typed it.  This includes storing any quotation marks,
+commas, or colons that the user types.  The {\ttfamily LINPUT} statement does
+not allow for a prompt to to be specified, so the only argument passed to the
+the {\ttfamily LINPUT} statement is the string variable used to store the
+user's input.\\
+
+Example:\\
+
+\codeblock{
+	10 PRINT "ENTER ANY TEXT FOR LINPUT:  ";\\
+	20 LINPUT A\$\\
+	30 PRINT A\$\\
+	40 PRINT "ENTER ANY TEXT FOR INPUT:  ";\\
+	50 INPUT A\$\\
+	60 PRINT A\$\\
+}
+
+Try running the above program several times, and using the same value at both
+prompts.  Here's some values to try:\\
+
+\begin{tabular}{l}
+
+	{\ttfamily "TEST"}\\
+	{\ttfamily 3,4,5}\\
+	{\ttfamily 11:45 AM}\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+You will find that each of the above examples will have a different result when
+ready by {\ttfamily LINPUT} as opposed to {\ttfamily INPUT}.\\
 
 \subsection{LINPUT\#}
 
