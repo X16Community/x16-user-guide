@@ -1781,7 +1781,58 @@ Examples:
 
 \subsection{MOUSE}
 
-<TODO>
+The {\ttfamily MOUSE} statement shows or hides the mouse cursor by passing a
+mode as an argument:\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	
+	{\bfseries Mode} & {\bfseries Description} \\ \hline
+	{\ttfamily 0} & Hides the mouse cursor \\ \hline
+	{\ttfamily 1} & Shows the mouse cursor with the default sprite \\ \hline
+	{\ttfamily -1} & Shows the mouse cursor without changing the sprite\\ \hline
+
+\end{tabular}
+
+\vspace{16pt}
+
+A hardware sprite\footnote{See the chapter on Graphics} with the index of
+{\ttfamily 0} is used to display the mouse cursor.  If the {\ttfamily MOUSE}
+statement is given a {\ttfamily 1}, it will set sprite 0's pixel data to VRAM
+address {\ttfamily \$13000} and copy the default mouse cursor data to that
+location.  If the {\ttfamily MOUSE} statement is given a {\ttfamily -1}, it
+will display the sprite but change neither its pixel data address nor the data
+that resides there.  This behavior is useful for written a program that sets a
+custom mouse cursor.\\
+
+The size of the sprite will automatically be set based on the screen mode.
+Changing the screen mode while the mouse is displayed will automatically hide
+it.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.85\linewidth}}
+
+	{\ttfamily\bfseries MOUSE 1} & Show mouse cursor using default cursor\\\\
+
+	{\ttfamily\bfseries MOUSE -1} & Show mouse cursor using existing sprite 0 \\\\
+
+	{\ttfamily\bfseries MOUSE 0} & Hide mouse cursor\\\\
+
+\end{tabular}
+
+\vspace{16pt}
+
+The cursor sprite can also be changed by directly changing the VRAM where it is
+read from.  This a program that will change the mouse cursor to be a miniature
+version of the default VERA palette:\\
+
+\codeblock{
+	10 MOUSE 1\\
+	20 FOR I=0 to 255\\
+	30 VPOKE 1,\$3000+I,I\\
+	40 NEXT I\\
+}
 
 \subsection{MOVSPR}
 
