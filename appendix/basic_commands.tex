@@ -1727,7 +1727,7 @@ end of the file is reached, the {\ttfamily LINPUT\#} statement will set the
 sixth bit of the {\ttfamily ST} special variable.  This means the end of the
 file can be detected with {\ttfamily ST AND 64}.\\
 
-Examples:\\
+Example:\\
 
 \codeblock{
 	10 I=0\\
@@ -1750,7 +1750,28 @@ listing.\\
 
 \subsection{LOCATE}
 
-<TODO>
+The {\ttfamily LOCATE} statement moves the cursor in text mode, allowing a
+program to print text to any part of the screen.  The {\ttfamily LOCATE}
+statement takes a line as the first argument, and a column as an optional
+second argument.  Both the line and the column numbers are 1-based (the first
+line is {\ttfamily 1} and the first column is {\ttfamily 1}), the column is
+{\ttfamily 1} if no column argument is given.\\
+
+Examples:
+
+\begin{tabular}{l p{0.85\linewidth}}
+
+	{\ttfamily\bfseries LOCATE 20} & Move the cursor to line 20 and column
+	1\\\\
+
+	{\ttfamily\bfseries LOCATE 20,30} & Move the cursor to line 20 and column
+	30\\\\
+
+	{\ttfamily\bfseries LOCATE 1,1} & Move the cursor to the top left corner\\\\
+
+\end{tabular}
+
+\vspace{16pt}
 
 \subsection{MOUSE}
 
