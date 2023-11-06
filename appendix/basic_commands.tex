@@ -1716,7 +1716,37 @@ ready by {\ttfamily LINPUT} as opposed to {\ttfamily INPUT}.\\
 
 \subsection{LINPUT\#}
 
-<TODO>
+The {\ttfamily LINPUT\#} works similar to the {\ttfamily LINPUT} statement, but
+instead reads the line from an open file specified by the first argument.  When
+reading from a file, there are no "lines" to read from like there is when
+entering data with either the {\ttfamily INPUT} or {\ttfamily LINPUT}
+statements, so data is read until a carriage return character ({\ttfamily 13})
+is reached.  The data is stored in a string variable supplied as the second
+argument.  The carriage return character is not included as the input.  If the
+end of the file is reached, the {\ttfamily LINPUT\#} statement will set the
+sixth bit of the {\ttfamily ST} special variable.  This means the end of the
+file can be detected with {\ttfamily ST AND 64}.\\
+
+Examples:\\
+
+\codeblock{
+	10 I=0\\
+	20 OPEN 1,8,0,"\$"\\
+	30 LINPUT\#1,A\$,\$22\\
+	40 IF ST<>0 THEN 130\\
+	50 LINPUT\#1,A\$,\$22\\
+	60 IF I=0 THEN 90\\
+	70 PRINT "ENTRY: ";\\
+	80 GOTO 100\\
+	90 PRINT "LABEL: ";\\
+	100 PRINT CHR\$(\$22);A\$;CHR\$(\$22)\\
+	110 I=I+1\\
+	120 IF ST=0 THEN 30\\
+	130 CLOSE 1\\
+}
+
+The above example parses and prints out the filenames from a directory
+listing.\\
 
 \subsection{LOCATE}
 
