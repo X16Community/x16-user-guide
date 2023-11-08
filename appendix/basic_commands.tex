@@ -1862,7 +1862,35 @@ VERA palette, and then position it at coordinates (100,100).\\
 
 \subsection{NEXT}
 
-<TODO>
+The {\ttfamily NEXT} statement is used as part of a for-loop in BASIC.  Each
+use of the {\ttfamily FOR} statement will need a corresponding {\ttfamily NEXT}
+statement, and {\ttfamily NEXT} will never be used without {\ttfamily FOR}.
+When a program reaches the {\ttfamily NEXT} statement, the program goes back to
+the corresponding {\ttfamily FOR} statement and evaluates whether it needs to
+re-enter the loop or not.\\
+
+A {\ttfamily NEXT} statement can take no arguments, or it can take many
+arguments specified as a comma-separated listed.  These arguments must be loop
+counter variables that were created by by {\ttfamily FOR} loops.   When no
+arguments are supplied, the {\ttfamily NEXT} statement will return control to
+the last {\ttfamily FOR} statement that was started.  If loop counter arguments
+are supplied, the {\ttfamily NEXT} statement will will evaluate the variables
+from left to right, completing the first loop counter's for-loop before jumping
+to the next.\\
+
+ Examples:\\
+
+\begin{tabular}{l}
+
+	{\ttfamily\bfseries FOR L=1 to 10:NEXT}\\\\
+
+	{\ttfamily\bfseries FOR L=1 to 10:NEXT L}\\\\
+
+	{\ttfamily\bfseries FOR L=1 to 10:FOR M=1 to 10:NEXT M,L}\\\\
+
+\end{tabular}
+
+\vspace{16pt}
 
 \subsection{ON}
 
