@@ -1836,7 +1836,29 @@ version of the default VERA palette:\\
 
 \subsection{MOVSPR}
 
-<TODO>
+The {\ttfamily MOVSPR} statement moves a sprite to a location on the screen.
+The {\ttfamily MOVSPR} statement requires three integer arguments.  The first
+argument is the sprite index, the second is the location along the x-axis, and
+the third the location along the y-axis.  The {\ttfamily MOVSPR} statement will
+position the sprite's most upper left pixel pixel at the given XY coordinates,
+regardless of whether that pixel is visible or not.  To use a hardward sprite,
+see the documentation for the {\ttfamily SPRITE} and {\ttfamily SPRMEM}
+statements.\\
+
+Example:\\
+
+\codeblock{
+10 REM FILL A SPRITE VRAM WITH PIXEL DATA\\
+20 FOR I=0 to 255\\
+30 VPOKE 1,\$4000+I,I\\
+40 NEXT I\\
+50 SPRMEM 1,1,\$4000,1\\
+60 SPRITE 1,3,0,0,1,1\\
+70 MOVSPR 1,100,100\\
+}
+
+The above code will create a sprite that's a 16x16 pixel version of the default
+VERA palette, and then position it at coordinates (100,100).\\
 
 \subsection{NEXT}
 
