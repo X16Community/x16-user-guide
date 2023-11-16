@@ -1894,7 +1894,41 @@ to the next.\\
 
 \subsection{ON}
 
-<TODO>
+The {\ttfamily ON} statement can be used to change the target line number of a
+{\ttfamily GOTO} or {\ttfamily GOSUB} statement.  The {\ttfamily ON} statement
+is followed by an expression that evaluates to a number, then followed by
+either a {\ttfamily GOTO} or {\ttfamily GOSUB} statement, which is in turn
+followed by a comma-separated list of line numbers.  Which line is used as the
+target of the {\ttfamily GOTO} or {\ttfamily GOSUB} statement depends on the
+result of the numerical expression\footnote{The {\ttfamily ON} statement works
+very similar to how {\ttfamily switch} or {\ttfamily select} works in other
+programming languages}.  For example, if the expression {\ttfamily 1} is given,
+then the {\ttfamily GOTO} or {\ttfamily GOSUB} would select the first line
+number in the comma-separated list.  If the expression {\ttfamily 1+2} is
+given, the third line number in the list would be selected.  If the expression
+evaluates to {\ttfamily 0} or any number higher than the number of line numbers
+in the list, the program moves to the next line.  If the expression evaluates
+to any number outside {\ttfamily 0} to {\ttfamily 255} an error occurs.\\
+
+Example:\\
+
+\codeblock{
+
+	10 INPUT X\\
+	20 ON X GOTO 10,50,50,50\\
+	30 PRINT "NOPE!"\\
+	40 GOTO 10\\
+	50 PRINT "YUP!"\\
+	60 ON X GOTO 10,30,30\\
+
+}
+
+\tryit{
+
+	Type in the above program and see if you can figure out what number needs
+	to be entered in order to exit the program!
+
+}
 
 \subsection{OPEN}
 
