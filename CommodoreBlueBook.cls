@@ -225,7 +225,7 @@
 
 			{
 
-				\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont Try It Yourself!\\
+				\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont Try It Yourself!
 
 			}
 
