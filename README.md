@@ -253,6 +253,23 @@ need be:
 
 ![tip](tip.png)
 
+#### Try It Yourself Boxes
+
+Sometimes you may want to encourage the reader to try something out for
+themselves.  The `\tryit` command will create a box with a "Try It Yourself!"
+header that you can fill with whatever you would like the reader to try:
+
+```
+\tryit{
+
+	Type in the above program and see if you can figure out what number needs
+	to be entered in order to exit the program!
+
+}
+```
+
+![tryit](tryit.png)
+
 #### Code Blocks
 
 Often you will want to display code examples as either short snippets or full
