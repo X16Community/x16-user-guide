@@ -1986,7 +1986,32 @@ Examples:\\
 
 \subsection{POKE}
 
-<TODO>
+The {\ttfamily POKE} statement is used to write directly to the Commander X16's
+memory or a memory-mapped device.  It is always followed by two numbers or
+expressions that evaluate to numbers.  The first is the address in the memory
+map, which can be any value from 0-65535\footnote{Since the Commander X16
+supports hexadecimal values, it's easier to think of this as \$0000-\$FFFF}.
+The second argument is the value to write to the specified address.  Because
+the Commander X16 is an 8-bit computer, so each address only holds one byte of
+data.  Therefore, any value from 0-255 is allowed.\\
+
+The {\ttfamily POKE} statement is very powerful, since it is able to write not
+only to memory, but also the memory mapped hardware such as the VERA.  To learn
+about the regions of memory available and the memory mapped hardware, see the
+{\bfseries Memory Map} appendix.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries POKE 2048,64} & Write {\ttfamily 64} to address {\ttfamily 2048}\\\\
+
+	{\ttfamily\bfseries POKE \$800,\$40} & Same as above, but denoted in hexadecimal\\\\
+
+	{\ttfamily\bfseries POKE 0,1} & Writea {\ttfamily 1} to address {\ttfamily
+	\$0000}, which switches the Commander X16 to use RAM bank 1\\\\
+
+\end{tabular}
 
 \subsection{PRINT}
 
