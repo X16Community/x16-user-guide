@@ -1937,7 +1937,52 @@ Example:\\
 
 \subsection{OPEN}
 
-<TODO>
+The {\ttfamily OPEN} statement can be used to access various devices from
+within a BASIC program on the Commander X16.  These devices may be the
+keyboard, the screen (in text mode), disk drives, and printers.  The first
+argument to the {\ttfamily OPEN} statement is any number from 1 to 255 that
+will be used to refer to the {\ttfamily OPEN}ed device from other BASIC
+statements.  The second argument is a number that specifies which device to
+{\ttfamily OPEN}.  The default devices available on the Commander X16 are:\\
+
+\begin{tabular}{|c|p{0.35\linewidth}|p{0.45\linewidth}|}
+	\hline
+	{\bfseries Device \#} & {\bfseries Description} & {\bfseries Secondary Address}\\ \hline
+
+	0 & Keyboard & (none)\\ \hline
+
+	1 & (unused) & (none)\\ \hline
+
+	2 & (unused) & (none)\\ \hline
+
+	3 & Screen & 0 or 1\\ \hline
+
+	4-5 & Printer (or other IEC device) & 0 = capital letters/graphic characters; 1 = capital/lowercase letters\\ \hline
+
+	6-30 & IEC Bus devices (SD card is 8 at boot, but can be reassigned) & 0 = read; 1 = write; 2-14
+	= data channels; 15 channel for commands\\ \hline
+
+\end{tabular}\\
+
+\vspace{16pt}
+
+Many devices may require a third, or even a fourth argument to be passed to
+{\ttfamily OPEN}.  The Secondary Address column of the above table shows some
+of the available values for the third argument on the various devices.  For
+disk drives, a fourth argument specifies the name of a file.\\
+
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries OPEN 1,0} & {\ttfamily OPEN}s the keyboard as a device\\\\
+
+	{\ttfamily\bfseries OPEN 3,8,0,"MYFILE"} & {\ttfamily OPEN}s a file on the SD card\\\\
+
+	{\ttfamily\bfseries OPEN 4,9,15} & {\ttfamily OPEN}s the data channel on a disk configured as device 9\\\\
+
+\end{tabular}
 
 \subsection{POKE}
 
