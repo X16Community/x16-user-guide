@@ -1510,9 +1510,9 @@ Example:\\
 \note{
 
 	It is a popular convention when using statements and commands that end in
-	{\ttfamily \#} to place the device number directly after the command with
-	no space.  So instead of {\ttfamily GET\# 1,A\$} this example shows
-	{\ttfamily GET\#1,A\$}.
+	{\ttfamily \#} to place the logical file identifier directly after the
+	command with no space.  So instead of {\ttfamily GET\# 1,A\$} this example
+	shows {\ttfamily GET\#1,A\$}.
 
 }
 
@@ -2015,11 +2015,107 @@ Examples:\\
 
 \subsection{PRINT}
 
-<TODO>
+The {\ttfamily PRINT} statement is used to display text and graphic characters
+to the screen.  When it text mode, it is the most typical way to display output
+of a program to a user.  The {\ttfamily PRINT} statement can be followed by any
+of the following:\\
+
+\begin{itemize}
+
+	\item {\bfseries Characters inside of quotation marks} - Called
+		\emph{literals} because they are printed literally as they are typed
+		in
+
+	\item {\bfseries Variables} - {\ttfamily PRINT}'s' the value the variable
+		currently holds
+
+	\item {\bfseries Functions} - {\ttfamily PRINT}'s' the value returned by
+		the function
+
+	\item {\bfseries Punctuation marks} - Provides formatting options:
+		\begin{itemize}
+
+			\item {\bfseries Comma ({\ttfamily ,})} - Advances to the next
+				column, where each column is 10 characters wide
+
+			\item {\bfseries Semicolon ({\ttfamily ;})} - Does not advance to
+				the next line after
+
+		\end{itemize}
+
+
+\end{itemize}
+
+Because commas have a special meaning for formatting, commas should not be used
+to separate {\ttfamily PRINT}ing multiple literals, variables, or functions
+when output with a single {\ttfamily PRINT}.
+
+Examples:\\
+
+\begin{tabular}{l p{0.55\linewidth}}
+
+	{\ttfamily\bfseries PRINT "HELLO"} & {\ttfamily PRINT}s "HELLO" to the screen\\\\
+
+	{\ttfamily\bfseries PRINT "HELLO, "A\$} & {\ttfamily PRINT}s "HELLO, "
+	followed by the value of {\ttfamily A\$}\\\\
+
+	{\ttfamily\bfseries PRINT A+B} & {\ttfamily PRINT}s The result of {\ttfamily A+B}\\\\
+
+	{\ttfamily\bfseries PRINT J} & {\ttfamily PRINT}s the value of {\ttfamily J}\\\\
+
+	{\ttfamily\bfseries PRINT A,B,C,D} & {\ttfamily PRINT}s the values of each
+	variable formatted into columns\\\\
+
+\end{tabular}
 
 \subsection{PRINT\#}
 
-<TODO>
+The {\ttfamily PRINT\#} statement works nearly identically to the {\ttfamily
+PRINT} statement, except that it {\ttfamily PRINT}s to an open file or device
+instead of the screen.  The first argument to the {\ttfamily PRINT\#} statement
+must be a number used to identify the open file or device.  This must be a
+number that was used with an {\ttfamily OPEN} statement to open the file or
+device.  This number is followed by a comma, which is followed by the value to
+be printed.  This can be any of the options available to the {\ttfamily PRINT}
+statement, including commas and semicolons used for formatting.  Not every
+device that can be written to with {\ttfamily PRINT\#} will be able to handle
+formatting, however.\\
+
+Example:\\
+
+\codeblock {
+	10 OPEN 1,8,1,"MYFILE"\\
+	20 FOR J=1 to 10\\
+	30 FOR I=1 to J\\
+	40 PRINT\#1,"*",;\\
+	50 NEXT I\\
+	60 PRINT\# 1,""\\
+	70 NEXT J\\
+	80 CLOSE 1\\
+}
+
+The above example will write a file named "MYFILE" to the SD card, containing a
+pattern of asterisks.  To view the file, use the Command X16's built-in text
+editor:\\
+
+\codeblock{
+	EDIT "MYFILE"\\
+}
+
+The file should contain the following patter:
+
+\codeblock{
+	*\\
+	**\\
+	***\\
+	****\\
+	*****\\
+	******\\
+	*******\\
+	********\\
+	*********\\
+	**********\\
+}
 
 \subsection{PSET}
 
