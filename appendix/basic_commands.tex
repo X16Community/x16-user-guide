@@ -2411,12 +2411,35 @@ Example:\\
 The above program displays the default VERA color palette to the graphics
 screen by drawing a 20x15 rectangle for each color.\\
 
-The {\ttfamily RECT} statement is similar to the {\ttfamily FRAME} statment,
+The {\ttfamily RECT} statement is similar to the {\ttfamily FRAME} statement,
 except that {\ttfamily RECT} fills the rectangle with the specified color.
 
 \subsection{REM}
 
-<TODO>
+The {\ttfamily REM} statement is used to leave a {\ttfamily REM}ark (also
+called a comment) in a BASIC program to help a programmer annotate sections of
+the program.  It could help explain how a complex section of logic works, tell
+which variable is being used for, or even to let the programmer sign their
+name!  A {\ttfamily REM} statement can be followed by anything at all, and the
+BASIC program will ignore it.\\
+
+No program needs {\ttfamily REM} statements to function correctly, but they can
+make a huge difference when it comes to reading and modifying a BASIC program.
+Most programmers will use {\ttfamily REM} statements on any program once it has
+become large or complex.  It's a good idea to get into the habit of leaving
+comments in your program to help understand how it works.\\
+
+Example:\\
+
+\codeblock {
+	10 REM START OF PROGRAM\\
+	20 PRINT "ENTER A NUMBER";\\
+	30 INPUT A: REM STORE NUMBER IN A\\
+	40 PRINT "ENTER ANOTHER NUMBER";\\
+	50 INPUT B: REM STORE NUMBER IN B\\
+	60 C=A*B: REM MULTIPLY NUMBERS\\
+	70 PRINT C\\
+}
 
 \subsection{REN}
 
