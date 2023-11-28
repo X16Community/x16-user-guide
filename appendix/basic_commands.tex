@@ -2367,7 +2367,25 @@ Examples:\\
 
 \subsection{READ}
 
-<TODO>
+The {\ttfamily READ} statement is used to get information that has been coded
+into the program using {\ttfamily DATA} statements.  Like the {\ttfamily INPUT}
+statement, the {\ttfamily READ} statement is followed by a variable that
+matches the type of data being read.  The first time a {\ttfamily READ}
+statement is encountered in a program, the first piece of data specified by a
+{\ttfamily DATA} statement is read into the variable.  The next time, a
+{\ttfamily READ} statement is encountered, it {\ttfamily READ}s the next piece
+of data specified by a {\ttfamily DATA} statement, and so on.  If the type of
+the data and the type of the variable do not match, a {\ttfamily TYPE MISMATCH
+ERROR} will occur.\\
+
+\codeblock{
+	10 READ A\$\\
+	30 READ B\\
+	40 READ C\%\\
+	50 PRINT A\$,B,C\%\\
+	60 DATA "A VALUE"\\
+	70 DATA 27.5,42\\
+}
 
 \subsection{RECT}
 
