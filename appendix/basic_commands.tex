@@ -2102,7 +2102,7 @@ editor:\\
 	EDIT "MYFILE"\\
 }
 
-The file should contain the following patter:
+The file should contain the following pattern:\\
 
 \codeblock{
 	*\\
@@ -2119,7 +2119,27 @@ The file should contain the following patter:
 
 \subsection{PSET}
 
-<TODO>
+The {\ttfamily PSET} statement sets the color of a single pixel in graphics
+mode (set with {\ttfamily SCREEN \$80}).  The {\ttfamily PSET} statement is
+followed by the x and y coordinates and number from 0-255 to specify the color
+from the palette.\\
+
+Example:\\
+
+\codeblock{
+	10 SCREEN\$80\\
+	20 FOR Y=0 to 239\\
+	30 FOR X=0 to 319\\
+	40 C=INT(Y/15)*16+INT(X/15)\\
+	50 PSET X,Y,C\\
+	60 NEXT X,Y\\
+}
+
+The above program uses {\ttfamily PSET} to display the default VERA color
+palette to the screen.  Because it calculates and draws each pixel one at a
+time, it takes a few minutes to complete.  After all, it has 76,800 pixels to
+calculate!  See the {\ttfamily RECT} statement for a much faster way to display
+the palette.  It only has to calculate the color 256 times.\\
 
 \subsection{PSGCHORD}
 
@@ -2361,8 +2381,17 @@ Example:\\
 
 \codeblock{
 	10 SCREEN \$80\\
-	20 RECT 10,10,310,230,2\\
+	20 FOR Y=0 TO 15\\
+	30 FOR X=0 TO 15\\
+	40 C=Y*16+X\\
+	50 X1=X*20\\
+	60 Y1=Y*15\\
+	70 RECT X1,Y1,X1+19,Y1+14,C\\
+	80 NEXT X,Y\\
 }
+
+The above program displays the default VERA color palette to the graphics
+screen by drawing a 20x15 rectangle for each color.\\
 
 The {\ttfamily RECT} statement is similar to the {\ttfamily FRAME} statment,
 except that {\ttfamily RECT} fills the rectangle with the specified color.
