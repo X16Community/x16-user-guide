@@ -2441,17 +2441,29 @@ Example:\\
 	70 PRINT C\\
 }
 
-\subsection{REN}
-
-<TODO>
-
 \subsection{RESTORE}
 
-<TODO>
+The {\ttfamily RESTORE} statement resets where the {\ttfamily READ} statement
+will read from, causing the next {\ttfamily READ} to read from the first
+{\ttfamily DATA} statement again.  In this way, a program and re-read data that
+is has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
+always directs the next {\ttfamily READ} back to the first {\ttfamily DATA}
+statement.\\
 
 \subsection{RETURN}
 
-<TODO>
+The {\ttfamily RETURN} statement is always used in conjunction with the
+{\ttfamily GOSUB} statement.  When a program encounters a {\ttfamily RETURN}
+statement, the program immediately jumps to the statement after the last
+executed {\ttfamily GOSUB} statement.  During execution, BASIC keeps track of
+which {\ttfamily GOSUB} statement has been called in which order.  When a
+{\ttfamily RETURN} is executed, the corresponding {\ttfamily GOSUB} is removed
+from the list BASIC keeps track of.  Because of this list (often called a
+\emph{call stack}) that BASIC keeps track of, programmers are able to
+\emph{nest} {\ttfamily GOSUB} statements, so that one subroutine calls another
+subroutine and so on.  If the program ever encounters a {\ttfamily RETURN}
+statement when its list of {\ttfamily GOSUB}s is empty, it will cause a
+{\ttfamily RETURN WITHOUT GOSUB ERROR}.\\
 
 \subsection{SCREEN}
 
