@@ -2540,7 +2540,30 @@ In addition to the above table, the value {\ttfamily -1} can be passed to
 
 \subsection{SLEEP}
 
-<TODO>
+The {\ttfamily SLEEP} statement pauses program execution for a specified time
+period.  The {\ttfamily SLEEP} statement takes a single argument which is the
+number of VSYNC interrupts to wait before continuing program execution.  These
+interrupts occur approximately 60 times per second, so to have a program wait
+for one second, an argument of {\ttfamily 60} would be used.  This unit of
+measurement is often called a \emph{jiffy}.  The {\ttfamily SLEEP} statement
+will wait for the specified number of jiffies, starting after the next VSYNC
+interrupt to occur.  Using {\ttfamily SLEEP} with no arguments is the same as
+using {\ttfamily 0} for the number of jiffies, and will cause the program to
+wait until the next VSYNC interrupt.  This can be useful for animating
+graphics, since a VSYNC interrupt is how you know that the VERA graphics module
+is about to start drawing the next frame to the screen.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries SLEEP 60}&Wait for about one second.\\\\
+
+	{\ttfamily\bfseries SLEEP 600}&Wait for about ten seconds.\\\\
+
+	{\ttfamily\bfseries SLEEP 0}&Wait until the next frame.\\\\
+
+\end{tabular}
 
 \subsection{SPRITE}
 
