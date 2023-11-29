@@ -2450,6 +2450,25 @@ is has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
 always directs the next {\ttfamily READ} back to the first {\ttfamily DATA}
 statement.\\
 
+Example:\\
+
+\codeblock{
+
+	10 READ A\$\\
+	20 PRINT A\$\\
+	30 READ A\$\\
+	40 PRINT A\$\\
+	50 RESTORE\\
+	60 READ A\$\\
+	70 PRINT A\$\\
+	80 DATA "FIRST","SECOND"\\
+
+}
+
+Despite the above program {\ttfamily READ}ing three times yet only having
+enough data for two reads, it runs without error because {\ttfamily RESTORE}
+causes the first piece of data to be read twice.\\
+
 \subsection{RETURN}
 
 The {\ttfamily RETURN} statement is always used in conjunction with the
@@ -2464,6 +2483,22 @@ from the list BASIC keeps track of.  Because of this list (often called a
 subroutine and so on.  If the program ever encounters a {\ttfamily RETURN}
 statement when its list of {\ttfamily GOSUB}s is empty, it will cause a
 {\ttfamily RETURN WITHOUT GOSUB ERROR}.\\
+
+Example:\\
+
+\codeblock{
+
+	10 PRINT "FIRST"\\
+	20 GOSUB 50\\
+	30 PRINT "FOURTH"\\
+	40 END\\
+	50 GOSUB 80\\
+	60 PRINT "THIRD"\\
+	70 RETURN\\
+	80 PRINT "SECOND"\\
+	90 RETURN\\
+
+}
 
 \subsection{SCREEN}
 
