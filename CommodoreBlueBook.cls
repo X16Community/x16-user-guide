@@ -246,7 +246,7 @@
 			colframe=blue,
 			width=4.25in,
 			]
-			{\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont NOTE:\\}
+			{\sffamily\bfseries\fontsize{14pt}{14pt}\selectfont NOTE:\\}
 
 			#1
 

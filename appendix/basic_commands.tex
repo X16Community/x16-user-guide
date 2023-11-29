@@ -2502,7 +2502,41 @@ Example:\\
 
 \subsection{SCREEN}
 
-<TODO>
+The {\ttfamily SCREEN} statement is used to select a screen mode.  The screen
+mode determines how many characters can fit on the screen (both horizontally
+and vertically), whether the screen has a border, and whether bitmap graphics
+can be rendered in the layer behind the text.  The {\ttfamily SCREEN} statement
+requires a numeric argument to tell it which screen mode to use.\\
+
+The available screen modes are:\\
+
+\begin{tabular}{|c|c|p{0.4\linewidth}|}
+	\hline
+	{\bfseries Decimal} & {\bfseries Hexadecimal} & {\bfseries Screen Mode}\\ \hline
+	{\ttfamily 0} & {\ttfamily \$00} & 80x60 Text\\ \hline
+	{\ttfamily 1} & {\ttfamily \$01} & 80x30 Text\\ \hline
+	{\ttfamily 2} & {\ttfamily \$02} & 40x60 Text\\ \hline
+	{\ttfamily 3} & {\ttfamily \$03} & 40x30 Text\\ \hline
+	{\ttfamily 4} & {\ttfamily \$04} & 40x15 Text\\ \hline
+	{\ttfamily 5} & {\ttfamily \$05} & 20x30 Text\\ \hline
+	{\ttfamily 6} & {\ttfamily \$06} & 20x15 Text\\ \hline
+	{\ttfamily 7} & {\ttfamily \$07} & 22x23 Text /w border\\ \hline
+	{\ttfamily 8} & {\ttfamily \$08} & 64x50 Text /w border\\ \hline
+	{\ttfamily 9} & {\ttfamily \$09} & 64x25 Text /w border\\ \hline
+	{\ttfamily 10} & {\ttfamily \$0A} & 32x50 Text /w border\\ \hline
+	{\ttfamily 11} & {\ttfamily \$0B} & 32x25 Text /w border\\ \hline
+	{\ttfamily 128} & {\ttfamily \$80} & 256 color Bitmap Graphics /w 40x30 Text\\ \hline
+\end{tabular}
+
+In addition to the above table, the value {\ttfamily -1} can be passed to
+{\ttfamily SCREEN} to toggle between modes {\ttfamily 0} and {\ttfamily 3}.\\
+
+\note {
+
+	Other screen configurations can be used by directly setting registers in
+	the VERA graphics module.  For more details, see the chapter on Graphics.
+
+}
 
 \subsection{SLEEP}
 
