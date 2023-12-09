@@ -2567,7 +2567,74 @@ Examples:\\
 
 \subsection{SPRITE}
 
-<TODO>
+The {\ttfamily SPRITE} statement enables or disables one of the VERA's 128
+hardware sprites, and allows you to set other sprite properties as well.  The
+{\ttfamily SPRITE} statement can cause a hardware sprite to display, but it
+cannot tell the sprite what to look like.  For that reason, the {\ttfamily
+SPRITE} statement is intended to be used alongside the {\ttfamily SPRMEM}
+statement to point a hardware sprite to a VRAM location, and some way to load
+data into VRAM (such as the {\ttfamily VLOAD} or {\ttfamily BVLOAD}
+statements).\\
+
+However, there is still an easy way to test the {\ttfamily SPRITE} statement
+without loading anything into VRAM.  This can be done by using the {\ttfamily
+MOUSE} statement, which will initialize hardware sprite 0 to point to VRAM data
+initialized to a mouse cursor:\\
+
+\codeblock {
+	10 MOUSE 1 : REM TURN ON MOUSE\\
+	20 MOUSE 0 : REM TURN OFF MOUSE\\
+	30 SPRITE 0,3 : REM DISPLAY SPRITE 0\\
+}
+
+The above code will cause the mouse cursor to display, but while the mouse is
+not active.  The cursor will not be able to be moved.  This works by enabling
+the mouse and initializing sprite 0 with the {\ttfamily MOUSE 1} statement,
+disabling the mouse and sprite 0 with {\ttfamily MOUSE 0}, and then
+re-displaying sprite 0 (without enabling the mouse) with {\ttfamily SPRITE
+0,3}.\\
+
+The first argument to the {\ttfamily MOUSE} statement is the hardware sprite
+index.  With 128 hardware sprites, this number can be from 0 to 127.  The
+second argument sets the layer the sprite renders to, including disabling the
+sprite completely with 0.  The third argument is the palette offset used in 4
+bits-per-pixel mode.  The fourth argument sets how the sprite is flipped.  The
+sixth argument is used to set width of the sprite, and the seventh sets the
+height.  Finally, the either argument sets the color mode.  Only the first two
+arguments are required.  With this in mind, the sprite from the above program
+can be modified.  For example, it can be easily flipped upside down:\\
+
+\codeblock {
+	SPRITE 0,3,0,2\\
+}
+
+Here is a brief summary of each argument:\\
+
+\begin{tabular}{|c|p{0.7\linewidth}|}
+	\hline
+
+	Argument & {\bfseries Description}\\ \hline
+
+	Index & The index of the hardware sprite (0-127)\\ \hline
+
+	Priority & 0 - disable sprite, 1 - draw beneath both VERA
+	layers, 2 - draw in between VERA layers, 3 - draw on top of both VERA
+	layers\\ \hline
+
+	Palette Offset  & 0-15 in 4bbp mode, not used in 8bpp mode\\ \hline
+
+	Flip & 0 - no flip, 1 - flipped on the x-axis, 2 - flipped on
+	the y-axis, 3 - flipped on both x and y axis\\ \hline
+
+	Width & 0 - 8 pixels, 1 - 16 pixels, 2 - 32 pixels, 3 - 64
+	pixels\\ \hline
+
+	Height & 0 - 8 pixels, 1 - 16 pixels, 2 - 32 pixels, 3 - 64
+	pixels\\ \hline
+
+	Color Mode & 0 - 4bpp, 1 - 8bpp\\ \hline
+
+\end{tabular}
 
 \subsection{SPRMEM}
 
