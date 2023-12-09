@@ -2,34 +2,41 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Update Dependencies
-      run: sudo apt-get update
+      - name: Update Dependencies
+        run: sudo apt-get update
 
-    - name: Install LaTeX
-      run: sudo apt-get install -y texlive-xetex texlive-bibtex-extra biber
+      - name: Install LaTeX
+        run: sudo apt-get install -y texlive-xetex texlive-bibtex-extra biber
 
-    - name: Compile User Guide PDF
-      run: make
-    - uses: actions/upload-artifact@v3
-      with:
-        name: X16UsersGuide.pdf
-        path: x16_user_guide.pdf
+      - name: Compile User Guide PDF
+        run: make
+      - uses: actions/upload-artifact@v3
+        with:
+          name: X16UsersGuide.pdf
+          path: x16_user_guide.pdf
 
-    - name: Compile Getting Started Guide PDF
-      run: make getting_started
-    - uses: actions/upload-artifact@v3
-      with:
-        name: X16GettingStarted.pdf
-        path: x16_getting_started.pdf
+      - name: Compile Getting Started Guide PDF
+        run: make getting_started
+      - uses: actions/upload-artifact@v3
+        with:
+          name: X16GettingStarted.pdf
+          path: x16_getting_started.pdf
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: X16_Users_Guide
+          files: |
+            x16_user_guide.pdf
+            x16_getting_started.pdf
