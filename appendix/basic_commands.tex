@@ -1064,19 +1064,19 @@ Examples:\\
 
 \end{tabular}
 
-Once dimensioned, arrays can be used be used just like other variables, except
+Once dimensioned, arrays can be used just like other variables, except
 that the index into each dimension must be specified:\\
 
 \codeblock{
 	10 DIM A\$(3,12)\\
 	20 A\$(1,1) = "ONE"\\
 	30 A\$(2,6) = "TWO"\\
-	40 PRINT A\$(1,1) REM PRINTS "ONE"\\
-	50 PRINT A\$(2,6) REM PRINTS "TWO"\\
-	60 PRINT A\$(1,6) REM PRINTS NOTHING\\
+	40 PRINT A\$(1,1) : REM PRINTS "ONE"\\
+	50 PRINT A\$(2,6) : REM PRINTS "TWO"\\
+	60 PRINT A\$(1,6) : REM PRINTS NOTHING\\
 }
 
-Executing a {\ttfamily DIM} statement on an array more than once will cause an
+Executing a {\ttfamily DIM} statement on the same array more than once will cause an
 error.  It is a best practice to keep all the {\ttfamily DIM} statements
 towards the beginning of a program.\\
 
