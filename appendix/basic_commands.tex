@@ -1024,8 +1024,8 @@ parentheses like any other variable would be used.\\
 Examples:\\
 
 \codeblock{
-	10 DEF FNC(R)=2*R*π REM CIRCUMFERENCE OF  A CIRCLE\\
-	20 DEF FNA(R)=π*(R↑2) REM AREA OF  A CIRCLE\\
+	10 DEF FNC(R)=2*R*π : REM CIRCUMFERENCE OF  A CIRCLE\\
+	20 DEF FNA(R)=π*(R↑2) : REM AREA OF  A CIRCLE\\
 	30 PRINT "CIRCUMFERENCE:", FNC(10)\\
 	40 PRINT "AREA:", FNA(10)\\
 }
@@ -1033,8 +1033,16 @@ Examples:\\
 Only a single variable can be defined as an argument to a function.  The
 defined function can be used anywhere a BASIC function can normally be used.\\
 
-NOTE: The π character represents the number PI and is entered by pressing XXXXXXXXXXXX on the keyboard. If you are not using an official Commander X16 keyboard,
-then you would need to do XXXXXXXXXXXXXXXXX instead.  ***** NOT SURE IF THIS WORTHY TO BE IN A VISUAL /note BLUE BOX OR NOT?\\
+\note {
+
+	The π character represents the number PI and is entered by pressing
+	\keybackgroundcolor{gray}\keytextcolor{black}\widekey{shift} +
+	\keybackgroundcolor{white}\key{\petsciifont ←} on the keyboard. If you are
+	not using an official Commander X16 keyboard, then you would need to press
+	\keybackgroundcolor{gray}\widekey{shift} +
+	\keybackgroundcolor{white}\doublekey{\textasciitilde\\`} instead.
+
+}
 
 \subsection{DIM}
 
@@ -1067,8 +1075,8 @@ Examples:\\
 
 \end{tabular}
 
-Once dimensioned, arrays can be used just like other variables, except
-that the index into each dimension must be specified:\\
+Once dimensioned, arrays can be used just like other variables, except that the
+index into each dimension must be specified:\\
 
 \codeblock{
 	10 DIM A\$(3,12)\\
@@ -1079,9 +1087,9 @@ that the index into each dimension must be specified:\\
 	60 PRINT A\$(1,6) : REM PRINTS NOTHING\\
 }
 
-Executing a {\ttfamily DIM} statement on the same array more than once will cause an
-error.  It is a best practice to keep all the {\ttfamily DIM} statements
-towards the beginning of a program.\\
+Executing a {\ttfamily DIM} statement on the same array more than once will
+cause an error.  It is a best practice to keep all the {\ttfamily DIM}
+statements towards the beginning of a program.\\
 
 \subsection{END}
 
