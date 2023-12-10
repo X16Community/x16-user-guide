@@ -1498,24 +1498,24 @@ A common use for the {\ttfamily GET} statement is to pause a program in a loop u
 \subsection{GET\#}
 
 The {\ttfamily GET\#} statement reads data from a specified logical file one
-character at a time.  It is identical to the {\ttfamily GET} statement except
-that it requires a first argument specifies a logical file identifier.  The
+character at a time.  It is comparable ***SIMILAR?*** to the {\ttfamily GET} statement although 
+it requires a first argument that specifies a logical file identifier.  The
 logical file must first be opened with the {\ttfamily OPEN} statement.  The
 remaining arguments work just the same as with the {\ttfamily GET} statement.\\
 
 Example:\\
 
 \codeblock{
-	10 OPEN 1,1,0,"FILENAME"  REM OPEN TAPE DRIVE FILE\\
-	20 GET\#1,A\$  REM READ A CHARACTER FROM THE TAPE\\
+	10 OPEN 1,1,0,"FILENAME" : REM OPEN TAPE DRIVE FILE\\
+	20 GET\#1,A\$ : REM READ A CHARACTER FROM THE TAPE\\
 }
 
 \note{
 
 	It is a popular convention when using statements and commands that end in
 	{\ttfamily \#} to place the logical file identifier directly after the
-	command with no space.  So instead of {\ttfamily GET\# 1,A\$} this example
-	shows {\ttfamily GET\#1,A\$}.
+	command with no space.  So instead of\\
+	{\ttfamily GET\# 1,A\$} this example shows {\ttfamily GET\#1,A\$}.
 
 }
 
@@ -1545,10 +1545,11 @@ Example:\\
 }
 
 The above program will print {\ttfamily FIRST}, {\ttfamily SECOND}, and
-{\ttfamily THRID} in order.  This is because the {\ttfamily GOSUB} statement on
+{\ttfamily THIRD} in order.  This is because the {\ttfamily GOSUB} statement on
 line 20 transfers execution to line 50, and then the {\ttfamily RETURN}
-statement on line 60 then transfers execution back to line 30, which is the
-line {\em after} the {\ttfamily GOSUB} statement was called.\\
+statement on line 60 transfers execution back to line 30, which is the
+line {\em after} the {\ttfamily GOSUB} statement was called. Line 40 ends the 
+program, which stops line 50 from executing again.\\
 
 \tip{Nesting Subroutines}{
 
@@ -1577,7 +1578,7 @@ Example:\\
 \subsection{IF}
 
 The {\ttfamily IF} statement is how decisions are made in BASIC.  The
-{\ttfamily IF} statement is followed by an expression that either evaluates to
+{\ttfamily IF} statement is followed by an expression that evaluates to either
 {\ttfamily TRUE} or {\ttfamily FALSE}, and the next statement executed is
 dependent on the outcome.  The expression is followed by either a {\ttfamily
 THEN} statement or a {\ttfamily GOTO} statement.  A {\ttfamily THEN} statement
