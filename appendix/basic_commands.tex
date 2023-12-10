@@ -1033,6 +1033,9 @@ Examples:\\
 Only a single variable can be defined as an argument to a function.  The
 defined function can be used anywhere a BASIC function can normally be used.\\
 
+NOTE: The π character represents the number PI and is entered by pressing XXXXXXXXXXXX on the keyboard. If you are not using an official Commander X16 keyboard,
+then you would need to do XXXXXXXXXXXXXXXXX instead.  ***** NOT SURE IF THIS WORTHY TO BE IN A VISUAL /note BLUE BOX OR NOT?\\
+
 \subsection{DIM}
 
 The {\ttfamily DIM} statement is used to \emph{dimension} an array, which means
@@ -1064,19 +1067,19 @@ Examples:\\
 
 \end{tabular}
 
-Once dimensioned, arrays can be used be used just like other variables, except
+Once dimensioned, arrays can be used just like other variables, except
 that the index into each dimension must be specified:\\
 
 \codeblock{
 	10 DIM A\$(3,12)\\
 	20 A\$(1,1) = "ONE"\\
 	30 A\$(2,6) = "TWO"\\
-	40 PRINT A\$(1,1) REM PRINTS "ONE"\\
-	50 PRINT A\$(2,6) REM PRINTS "TWO"\\
-	60 PRINT A\$(1,6) REM PRINTS NOTHING\\
+	40 PRINT A\$(1,1) : REM PRINTS "ONE"\\
+	50 PRINT A\$(2,6) : REM PRINTS "TWO"\\
+	60 PRINT A\$(1,6) : REM PRINTS NOTHING\\
 }
 
-Executing a {\ttfamily DIM} statement on an array more than once will cause an
+Executing a {\ttfamily DIM} statement on the same array more than once will cause an
 error.  It is a best practice to keep all the {\ttfamily DIM} statements
 towards the beginning of a program.\\
 
@@ -2445,8 +2448,8 @@ Example:\\
 
 The {\ttfamily RESTORE} statement resets where the {\ttfamily READ} statement
 will read from, causing the next {\ttfamily READ} to read from the first
-{\ttfamily DATA} statement again.  In this way, a program and re-read data that
-is has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
+{\ttfamily DATA} statement again.  In this way, a program can re-read data that
+it has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
 always directs the next {\ttfamily READ} back to the first {\ttfamily DATA}
 statement.\\
 
@@ -2587,7 +2590,7 @@ initialized to a mouse cursor:\\
 	30 SPRITE 0,3 : REM DISPLAY SPRITE 0\\
 }
 
-The above code will cause the mouse cursor to display, but while the mouse is
+The above code will cause the mouse cursor to display, even when the mouse is
 not active.  The cursor will not be able to be moved.  This works by enabling
 the mouse and initializing sprite 0 with the {\ttfamily MOUSE 1} statement,
 disabling the mouse and sprite 0 with {\ttfamily MOUSE 0}, and then
@@ -2599,8 +2602,8 @@ index.  With 128 hardware sprites, this number can be from 0 to 127.  The
 second argument sets the layer the sprite renders to, including disabling the
 sprite completely with 0.  The third argument is the palette offset used in 4
 bits-per-pixel mode.  The fourth argument sets how the sprite is flipped.  The
-sixth argument is used to set width of the sprite, and the seventh sets the
-height.  Finally, the either argument sets the color mode.  Only the first two
+fifth argument is used to set width of the sprite, and the sixth sets the
+height.  Finally, the seventh argument sets the color mode.  Only the first two
 arguments are required.  With this in mind, the sprite from the above program
 can be modified.  For example, it can be easily flipped upside down:\\
 
