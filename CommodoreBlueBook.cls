@@ -59,6 +59,8 @@
 
 \usepackage{anyfontsize}
 
+\usepackage{textcomp}
+
 \usepackage{contour}
 
 \usepackage{fmtcount}
