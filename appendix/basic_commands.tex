@@ -1498,8 +1498,8 @@ A common use for the {\ttfamily GET} statement is to pause a program in a loop u
 \subsection{GET\#}
 
 The {\ttfamily GET\#} statement reads data from a specified logical file one
-character at a time.  It is comparable ***SIMILAR?*** to the {\ttfamily GET} statement although 
-it requires a first argument that specifies a logical file identifier.  The
+character at a time.  It is identical to the {\ttfamily GET} statement except
+that it requires a first argument to specify a logical file identifier.  The
 logical file must first be opened with the {\ttfamily OPEN} statement.  The
 remaining arguments work just the same as with the {\ttfamily GET} statement.\\
 
@@ -1548,7 +1548,7 @@ The above program will print {\ttfamily FIRST}, {\ttfamily SECOND}, and
 {\ttfamily THIRD} in order.  This is because the {\ttfamily GOSUB} statement on
 line 20 transfers execution to line 50, and then the {\ttfamily RETURN}
 statement on line 60 transfers execution back to line 30, which is the
-line {\em after} the {\ttfamily GOSUB} statement was called. Line 40 ends the 
+line {\em after} the {\ttfamily GOSUB} statement was called.  Line 40 ends the 
 program, which stops line 50 from executing again.\\
 
 \tip{Nesting Subroutines}{
