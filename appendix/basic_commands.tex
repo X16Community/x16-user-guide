@@ -2587,7 +2587,7 @@ initialized to a mouse cursor:\\
 	30 SPRITE 0,3 : REM DISPLAY SPRITE 0\\
 }
 
-The above code will cause the mouse cursor to display, but while the mouse is
+The above code will cause the mouse cursor to display, even when the mouse is
 not active.  The cursor will not be able to be moved.  This works by enabling
 the mouse and initializing sprite 0 with the {\ttfamily MOUSE 1} statement,
 disabling the mouse and sprite 0 with {\ttfamily MOUSE 0}, and then
@@ -2599,8 +2599,8 @@ index.  With 128 hardware sprites, this number can be from 0 to 127.  The
 second argument sets the layer the sprite renders to, including disabling the
 sprite completely with 0.  The third argument is the palette offset used in 4
 bits-per-pixel mode.  The fourth argument sets how the sprite is flipped.  The
-sixth argument is used to set width of the sprite, and the seventh sets the
-height.  Finally, the either argument sets the color mode.  Only the first two
+fifth argument is used to set width of the sprite, and the sixth sets the
+height.  Finally, the seventh argument sets the color mode.  Only the first two
 arguments are required.  With this in mind, the sprite from the above program
 can be modified.  For example, it can be easily flipped upside down:\\
 
