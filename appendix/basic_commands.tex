@@ -1024,14 +1024,25 @@ parentheses like any other variable would be used.\\
 Examples:\\
 
 \codeblock{
-	10 DEF FNC(R)=2*R*π REM CIRCUMFERENCE OF  A CIRCLE\\
-	20 DEF FNA(R)=π*(R↑2) REM AREA OF  A CIRCLE\\
+	10 DEF FNC(R)=2*R*π : REM CIRCUMFERENCE OF  A CIRCLE\\
+	20 DEF FNA(R)=π*(R↑2) : REM AREA OF  A CIRCLE\\
 	30 PRINT "CIRCUMFERENCE:", FNC(10)\\
 	40 PRINT "AREA:", FNA(10)\\
 }
 
 Only a single variable can be defined as an argument to a function.  The
 defined function can be used anywhere a BASIC function can normally be used.\\
+
+\note {
+
+	The π character represents the number PI and is entered by pressing
+	\keybackgroundcolor{gray}\keytextcolor{black}\widekey{shift} +
+	\keybackgroundcolor{white}\key{\petsciifont ←} on the keyboard. If you are
+	not using an official Commander X16 keyboard, then you would need to press
+	\keybackgroundcolor{gray}\widekey{shift} +
+	\keybackgroundcolor{white}\doublekey{\textasciitilde\\`} instead.
+
+}
 
 \subsection{DIM}
 
@@ -1064,21 +1075,21 @@ Examples:\\
 
 \end{tabular}
 
-Once dimensioned, arrays can be used be used just like other variables, except
-that the index into each dimension must be specified:\\
+Once dimensioned, arrays can be used just like other variables, except that the
+index into each dimension must be specified:\\
 
 \codeblock{
 	10 DIM A\$(3,12)\\
 	20 A\$(1,1) = "ONE"\\
 	30 A\$(2,6) = "TWO"\\
-	40 PRINT A\$(1,1) REM PRINTS "ONE"\\
-	50 PRINT A\$(2,6) REM PRINTS "TWO"\\
-	60 PRINT A\$(1,6) REM PRINTS NOTHING\\
+	40 PRINT A\$(1,1) : REM PRINTS "ONE"\\
+	50 PRINT A\$(2,6) : REM PRINTS "TWO"\\
+	60 PRINT A\$(1,6) : REM PRINTS NOTHING\\
 }
 
-Executing a {\ttfamily DIM} statement on an array more than once will cause an
-error.  It is a best practice to keep all the {\ttfamily DIM} statements
-towards the beginning of a program.\\
+Executing a {\ttfamily DIM} statement on the same array more than once will
+cause an error.  It is a best practice to keep all the {\ttfamily DIM}
+statements towards the beginning of a program.\\
 
 \subsection{END}
 
@@ -1466,7 +1477,7 @@ multiple variables as arguments.\\
 
 Examples:\\
 
-\begin{tabular}{l p{0.85\linewidth}}
+\begin{tabular}{l p{0.75\linewidth}}
 
 	{\ttfamily\bfseries GET A\$} & Read a single character from the keyboard into {\ttfamily A\$}\\\\
 
@@ -1496,23 +1507,22 @@ A common use for the {\ttfamily GET} statement is to pause a program in a loop u
 
 The {\ttfamily GET\#} statement reads data from a specified logical file one
 character at a time.  It is identical to the {\ttfamily GET} statement except
-that it requires a first argument specifies a logical file identifier.  The
+that it requires a first argument to specify a logical file identifier.  The
 logical file must first be opened with the {\ttfamily OPEN} statement.  The
 remaining arguments work just the same as with the {\ttfamily GET} statement.\\
 
 Example:\\
 
 \codeblock{
-	10 OPEN 1,1,0,"FILENAME"  REM OPEN TAPE DRIVE FILE\\
-	20 GET\#1,A\$  REM READ A CHARACTER FROM THE TAPE\\
+	10 OPEN 1,1,0,"FILENAME" : REM OPEN TAPE DRIVE FILE\\
+	20 GET\#1,A\$ : REM READ A CHARACTER FROM THE TAPE\\
 }
 
 \note{
 
 	It is a popular convention when using statements and commands that end in
 	{\ttfamily \#} to place the logical file identifier directly after the
-	command with no space.  So instead of {\ttfamily GET\# 1,A\$} this example
-	shows {\ttfamily GET\#1,A\$}.
+	command with no space.  So instead of {\ttfamily GET\#~1,A\$} this example shows {\ttfamily GET\#1,A\$}.
 
 }
 
@@ -1542,10 +1552,11 @@ Example:\\
 }
 
 The above program will print {\ttfamily FIRST}, {\ttfamily SECOND}, and
-{\ttfamily THRID} in order.  This is because the {\ttfamily GOSUB} statement on
+{\ttfamily THIRD} in order.  This is because the {\ttfamily GOSUB} statement on
 line 20 transfers execution to line 50, and then the {\ttfamily RETURN}
-statement on line 60 then transfers execution back to line 30, which is the
-line {\em after} the {\ttfamily GOSUB} statement was called.\\
+statement on line 60 transfers execution back to line 30, which is the
+line {\em after} the {\ttfamily GOSUB} statement was called.  Line 40 ends the 
+program, which stops line 50 from executing again.\\
 
 \tip{Nesting Subroutines}{
 
@@ -1574,7 +1585,7 @@ Example:\\
 \subsection{IF}
 
 The {\ttfamily IF} statement is how decisions are made in BASIC.  The
-{\ttfamily IF} statement is followed by an expression that either evaluates to
+{\ttfamily IF} statement is followed by an expression that evaluates to either
 {\ttfamily TRUE} or {\ttfamily FALSE}, and the next statement executed is
 dependent on the outcome.  The expression is followed by either a {\ttfamily
 THEN} statement or a {\ttfamily GOTO} statement.  A {\ttfamily THEN} statement
@@ -2445,8 +2456,8 @@ Example:\\
 
 The {\ttfamily RESTORE} statement resets where the {\ttfamily READ} statement
 will read from, causing the next {\ttfamily READ} to read from the first
-{\ttfamily DATA} statement again.  In this way, a program and re-read data that
-is has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
+{\ttfamily DATA} statement again.  In this way, a program can re-read data that
+it has already read.  The {\ttfamily RESTORE} statement takes no arguments, and
 always directs the next {\ttfamily READ} back to the first {\ttfamily DATA}
 statement.\\
 
@@ -2587,7 +2598,7 @@ initialized to a mouse cursor:\\
 	30 SPRITE 0,3 : REM DISPLAY SPRITE 0\\
 }
 
-The above code will cause the mouse cursor to display, but while the mouse is
+The above code will cause the mouse cursor to display, even when the mouse is
 not active.  The cursor will not be able to be moved.  This works by enabling
 the mouse and initializing sprite 0 with the {\ttfamily MOUSE 1} statement,
 disabling the mouse and sprite 0 with {\ttfamily MOUSE 0}, and then
@@ -2599,8 +2610,8 @@ index.  With 128 hardware sprites, this number can be from 0 to 127.  The
 second argument sets the layer the sprite renders to, including disabling the
 sprite completely with 0.  The third argument is the palette offset used in 4
 bits-per-pixel mode.  The fourth argument sets how the sprite is flipped.  The
-sixth argument is used to set width of the sprite, and the seventh sets the
-height.  Finally, the either argument sets the color mode.  Only the first two
+fifth argument is used to set width of the sprite, and the sixth sets the
+height.  Finally, the seventh argument sets the color mode.  Only the first two
 arguments are required.  With this in mind, the sprite from the above program
 can be modified.  For example, it can be easily flipped upside down:\\
 
@@ -2775,13 +2786,44 @@ arguments to BASIC statements, the same can be written as:\\
 
 \subsection{RND}
 
-<TODO>
+DRAFT 1 : The {\ttfamily RND} function generates pseudo-random **Footnote** floating-point numbers in the 
+range of 0 to 1 (exclusive), such as 0.153632167, 0.567453436, 0.942242351.\\
+
+At power-on of the X16 computer a sequence of random numbers is generated automatically and 
+stored.  The number passed in parenthesis to the {\ttfamily RND} function 
+influences the resulting values in subsequent calls to {\ttfamily RND}.  A negative number 
+(-1) will reseed the sequence starting point in original random generated numbers.  
+The same negative number will result in the same sequence of random numbers.  A positive number 
+(1) will return the next random number of the current sequence.  Using a zero (0) will 
+generate a shorter sequence of random numbers, which can provide a speed improvement in returning 
+the result (if processing times are important).\\
+
+A best practice method is to initially seed the 
+{\ttfamily RND} function with the (-TI) value, at the beginning of your program.  The TI system 
+variable, which stands for Time-Interval, is the elapsed time since your computer last turned on.  
+Generally, this provides a different random sequence every time you re-run the program.  When 
+you need a random number later in your program you can then use RND(1) to provide the next 
+random number.\\
+
+Using a formula including the {\ttfamily RND}(1) function, can get a random value between any 
+two numbers.  Using variables to explain this formula, LO = 10 and HI = 40, the formula could be - 
+N = RND\(1\)*\(HI-LO\)+LO.  This will result in random numbers between 10 and (less than) 40. When repeated,   
+you might see numbers like : 13.3567377, 24.5913944, 16.2857004, 39.2262697.\\
+
+\codeblock {
+	\begin{ttfamily}
+		10 PRINT "PRESS A KEY TO ROLL THE DICE"\\
+		20 GET A$ : IF A$ = "" THEN GOTO 20\\
+		30 R = INT(RND(1)*6)+1\\
+		40 PRINT "YOU ROLLED A - "; R : PRINT\\
+		50 GOTO 10\\
+	\end{ttfamily}
+}
+
+The above program simulates rolling a 6-sided dice and generates random rolls. You can press the \[RUN STOP\] 
+key to stop the program. Line 30 is the formula ------- EXPLAIN CODE HERE OR ADD REM's? ------------\\
 
 \subsection{RPT\$}
-
-<TODO>
-
-\subsection{RND}
 
 <TODO>
 
