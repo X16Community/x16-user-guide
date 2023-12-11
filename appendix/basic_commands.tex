@@ -2810,7 +2810,45 @@ In the above example, the value $-1$ will be printed on the screen.
 
 \subsection{RND}
 
-<TODO>
+The {\ttfamily RND} function generates pseudo-random floating-point numbers in
+the range of 0 to 1 (exclusive), such as 0.153632167, 0.567453436,
+0.942242351.\\
+
+At power-on of the X16 computer a sequence of random numbers is generated
+automatically and stored.  The number passed in parenthesis to the {\ttfamily
+RND} function influences the resulting values in subsequent calls to {\ttfamily
+RND}.  A negative number (-1) will reseed the sequence starting point of
+original random generated numbers.  The same negative number will result in the
+same sequence of random numbers.  A positive number (1) will return the next
+random number of the current sequence.  Using a zero (0) will generate a
+shorter sequence of random numbers, which can provide a speed improvement in
+returning the result (if processing times are important).\\
+
+A best practice method is to initially seed the {\ttfamily RND} function with
+{\ttfamily -TI}, at the beginning of your program.  The {\ttfamily TI} system
+variable, which stands for Time-Interval, is the elapsed time since your
+computer last turned on.  Generally, this provides a different random sequence
+every time you re-run the program.  When you need a random number later in your
+program you can then use RND(1) to provide the next random number.\\
+
+Using a formula including the {\ttfamily RND(1)} function, can get a random
+value between any two numbers.  Using variables to explain this formula,
+{\ttfamily LO = 10} and {\ttfamily HI = 40}, the formula could be {\ttfamily N
+= RND(1)*(HI-LO)+LO}.  This will result in random numbers between 10 and (less
+than) 40. When repeated, you might see numbers like 13.3567377, 24.5913944,
+16.2857004, and 39.2262697.\\
+
+\begin{tabular}{l p{0.45\linewidth}}
+
+	{\ttfamily\bfseries X = INT(RND(1)*6)+1} & Simulate a 6-side dice roll\\
+
+	{\ttfamily\bfseries X = INT(RND(1)*1000)+1} & Number from 1-1000\\
+
+	{\ttfamily\bfseries X = INT(RND(1)*150)+100} & Number from 100-249\\
+
+\end{tabular}
+
+\vspace{16pt}
 
 \subsection{RPT\$}
 
