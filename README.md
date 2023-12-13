@@ -278,7 +278,7 @@ been defined:
 
 ```
 \codeblock{
-	10 PRNNT " X16";\\
+	10 PRINT " X16";\\
 	20 GOTO 10\\
 }
 ```
