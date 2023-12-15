@@ -82,7 +82,9 @@ required.
 ### Formatting
 
 For those who wish to contribute formatted LaTeX code, there already exist
-several conventions to make it easier.
+several conventions to make it easier.  For both LaTeX and Markdown files, a
+standard of two spaces between sentences should be used.  This makes it easy to
+delimit sentences for editing purposes.
 
 #### Keys
 
@@ -278,7 +280,7 @@ been defined:
 
 ```
 \codeblock{
-	10 PRNNT " X16";\\
+	10 PRINT " X16";\\
 	20 GOTO 10\\
 }
 ```
