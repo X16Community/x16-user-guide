@@ -2649,7 +2649,37 @@ Here is a brief summary of each argument:\\
 
 \subsection{SPRMEM}
 
-<TODO>
+The {\ttfamily SPRMEM} statement sets the VRAM address and the color mode of a
+given sprite.  The first argument is the sprite index.  The VRAM address is
+specified in two parts: the bank, and the address within the bank.  The VERA's
+128KB of video memory (or VRAM) can be thought of as two banks of 64KB.  The
+bank value can either be a 0 to indicate the first 64KB, or a 1 to indicate the
+second 64KB.  The address within the bank can then be specified with a 16 bit
+integer value.  It is easiest to specify address values using hexadecimal, so
+an address within a bank can be any value from \$0000 through \$FFFF.\\
+
+The final argument is the color mode.  The VERA only allows sprites to use the
+four bits per pixel mode (4bpp) or the eight bits per pixel mode (8bpp).  A
+value of {\ttfamily 0} specifies 4bpp mode, and a value of {\ttfamily 1}
+specifies 8bpp.\\
+
+Example:\\
+
+\codeblock{
+
+	10 SCREEN \$80
+	20 BVLOAD "MYSPRITE.BIN",8,1,\$3000\\
+	30 SPRMEM 1,1,\$3000,1\\
+	40 SPRITE 1,3,0,0,3,3\\
+	50 MOVSPR 1,160,120\\
+
+}
+
+The above program will load a sprite into VRAM bank 1 at address \$3000
+(sometimes specified as address \$13000), set sprite 1 to use that address, and
+interpret the data there in 8bpp mode.  The {\ttfamily SPRITE} statement is
+then use to set the rest of the sprite's attributes, and the {\ttfamily
+MOVESPR} statement moves the sprite's location on the screen.\\
 
 \subsection{STEP}
 
