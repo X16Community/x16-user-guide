@@ -2683,7 +2683,29 @@ MOVESPR} statement moves the sprite's location on the screen.\\
 
 \subsection{STEP}
 
-<TODO>
+The {\ttfamily STEP} statement is used with the {\ttfamily FOR}, {\ttfamily
+TO}, and{\ttfamily NEXT} statements in order to construct for-loops.  The
+{\ttfamily STEP} statement is followed by a number that will be added to the
+loop counter variable each time the {\ttfamily NEXT} statement is executed.
+This number can be positive or negative.  Both integer and floating point
+numbers are allowed.  When no {\ttfamily STEP} statement is used in a for-loop,
+a default value of {\ttfamily 1} is used.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.65\linewidth}}
+
+	{\ttfamily\bfseries FOR I=1 TO 10 STEP 1}&Count from 1 to 10.\\\\
+
+	{\ttfamily\bfseries FOR I=1 TO 10}&Count from 1 to 10 (use default {\ttfamily STEP}).\\\\
+
+	{\ttfamily\bfseries FOR I=2 TO 10 STEP 2}&Count to 10 by 2.\\\\
+
+	{\ttfamily\bfseries FOR I=10 TO 1 STEP -1}&Count backwards from 10.\\\\
+
+	{\ttfamily\bfseries FOR I=0 TO 10 STEP 0.5}&Count by {\ttfamily 0.5}.\\\\
+
+\end{tabular}
 
 \subsection{STOP}
 
