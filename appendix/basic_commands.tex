@@ -2755,7 +2755,40 @@ arguments to BASIC statements, the same can be written as:\\
 
 \subsection{THEN}
 
-<TODO>
+The {\ttfamily THEN} statement is used with an {\ttfamily IF} statement to tell
+the program what to do when the condition of the {\ttfamily IF} statement is
+{\ttfamily TRUE}.  A {\ttfamily THEN} statement can either be followed by a
+line number a BASIC expression such as a variable assignment or another
+statement.  If the {\ttfamily THEN} statement is followed by a line number, the
+{\ttfamily THEN} statement will behave the same as a {\ttfamily GOTO} statement
+and jump program control to the specified line number.  When {\ttfamily THEN}
+is followed by a BASIC expression it will execute that expression and then
+proceed to the next line of the program.\\
+
+Examples:\\
+
+\codeblock {
+
+	10 A = 5\\
+	20 B = 1\\
+	30 IF A = 5 THEN B = 2\\
+	40 PRINT B\\
+
+}
+
+The above program should print {\ttfamily 2} to the screen instead of
+{\ttfamily 1}.  Here is a way to accomplish the same thing by using a line
+number with {\ttfamily THEN} instead of an expression.\\
+
+\codeblock {
+
+	10 A = 5\\
+	20 B = 1\\
+	30 IF A <> 5 THEN 50\\
+	40 B = 2\\
+	50 PRINT B\\
+
+}
 
 \subsection{TILE}
 
