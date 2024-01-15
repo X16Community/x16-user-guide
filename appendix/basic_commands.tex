@@ -2709,7 +2709,30 @@ Examples:\\
 
 \subsection{STOP}
 
-<TODO>
+The {\ttfamily STOP} statement will halt a program.  This can be used to help
+debug programs by causing them to stop at a certain point, and then {\ttfamily
+PRINT}ing the values of variables.  A {\ttfamily STOP}ped program can be
+continued by using the {\ttfamily CONT} command, which will start running the
+program from the line after the {\ttfamily STOP} statement.\\
+
+When the {\ttfamily STOP} statement executes, it will not only stop the
+program, but will also print a message, {\ttfamily BREAK IN xxxx} where
+{\ttfamily xxxx} is the line number containing the {\ttfamily STOP} statement.
+This is useful when multiple {\ttfamily STOP} statements are used in a single
+program.\\
+
+Example:\\
+
+\codeblock{
+
+	10 PRINT "HELLO"\\
+	20 STOP\\
+	30 PRINT "WORLD"\\
+
+}
+
+Try {\ttfamily CONT}inuing the above program after the {\ttfamily STOP}
+statement halts the program.\\
 
 \subsection{SYS}
 
