@@ -2792,7 +2792,29 @@ number with {\ttfamily THEN} instead of an expression.\\
 
 \subsection{TILE}
 
-<TODO>
+The {\ttfamily TILE} statement can be used to place a given tile on the VERA's
+layer 1 tile map.  This works even when the map base or map size has been
+changed, which makes it simple to place tiles in graphics modes.  Because a
+text layer on the VERA is just a tile map that uses tile characters, the
+{\ttfamily TILE} statement can be used instead of using {\ttfamily LOCATE} and
+{\ttfamily PRINT} to place a single character anywhere on the screen.\\
+
+Example:\\
+
+\codeblock{
+
+	10 I=0\\
+	20 FOR Y=0 TO 15\\
+	30 FOR X=0 TO 15\\
+	40 TILE X,Y,I\\
+	50 I=I+1\\
+	60 NEXT:NEXT\\
+	70 LOCATE 17 :REM MOVE READY PROMPT DOWN\\
+
+}
+
+The above example uses the {\ttfamily TILE} statement to display all the
+characters (the default tile set) on a 16 by 16 grid.\\
 
 \subsection{TO}
 
