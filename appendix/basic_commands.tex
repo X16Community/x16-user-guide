@@ -2797,7 +2797,9 @@ layer 1 tile map.  This works even when the map base or map size has been
 changed, which makes it simple to place tiles in graphics modes.  Because a
 text layer on the VERA is just a tile map that uses tile characters, the
 {\ttfamily TILE} statement can be used instead of using {\ttfamily LOCATE} and
-{\ttfamily PRINT} to place a single character anywhere on the screen.\\
+{\ttfamily PRINT} to place a single character anywhere on the screen.  The
+first two arguments to the {\ttfamily TILE} statement are the 0-based X and Y
+coordinates, and the third argument is the tile number.\\
 
 Example:\\
 
@@ -2818,7 +2820,16 @@ characters (the default tile set) on a 16 by 16 grid.\\
 
 \subsection{TO}
 
-<TODO>
+The {\ttfamily TO} statement is used with the {\ttfamily FOR} statement, the
+{\ttfamily NEXT} statement, and sometimes the {\ttfamily STEP} statement to
+create a for-loop.  The {\ttfamily TO} statement is used to define the range of
+a for-loop.  The number preceeding the {\ttfamily TO} statement will be the
+value of the loop variable on the first pass through the loop, and the loop
+will stop when the loop variable is greater than or equal to the number that
+follows the {\ttfamily TO} statement.\\
+
+See the {\ttfamily FOR} statement for examples of using the {\ttfamily TO}
+statement.\\
 
 \subsection{VPOKE}
 
