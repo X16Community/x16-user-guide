@@ -886,6 +886,8 @@ Examples:\\
 
 \end{tabular}
 
+To load a file that has a two-byte header, see the {\ttfamily VLOAD} statement.\\
+
 \subsection{CHAR}
 
 The {\ttfamily CHAR} statement draws text to the screen at a given X,Y
@@ -2864,7 +2866,26 @@ forground color to black, although the character data does not change.\\
 
 \subsection{VLOAD}
 
-<TODO>
+The {\ttfamily VLOAD} statement loads a file with a two-byte header directly
+into the VERA's VRAM, but without loading the header.  For arguments, the
+{\ttfamily VLOAD} statement takes the file's name, the device number where the
+file is stored, the bank of VRAM on the VERA (either {\ttfamily 0} or
+{\ttfamily 1}), and the address within the bank in which to load.\\
+
+Examples:\\
+
+\begin{tabular}{l p{0.35\linewidth}}
+
+	{\ttfamily\bfseries VLOAD "MYFILE.BIN",8,0,\$4000}&Loads a file named
+	"MYFILE.BIN" from device 8 into VRAM at address \$04000.\\\\
+
+	{\ttfamily\bfseries VLOAD "MYFONT.BIN",8,1,\$F000}&Loads a file named
+	"MYFONT.BIN" from device 8 into VRAM at address \$1F000.\\\\
+
+\end{tabular}
+
+To load a file that does not have a two-byte header, see the {\ttfamily BVLOAD}
+statement.\\
 
 \subsection{WAIT}
 
