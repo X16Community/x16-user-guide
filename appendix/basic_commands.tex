@@ -2833,7 +2833,34 @@ statement.\\
 
 \subsection{VPOKE}
 
-<TODO>
+The {\ttfamily VPOKE} statement sets a single byte of video RAM (VRAM) on the
+VERA's onboard memory.  This allows for directly setting the data that will be
+interpretted as graphics and PSG sound.  The VERA has a total of 131,072 bytes
+(128 kilobytes) of VRAM, which it exposes as 2 banks of 65,536 bytes (64
+kilobytes) each.  The {\ttfamily VPOKE} statement takes three arguments: the
+bank, the memory location within the bank, and the value to be stored.\\
+
+Example:\\
+
+\codeblock{
+
+	10 FOR I=1 to 256*64 STEP 2\\
+	20 VPOKE 1,\$B000+I,0 :REM SET COLOR\\
+	30 NEXT I\\
+
+}
+
+The above BASIC code will fill the screen with black spaces one character at a
+time by writing directly to the area of the VERA's VRAM where the X16 stores
+the text mode screen data.  The {\ttfamily VPOKE} sets the background and
+forground color to black, although the character data does not change.\\
+
+\note{
+
+	In screen mode 0, the tile map is stored in the VERA at VRAM address
+	\$1B000, and is 128 tiles wide by 64 tiles tall.
+
+}
 
 \subsection{VLOAD}
 
