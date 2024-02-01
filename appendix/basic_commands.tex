@@ -2930,21 +2930,40 @@ better choice for this functionality}.\\
 
 \section{Functions}
 
+\emph{Functions} are instructions that return values that can be used like
+variables, or even assigned to variables.  Functions are often called in-line
+to supply arguments to statements.  Functions will either return a numeric
+value or a string value.  If the function returns a string value, its name will
+end with a {\ttfamily \$}.\\
+
 \subsection{ABS}
 
 The {\ttfamily ABS(X)} function will return the absolute value of {\ttfamily
 X}.\\
 
 Example:\\
-\codeblock{
-	PRINT ABS(-10)\\
-}
 
-In the above example, the value $10$ will be printed on the screen.
+\codeblock{
+
+	PRINT ABS(-10)\\
+	10\\
+
+}
 
 \subsection{ASC}
 
-<TODO>
+The {\ttfamily ASC} function will return an integer value representing the
+PETSCII code for the first character of string.  If string is the empty string,
+{\ttfamily ASC} returns 0.\\
+
+Example:\\
+
+\codeblock{
+
+	PRINT ASC("A")\\
+	65\\
+
+}
 
 \subsection{ATN}
 
@@ -2952,11 +2971,15 @@ The {\ttfamily ATN(X)} function will return the angle whose tangent is
 {\ttfamily X}.  This is the inverse of the {\ttfamily TAN} function.\\
 
 Example:\\
+
 \codeblock{
+
 	PRINT ATN(0)\\
+	0\\
+
 }
 
-In the above example, the value $0$ will be printed on the screen.
+In the above example, the value 0 will be printed on the screen.\\
 
 \subsection{BIN\$}
 
@@ -2972,11 +2995,13 @@ The {\ttfamily COS(X)} function will return the cosine of an angle {\ttfamily
 X}, measured in radians.\\
 
 Example:\\
-\codeblock{
-	PRINT COS(π)\\
-}
 
-In the above example, the value $-1$ will be printed on the screen.
+\codeblock{
+
+	PRINT COS(π)\\
+	-1\\
+
+}
 
 \subsection{EXP}
 
@@ -3090,11 +3115,13 @@ The {\ttfamily SIN(X)} function will return the sine of an angle {\ttfamily X},
 measured in radians.\\
 
 Example:\\
-\codeblock{
-	PRINT SIN(π/2)\\
-}
 
-In the above example, the value $1$ will be printed on the screen.
+\codeblock{
+
+	PRINT SIN(π/2)\\
+	1\\
+
+}
 
 \subsection{SPC}
 
@@ -3121,11 +3148,13 @@ In the above example, the value $1$ will be printed on the screen.
 The {\ttfamily TAN(X)} function will return the tangent of an angle {\ttfamily X}, measured in radians.\\
 
 Example:\\
-\codeblock{
-	PRINT TAN(0)\\
-}
 
-In the above example, the value $0$ will be printed on the screen.
+\codeblock{
+
+	PRINT TAN(0)\\
+	0\\
+
+}
 
 \subsection{USR}
 
@@ -3154,32 +3183,42 @@ When the argument isn't a string, the error "?TYPE MISMATCH ERROR IN <line>"
 would result and stop the program.  When the argument is absent, the error
 "?SYNTAX ERROR IN <line>" is returned and stops the program.\\
 
+Examples:\\
+
 \codeblock{
+
 	10 READ A\$\\
 	20 DATA "  - 120 . 64  "\\
 	30 PRINT VAL(A\$)\\
-RUN\\
--120.64\\
+	RUN\\
+	-120.64\\
 }
 
-Examples:\\
+Leading letters are invalid, but don't cause an error.\\
 
-Leading letters are invalid, but don't cause an error.\newline
 \codeblock{
-PRINT VAL("ABC 123")\\
-0\\
+
+	PRINT VAL("ABC 123")\\
+	0\\
+
 }
 
-The binary literal string is converted to decimal number.\newline
+The binary literal string is converted to decimal number.\\
+
 \codeblock{
-PRINT VAL("\%010101")\\
-21\\
+
+	PRINT VAL("\%010101")\\
+	21\\
+
 }
 
-The exponential notation string is returned as a simplified number.\newline
+The exponential notation string is returned as a simplified number.\\
+
 \codeblock{
-PRINT VAL("+352 .25 E-3  Units")\\
-0.35225\\
+
+	PRINT VAL("+352 .25 E-3  Units")\\
+	0.35225\\
+
 }
 
 \subsection{VPEEK}
