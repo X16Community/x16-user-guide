@@ -2936,6 +2936,10 @@ to supply arguments to statements.  Functions will either return a numeric
 value or a string value.  If the function returns a string value, its name will
 end with a {\ttfamily \$}.\\
 
+Because the return value is a fundamental property of a function, many of the
+examples in this section include the output of the example listed directly
+below the example, itself.\\
+
 \subsection{ABS}
 
 The {\ttfamily ABS(X)} function will return the absolute value of {\ttfamily
@@ -2984,7 +2988,30 @@ In the above example, the value 0 will be printed on the screen.\\
 
 \subsection{BIN\$}
 
-<TODO>
+The {\ttfamily BIN\$} function returns a string of the binary representation
+(1's and 0's) of a number.  The {\ttfamily BIN\$} function will only work on
+numbers greater than or equal to 0, and less than 65,536.  When a floating
+point number number is passed to {\ttfamily BIN\$}, it will ignore the decimal
+part of the number and truncate the value to an integer, just as the {\ttfamily
+INT} function does.  When {\ttfamily BIN\$} is passed a number that is less
+than 256, it only returns 8 characters since the value can be represented by 8
+bits.  When a number that is 256 or greater is used, it will return 16
+characters.\\
+
+Examples:\\
+
+\codeblock{
+
+	PRINT BIN\$(3)\\
+	00000011\\
+
+	PRINT BIN\$(3.14)\\
+	00000011\\
+
+	PRINT BIN\$(3000)\\
+	0000101110111000\\
+
+}
 
 \subsection{CHR\$}
 
