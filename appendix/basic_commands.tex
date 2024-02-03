@@ -2958,7 +2958,8 @@ Example:\\
 
 The {\ttfamily ASC} function will return an integer value representing the
 PETSCII code for the first character of string.  If string is the empty string,
-{\ttfamily ASC} returns 0.\\
+{\ttfamily ASC} returns 0.  The opposite of this function is the {\ttfamily
+CHR\$} function.\\
 
 Example:\\
 
@@ -3015,7 +3016,25 @@ Examples:\\
 
 \subsection{CHR\$}
 
-<TODO>
+The {\ttfamily CHR\$} function takes a number from 0-255 and returns the
+PETSCII character represted by that PETSCII code.  Floating point numbers will
+be truncated to integers, as is done when the {\ttfamily INT} function is used.
+Numbers outside that range will cause an error.  The opposite of this function
+is the {\ttfamily ASC} function.\\
+
+Examples:\\
+
+\codeblock{
+
+	PRINT CHR\$(65)\\
+	A\\
+
+	PRINT CHR\$(65.7)\\
+	A\\
+
+	PRINT CHR\$(147) : REM CLEARS SCREEN\\
+
+}
 
 \subsection{COS}
 
