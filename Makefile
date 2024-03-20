@@ -19,6 +19,7 @@ PARTS					= getting_to_know_commanderx16.tex \
 						  appendix/basic_commands.tex \
 						  appendix/basic_table.tex \
 						  appendix/screen_codes_table.tex \
+						  appendix/petscii_codes_table.tex \
 						  appendix/memory_map.tex \
 						  appendix/65c02_op_codes.tex \
 						  appendix/patch_table.tex \

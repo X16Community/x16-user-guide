@@ -118,15 +118,6 @@
 	BoldItalicFont=*-BoldItalic
 ] % Use the New Century font for sans serif
 
-\setsansfont{Cabin}[
-	Path=fonts/,
-	Extension=.otf,
-	UprightFont=*-Medium,
-	ItalicFont=*-MediumItalic,
-	BoldFont=*-Bold,
-	BoldItalicFont=*-BoldItalic
-] % Use the New Century font for sans serif
-
 \setmonofont{FreeMono}[
 	Path=fonts/,
 	Extension=.otf,
@@ -340,7 +331,7 @@
 	coltext=#2,
 	size=small,
 	fontupper=\fontsize{8pt}{8pt}\selectfont\bfseries,
-	width=0.40in,
+	width=0.50in,
 	height=0.30in,
 	box align=base,
 	nobeforeafter,
