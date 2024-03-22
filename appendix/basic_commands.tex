@@ -1033,7 +1033,9 @@ Examples:\\
 }
 
 Only a single variable can be defined as an argument to a function.  The
-defined function can be used anywhere a BASIC function can normally be used.\\
+{\ttfamily DEF} statement can only be used in a BASIC program (entered with a
+line number), but the defined function can be used anywhere a BASIC function
+can normally be used.\\
 
 \note {
 
@@ -3070,9 +3072,14 @@ Examples:\\
 
 }
 
-\subsection{FN}
+\subsection{FNXX(X)}
 
-<TODO>
+Any function {\ttfamily FNXX} (where {\ttfamily XX} is any legal name) that has
+been defined with the {\ttfamily DEF} statement can be called inside or outside
+of a BASIC program.  It will execute the user-defined function and return the
+result.\\
+
+See the {\ttfamily DEF} statement for details and examples.\\
 
 \subsection{FRE}
 
