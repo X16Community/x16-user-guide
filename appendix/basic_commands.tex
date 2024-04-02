@@ -3104,7 +3104,46 @@ memory.\\
 
 \subsection{HEX\$}
 
-<TODO>
+The {\ttfamily HEX\$} function takes a numeric value and returns a string of
+the {\em hexadecimal} representation of that value.  Hexadecimal is a base-16
+number system, meaning that 16 different numeric values can be represented by a
+single character.  Just like with the usual base-10 number system, or {\em
+decimal}, when the next highest value is needed you simply use more than one
+character to represent it.  For example, in decimal when the value 10 needs to
+be written, two characters are used: "1" followed by "0".\\
+
+In order to have 16 different characters to represent numeric values,
+alphabetic characters are used for values 10 through 15.  Here are the
+characters used in hexadecimal, and their decimal equivalents:\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	{\bfseries H} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\ \hline
+	{\bfseries D} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \hline
+\end{tabular}
+
+\vspace{16pt}
+
+So in order to write the value 16 in hexadecimal, two characters would need to
+be used: "1" followed by "0" (just like 10 in decimal).\\
+
+The {\ttfamily HEX\$} function can accept any numeric value from 0-65535.  When
+values less than 256 are given, {\ttfamily HEX\$} always returns exactly two
+characters, and when values greater than or equal to 256 are given, it always
+returns 4 characters.  Both are padded with 0's if necessary.\\
+
+Example:\\
+
+\codeblock {
+
+	10 FOR I=0 to 50\\
+	20 PRINT I,HEX\$(I)\\
+	30 NEXT I\\
+
+}
+
+The above program will print out a table showing values in decimal followed by
+the same value in hexadecimal.\\
 
 \subsection{INT}
 
