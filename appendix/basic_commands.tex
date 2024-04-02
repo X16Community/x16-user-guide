@@ -3083,7 +3083,24 @@ See the {\ttfamily DEF} statement for details and examples.\\
 
 \subsection{FRE}
 
-<TODO>
+The {\ttfamily FRE} function returns the number of unused (or {\em free}) BASIC
+bytes.  Although the {\ttfamily FRE} function requires an argument (any valid
+numeric or string will do), this argument has no effect on the function's
+result.\\
+
+Example:\\
+
+\codeblock{
+
+	10 PRINT FRE(0)\\
+	20 DIM A(4096) :REM ALLOCATE SOME MEMORY\\
+	30 PRINT FRE(0)\\
+
+}
+
+The above program will print the amount of free memory available to BASIC,
+allocate some of that memory, and then again print the updated amount of free
+memory.\\
 
 \subsection{HEX\$}
 
