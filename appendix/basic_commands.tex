@@ -3147,7 +3147,28 @@ the same value in hexadecimal.\\
 
 \subsection{INT}
 
-<TODO>
+The {\ttfamily INT} function returns a truncated\footnote{{\em Truncated} means
+removing all decimal places to the right of the decimal point, leaving only an
+integer} integer version of the numeric argument passed to the function.  The
+result will always be less than or equal to the argument, including when the
+argument is negative.\\
+
+Examples:\\
+
+\codeblock {
+	PRINT INT(3.8)\\
+	3\\
+
+	PRINT INT(-3.8)\\
+	-4\\
+}
+
+The {\ttfamily INT} function can also be used to round decimal numbers to a
+certain precision, such as to the nearest hundredth:\\
+
+\codeblock {
+	X=INT(X*100+0.5)/100\\
+}
 
 \subsection{LEFT\$}
 
