@@ -3197,7 +3197,28 @@ Example:\\
 
 \subsection{LOG}
 
-<TODO>
+The {\ttfamily LOG} function will return the natural log of the given numeric
+value.  The natural log is the log to the base of {\ttfamily e} (see {\ttfamily
+EXP}).  To convert to log base 10, simply divide by {\ttfamily LOG(10)}.  To
+convert to log base 2, divide by {\ttfamily LOG(2)}.\\
+
+Examples:\\
+
+\codeblock{
+
+	REM NATURAL LOG OF 8\\
+	PRINT LOG(8)\\
+	2.07944154\\
+
+	REM LOG BASE 10 OF 8\\
+	PRINT LOG(8)/LOG(10)\\
+	.903089987\\
+
+	REM LOG BASE 2 OF 8\\
+	PRINT LOG(8)/LOG(2)\\
+	3\\
+
+}
 
 \subsection{MID\$}
 
