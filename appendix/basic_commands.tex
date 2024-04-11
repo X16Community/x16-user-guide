@@ -3248,7 +3248,24 @@ Examples:\\
 
 \subsection{PEEK}
 
-<TODO>
+The {\ttfamily PEEK} function returns the contents of the Commander X16's
+memory at a given address.  This includes reading the values from any of the
+X16's memory mapped hardware devices (if they are readable) such as the VERA or
+the FM synthesizer chip.  The address must be in the range of 0-65535, and the
+values returned will all be in the range of 0-255.\\
+
+Example:\\
+
+\codeblock {
+	10 FOR A=0 TO 255\\
+	20 PRINT HEX\$(A)+": \$";\\
+	30 PRINT HEX\$(PEEK(A)),;\\
+	40 NEXT A\\
+}
+
+The above example will print the entire contents of the zero page\footnote{The
+"zero page" is the first 256 bytes of the Commander X16's memory.  This memory
+has special purposes on the 65C02 processor.}.\\
 
 \subsection{\ttfamily π}
 
