@@ -3280,7 +3280,14 @@ any other floating point variable or literal.\\
 
 \subsection{POINTER}
 
-<TODO>
+The {\ttfamily POINTER} function returns the memory address of the data
+structure where a BASIC variable is stored.\\
+
+\codeblock {
+
+	10 X\$ = "COMMANDER X16"\\
+	20 PRINT HEX\$(POINTER(X\$))\\
+}
 
 \subsection{POS}
 
