@@ -3291,7 +3291,18 @@ structure where a BASIC variable is stored.\\
 
 \subsection{POS}
 
-<TODO>
+The {\ttfamily POS} function returns the current column of the text cursor.
+The {\ttfamily POS} function takes a single argument that is unused.  Due to
+the way BASIC reads data from a program, the fastest type of variable to use is
+the special constant {\ttfamily π} (pi).  Therefore, it is a common convention
+to always call the {\ttfamily POS} function as {\ttfamily POS(π)}.\\
+
+\codeblock {
+	10 PRINT POS(π)\\
+	20 REM ADVANCE THE COLUMN BUT NOT THE LINE\\
+	30 PRINT "COMMANDER X16";\\
+	40 PRINT POS(π)\\
+}
 
 \subsection{RIGHT\$}
 
