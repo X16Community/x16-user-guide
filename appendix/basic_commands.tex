@@ -3269,7 +3269,14 @@ has special purposes on the 65C02 processor.}.\\
 
 \subsection{\ttfamily π}
 
-<TODO>
+The {\ttfamily π} constant returns the value of pi and can be used just like
+any other floating point variable or literal.\\
+
+\codeblock {
+	10 INPUT "WHAT IS THE RADIUS OF THE CIRLCE";R\\
+	20 PRINT "CIRCUMFRANCE:",2*R*π\\
+	30 PRINT "AREA:",,R*R*π\\
+}
 
 \subsection{POINTER}
 
