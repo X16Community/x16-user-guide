@@ -3360,7 +3360,21 @@ than) 40. When repeated, you might see numbers like 13.3567377, 24.5913944,
 
 \subsection{RPT\$}
 
-<TODO>
+The {\ttfamily RPT\$} function returns a string of repeated PETSCII characters.
+Like the {\ttfamily CHR\$} function, the {\ttfamily RPT\$} function takes a
+PETSCII code\footnote{See the PETSCII Codes table in the appendix}, but also
+takes a second argument indicating a count.  The string returned will be the
+character specified by the PETSCII code repeated as many times as the count
+indicates.\\
+
+Example:\\
+
+\codeblock{
+
+	PRINT RPT\$(33,10)\\
+	!!!!!!!!!!
+
+}
 
 \subsection{SGN}
 
