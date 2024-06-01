@@ -2952,7 +2952,7 @@ Example:\\
 \codeblock{
 
 	PRINT ABS(-10)\\
-	10\\
+	\hspace*{0.6em}10\\
 
 }
 
@@ -2968,7 +2968,7 @@ Example:\\
 \codeblock{
 
 	PRINT ASC("A")\\
-	65\\
+	\hspace*{0.6em}65\\
 
 }
 
@@ -2983,7 +2983,7 @@ Example:\\
 \codeblock{
 
 	PRINT ATN(0)\\
-	0\\
+	\hspace*{0.6em}0\\
 
 }
 
@@ -3049,7 +3049,7 @@ Example:\\
 \codeblock{
 
 	PRINT COS(π)\\
-	-1\\
+	\hspace*{1em}-1\\
 
 }
 
@@ -3064,11 +3064,11 @@ Examples:\\
 \codeblock{
 
 	PRINT EXP(5)\\
-	148.413159\\
+	\hspace*{0.6em}148.413159\\
 
 	REM PRINT E, ITSELF\\
 	PRINT EXP(1)\\
-	2.71828183\\
+	\hspace*{0.6em}2.71828183\\
 
 }
 
@@ -3157,10 +3157,10 @@ Examples:\\
 
 \codeblock {
 	PRINT INT(3.8)\\
-	3\\
+	\hspace*{0.6em}3\\
 
 	PRINT INT(-3.8)\\
-	-4\\
+	\hspace*{1em}-4\\
 }
 
 The {\ttfamily INT} function can also be used to round decimal numbers to a
@@ -3192,7 +3192,7 @@ Example:\\
 
 \codeblock {
 	PRINT LEN("COMMANDER X16")\\
-	13\\
+	\hspace*{0.6em}13\\
 }
 
 \subsection{LOG}
@@ -3208,15 +3208,15 @@ Examples:\\
 
 	REM NATURAL LOG OF 8\\
 	PRINT LOG(8)\\
-	2.07944154\\
+	\hspace*{0.6em}2.07944154\\
 
 	REM LOG BASE 10 OF 8\\
 	PRINT LOG(8)/LOG(10)\\
-	.903089987\\
+	\hspace*{0.6em}.903089987\\
 
 	REM LOG BASE 2 OF 8\\
 	PRINT LOG(8)/LOG(2)\\
-	3\\
+	\hspace*{0.6em}3\\
 
 }
 
@@ -3385,13 +3385,13 @@ Examples:\\
 \codeblock{
 	
 	PRINT SGN(42)\\
-	1\\
+	\hspace*{0.6em}1\\
 
 	PRINT SGN(-23.96)\\
-	-1\\
+	\hspace*{0.1em}-1\\
 
 	PRINT SGN(0)\\
-	0\\
+	\hspace*{0.6em}0\\
 
 }
 
@@ -3407,7 +3407,7 @@ Example:\\
 \codeblock{
 
 	PRINT SIN(π/2)\\
-	1\\
+	\hspace*{0.6em}1\\
 
 }
 
@@ -3442,11 +3442,35 @@ Examples:\\
 
 \subsection{SQR}
 
-<TODO>
+The {\ttfamily SQR} function returns the square root of a non-zero number.  If
+the number given is negative, the {\ttfamily SQR} function will return an
+{\ttfamily ILLEGAL QUANTITY ERROR}.\\
+
+Examples:\\
+ \codeblock{
+	 PRINT SQR(9)\\
+	 \hspace*{0.6em}3\\
+	 PRINT SQR(25.0)\\
+	 \hspace*{0.6em}5\\
+	 PRINT SQR(48)\\
+	 \hspace*{0.6em}6.92820323\\
+ }
 
 \subsection{STR\$}
 
-<TODO>
+The {\ttfamily STR\$} function converts a numeric value to a string value using
+the same methodology as {\ttfamily PRINT}ing a numeric value.  This means that
+{\ttfamily 0} and positive numbers converted to strings will begin with a
+space, while negative numbers will begin with a {\ttfamily -}.  This means that
+string functions such as {\ttfamily LEN} will work properly on the resulting
+string, whereas counting the digits could lead to errors in printing.\\
+
+Example:\\
+
+\codeblock {
+	PRINT LEN(STR\$(10))\\
+	\hspace*{0.6em}3\\
+}
 
 \subsection{STRPTR}
 
@@ -3466,7 +3490,7 @@ Example:\\
 \codeblock{
 
 	PRINT TAN(0)\\
-	0\\
+	\hspace*{0.6em}0\\
 
 }
 
@@ -3513,7 +3537,7 @@ Examples:\\
 	20 DATA "  - 120 . 64  "\\
 	30 PRINT VAL(A\$)\\
 	RUN\\
-	-120.64\\
+	\hspace*{1em}-120.64\\
 }
 
 Leading letters are invalid, but don't cause an error.\\
@@ -3521,7 +3545,7 @@ Leading letters are invalid, but don't cause an error.\\
 \codeblock{
 
 	PRINT VAL("ABC 123")\\
-	0\\
+	\hspace*{0.6em}0\\
 
 }
 
@@ -3530,7 +3554,7 @@ The binary literal string is converted to decimal number.\\
 \codeblock{
 
 	PRINT VAL("\%010101")\\
-	21\\
+	\hspace*{0.6em}21\\
 
 }
 
@@ -3539,7 +3563,7 @@ The exponential notation string is returned as a simplified number.\\
 \codeblock{
 
 	PRINT VAL("+352 .25 E-3  Units")\\
-	0.35225\\
+	\hspace*{0.6em}0.35225\\
 
 }
 
