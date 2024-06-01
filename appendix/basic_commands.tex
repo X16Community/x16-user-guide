@@ -3474,7 +3474,25 @@ Example:\\
 
 \subsection{STRPTR}
 
-<TODO>
+The {\ttfamily STRPTR} function returns the memory address of the first
+character of a given string variable.  If the string variable passed to
+{\ttfamily STRPTR} is empty (has a length of zero), then the value returned by
+{\ttfamily STRPTR} is undefined and should not be used.  To prevent using bad
+memory, always use the {\ttfamily LEN} function on a string ahead of time to
+make sure that it is not empty.\\
+
+Example:\\
+
+\codeblock {
+	10 INPUT "ENTER A WORD";A\$\\
+	20 IF LEN(A\$) > 0 GOTO 40\\
+	30 END\\
+	40 P=STRPTR(A\$)\\
+	50 PRINT CHR\$(PEEK(P))\\
+	RUN\\
+	ENTER A WORD? THING\\
+	T\\
+}
 
 \subsection{TAB}
 
