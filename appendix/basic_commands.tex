@@ -3393,7 +3393,6 @@ Examples:\\
 	PRINT SGN(0)\\
 	0\\
 
-
 }
 
 <TODO>
@@ -3414,7 +3413,32 @@ Example:\\
 
 \subsection{SPC}
 
-<TODO>
+The {\ttfamily SPC} function can be used to set a number of spaces, either
+printed to the screen or written to a file.  It takes a numeric value for the
+number of spaces to use.  The {\ttfamily SPC} function is similar to using the
+{\ttfamily RPT\$} function to return a number of spaces, but not equivalent.
+The {\ttfamily SPC} function does not return a string, but rather adds the
+desired number of spaces directly into the output, whether it be the screen or
+a file.  The {\ttfamily SPC} function will not overwrite existing text on the
+screen, which is fundamentally different than simply printing a string.
+Because of these reasons, the {\ttfamily SPC} function cannot be called except
+as part of a {\ttfamily PRINT} statement.\\
+
+When the {\ttfamily SPC} function is used as the last item in a {\ttfamily
+PRINT} statement, the carriage return that would normally be inserted is
+suppressed, just as it is for trailing commas and semicolons.\\
+
+Examples:\\
+
+\codeblock{
+	PRINT SPC(5) "HELLO"\\
+	\hspace*{3em}HELLO\\
+	
+	10 PRINT "HELLO" SPC(5)\\
+	20 PRINT "WORLD"\\
+	RUN\\
+	HELLO\hspace*{3em}WORLD\\
+}
 
 \subsection{SQR}
 
