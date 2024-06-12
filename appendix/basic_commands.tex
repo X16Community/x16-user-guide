@@ -3569,7 +3569,38 @@ Example:\\
 
 \subsection{USR}
 
-<TODO>
+The {\ttfamily USR} function calls a user-defined assembly routine from BASIC.
+It can accept any valid BASIC expression as an argument, as long as the
+expression resolves to a number or a string.  If the expression is numeric, it
+places the result in a special place in memory called the Floating Point
+Accumulator (FACC, for short) located from {\ttfamily \$61-\$66}.  From there
+the user-defined assembly routine can read the result of the expression as
+input.  If the expression evaluates to a string, it places a pointer to the
+string located from {\ttfamily \$54-\$65}.  The result of the user-defined
+assembly routine must be a floating point placed in the FACC.\\
+
+The address of the user-defined assembly routine to be called should be stored
+in the address {\ttfamily \$0311-\$0312} prior to calling the {\ttfamily USR}
+function.  Otherwise this address will store the address of an error handler
+that displays the {\ttfamily ?ILLEGAL QUANTITY ERROR}.  By using the {\ttfamily
+USR} function, any number of built-in or custom assembly routines can be called
+from BASIC and used as an expression.\\
+
+Example:\\
+
+\codeblock {
+	10 REM SET THE USR FUNCTION TO THE\\
+	20 REM FADDH MATH LIBRARY ROUTINE\\
+	30 POKE \$0311,\$6F\\
+	40 POKE \$0312,\$FE\\
+	50 PRINT USR(4.2)\\
+}
+
+The above BASIC program will set the user-defined function to the {\ttfamily
+FADDH} X16 Math Library routine at address {\ttfamily \$FE65}, which takes a
+number in the FACC and adds {\ttfamily 0.5} to it.  The program then calls the
+{\ttfamily FADDH} routine with {\ttfamily 4.2} using the {\ttfamily USR}
+function.  The program should print a result of {\ttfamily 4.7}.
 
 \subsection{VAL}
 
