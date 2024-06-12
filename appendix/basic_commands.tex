@@ -3527,7 +3527,25 @@ Example:\\
 
 \subsection{TATTR}
 
-<TODO>
+The {\ttfamily TATTR} function retrieves the tile attribute byte of a given X/Y
+coordinate on layer 1 of the VERA.  This attribute carries different
+information depending on which screen mode is being used.  This is the same
+attribute byte that can be optionally set to the layer 1 tile map with with the
+{\ttfamily TILE} statement.\\
+
+Example:\\
+
+\codeblock{
+
+	10 REM DRAW BOOT BANNER TO PROVIDE VARIATION\\
+	20 BANNER\\
+	30 FOR Y=1 TO 6\\
+	40 FOR X=1 TO 6\\
+	50 PRINT TATTR(X,Y),;\\
+	60 NEXT X\\
+	70 PRINT ""\\
+	80 NEXT Y\\
+}
 
 \subsection{TDATA}
 
