@@ -3395,8 +3395,6 @@ Examples:\\
 
 }
 
-<TODO>
-
 \subsection{SIN}
 
 The {\ttfamily SIN(X)} (sine) function will return the sine of an angle
@@ -3496,7 +3494,22 @@ Example:\\
 
 \subsection{TAB}
 
-<TODO>
+The {\ttfamily TAB} is used as part of a {\ttfamily PRINT} statement to advance
+the cursor to a given column.  If the cursor is already at or beyond the given
+column, it simply continues printing from the current position.  The {\ttfamily
+SPC} function is usually better to use than the {\ttfamily TAB} function when
+inserting spaces in output, especially when the output device is a file or a
+printer.  The {\ttfamily TAB} function operates much like the comma ({\ttfamily
+,}) in a {\ttfamily PRINT} statement, except it allows the width of the
+tabulation to be set with an argument.\\
+
+Example:\\
+
+\codeblock {
+	10 FOR I=0 to 10\\
+	20 PRINT I TAB(10) I*2 TAB(30) I*3\\
+	30 NEXT I\\
+}
 
 \subsection{TAN}
 
