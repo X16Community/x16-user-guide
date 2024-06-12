@@ -3537,7 +3537,7 @@ Example:\\
 
 \codeblock{
 
-	10 REM DRAW BOOT BANNER TO PROVIDE VARIATION\\
+	10 REM SHOW ATTRIBUTE BYTES OF BUTTERFLY LOGO\\
 	20 BANNER\\
 	30 FOR Y=1 TO 6\\
 	40 FOR X=1 TO 6\\
@@ -3549,7 +3549,23 @@ Example:\\
 
 \subsection{TDATA}
 
-<TODO>
+The {\ttfamily TDATA} function retrieves the tile index of the tile used on a
+given X/Y coordinate of the layer 1 tile map.  This is the same tile index
+value that can be set to the tile map with the {ttfamily TILE} statement.\\
+
+Example:\\
+
+\codeblock{
+
+	10 REM SHOW TILE INDEXES OF BUTTERFLY LOGO\\
+	20 BANNER\\
+	30 FOR Y=1 TO 6\\
+	40 FOR X=1 TO 6\\
+	50 PRINT TDATA(X,Y),;\\
+	60 NEXT X\\
+	70 PRINT ""\\
+	80 NEXT Y\\
+}
 
 \subsection{USR}
 
