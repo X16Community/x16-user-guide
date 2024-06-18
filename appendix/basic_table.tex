@@ -24,7 +24,7 @@
 	{\bfseries COLOR} & command & Sets text fg and bg color & X16 \\ \hline
 	{\bfseries CONT} & command & Resumes execution of a BASIC program & C64 \\ \hline
 	{\bfseries COS} & function & Returns cosine of an angle in radians & C64 \\ \hline
-	{\bfseries DA}\$ & variable & Returns the date in YYYYMMDD format from the system clock & X16 \\ \hline
+	{\bfseries DA\$} & variable & Returns the date in YYYYMMDD format from the system clock & X16 \\ \hline
 	{\bfseries DATA} & command & Declares one or more constants & C64 \\ \hline
 	{\bfseries DEF} & command & Defines a function for use later in BASIC & C64 \\ \hline
 	{\bfseries DIM} & command & Allocates storage for an array & C64 \\ \hline
@@ -74,7 +74,9 @@
 	{\bfseries MON} & command & Enters the machine language monitor & X16 \\ \hline
 	{\bfseries MOUSE} & command & Hides or shows mouse pointer & X16 \\ \hline
 	{\bfseries MOVSPR} & command & Set the X/Y position of a sprite & X16 \\ \hline
-	{\bfseries MX/MY/MB} & variable & Reads the mouse position and button state & X16 \\ \hline
+	{\bfseries MWHEEL} & variable & Return the mouse scroll wheel movement since the value was last read & X16 \\ \hline
+	{\bfseries MX/MY} & variable & Reads the mouse position & X16 \\ \hline
+	{\bfseries MB} & variable & Reads the mouse button state & X16 \\ \hline
 	{\bfseries NEW} & command & Resets the state of BASIC and clears program memory & C64 \\ \hline
 	{\bfseries NEXT} & command & Declares the end of a loop construct & C64 \\ \hline
 	{\bfseries NOT} & operator & Bitwise or boolean inverse & C64 \\ \hline
@@ -83,7 +85,7 @@
 	{\bfseries OPEN} & command & Opens a logical file to disk or other device & C64 \\ \hline
 	{\bfseries OR} & operator & Bitwise or boolean "OR" & C64 \\ \hline
 	{\bfseries PEEK} & function & Returns a value from a memory address & C64 \\ \hline
-	{\ttfamily\bfseries π} & function & Returns the constant for the value of pi & C64 \\ \hline
+	{\ttfamily\bfseries π} & variable & Returns the constant for the value of pi & C64 \\ \hline
 	{\bfseries POINTER} & function & Returns the address of a BASIC variable & C128 \\ \hline
 	{\bfseries POKE} & command & Assigns a value to a memory address & C64 \\ \hline
 	{\bfseries POS} & function & Returns the column position of the text cursor & C64 \\ \hline

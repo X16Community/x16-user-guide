@@ -78,9 +78,10 @@ for a variety of mathematical uses.  Floating point variables can be named with
 any single letter, any letter followed by a number, or with two
 letters\footnote{There are three variable names that are \emph{reserved} by the
 Commander X16 for its own use, and cannot be used for variable names in your
-programs.  These names are {\ttfamily ST}, {\ttfamily TI}, {\ttfamily TI\$},
-and {\ttfamily DA\$}}.  For example, {\ttfamily A}, {\ttfamily A5}, or
-{\ttfamily AB}.\\
+programs.  These names are {\ttfamily MX},{\ttfamily MY},{\ttfamily MB},
+{\ttfamily ST}, {\ttfamily TI}, {\ttfamily TI\$}, and {\ttfamily DA\$}.   See
+the section on System Variables}.  For example, {\ttfamily A}, {\ttfamily A5},
+or {\ttfamily AB}.\\
 
 To assign a floating point variable, type your chosen name for the variable
 followed by an {ttfamily =} and then the value you wish to assign it:\\
@@ -3299,17 +3300,6 @@ The above example will print the entire contents of the zero page\footnote{The
 "zero page" is the first 256 bytes of the Commander X16's memory.  This memory
 has special purposes on the 65C02 processor.}.\\
 
-\subsection{\ttfamily π}
-
-The {\ttfamily π} constant returns the value of pi and can be used just like
-any other floating point variable or literal.\\
-
-\codeblock {
-	10 INPUT "WHAT IS THE RADIUS OF THE CIRLCE";R\\
-	20 PRINT "CIRCUMFRANCE:",2*R*π\\
-	30 PRINT "AREA:",,R*R*π\\
-}
-
 \subsection{POINTER}
 
 The {\ttfamily POINTER} function returns the memory address of the data
@@ -3713,3 +3703,208 @@ Example:\\
 The above BASIC program will print out the data being used to display the text
 mode screen data, including the attribute data responsible for coloring the
 text.\\
+
+\section{System Variables}
+
+\emph{System Variables} are special purpose BASIC variables that are
+automatically assigned values by the Commander X16.  Because of this, these
+variables cannot be assigned values in BASIC programs or commands.  These
+variables provide a convenient way to perform common calculations or read
+values from the X16 hardware.\\
+
+\subsection{DA\$}
+
+The {\ttfamily DA\$} system variable returns the current time on the Real Time
+Clock (RTC) as a string formatted as YYYYMMDD.\\
+
+Example:\\
+
+\codeblock {
+	PRINT DA\$\\
+	20240617\\
+}
+
+\subsection{MWHEEL}
+
+The {\ttfamily MWHEEL} special variable holds the movement of the mouse wheel
+as a value from {\ttfamily -128} to {\ttfamily 127}.  This value represents how
+far the wheel has moved since the last time {\ttfamily MWHEEL} was read.  The
+value will be negative if the wheel was moved away from the user, and positive
+if the wheel was moved towards the user.//
+
+The {\ttfamily MWHEEL} variable will only have a value if the mouse as been
+enabled with {\ttfamily MOUSE 1}.
+
+Example:\\
+
+\codeblock {
+	10 MOUSE 1:REM ENABLE MOUSE\\
+	20 PRINT MWHEEL\\
+	30 SLEEP 60:REM WAIT ABOUT A SECOND\\
+	40 GOTO 20\\
+}
+
+Run the above program and try scrolling the mouse between outputs to the
+screen.\\
+
+\subsection{MX/MY}
+
+The {\ttfamily MX} and {\ttfamily MY} special variables hold the current X and
+Y position of the mouse cursor.  Unlike the {\ttfamily MWHEEL} variable,
+{\ttfamily MX} and {\ttfamily MY} will retain their values even when the mouse
+has been disabled with {\ttfamily MOUSE 0}, however the values will not be
+updated until the mouse is enabled with {\ttfamily MOUSE 1}.\\
+
+Example:\\
+
+\codeblock {
+	10 MOUSE 1:REM ENABLE MOUSE\\
+	20 PRINT MX,MY\\
+	30 GOTO 20\\
+}
+
+Run the above program and move the mouse around.\\
+
+\subsection{MB}
+
+The {\ttfamily MB} system variable holds the states of the 3 mouse buttons by
+storing them in a value between {\ttfamily 0} and {\ttfamily 7}.  This value is
+a {\emph bitmask}, which means that each bit of its binary representation can
+be thought of as an independent boolean value.  In this way, the single integer
+value held by {\ttfamily MB} can contain the on/off state of up to eight
+buttons.  Since the Commander X16 mouse only has three buttons, only the lowest
+three bits are used.  The lowest bit represents the left button, the second
+lowest represents the right button, and the third lowest represents the middle
+button (pressing down on the scroll wheel):\\
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline
+
+	{\bfseries 7} &{\bfseries 6} &{\bfseries 5} &{\bfseries 4} &{\bfseries 3}
+	&{\bfseries 2} &{\bfseries 1} &{\bfseries 0}\\ \hline
+
+	- & - & - & - & - & M & R & L \\ \hline
+	
+\end{tabular}
+
+\vspace{16pt}
+
+A {\ttfamily 1} on a bit means that the button is currently pressed and a
+{\ttfamily 0} means it is not pressed.  The easiest way to see a particular
+button is pressed is to {\ttfamily AND} the {\ttfamily MB} value with the value
+{\ttfamily MB} would have it only that button were pressed.  If the result is
+greater than zero, then the button is currently pressed.  If the result is
+equal to zero, it means the that button is {\emph not} currently pressed:\\
+
+\begin{tabular}{|c|c|c|}
+	\hline
+
+	{\bfseries Button} & If Pressed & If Not Pressed\\ \hline
+
+	Left & {\ttfamily IF (MB AND 1)>0} & {\ttfamily IF (MB AND 1)=0}\\ \hline
+	Right & {\ttfamily IF (MB AND 2)>0} & {\ttfamily IF (MB AND 2)=0}\\ \hline
+	Middle & {\ttfamily IF (MB AND 4)>0} & {\ttfamily IF (MB AND 4)=0}\\ \hline
+
+\end{tabular}
+
+\vspace{16pt}
+
+Example:\\
+
+\codeblock {
+
+	10 MOUSE 1:REM TURN ON MOUSE\\
+	20 CLS:REM CLEAR SCREEN\\
+	30 PRINT MB:REM DISPLAY RAW MB VALUE\\
+	40 PRINT BIN\$(MB):REM MB IN BINARY\\
+	50 IF (MB AND 1)=0 GOTO 70\\
+	60 PRINT "L";\\
+	70 IF (MB AND 4)=0 GOTO 90\\
+	80 PRINT "M";\\
+	90 IF (MB AND 2)=0 GOTO 110\\
+	100 PRINT "R";\\
+	110 SLEEP 0\\
+	120 GOTO 20\\
+
+}
+
+\subsection{\ttfamily π}
+
+The {\ttfamily π} variable holds the value of pi and can be used just like any
+other floating point variable or literal.\\
+
+\codeblock {
+	10 INPUT "WHAT IS THE RADIUS OF THE CIRLCE";R\\
+	20 PRINT "CIRCUMFRANCE:",2*R*π\\
+	30 PRINT "AREA:",,R*R*π\\
+}
+
+\subsection{ST}
+
+The {\ttfamily ST} system variable holds the status of various input or output
+operations, including DOS commands.  The status is stored as a {\emph bitmask},
+much like the {\ttfamily MB} system variable, so each bit indicates something
+different.  What each bit indicates is determined by the device and operation
+executed:\\
+
+\begin{tabular}{|p{0.05\linewidth}|p{0.07\linewidth}|p{0.25\linewidth}|p{0.25\linewidth}|p{0.2\linewidth}|}
+	\hline
+
+	{\bfseries ST bit} & {\bfseries Bit-Value} & {\bfseries Datasette} &
+	{\bfseries Serial Bus} & {\bfseries RS-232}\\ \hline
+
+	0 & 1 & - & indicates data direction if a timeout occurred; 0 = reading, 1
+	= writing & parity error\\ \hline
+
+	1 & 2 & - & timeout error & framing error\\ \hline
+
+	2 & 4 & block was too short (less than 192 bytes) & - & receive buffer overrun\\ \hline
+
+	3 & 8 &  block was too long ( greater than 192 bytes )& - & receive buffer empty\\ \hline
+
+	4 & 16 & {\ttfamily VERIFY} error (erroneous read bytes from pass 1 could
+	not read correctly even in pass 2) & {\ttfamily VERIFY} error & CTS signal
+	missing\\ \hline
+
+	5 & 32 & checksum error & - & -\\ \hline
+
+	6 & 64 & end of file has been reached (only while reading) & end of file
+	has been reached & RTS signal missing\\ \hline
+
+	7 & 128 & - & device not present error & BREAK detected\\ \hline
+
+\end{tabular}
+
+\vspace{16pt}
+
+\subsection{TI}
+
+The {\ttfamily TI} system variable returns the number of "jiffies" since the
+Commander X16 was booted.  A "jiffie" is a single refresh cycle of the video
+signal, so 1/60\textsuperscript{th} of a second for NTSC video modes.  The
+{\ttfamily TI} system variable resets to {\ttfamily 0} at every boot, and once
+it reaches a value of {\ttfamily 5183999}, the equivalent of 24 hours worth of
+jiffies\footnote{Unlike the Commodore 64, the {\ttfamily TI} variable is {\emph
+not} reset when the {\ttfamily TI\$} system variable is set}.\\
+
+Example:\\
+
+\codeblock{
+	PRINT TI
+}
+
+\subsection{TI\$}
+
+The {\ttfamily TI\$} system variable returns a string value of the current time
+according to the Real Time Clock (RTC)\footnote{Unlike the Commodore 64, the
+{\ttfamily TI\$} variable cannot be set.  However, the value of the RTC can be
+set, and the value of {\ttfamily TI\$} will be updated accordingly}.  The value
+of the {\ttfamily TI\$} system variable is in the HHMMSS format, where HH is a
+value from "00" through "23" and MM and SS are both values from "00" through
+"59".\\
+
+Example:\\
+
+\codeblock{
+	PRINT TI\$
+}
