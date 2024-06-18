@@ -1673,6 +1673,21 @@ Example:\\
 The above code prints {\ttfamily 11} and {\ttfamily 12}, respectively, showing
 that using {\ttfamily LET} on variable assignments is optional.
 
+\subsection{I2CPOKE}
+
+The {\ttfamily I2CPOKE} statement sets a value in a register of an
+I\textsuperscript{2}C device.  The first argument is the device, the second is
+the register on the device, and the third is the value to set.\\
+
+Example:\\
+
+\codeblock{
+
+	10 REM SET NVRAM ON RTC
+	20 I2CPOKE \$6F,\$40,\$80\\
+
+}
+
 \subsection{LINE}
 
 The {\ttfamily LINE} statement is used to draw a line in graphics mode.  The
@@ -3168,6 +3183,23 @@ certain precision, such as to the nearest hundredth:\\
 
 \codeblock {
 	X=INT(X*100+0.5)/100\\
+}
+
+\subsection{I2CPEEK}
+
+The {\ttfamily I2CPEEK} function returns a value from a register of an
+I\textsuperscript{2}C device.  The first argument is the device and the second
+argument is the register.\\
+
+Example:\\
+
+\codeblock {
+	10 REM DISPLAY SECONDS FROM RTC\\
+	20 CLS\\
+	30 S=I2CPEEK(\$6F,0)\\
+	40 PRINT HEX\$(S AND \$7F)\\
+	50 SLEEP 0:REM WAIT FOR NEXT VSYNC\\
+	60 GOTO 20\\
 }
 
 \subsection{LEFT\$}
