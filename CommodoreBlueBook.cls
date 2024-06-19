@@ -332,7 +332,7 @@
 	size=small,
 	fontupper=\fontsize{8pt}{8pt}\selectfont\bfseries,
 	width=0.50in,
-	height=0.30in,
+	height=0.35in,
 	box align=base,
 	nobeforeafter,
 	halign=center,
@@ -381,6 +381,58 @@
 			inner sep=3pt,
 			draw = white ] (r) at (0,0) {#1};
 	\end{tikzpicture}
+}
+
+%----------------------------------------------------------------------------------------
+%	SPECIAL KEYS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\clrhomekey}{
+	\begin{outputdoublekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{clr\\home}
+	\end{outputdoublekey}
+}
+
+\newcommand{\shiftkey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{shift}
+	\end{outputwidekey}
+}
+
+\newcommand{\altkey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{alt}
+	\end{outputwidekey}
+}
+
+\newcommand{\ctrlkey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{ctrl}
+	\end{outputwidekey}
+}
+
+\newcommand{\returnkey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{return}
+	\end{outputwidekey}
+}
+
+\newcommand{\backspacekey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{backspace}
+	\end{outputwidekey}
+}
+
+\newcommand{\spacebar}{
+	\begin{outputwidekey}{white}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{space}
+	\end{outputwidekey}
+}
+
+\newcommand{\runstopkey}{
+	\begin{outputdoublekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{run\\stop}
+	\end{outputdoublekey}
 }
 
 %----------------------------------------------------------------------------------------
@@ -446,14 +498,14 @@
 	{
 		\keybackgroundcolor{white}
 		\keytextcolor{black}
-		Type \key{r}\key{u}\key{n} and hit \keybackgroundcolor{gray}\widekey{return}
+		Type \key{r}\key{u}\key{n} and hit \returnkey
 	}
 
 	{
 		\keybackgroundcolor{gray}
 		\keytextcolor{black}
 		\noindent\fontsize{16pt}{16pt}\selectfont\sffamily
-	To stop the program, press the \doublekey{RUN\\STOP} key.
+	To stop the program, press the \runstopkey key.
 	}
 }
 

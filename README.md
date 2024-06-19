@@ -129,6 +129,22 @@ between the top and bottom:
 
 ![double_key_example](double_key_example.png)
 
+##### Predefined Keys
+
+Some keys are use so often, that it's more convenient just to define custom
+commands for them, including setting the correct text and background colors.
+In addition to using one of the key types, the following predefined key
+commands are available:
+
+* `\clrhomekey`
+* `\shiftkey`
+* `\altkey`
+* `\ctrlkey`
+* `\returnkey`
+* `\backspacekey`
+* `\spacebar`
+* `\runstopkey`
+
 #### Chapter Type Ins
 
 The type in example at the beginning of each chapter is such a common feature

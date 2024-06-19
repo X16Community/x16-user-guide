@@ -8,8 +8,8 @@
 \chaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
-	1 PRINT "X16" \widekey{return}\\\\
-	2 GOTO 1 \widekey{return}\\
+	1 PRINT "X16" \returnkey\\\\
+	2 GOTO 1 \returnkey\\
 }
 
 \begin{tikzpicture}
@@ -60,8 +60,8 @@ signals that it is waiting for you.
 	\keytextcolor{black}
 
 	If you type a character on the screen that you don't want, press the
-	\widekey{backspace} key.  This key will erase the character immediately
-	to the left of the cursor.\\
+	\backspacekey key.  This key will erase the character immediately to the
+	left of the cursor.\\
 
 	Use this key as often as you like to delete unwanted characters.
 }
@@ -80,11 +80,11 @@ Press the following keys:\\
 
 As you press each key, the cursor moves to the right.  The cursor will always
 show you where the next character will be typed.  Next, locate one of the
-\keybackgroundcolor{gray}\widekey{shift} keys on the keyboard.  There will be
-one on the right and one on the left, but they both do the same thing: modify another
-key when pressed at the same time as \widekey{shift}.\\
+\shiftkey keys on the keyboard.  There will be one on the right and one on the
+left, but they both do the same thing: modify another key when pressed at the
+same time as \shiftkey.\\
 
-Hold down the \widekey{shift} key and press the
+Hold down the \shiftkey key and press the
 \keybackgroundcolor{white}\doublekey{"\\'} key.  The screen should now look
 like this:\\
 
@@ -103,17 +103,16 @@ like this:\\
 		}
 \end{tikzpicture}
 
-Pressing the \doublekey{"\\'} key while holding down
-\keybackgroundcolor{gray}\widekey{shift} caused the {\ttfamily "} character to
-by typed instead of the {\ttfamily '} character.\\
+Pressing the \doublekey{"\\'} key while holding down \shiftkey caused the
+{\ttfamily "} character to by typed instead of the {\ttfamily '} character.\\
 
 Now let't type a word.  Without holding down any other keys, press these keys:\\
 
 \keybackgroundcolor{white}
 \key{b} \key{u} \key{t} \key{t} \key{e} \key{r} \key {f} \key{l} \key{y}\\
 
-Finally, hold down the \keybackgroundcolor{gray}\widekey{shift} key, and press
-the \keybackgroundcolor{white}\doublekey{"\\'} key one more time.  The screen
+Finally, hold down the \shiftkey key, and press the
+\keybackgroundcolor{white}\doublekey{"\\'} key one more time.  The screen
 should now show:\\
 
 {
@@ -133,11 +132,10 @@ should now show:\\
 		Everything you typed is on this line.}
 \end{tikzpicture}
 
-If something doesn't look correct, use the
-\keybackgroundcolor{gray}\widekey{backspace} key to delete characters and then
-you can re-type them.\\
+If something doesn't look correct, use the \backspacekey key to delete
+characters and then you can re-type them.\\
 
-Once everything looks correct, find the \widekey{return} key on the keyboard
+Once everything looks correct, find the \returnkey key on the keyboard
 and press it once.  Now look at your screen.
 
 \screenbox{3.5in}{2.625in}{
@@ -155,7 +153,7 @@ and press it once.  Now look at your screen.
 	\hyphenpenalty=10000
 	\smallbubble{2.5in}{2.3in}{3.8}{4.8}{You typed this.}
 	\bubble{2.5in}{1.8in}{4.2}{4.4}{
-		The cursor was here when you pressed the \widekey{return} key.}
+		The cursor was here when you pressed the \returnkey key.}
 	% because I need 3 arrows, I just print this 3 times with different
 	% settings.  The final bubble will be drawn over the others.
 	\bubble{2.5in}{1.2in}{2.9}{3.9}{
@@ -166,8 +164,8 @@ and press it once.  Now look at your screen.
 		The Commander X16 printed these.}
 \end{tikzpicture}
 
-Pressing the \widekey{return} key told the X16 that you were finished typing
-your command.  Then the X16 looked at the command you typed, saw that it was
+Pressing the \returnkey key told the X16 that you were finished typing your
+command.  Then the X16 looked at the command you typed, saw that it was
 something it knows how to do, and then did it.  In this case, your command told
 the X16 to {\ttfamily PRINT} a message to the screen,  The X16 knew \emph{what}
 to print because you told it that as well by placing your message between the
@@ -180,8 +178,8 @@ cursor.\\
 \note{
 
 	If you are not using an official Commander X16 keyboard, then you probably
-	won't have a \widekey{return} key, but instead have an \widekey{enter} key.
-	Don't worry, they are the same thing.
+	won't have a \returnkey key, but instead have an \returnkey key.  Don't
+	worry, they are the same thing.
 
 }
 
@@ -197,7 +195,7 @@ Here are some things to keep in mind:
 	\item Make sure you spell the word {\ttfamily PRINT} correctly
 	\item Put your message between quotation marks ({\ttfamily "}).  Make sure
 		you have one quotation mark at the beginning and one at the end
-	\item Run your command by pressing \widekey{return}
+	\item Run your command by pressing \returnkey
 	\item If something isn't working as you expect, continuing reading to learn about errors
 \end{itemize}
 
@@ -217,8 +215,8 @@ forgetting the {\ttfamily I} and typing {\ttfamily PRNT} instead:
 }
 
 This is a very easy mistake to make, and at a glace you won't even notice that
-the command is wrong.  Now press \widekey{return} to run this command.  You
-should see an error message:
+the command is wrong.  Now press \returnkey to run this command.  You should
+see an error message:
 
 {
 	\raggedleft
@@ -241,7 +239,7 @@ you typed something that it does not understand.  In this case, you typed
 {\ttfamily PRNT} instead of {\ttfamily PRINT}.\\
 
 For now, don't worry about these errors.  Just do you best to you type your
-commands correctly before you press \widekey{return}.
+commands correctly before you press \returnkey.
 
 As you experiment with typing commands, the screen will scroll down to give you
 more room to type and more room for the Commander X16 to print the results of
@@ -249,21 +247,20 @@ your commands.  You may want to clear the screen and bring the cursor back to
 the top.  The Commander X16 has a built-in way to do this without even typing a
 command:\\
 
-Hold down the \widekey{shift} key and press the \doublekey{CLR\\HOME} key.\\
+Hold down the \shiftkey key and press the \clrhomekey key.\\
 
 This clears the screen immediately and places the cursor at the top of the
 screen.\\
 
 \tip{Clearing The Screen}{
-	Clearing the screen will be one of the most frequent things you do
-	while working on your Commander X16.  It is worth memorizing the
-	\widekey{shift} \doublekey{CLR\\HOME} key combination so that you don't
-	have to reference this manual every time you want to start with a fresh
-	screen.\\
+
+	Clearing the screen will be one of the most frequent things you do while
+	working on your Commander X16.  It is worth memorizing the \shiftkey
+	\clrhomekey key combination so that you don't have to reference this manual
+	every time you want to start with a fresh screen.\\
 
 	You can also clear the screen by typing the {\ttfamily CLS} command and
-	pressing \widekey{return}, but most people prefer to use \widekey{shift}
-	\doublekey{CLR\\HOME}.
+	pressing \returnkey, but most people prefer to use \shiftkey\clrhomekey.
 
 }
 
@@ -284,26 +281,24 @@ Now that you are comfortable typing commands, it's time to write a
 \begin{tabular}{l p{0.8\linewidth}}
 	\bfseries STEP 1:&
 
-	Clear the screen by holding down the \widekey{shift} key and then pressing
-	the \doublekey{CLR\\HOME} key at the same time.\\
+	Clear the screen by holding down the \shiftkey key and then pressing the
+	\clrhomekey key at the same time.\\
 
 	\bfseries STEP 2:&
 
 	Type \keybackgroundcolor{white}\key{n}\key{e}\key{w} and press the
-	\keybackgroundcolor{gray}\widekey{return} key.\\
+	\returnkey key.\\
 
 	\bfseries STEP 3:&
 
-	Type \keybackgroundcolor{white}\key{1}\key{0} \widekey{space}
-	\key{p}\key{r}\key{i}\key{n}\key{t} \widekey{space} \key{"}
-	\key{x}\key{1}\key{6}\key{"}\key{;} and press
-	\keybackgroundcolor{gray}\widekey{return}.\\
+	Type \keybackgroundcolor{white}\key{1}\key{0} \spacebar
+	\key{p}\key{r}\key{i}\key{n}\key{t} \spacebar \key{"}
+	\key{x}\key{1}\key{6}\key{"}\key{;} and press \returnkey.\\
 
 	\bfseries STEP 4:&
 
-	Type \keybackgroundcolor{white}\key{2}\key{0} \widekey{space}
-	\key{g}\key{o}\key{t}\key{o} \widekey{space} \key{1}\key{0} and press
-	\keybackgroundcolor{gray}\widekey{return}.
+	Type \keybackgroundcolor{white}\key{2}\key{0} \spacebar
+	\key{g}\key{o}\key{t}\key{o} \spacebar \key{1}\key{0} and press \returnkey.
 
 \end{tabular}
 
@@ -311,17 +306,15 @@ Now that you are comfortable typing commands, it's time to write a
 
 	\begin{itemize}
 
-		\item The \keybackgroundcolor{white}\widekey{space} key is the large,
-			wide key at the bottom of the keyboard.  It should be the only key
-			with nothing printed on it.
+		\item The \spacebar key is the large, wide key at the bottom of the
+			keyboard.  It should be the only key with nothing printed on it.
 
 		\item The \key{"} key is simply the \doublekey{"\\'} key pressed while
-			holding down the \keybackgroundcolor{gray}\widekey{shift} key.
+			holding down the \shiftkey key.
 
 		\item the \keybackgroundcolor{white}\key{;} key is the \doublekey{:\\;}
-			pressed while \emph{not} holding down the
-			\keybackgroundcolor{gray}\widekey{shift} key.  It is next to the
-			\keybackgroundcolor{white}\doublekey{"\\'} key.
+			pressed while \emph{not} holding down the \shiftkey key.  It is
+			next to the \keybackgroundcolor{white}\doublekey{"\\'} key.
 
 	\end{itemize}
 
@@ -346,11 +339,11 @@ When you are finished, the screen will look like this:
 	\tinybubble{0in}{1.05in}{2.7}{3.2}{
 		The cursor shows that the X16 is waiting.}
 	\tinybubble{3.5in}{1.5in}{3.8}{5.6}{
-		You typed this and then pressed \widekey{return}.}
+		You typed this and then pressed \returnkey.}
 	\tinybubble{3.5in}{1.5in}{5.8}{4.2}{
-		You typed this and then pressed \widekey{return}.}
+		You typed this and then pressed \returnkey.}
 	\tinybubble{3.5in}{1.5in}{5.0}{3.7}{
-		You typed this and then pressed \widekey{return}.}
+		You typed this and then pressed \returnkey.}
 \end{tikzpicture}
 
 \tip{editing mistakes}{
@@ -364,8 +357,7 @@ When you are finished, the screen will look like this:
 		20 GOTO 10\\
 	}
 
-	You can skip down by hitting \keybackgroundcolor{gray}\widekey{return} a
-	few times and type:\\
+	You can skip down by hitting \returnkey a few times and type:\\
 
 	\codeblock{
 		10 PRINT " X16";\\
@@ -376,15 +368,14 @@ When you are finished, the screen will look like this:
 	tell the X16 print out your entire program to the screen.  Replacing lines
 	is also a quick way for you to experiment while writing programs.\\
 
-	Typing the line number and immediately hitting
-	\keybackgroundcolor{gray}\widekey{return} will delete the entire line from
-	your program.
+	Typing the line number and immediately hitting \returnkey will delete the
+	entire line from your program.
 
 }
 
 If your program looks correct, it's time to tell the X16 to \emph{run} your
 program.  To do this, type \keybackgroundcolor{white}\key{r}\key{u}\key{n}
-\keybackgroundcolor{gray}\widekey{return}.\\
+\returnkey.\\
 
 The screen should be filled with {\ttfamily X16}:\\
 
@@ -398,15 +389,15 @@ The screen should be filled with {\ttfamily X16}:\\
 
 This text is scrolling up the screen because the program is continuing to add
 new text at the bottom.  The X16 allows you to slow this down by pressing the
-\widekey{ctrl} key.  Just like the \widekey{shift} key, there are two of
-\widekey{ctrl} keys on your keyboard; one on each side.  Holding \widekey{ctrl}
-tells the X16 to reduce how fast it prints to the screen.  This is useful when
-debugging programs that move too fast for your eyes to see clearly.\\
+\widekey{ctrl} key.  Just like the \shiftkey key, there are two of \ctrlkey
+keys on your keyboard; one on each side.  Holding \ctrlkey tells the X16 to
+reduce how fast it prints to the screen.  This is useful when debugging
+programs that move too fast for your eyes to see clearly.\\
 
 With your program running, you no longer have a cursor that is waiting for you
-to type.  To stop your program and bring back the cursor, press the
-\doublekey{RUN\\STOP} key.  This should stop the program, and display a
-message, and then print the {\ttfamily READY} prompt followed by the cursor:
+to type.  To stop your program and bring back the cursor, press the \runstopkey
+key.  This should stop the program, and display a message, and then print the
+{\ttfamily READY} prompt followed by the cursor:
 
 \begin{center}
 	\screenbox{2.75in}{2in}{
@@ -431,9 +422,9 @@ change your program in some way before you run it again.  It would be nice to
 be able to see your program printed to the screen so that you know what to
 change.  To do this, use the {\ttfamily LIST} command by typing
 \keybackgroundcolor{white}\key{l}\key{i}\key{s}\key{t}\keybackgroundcolor{gray}
-\widekey{return}.  You should now see your program on the screen so that you
-can make edits.  When you want to run it again, simply move the cursor to a
-blank line and use the {\ttfamily RUN} command again.  Don't forget to type
+\returnkey.  You should now see your program on the screen so that you can make
+edits.  When you want to run it again, simply move the cursor to a blank line
+and use the {\ttfamily RUN} command again.  Don't forget to type
 \widekey{return} after you type the command!
 
 By repeating this process of writing, running, stopping, and editing your
@@ -448,10 +439,10 @@ it runs.\\
 	in place by moving the cursor to the lines you want to edit.  The cursor
 	can be moved by using the arrow keys on the keyboard.  Once you are on the
 	line you wish to edit, you can type over top of the characters that are
-	already there or use the \widekey{backspace} key to delete them and retype
-	the line.  On each line you change, make sure to press the \widekey{return}
-	key while on the line.  Otherwise, the Commander X16 will not replace the
-	old line with the new one.
+	already there or use the \backspacekey key to delete them and retype the
+	line.  On each line you change, make sure to press the \returnkey key while
+	on the line.  Otherwise, the Commander X16 will not replace the old line
+	with the new one.
 
 }
 
@@ -462,14 +453,13 @@ will use in many of the later chapters.  You have:
 
 	\item {\ttfamily PRINT}ed messages to the screen.
 
-	\item Cleared the screen with the \widekey{shift} and \doublekey{CLR\\HOME}
-		keys.
+	\item Cleared the screen with the \shiftkey and \clrhomekey keys.
 	
 	\item Written your first program and created a scrolling display.
 	
-	\item Slowed down the program with the \widekey{ctrl} key.
+	\item Slowed down the program with the \ctrlkey key.
 
-	\item Stopped the program with the \doublekey{RUN\\STOP} key.
+	\item Stopped the program with the \runstopkey key.
 
 	\item {\ttfamily LIST}ed the program.
 
