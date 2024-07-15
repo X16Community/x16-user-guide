@@ -193,12 +193,12 @@
 
 			{
 
-				\sffamily\bfseries\fontsize{16pt}{16pt}\selectfont X16 TIP:
+				\sffamily\bfseries\fontsize{14pt}{14pt}\selectfont X16 TIP:
 				\uppercase{#1}\\
 
 			}
 
-			#2
+			{\fontsize{10pt}{10pt}\selectfont #2}
 
 	\end{tcolorbox}
 
@@ -241,7 +241,7 @@
 			]
 			{\sffamily\bfseries\fontsize{14pt}{14pt}\selectfont NOTE:\\}
 
-			#1
+			{\fontsize{10pt}{10pt}\selectfont #1}
 
 	\end{tcolorbox}
 
@@ -414,6 +414,12 @@
 \newcommand{\returnkey}{
 	\begin{outputwidekey}{gray}{black}
 		\fontsize{10pt}{10pt}\selectfont\uppercase{return}
+	\end{outputwidekey}
+}
+
+\newcommand{\enterkey}{
+	\begin{outputwidekey}{gray}{black}
+		\fontsize{10pt}{10pt}\selectfont\uppercase{enter}
 	\end{outputwidekey}
 }
 
