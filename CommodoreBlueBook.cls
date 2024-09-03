@@ -308,7 +308,7 @@
 	colback=#1,
 	coltext=#2,
 	width=0.22in,
-	fontupper=\bfseries,
+	fontupper=\fontsize{12pt}{12pt}\bfseries,
 	nobeforeafter,
 	halign=center,
 	box align=bottom,
@@ -330,7 +330,7 @@
 	colback=#1,
 	coltext=#2,
 	size=small,
-	fontupper=\fontsize{8pt}{8pt}\selectfont\bfseries,
+	fontupper=\fontsize{12pt}{12pt}\selectfont\bfseries,
 	width=0.50in,
 	height=0.35in,
 	box align=base,
@@ -531,6 +531,13 @@
 ]{titlesec} % Required for modifying sections
 
 %-------------------------------------------
+
+\newcommand{\partheading}[1]{
+	\begin{huge}
+		\color{blue}
+		\uppercase{#1}
+	\end{huge}
+}
 
 \renewcommand{\thepart}{\arabic{part}}
 

@@ -309,8 +309,9 @@ Now that you are comfortable typing commands, it's time to write a
 		\item The \spacebar key is the large, wide key at the bottom of the
 			keyboard.  It should be the only key with nothing printed on it.
 
-		\item The \key{"} key is simply the \doublekey{"\\'} key pressed while
-			holding down the \shiftkey key.
+		\item The \keybackgroundcolor{white}\key{"} key is simply the
+			\doublekey{"\\'} key pressed while holding down the
+			\keybackgroundcolor{gray}\shiftkey key.
 
 		\item the \keybackgroundcolor{white}\key{;} key is the \doublekey{:\\;}
 			pressed while \emph{not} holding down the \shiftkey key.  It is
@@ -326,7 +327,7 @@ When you are finished, the screen will look like this:
 	\screenbox{2.75in}{2in}{
 		NEW\\\\
 		READY.\\
-		10 PRINT" X16";\\
+		10 PRINT "X16";\\
 		20 GOTO 10\\
 		\cursor
 	}
@@ -353,14 +354,14 @@ When you are finished, the screen will look like this:
 	{\ttfamily PRINT} on line 10:\\
 
 	\codeblock{
-		10 PRNNT " X16";\\
+		10 PRNNT "X16";\\
 		20 GOTO 10\\
 	}
 
 	You can skip down by hitting \returnkey a few times and type:\\
 
 	\codeblock{
-		10 PRINT " X16";\\
+		10 PRINT "X16";\\
 	}
 
 	Now the new line has replaced the old line in your program!  If you want to
@@ -432,6 +433,18 @@ program, you can take your time to make your program run the way you want it to
 run.  You don't have to get everything correct right away.  Even the best
 computer programmers rarely get their programs to run correctly the first time
 it runs.\\
+
+This simple program was easy enough to read and type from the pages of this
+book one key at a time, but there will be other examples where it will be too
+complex to spell out key-by-key.  Most of the example programs in this book
+will simply be shown as they would appear on the Commander X16's screen, such as:\\
+
+\codeblock{
+
+	10 PRINT "X16"\\
+	20 GOTO 10\\
+
+}
 
 \tip{editing your program}{
 
