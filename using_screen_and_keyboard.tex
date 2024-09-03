@@ -8,11 +8,178 @@
 \chaptertypein{
 	\keybackgroundcolor{gray}
 	\keytextcolor{black}
-	10 PRINT "\widekey{shift}\doublekey{CLR\\HOME}"\\
-	20 FOR T = 1 TO 900: NEXT\\
+	10 PRINT "\shiftkey\clrhomekey"\\
+	20 SLEEP 10\\
 	30 PRINT "your name"\\
-	40 FOR T = 1 TO 900: NEXT\\
+	40 SLEEP 10\\
 	50 GOTO 10
+}
+
+\newpage
+\partheading{Using the Screen and Keyboard}
+
+This chapter assumes that you've read and understand Chapter 1: {\emph Getting
+to Know Your Commander X16}.  If you not, go back and read it.\\
+
+Now that you have written your first program in BASIC on the Commander X16,
+it's time to look at the simplest thing you can make the X16 do: displaying
+characters to the screen.  As you've already seen, the {\ttfamily PRINT}
+statement can be followed by a series of character surrounded by quotation
+marks, causing the series of charcters to be displayed to the screen.  This
+series of characters is called a {\em string}.  Let's write a program to print
+a string to the screen.\\
+
+It's nice to start a new program on an empty screen, so lets clear the screen
+and place the cursor at the top by holding down the \shiftkey key and pressing
+the \clrhomekey key.  To tell the Commander X16 that you are writing a new
+program, type \keybackgroundcolor{white}\key{n}\key{e}\key{w} and then press
+the \returnkey key.  Now you can begin to type the following program, paying
+attention to line number and punctuation marks:\\
+
+\key{1}\key{0} \spacebar \key{p}\key{r}\key{i}\key{n}\key{t} \spacebar
+\key{"}\key{h}\key{e}\key{l}\key{l}\key{o}\key{,} \spacebar
+\key{w}\key{o}\key{r}\key{l}\key{d}\key{!}\key{"} \returnkey
+
+\note {
+
+	The \key{,} key is just the \doublekey{<\\,} key pressed {\em without}
+	holding the \shiftkey key, and the \key{!} key is just the \doublekey{!\\1}
+	key pressed {\em while} holding the \shiftkey key.
+
+}
+
+Now that your program is typed into the X16, run it by typing
+\key{r}\key{u}\key{n} and pressing \returnkey.
+
+You should see the following printed to the next line:
+
+\codeblock {
+	HELLO, WORLD!\\
+}
+
+After your program finishes printing out the message, it should print a blank
+line, a line with the {\ttfamily READY} prompt, and finally place your blinking
+cursor on the following line.  Your screen should look something like this:\\
+
+\begin{center}
+	\screenbox{2.75in}{2in}{
+
+		NEW\\
+		
+		READY.\\
+		10 PRINT "HELLO, WORLD"\\
+		RUN\\
+		HELLO, WORLD!\\
+
+		READY.\\
+		\cursor
+
+	}
+\end{center}
+
+When you typed {\ttfamily NEW} and hit \returnkey, the Commander X16 also left
+a blank line followed by the {\ttfamily READY} prompt, just as it did when your
+own program ran.  You can think of BASIC commands like {\ttfamily NEW} as being
+built-in programs, and they act much in the same way as the programs you will
+write.\\
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER - The PRINT Statement
+%----------------------------------------------------------------------------------------
+
+\chapter*{The PRINT Statement}
+\addcontentsline{toc}{chapter}{\protect\numberline{}The PRINT Statement}
+
+Now that we've used the {\ttfamily PRINT} statement to display a string of
+letters to the screen, let's look at how it can display numbers.  You can
+re-use your existing program by overwriting the statement at line 10.  Do do
+this, simply type {\ttfamily 10} followed by the BASIC statement you want to
+replace line 10 with.  In this case, let's replace it with a {\ttfamily PRINT}
+statement that prints numbers instead of letters:\\
+
+\codeblock {
+
+	10 PRINT "42"\\
+
+}
+
+Make sure you press \returnkey so that the Commander X16 accepts the new line,
+and replaces the old one in your program.  Now if you type {\ttfamily RUN} and
+hit \returnkey, you should see:
+
+\codeblock{
+	42\\
+}
+
+This example isn't much different than the last example, because we simply
+printed a different string.  The number {\ttfamily 42} is given to the
+{\ttfamily PRINT} statement as a string, just as {\ttfamily HELLO, WORLD!} was
+given as a string.  To the {\ttfamily PRINT} statement, it doesn't matter which
+characters are put inside the quotations marks; it always views them as just a
+series of characters.  However, the {\ttfamily PRINT} statement is able to
+display a number to the screen while treating it as a number.  For example,
+replace line 10 with:\\
+
+\codeblock {
+
+	10 PRINT 42\\
+
+}
+
+Notice that there are no quotation marks.  When type {\ttfamily RUN}, you will
+notice a slight difference:\\
+
+\codeblock{
+	\hspace*{0.6em}42\\
+}
+
+Do you see it?  There is an empty space before the number.  This is because the
+{\ttfamily PRINT} statement leaves a space for a sign indicator (positive or
+negative) when it prints a number.  For positive numbers nothing is displayed,
+but if given a negative number, {\ttfamily PRINT} will fill that space with a
+{\ttfamily -}.  Try replacing {\ttfamily 42} with {\ttfamily -42} and running
+the program again.\\
+
+Now that you have the {\ttfamily PRINT} statement treating the value as a
+number, you can try passing it a mathematical expression that the X16 will {\em
+compute} into a number:\\
+
+\codeblock {
+
+	10 PRINT 3+2\\
+
+}
+
+You should see:\\
+
+\codeblock {
+	\hspace{0.6em}5\\
+}
+
+Now you can compare this result with what happens if we pass {\ttfamily 3+2} to
+{\ttfamily PRINT} as a string:\\
+
+\codeblock {
+
+	10 PRINT "3+2"\\
+
+}
+
+This time you should see:\\
+
+\codeblock {
+	3+2\\
+}
+
+When you pass a value to {\ttfamily PRINT} inside of quotation marks, it treats
+it as a series of characters, Specifically "3", "+", and "2".  {\ttfamily
+PRINT} is also smart enough to accept a mixture of strings and numeric
+values:\\
+
+\codeblock {
+
+	10 PRINT "THERE ARE" 5+3 "BITS IN A BYTE"\\
+
 }
 
 %----------------------------------------------------------------------------------------
