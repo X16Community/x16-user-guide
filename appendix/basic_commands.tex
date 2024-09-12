@@ -431,11 +431,28 @@ The {\ttfamily LIST} command will print the currently loaded BASIC program to
 the screen, either in its entirety or only the parts specified by the user.
 When {\ttfamily LIST} is used without any numbers typed after it (known as
 \emph{arguments}), you will see a complete listing of the program on your
-screen.  If the program scrolls off the screen, and you are unable to see the
+screen.\\
+
+A recent update to the {\ttfamily LIST} command allows the listing to be paused
+by tapping the \widekey{SPACE} bar.  Otherwise, it continues to work as before.
+This new feature works best with the cursor near the bottom of the screen as
+the X16 listing will quickly scroll past the top of the screen.  Some practice
+may be needed to effectively pause when needed.\\
+
+While paused, it is possible to use \doublekey{Page\\Down} to show one page at a
+time or the \widekey{↓} to advance one line at a time.  If the \widekey{SPACE} bar
+is pressed in the paused state, listing will continue.  While paging, several
+blank lines remain at the bottom of the screen for lengthy BASIC logical
+lines.  Also, there is room for the {\ttfamily READY} prompt after tapping
+the \doublekey{Pause\\Break} key while exiting the listing.  For single-line
+stepping the entire screen is used.\\
+
+If the program scrolls off the screen, and you are unable to see the
 part that you want, you have a couple of options.  First, you can use the
-\widekey{CTRL} key to slow down how fast lines are printed to the screen.  The
-part you wish to see will still scroll off eventually, but you will be given a
-much longer time to look at it.  Second, you can use the {\ttfamily LIST}
+\widekey{CTRL} key to slow down how fast lines are printed to the screen.  
+Press \doublekey{Pause\\Break} to exit the listing at the appropriate location.
+The part you wish to see will still scroll off eventually, but you will be given
+a much longer time to look for it.  Second, you can use the {\ttfamily LIST}
 command with arguments that will limit the listing to only the line or lines
 that you wish to see.  When you follow the {\ttfamily LIST} command with a
 single number, the X16 will list only that line number (if it exists).  If you
