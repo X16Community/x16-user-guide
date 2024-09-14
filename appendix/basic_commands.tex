@@ -1454,7 +1454,7 @@ For example, here is a for-loop that prints the numbers {\ttfamily 1} through
 The {\ttfamily FRAME} statement draws a rectangle frame in graphics mode in a
 given color.  The first two arguments are the x and y coordinates for the upper
 left corner of the frame.  The third and fourth arguments are the x and y
-coordinates for the lower right corder of the frame.  The fifth argument is a
+coordinates for the lower right corner of the frame.  The fifth argument is a
 number from 0-255 that specifies the color from the current palette.\\
 
 Example:\\
@@ -2018,6 +2018,33 @@ Examples:\\
 
 \end{tabular}
 
+\subsection{OVAL}
+
+The {\ttfamily OVAL} statement draws a filled oval in graphics mode in a given
+color.  The first two arguments are the x and y coordinates for the upper left
+corner of the bounding rectangle that contains the oval.  The third and fourth
+arguments are the x and y coordinates for the lower right corner of the
+bounding rectangle.  The oval itself will be drawn as an ellipse that fits just
+inside the specified bounding rectangle.  The fifth argument is a number from
+0-255 that specifies the color from the current palette.\\
+
+Example:\\
+
+\codeblock{
+	10 SCREEN \$80\\
+	20 OVAL 57,17,262,222,0\\
+	30 OVAL 60,20,259,219,7\\
+	40 OVAL 100,80,220,180,0\\
+	50 OVAL 100,79,220,170,7\\
+	60 OVAL 120,60,140,100,0\\
+	70 OVAL 180,60,200,100,0\\
+	80 LOCATE 30,13\\
+	90 PRINT "HAVE A NICE DAY!"\\
+}
+
+The {\ttfamily OVAL} statement is similar to the {\ttfamily RING} statement,
+except that {\ttfamily RECT} fills the ellipse with the specified color.
+
 \subsection{POKE}
 
 The {\ttfamily POKE} statement is used to write directly to the Commander X16's
@@ -2426,7 +2453,7 @@ ERROR} will occur.\\
 The {\ttfamily RECT} statement draws a filled rectangle in graphics mode in a
 given color.  The first two arguments are the x and y coordinates for the upper
 left corner of the rectangle.  The third and fourth arguments are the x and y
-coordinates for the lower right corder of the rectangle.  The fifth argument is
+coordinates for the lower right corner of the rectangle.  The fifth argument is
 a number from 0-255 that specifies the color from the current palette.\\
 
 Example:\\
@@ -2533,6 +2560,31 @@ Example:\\
 	90 RETURN\\
 
 }
+
+\subsection{RING}
+
+The {\ttfamily RING} statement draws an unfilled oval in graphics mode in a
+given color.  The first two arguments are the x and y coordinates for the upper
+left corner of the bounding rectangle that contains the oval.  The third and
+fourth arguments are the x and y coordinates for the lower right corner of the
+bounding rectangle.  The oval itself will be drawn as an ellipse that fits just
+inside the specified bounding rectangle.  The fifth argument is a number from
+0-255 that specifies the color from the current palette.\\
+
+Example:\\
+
+\codeblock{
+	10 SCREEN \$80\\
+	20 FOR C=0 TO 68\\
+	30 X=C*4\\
+	40 R=X*π*2/128\\
+	50 Y=95+SIN(R)*25\\
+	60 RING X,Y,X+50,Y+50,C\\
+	70 NEXT C\\
+}
+
+The {\ttfamily RING} statement is similar to the {\ttfamily OVAL} statement,
+except that {\ttfamily OVAL} fills the ellipse with the specified color.
 
 \subsection{SCREEN}
 
