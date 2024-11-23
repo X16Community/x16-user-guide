@@ -23,7 +23,9 @@ to Know Your Commander X16}.  If you not, go back and read it.\\
 
 Now that you have written your first program in BASIC on the Commander X16,
 it's time to look at the simplest thing you can make the X16 do: displaying
-characters to the screen.  As you've already seen, the {\ttfamily PRINT}
+characters\footnote{A 'character' is any symbol that can be displayed on the
+screen, such as letters, numbers, punctuation, and the graphic symbols that can
+be typed} to the screen.  As you've already seen, the {\ttfamily PRINT}
 statement can be followed by a series of character surrounded by quotation
 marks, causing the series of charcters to be displayed to the screen.  This
 series of characters is called a {\em string}.  Let's write a program to print
@@ -232,21 +234,115 @@ position the cursor wherever you need to type.\\
 \chapter*{Colors}
 \addcontentsline{toc}{chapter}{\protect\numberline{}Colors}
 
-Sapiente voluptas aut accusamus. Distinctio et reiciendis ut qui aliquam fuga.
-Possimus cumque dolores non. Tempora facilis ratione ut cupiditate ducimus
-tenetur laborum vel. Eligendi sapiente maxime temporibus temporibus qui
-suscipit. Tempora omnis exercitationem rem perspiciatis sunt. Dolorum quisquam
-est excepturi est a magni consequatur. Animi non ea provident. Aut nihil non
-ducimus dolorem voluptatibus eius quos. Distinctio placeat cupiditate
-consequatur totam reprehenderit nihil est. Voluptatibus voluptatem quam veniam
-at et. Nobis quos voluptatibus labore autem. Mollitia sed iusto hic eius et.
-Nobis eaque qui id aliquam odit id. Consequatur quis et eos sint dolor eum
-omnis quo. Quod voluptatem consequatur odio. Dicta vero numquam minus. Aut
-maiores est molestiae eligendi occaecati rem suscipit eos. Et maxime aliquam
-voluptatem. Voluptatem sed neque est. Quia ut omnis exercitationem aperiam
-tenetur perferendis qui. Qui magni alias consequatur voluptatum rerum a.
-Exercitationem et magnam nulla odio blanditiis voluptas cum quibusdam. Quo
-tenetur animi autem quia alias vitae dolorem. Numquam error vero voluptatum.
+The Commander X16 is also capable of displaying characters in different colors.
+If you look at the number keys on the Commander X16 keyboard, you will see that
+numbers 1-8 have colors listed next to the numbers.  By holding down either
+\altkey or \ctrlkey and pressing one of the numbers with colors listed on them,
+you can change the color of the characters you type.  Holding \ctrlkey while
+you type the number will select the top color, and holding \altkey while you
+type the number will select the bottom color.  This allows for a total of 16
+different colors that can be used to type characters:\\
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	Key & CTRL & ALT\\ \hline
+	1 & Black & Orange \\ \hline
+	2 & White & Brown \\ \hline
+	3 & Red & Light Red \\ \hline
+	4 & Cyan & Dark Gray\\ \hline
+	5 & Purple & Medium Gray\\ \hline
+	6 & Green & Light Green\\ \hline
+	7 & Blue & Light Blue\\ \hline
+	8 & Yellow & Light Gray\\ \hline
+\end{tabular}
+
+\vspace{16pt}
+
+You may also noticed that \key{9} has "RVS ON" and \key{0} has "RVS OFF" where
+the colors are listed on the other number keys.  These are "reverse on" and
+"reverse off", and can be typed by holding down \ctrlkey while pressing the
+number.  When "reverse on" is typed, it switches which color is used for the
+chracter and which one is used for the background.  For example, if you have
+the character colors set to white and the background color set to blue, hitting
+\ctrlkey + \key{9} will cause the characters you type next to be displayed in
+blue with a white background.  Because each character can be printed with the
+colors reversed, it's like there are twice as many characters!  This allows for
+a lot of creativity in making drawings and designs with a combination of
+graphic characters and colors.\\
+
+\section{The COLOR Statement}
+
+The colors can also be set by running the {\ttfamily COLOR} statement.  On a
+new line, try typing {\ttfamily COLOR 2} and then pressing \returnkey.  You
+should see the "READY" prompt printed to the screen in red.  Now anything you
+type will also be in red.  This is the same effect as holding \ctrlkey and
+pressing \key{3}.  The {\ttfamily COLOR} statement allows you to set the
+foreground color to the first 16 colors of the Commander X16's
+palette\footnote{A "palette" refers to a set of predefined colors that can be
+used on the Commander X16.  More information on palettes will be discussed in
+the chapter on Graphics}.  Because of the way computers work, you specify which
+color by typing a number from 0-15 instead of 1-16.
+
+The numbers that specify colors with the {\ttfamily COLOR} statement do not
+correspond to the number keys pressed to change the color.  This is because
+there are only 8 number keys that contain colors, but there are 16 colors to
+choose from.  The order is the same, however, if you read all the top color
+values of the number keys from left to right and then read all the bottom
+values from left to right.  If you start numbering with 0, you get the values
+that you can use with the {\ttfamily COLOR} statement:\\
+
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	Number & Color & Number & Color\\ \hline
+	0 & Black & 8 & Orange \\ \hline
+	1 & White & 9 & Brown \\ \hline
+	2 & Red & 10 & Light Red \\ \hline
+	3 & Cyan & 11 & Dark Gray\\ \hline
+	4 & Purple & 12 & Medium Gray\\ \hline
+	5 & Green & 13 & Light Green\\ \hline
+	6 & Blue & 14 & Light Blue\\ \hline
+	7 & Yellow & 15 & Light Gray\\ \hline
+\end{tabular}
+
+\vspace{16pt}
+
+The {\ttfamily COLOR} statement can also be used to set both the foreground
+color and the background color.  The first argument is the color to use for the
+foreground and the second argument is the color to use for the background.
+Separate the two arguments with a comma, like so:\\
+
+\codeblock {
+	COLOR 13,0\\
+}
+
+The above call to the {\ttfamily COLOR} statement will set the foreground color
+to light green and the background color to black.  Just like the {\ttfamily
+PRINT} statement, the {\ttfamily COLOR} statement can be used in a BASIC
+program.  When run in a program, it does not advance to the next line nor cause
+the "READY" prompt to be printed.  This means that the {\ttfamily COLOR}
+statement can be used to change the foreground and background colors in between
+calls to the {\ttfamily PRINT} statement without printing extra lines that you
+don't want.  It is also possible to call the {\ttfamily PRINT} statement in a
+way where it does not advance the cursor to the next line, but instead leaves
+it at the end of the characters that have just been printed.  In order to use
+{\ttfamily PRINT} without advancing to the next line, simply type a ';' at the
+end of the statement:\\
+
+\codeblock{
+	10 PRINT "X";\\
+}
+
+Now the next {\ttfamily PRINT} statement in the program will start printing
+directly after the "X" that was written to the screen.  If we use the
+{\ttfamily COLOR} statement before the next {\ttfamily PRINT} statement, we can
+change both the background and foreground colors of characters that are next to
+each other on a line:\\
+
+\codeblock{
+	10 PRINT "X";\\
+	20 COLOR 2,1\\
+	30 PRINT "X";\\
+}
 
 %----------------------------------------------------------------------------------------
 %CHAPTER - Keyboard
