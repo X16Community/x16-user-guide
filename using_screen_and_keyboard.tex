@@ -268,7 +268,22 @@ the character colors set to white and the background color set to blue, hitting
 blue with a white background.  Because each character can be printed with the
 colors reversed, it's like there are twice as many characters!  This allows for
 a lot of creativity in making drawings and designs with a combination of
-graphic characters and colors.\\
+graphic characters and colors.  To turn off "reverse", just press \ctrlkey +
+\key{0}.\\
+
+\section{Setting Colors While PRINTing}
+
+When you are typing the text of a print statement, you can use \ctrlkey and
+\altkey with the number keys to change and reverse the colors.  However, the
+colors will not display on the screen in their new colors immediately.
+Instead, a graphic character will be written to the text of your {\ttfamily
+PRINT} statement.  When the {\ttfamily PRINT} statement executes, this graphic
+character will tell the Commander X16 to switch to that color as it is printing
+the text.  This also works with the "RVS ON" and "RVS OFF" functions.  By using
+this technique, you can change the color of the text multiple times (or even
+reverse it) all from a single {\ttfamily PRINT} statement.  If you don't want
+your text to stay that way, remember to set it back to how you want it before
+your program ends!\\
 
 \section{The COLOR Statement}
 
