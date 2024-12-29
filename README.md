@@ -288,6 +288,18 @@ header that you can fill with whatever you would like the reader to try:
 
 ![tryit](tryit.png)
 
+#### Reminder Boxes
+
+Occasionally it's helpful to remind the reader of something important that was mentioned earlier, but which has probably not become habbit just yet.  For this, there is a reminder box:
+
+```
+\reminder{
+	Did you remember to type {\ttfamily NEW} before entering in a new program?
+}
+```
+
+![reminder](reminder.png)
+
 #### Code Blocks
 
 Often you will want to display code examples as either short snippets or full
