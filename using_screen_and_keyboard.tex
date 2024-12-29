@@ -214,9 +214,11 @@ and \key{b}, you can draw a rectangle as large as the entire screen!  If you
 want your rectangle to have rounded corners, you can use the graphic characters
 on the \key{u}, \key{i}, \key{j}, and \key{k}.\\
 
-Spend some time experimenting with the other graphic characters to see what
-kinds of shapes and designs you can draw.  You can use the arrow keys to
-position the cursor wherever you need to type.\\
+\tryit{
+	Spend some time experimenting with the other graphic characters to see what
+	kinds of shapes and designs you can draw.  You can use the arrow keys to
+	position the cursor wherever you need to type.\\
+}
 
 % To start, sit down in front of the Commander X16 Keyboard and type the
 % following:\\
@@ -333,15 +335,15 @@ Separate the two arguments with a comma, like so:\\
 The above call to the {\ttfamily COLOR} statement will set the foreground color
 to light green and the background color to black.  Just like the {\ttfamily
 PRINT} statement, the {\ttfamily COLOR} statement can be used in a BASIC
-program.  When run in a program, it does not advance to the next line nor cause
-the "READY" prompt to be printed.  This means that the {\ttfamily COLOR}
-statement can be used to change the foreground and background colors in between
-calls to the {\ttfamily PRINT} statement without printing extra lines that you
-don't want.  It is also possible to call the {\ttfamily PRINT} statement in a
-way where it does not advance the cursor to the next line, but instead leaves
-it at the end of the characters that have just been printed.  In order to use
-{\ttfamily PRINT} without advancing to the next line, simply type a ';' at the
-end of the statement:\\
+program.  When the {\ttfamily COLOR} statement is run in a program, it does not
+advance to the next line nor cause the "READY" prompt to be printed.  This
+means that the {\ttfamily COLOR} statement can be used to change the foreground
+and background colors in between calls to the {\ttfamily PRINT} statement
+without printing extra lines that you don't want.  It is also possible to call
+the {\ttfamily PRINT} statement in a way where it does not advance the cursor
+to the next line, but instead leaves it at the end of the characters that have
+just been printed.  In order to use {\ttfamily PRINT} without advancing to the
+next line, simply type a ';' at the end of the statement:\\
 
 \codeblock{
 	10 PRINT "X";\\
@@ -359,27 +361,28 @@ each other on a line:\\
 	30 PRINT "X";\\
 }
 
-%----------------------------------------------------------------------------------------
-%CHAPTER - Keyboard
-%----------------------------------------------------------------------------------------
+If the above code is run, it will print two X's next to each other on the
+screen, but they will have different foreground and background colors.  The
+Commander X16 allows for each character on the screen to have its own
+foreground and background color.  A short program can be written to demonstrate
+this:\\
 
-\chapter*{The X16 Keyboard}
-\addcontentsline{toc}{chapter}{\protect\numberline{}The X16 Keyboard}
+\keytextcolor{black}
+\keybackgroundcolor{white}
 
-Molestiae ad dicta praesentium et. Placeat magnam nihil est animi vel eos. Sunt
-consectetur nobis minima ut reiciendis hic non sed. Officiis sint voluptas non
-quo eos architecto. Nulla et est laboriosam voluptatem. Iure sed et ducimus
-nostrum est eveniet. Natus aut praesentium fugit. In quae tempora sunt autem
-illum perspiciatis. Amet laborum numquam aut occaecati. Quia ad ab voluptas qui
-autem. Qui voluptatum quibusdam est aliquam in. Quae ipsum aperiam aut saepe
-molestiae natus sit. Totam autem veritatis deserunt. Hic ut excepturi porro. Et
-ut vero voluptas iusto earum velit rerum. Assumenda enim voluptatum praesentium
-quam. Rerum optio iste odit. Id quia ratione quasi. Doloremque et omnis autem
-dolor. Vel minima numquam enim asperiores quae magni soluta a. Corrupti sint
-sit sunt cum sunt asperiores animi rerum. Consectetur sunt itaque ducimus
-soluta sed quod qui. Blanditiis alias rem ea. Doloremque nobis voluptas eius
-occaecati mollitia temporibus enim ut. Quia consequuntur molestias quae modi
-consequatur eveniet consequuntur.
+\codeblock{
+	10 COLOR RND(1)*16,RND(1)*16\\
+	20 PRINT "X\doublekey{RVS\\ON}X\doublekey{RVS\\OFF}";\\
+	30 GOTO 10\\
+}
+
+\reminder{
+	Did you remember to type {\ttfamily NEW} before entering in a new program?
+}
+
+When run, this program will fill up the screen with pairs of X's.  It will
+first print each X normally, followed by another X using the same foreground
+and background colors, but reversed.\\
 
 %----------------------------------------------------------------------------------------
 %CHAPTER - Screen Modes
