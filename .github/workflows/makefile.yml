@@ -24,14 +24,14 @@ jobs:
 
       - name: Compile User Guide PDF
         run: make
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: X16UsersGuide.pdf
           path: x16_user_guide.pdf
 
       - name: Compile Getting Started Guide PDF
         run: make getting_started
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: X16GettingStarted.pdf
           path: x16_getting_started.pdf
