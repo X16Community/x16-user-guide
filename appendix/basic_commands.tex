@@ -3351,6 +3351,33 @@ Examples:\\
 	X16\\
 }
 
+\subsection{MOD}
+
+The {\ttfamily MOD} function returns the remainder of an integer division.
+The result retains the sign of the dividend, and so it may be positive or
+negative. The {\ttfamily MOD} function only handles integers in the range
+-32768 to 32767. If decimal numbers are given to the function, they wil be
+truncated in the same way the {\ttfamily INT} function does.\\
+
+Examples:\\
+
+\codeblock {
+	REM RESULT WILL HAVE THE SAME SIGN AS DIVIDEND\\
+	PRINT MOD(-17, 5)\\
+	-2\\
+
+	PRINT MOD(17, 5)\\
+	\hspace*{0.6em}2\\
+
+	REM DIVIDING BY 0 RETURNS AN ERROR\\
+	PRINT MOD(42, 0)\\
+	?DIVISION BY ZERO ERROR\\
+
+	REM ARGUMENTS MUST BE BETWEEN -32768 AND 32767\\
+	PRINT MOD(65000, 101)\\
+	?ILLEGAL QUANTITY ERROR\\
+}
+
 \subsection{PEEK}
 
 The {\ttfamily PEEK} function returns the contents of the Commander X16's
